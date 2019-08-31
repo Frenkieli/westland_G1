@@ -1,0 +1,309 @@
+.font {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+@include rwd(phone) {
+    .section_ridesIntroduction {
+        margin-top: 180px;
+        .illustration {
+            display: none;
+        }
+        .ridesIntroduction_bgelement{
+            width: 100%;
+            margin-top: 600px;
+            position: relative;
+            .desert{
+                bottom: 0;
+                position: absolute;
+                z-index: -2;
+                margin-bottom: -20px;
+            }
+            .distantView{
+                bottom: 0;
+                opacity: 0.8;
+                position: absolute;
+                z-index: -3;
+            }  
+        }
+        .ridesIntroduction_container{
+            width: 100%;
+            background-color: #FBC166;
+            .ridesIntroduction_frame {
+                text-align: center;
+                @include fontsize( section_titleM);
+                .ridesIntroduction_column {
+                    margin-top: 50px;
+                    &:nth-child(1) {
+                        @include fontweight( lv2);
+                    }
+                    &:nth-child(2) {
+                        p {
+                            padding: 5%;
+                            text-align: left;
+                        }
+                    }
+                }
+                .section_title {
+                    @include fontsize( page_titleM);
+                    @include fontweight( lv2);
+                }
+                img {
+                    width: 50%;
+                    height: 50%;
+                    margin-bottom: 20px;
+                }
+            }
+        }
+        
+    }
+    .section_aboutUs {
+        text-align: center;
+        margin-top: 150px;
+        .section_title {
+            @include fontsize( page_titleM);
+            @include fontweight( lv2);
+        }
+        .aboutUs_item {
+            position: relative;
+            .board {
+                position: absolute;
+                z-index: -1;
+                top: 10%;
+                left: 0;
+            }
+            .mascot {
+                display: none;
+            }
+            .aboutUs_inner {
+                margin: 5%;
+                margin-top: 20%;
+                text-align: center;
+                position: relative;
+                .point {
+                    position: absolute;
+                    width: 10%;
+                    height: 10%;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+                .map {
+                    width: 100%;
+                    height: 100%;
+                    padding: 0;
+                }
+            }
+            p {
+                padding: 10% 18% 22% 18%;
+                text-align: left;
+            }
+        }
+    }
+}
+@include rwd(desktop) {
+    .section_ridesIntroduction {
+        margin: auto;
+        width:95vw;
+        .ridesIntroduction_bgelement{
+            width: 100%;
+            margin-top: 600px;
+            position: relative;
+            .desert{
+                bottom: 0;
+                position: absolute;
+                margin-bottom: -70px;
+                z-index: -2;
+            }
+            .distantView{
+                bottom: 0;
+                opacity: 0.8;
+                position: absolute;
+                z-index: -3;
+            }  
+        }
+        .ridesIntroduction_container{
+            background-image: url("../images/information/road.svg");
+            background-repeat:no-repeat;
+            background-size:1500px;
+            background-position:100% 50%;
+            position: relative;
+            margin: auto;
+            width:100%;
+            background-color: #FBC166;
+            .ridesIntroduction_frame {
+                .section_title {
+                    @include fontsize( page_titleM);
+                    @include fontweight( lv2);
+                    width: 300px;
+                }
+                .illustration {
+                    position: absolute;
+                    width: 196px;
+                    top: 0;
+                    right: 0;
+                    &:nth-child(1) {
+                        //吉祥物
+                        width: 160px;
+                        height: 200px;
+                        margin-right: 804px;
+                        margin-top: 215px;
+                    }
+                    &:nth-child(2) {
+                        width: 250px;
+                        height: 250px;
+                        margin-right: 246px;
+                        margin-top: 173px;
+                    }
+                    &:nth-child(3) {
+                        width: 200px;
+                        height: 200px;
+                        margin-right: 459px;
+                        margin-top: 581px;
+                    }
+                    &:nth-child(4) {
+                        // 鴨子
+                        width: 300px;
+                        height: 300px;
+                        margin-right: 523px;
+                        margin-top: 654px;
+                    }
+                    &:nth-child(5) {
+                        // 火車
+                        width: 300px;
+                        height: 300px;
+                        margin-right: 686px;
+                        margin-top: -980px;
+                    }
+                    &:nth-child(6) {
+                        //氣球
+                        width: 170px;
+                        height: 170px;
+                        margin-right: 600px;
+                        margin-top: 220px;
+                    }
+                }
+                &:first-child {
+                    height: 100px;
+                    position: relative;
+                }
+                margin: auto;
+                height: 393px;
+                margin-top: 227px;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                .ridesIntroduction_box {
+                    z-index: 1;
+                    height: 100%;
+                    width: 30%;
+                    background-color: rgba(255, 255, 255, 0.486);
+                    border-radius: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: flex-end;
+                    .ridesIntroduction_column {
+                        height: 40%;
+                        width: 100%;
+                        justify-content: space-around;
+                        &:nth-child(1) {
+                            text-align: center;
+                            &::before {
+                                content: '';
+                                vertical-align: middle;
+                                display: inline-block;
+                                width: 0;
+                                height: 100%;
+                            }
+                        }
+                        &:nth-child(2) {
+                            display: flex;
+                            justify-content: space-around;
+                        }
+                        img {
+                            width: 193px;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .section_aboutUs {
+        margin: auto;
+        max-width: 1200px;
+        .aboutUs_container {
+            margin: auto;
+            width: 100%;
+            height: 1448px;
+            .section_title {
+                @include fontsize( page_titleM);
+                @include fontweight( lv2);
+            }
+            .board {
+                width: 100%;
+                height: 100%;
+            }
+            .mascot {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                width: 200px;
+                height: 200px;
+            }
+            .aboutUs_item {
+                position: relative;
+                display: flex;
+                justify-content: space-around;
+                margin: auto;
+                width: 971px;
+                height: 647px;
+                .aboutUs_text {
+                    position: absolute;
+                    width: 50%;
+                    height: 50%;
+                    top: 0;
+                    right: 50%;
+                    transform: translate(50%, 50%);
+                    text-align: center;
+                    p {
+                        text-align: left;
+                    }
+                }
+                .aboutUs_inner {
+                    position: relative;
+                    width: 50%;
+                    height: 100%;
+                    .map {
+                        position: absolute;
+                        bottom: 50%;
+                        right: 50%;
+                        transform: translate(50%, 50%);
+                        width: 100%;
+                        height: 50%;
+                    }
+                    .point {
+                        position: absolute;
+                        bottom: 50%;
+                        right: 50%;
+                        transform: translate(50%, 50%);
+                        width: 50px;
+                        height: 50px;
+                    }
+                    p,
+                    h4 {
+                        display: inline-block;
+                        width: 100%;
+                        position: absolute;
+                        bottom: 50%;
+                        right: 50%;
+                        transform: translate(50%, 50%);
+                    }
+                    h4 {
+                        bottom: 70%;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

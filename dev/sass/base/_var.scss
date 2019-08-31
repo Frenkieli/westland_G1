@@ -1,0 +1,103 @@
+// 與美術溝通後會再更改
+
+// ==========//
+// 文字設定區  //
+// ==========//
+// =============================================================
+// 文字大小
+$fonts_map:
+(   
+    // 文字等版面出來後決定
+    page_title: 42px, 
+    page_titleM: 24px, 
+
+    section_title: 28px,
+    section_titleM: 18px,
+
+    btn_text: 14px,
+
+    p: 18px,
+    pM: 16px,
+
+    h3: 28px, //
+    h3_m: 20px, //
+
+    h4: 24px, //
+    h4_m: 16px, //
+
+);
+
+// 文字粗細
+$fonts_weight_map:
+(
+    lv1: 700, 
+    lv2: 500, 
+    lv3: 400, 
+);
+
+// 文字間距
+$letter_spacing_map:
+(
+    lv1: 1px, 
+    lv2: 0.8px,  
+    lv3: 0.6px,
+    lv4: 0.4px,
+);
+
+// 文字高度
+$line_height_map:
+(
+    // 等版面出來後決定
+    page_title: 150px,
+    page_titleM: 40px,
+
+    section_title: 48px,
+    section_titleM: 40px, //
+
+    btn_text: 30px,
+
+    h1: 56px, //
+    h1_m: 56px, //
+
+    h3: 42px, //
+    h3_m: 20px, //
+
+    h4: 32px, //
+    h4_m: 16px, //
+
+    p: 28px, // 
+    p_m: 16px, //
+
+    a: 16px, //
+    a_m: 14px, //
+);
+
+
+// ==========//
+// 顏色設定區  //
+// ==========//
+// =============================================================
+$colors_map:
+(
+    web_main: #aaa, //尚未
+    web_sec: #aaa, //尚未
+    web_thi: #aaa, //尚未
+
+    font_base: #555,
+    font_hover: #fff,
+    botton_base: #ddedb7,
+    botton_shadow: #5a7528,
+    hover_base: #9dba65,
+    active_base: #f09100,
+    active_shadow: #ef5925,
+);
+
+// ==========//
+// 斷點設定區  //
+// ==========//
+// =============================================================
+$breakpoint:
+(
+    phone: 767px,
+    desktop: 768px,
+);

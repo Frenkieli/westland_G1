@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- css -->
+    @@loop('template/csslink.html',[
+    {"csslink" : "css/style.css"}
+    ])
+     
+</head>
+
+<body>
+    <header class="header_navbar">
+        @@include("template/header.html")
+    </header>
+
+    <h2 class="page_title">遊玩設施</h2>
+    <section class="section_playticket">
+        <h3 class="playticket_title">
+            <p> 您的客製門票</p>
+        </h3>
+        <div class="playticket_ticket">
+            <div class="ticket_name">
+                <p>匿名人士</p>
+            </div>
+            <div class="ticket_img"><img src="https://picsum.photos/400/300/?random=1"></div>
+            <div class="ticket_team">
+                <p> 某某隊</p>
+            </div>
+            <div class="ticket_reward">
+                <p> $123456789</p>
+            </div>
+            <img class="ticket_mascot" src="images/robot/robot.png" alt="">
+        </div>
+        <div class="playticket_buttom">
+            <div class="buttom_box">
+                <div class="buttom_style buttom_entrance">掃描入口QRcode</div>
+                <div class="buttom_style buttom_reward">兌換獎品QRcode</div>
+            </div>
+            <div class="buttom_box">
+                <div class="buttom_style buttom_facility">設施掃描QRcode</div>
+                <div class="buttom_style buttom_export">掃描出口QRcode</div>
+            </div>
+        </div>
+    </section>
+    <section class="section_camera">
+        <video id="preview"></video>
+    </section>
+
+    <section class="section_demo">
+        <div class="demo_container">
+            <div class="demo_facility">
+                <div class="demo_scan">
+                    <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+A">
+                    <div class="btn">掃描</div>
+                </div>
+            </div>
+            <div class="demo_facility">
+                <div class="demo_scan">
+                    <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+B">
+                    <div class="btn">掃描</div>
+                </div>
+            </div>
+            <div class="demo_facility">
+                <div class="demo_scan">
+                    <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+C">
+                    <div class="btn">掃描</div>
+                </div>
+            </div>
+            <div class="demo_facility">
+                <div class="demo_scan">
+                    <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+D">
+                    <div class="btn">掃描</div>
+                </div>
+            </div>
+            <div class="demo_facility">
+                <div class="demo_scan">
+                    <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+E">
+                    <div class="btn">掃描</div>
+                </div>
+            </div>
+            <div class="demo_facility">
+                <div class="demo_scan">
+                    <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+F">
+                    <div class="btn">掃描</div>
+                </div>
+            </div>
+            <div class="demo_facility">
+                <div class="demo_scan">
+                    <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+G">
+                    <div class="btn">掃描</div>
+                </div>
+            </div>
+            <div class="demo_facility">
+                <div class="demo_scan">
+                    <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+H">
+                    <div class="btn">掃描</div>
+                </div>
+            </div>
+            <div class="demo_facility">
+                <div class="demo_scan">
+                    <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+I">
+                    <div class="btn">掃描</div>
+                </div>
+            </div>
+        </div>
+        <div class="demo_arrow demo_toparrow"><img src="images/arrow/top.png" alt=""></div>
+        <div class="demo_arrow demo_leftarrow"><img src="images/arrow/top.png" alt=""></div>
+        <div class="demo_arrow demo_rightarrow"><img src="images/arrow/top.png" alt=""></div>
+        <div class="demo_arrow demo_bottom"><img src="images/arrow/top.png" alt=""></div>
+    </section>
+
+    <section class="section_mission">
+        <h3 class="mission_title">經典任務進度</h3>
+        <div class="mission_progress">
+            <div class="progress_check"></div>
+            <div class="progress_box">某某設施</div>
+        </div>
+        <div class="mission_progress">
+            <div class="progress_check"></div>
+            <div class="progress_box">某某設施</div>
+        </div>
+        <div class="mission_progress">
+            <div class="progress_check"></div>
+            <div class="progress_box">某某設施</div>
+        </div>
+        <div class="mission_progress">
+            <div class="progress_check"></div>
+            <div class="progress_box">某某設施</div>
+        </div>
+        <div class="progress_box_Complete">完成任務</div>
+    </section>
+    @@include("template/footer.html")
+
+    <!-- js -->
+    @@loop('template/jslink.html',[
+    {"jslink" : "js/instascan.min.js"}
+    ])
+
+    <script type="text/javascript">
+        ;
+        let check = false;
+        let cameranum = 0;
+        let cameranow = 0;
+        let scanner = new Instascan.Scanner({
+            video: document.getElementById('preview'),
+            mirror: false
+        });
+        // 開啟一個新的掃描
+        // 宣告變數scanner，在html<video>標籤id為preview的地方開啟相機預覽。
+        // Notice:這邊注意一定要用<video>的標籤才能使用，詳情請看他的github API的部分解釋。
+        let buttom = document.querySelectorAll('.buttom_style');
+        scanner.addListener('scan', function (content) {
+            console.log(content);
+            scanner.stop();
+            document.querySelector(".section_camera").style.display = "none";
+        });
+        //開始偵聽掃描事件，若有偵聽到印出內容。
+
+        for (let i = 0; i < buttom.length; i++) {
+            buttom[i].addEventListener('click', openCamera, false);
+        }
+
+        function openCamera() {
+            Instascan.Camera.getCameras().then(function (cameras) {
+                //取得設備的相機數目
+                if (cameras.length > 0) {
+                    ///若設備相機數目大於0 則先開啟第0個相機(程式的世界是從第零個開始的)
+                    scanner.start(cameras[1]);
+                    check = true;
+                } else {
+                    //若設備沒有相機數量則顯示"No cameras found";
+                    //這裡自行判斷要寫什麼
+                    console.error('No cameras found.');
+                }
+            }).catch(function (e) {
+
+                console.error(e);
+            });
+            document.querySelector(".section_camera").style.display = "flex";
+        }
+
+    </script>
+    <script>
+        let demo_container = document.getElementsByClassName('demo_container')[0];
+        let demo_toparrow = document.getElementsByClassName('demo_toparrow')[0];
+        let demo_bottom = document.getElementsByClassName('demo_bottom')[0];
+        let demo_leftarrow = document.getElementsByClassName('demo_leftarrow')[0];
+        let demo_rightarrow = document.getElementsByClassName('demo_rightarrow')[0];
+
+        let containerX = -33.3333;
+        let containerY = -33.3333;
+
+        demo_rightarrow.addEventListener('click', moveRight, false);
+        demo_leftarrow.addEventListener('click', moveLeft, false);
+        demo_toparrow.addEventListener('click', moveTop, false);
+        demo_bottom.addEventListener('click', moveBottom, false);
+
+        document.addEventListener('keydown',keyMove,false);
+
+        function keyMove(e){
+            
+        };
+
+        function moveRight(e) {
+            console.log(containerX);
+            if (containerX >= -50) {
+                containerX -= 33.3333;
+                demo_container.style.transform = `translate(${containerX}%,${containerY}%)`;
+                if (containerX <= -50) {
+                    demo_rightarrow.style.display = 'none';
+                }
+                demo_leftarrow.style.display = '';
+            }
+        };
+        function moveLeft(e) {
+            if (containerX <= -10) {
+                containerX += 33.3333;
+                demo_container.style.transform = `translate(${containerX}%,${containerY}%)`;
+                if (containerX >= -10) {
+                    demo_leftarrow.style.display = 'none';
+                }
+                demo_rightarrow.style.display = '';
+            }
+        };
+        function moveTop(e) {
+            if (containerY <= -10) {
+                containerY += 33.3333;
+                demo_container.style.transform = `translate(${containerX}%,${containerY}%)`;
+                if (containerY >= -10) {
+                    demo_toparrow.style.display = 'none';
+                }
+                demo_bottom.style.display = '';
+            }
+        };
+        function moveBottom(e) {
+            if (containerY >= -50) {
+                containerY -= 33.3333;
+                demo_container.style.transform = `translate(${containerX}%,${containerY}%)`;
+                if (containerY <= -50) {
+                    demo_bottom.style.display = 'none';
+                }
+                demo_toparrow.style.display = '';
+            }
+        };
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,249 @@
+// 文字設定區
+// =============================================================
+
+//=============================
+// 文字區塊-- 
+// |-- 1.文字大小
+//         |- @include fontsize( page_title ) 42px
+//         |- @include fontsize( page_titleM ) 24px
+//         |- @include fontsize( section_title ) 28px
+//         |- @include fontsize( section_titleM ) 18px
+//         |- @include fontsize( btn_text ) 14px
+//         |- @include fontsize( p ) 18px
+//         |- @include fontsize( pM ) 16px
+//         |- @include fontsize(  )
+//         |- @include fontsize(  )
+//         |- @include fontsize(  )
+// |-- 2.文字粗細
+//         |- @include fontweight( lv1 ) 700
+//         |- @include fontweight( lv2 ) 500
+//         |- @include fontweight( lv3 ) 400
+// |-- 3.文字間距
+//         |- @include letterspacing( lv1 ) 1
+//         |- @include letterspacing( lv2 ) 0.8
+//         |- @include letterspacing( lv3 ) 0.6
+//         |- @include letterspacing( lv4 ) 0.4
+// |-- 4.文字高度
+//         |- @include lineheight( page_title ) 150px
+//         |- @include lineheight( page_titleM ) 40px
+//         |- @include lineheight( section_title ) 48px
+//         |- @include lineheight( section_titleM ) 
+//         |- @include lineheight( btn_text ) 30px
+//         |- @include lineheight( p ) 
+//         |- @include lineheight( pM ) 
+//         |- @include lineheight(  ) 
+//         |- @include lineheight(  ) 
+//         |- @include lineheight(  ) 
+// |-- 5.文字顏色
+//         |- @include fontcolor( web_main )
+//         |- @include fontcolor( web_sec )
+//         |- @include fontcolor( web_thi )
+//         |- @include fontcolor( font_base )
+//         |- @include fontcolor( font_hover )
+//         |- @include fontcolor( botton_base )
+//         |- @include fontcolor( botton_shadow )
+//         |- @include fontcolor( hover_base )
+//         |- @include fontcolor( active_base )
+//         |- @include fontcolor( active_shadow )
+//         |- @include fontcolor(  )
+//         |- @include fontcolor(  )
+//         |- @include fontcolor(  )
+//  
+//=============================
+// =============================================================
+
+// 文字大小--
+@mixin fontsize($size, $map:$fonts_map) {
+    font-size: map-get( $map , $size  ); 
+}
+// 文字粗細--
+@mixin fontweight($weightlv , $map:$fonts_weight_map) {
+    font-weight: map-get( $map , $weightlv  ); 
+}
+// 文字間距--
+@mixin letterspacing($letterspacinglv , $map:$letter_spacing_map) {
+    letter-spacing: map-get( $map , $letterspacinglv  ); 
+}
+// 文字高度--
+@mixin lineheight($lineheight , $map: $line_height_map) {
+    line-height: map-get($map , $lineheight );    
+}
+// 文字顏色--
+@mixin fontcolor($color , $map:$colors_map) {
+    color: map-get( $map , $color  ); 
+}
+
+
+// 顏色設定區
+// =============================================================
+
+//=============================
+// 顏色區塊-- 
+// |-- 1.背景顏色(引用colors_map)
+//          |- @include backgroundcolor(  )
+// |-- 2.
+//  
+//=============================
+// =============================================================
+
+// 背景顏色
+@mixin backgroundcolor($color , $map:$colors_map) {
+    background-color: map-get( $map , $color  ); 
+}
+
+
+
+// 組建設定區
+// =============================================================
+
+//=============================
+// 按鈕區塊-- 
+//    |-- 1.基本按鈕 .btn{ @include btn }
+//    |-- 2.做動/手機按鈕 .btn--active{ @include btn_active }
+// 斷點設定
+// 標題區塊-- 
+//    |-- .page_title{ @include page_title }
+//    |-- .page_titleM{ @include page_titleM }
+//    |-- .section_title{ @include section_title }
+//    |-- .section_titleM{ @include section_titleM }
+//  
+//=============================
+// =============================================================
+
+// =================按鈕區塊===================
+
+// 基本按鈕
+@mixin btn(){
+    // 基本寬高，圓角，文字置中，做動時間
+    width: 130px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+    // 背景顏色，陰影顏色
+    background-color: map-get( $colors_map,botton_base );
+    box-shadow: 2px 4px map-get( $colors_map,botton_shadow );
+    font-size: map-get( $fonts_map , btn_text );
+    line-height: map-get( $line_height_map , btn_text );
+    color: map-get( $colors_map , font_base );
+    &:hover{
+        background-color: map-get( $colors_map,hover_base );
+        color: map-get( $colors_map,font_hover );
+    }
+    @content;
+}
+
+// 做動/手機按鈕
+@mixin btn_active(){
+    // 基本寬高，圓角，文字置中，做動時間
+    width: 130px;
+    border-radius: 15px;
+    text-align: center;
+    transition: 0.3s;
+    // 背景顏色，陰影顏色
+    background-color: map-get( $colors_map,active_base );
+    box-shadow: 2px 4px map-get( $colors_map,active_shadow );
+    font-size: map-get( $fonts_map , btn_text );
+    line-height: map-get( $line_height_map , btn_text );
+    color: map-get( $colors_map , font_hover );
+    @content;
+}
+
+
+// =================斷點區塊===================
+// 使用： 
+// 斷點分成--
+//    |-- phone   @include rwd(phone)  max-width: 767px
+//    |-- desktop   @include rwd(desktop)   min-width: 768px
+// 使用@content放設定內容
+// $respond為想使用之斷點($breakpoint)
+// 判斷@include放入之斷點是否為$breakpoint值
+
+@mixin rwd($respond) {
+    @each $viewpoint,$num in $breakpoint{
+        @if $respond == $viewpoint{
+            @if $viewpoint == phone{
+                @media all and(max-width: $num){
+                    @content;
+                }
+            }@else{
+                @media all and(min-width: $num){
+                    @content;
+                }
+            }
+        }
+    }
+}
+
+
+// =================標題區塊===================
+// 使用： 
+// page標題class name一律使用 page_title / class="page_title"
+// pageM標題class name一律使用 page_titleM / class="page_titleM"
+// section標題class name一律使用 section_title / class="section_title"
+// sectionM標題class name一律使用 section_titleM / class="section_titleM"
+
+// page
+@mixin page_title {
+    background-image: url("../images/mixin/page_title.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    font-size: map-get( $fonts_map , page_title );
+    color: map-get( $colors_map  , font_hover );
+    line-height: map-get( $line_height_map , page_title );
+    letter-spacing: map-get( $letter_spacing_map , lv2 );
+    font-weight: map-get( $fonts_weight_map , lv3 );
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+// pageM
+@mixin page_titleM {
+    background-image: url(../../images/mixin/page_titleM.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    font-size: map-get( $fonts_map , page_titleM );
+    color: map-get( $colors_map  , font_hover );
+    line-height: map-get( $line_height_map , page_titleM );
+    letter-spacing: map-get( $letter_spacing_map , lv2 );
+    font-weight: map-get( $fonts_weight_map , lv3 );
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+
+// =================section標題區塊===================
+
+// section
+@mixin section_title {
+    background-image: url(../../images/mixin/section_title.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    font-size: map-get( $fonts_map , section_title );
+    color: map-get( $colors_map  , font_base );
+    line-height: map-get( $line_height_map , section_title );
+    letter-spacing: map-get( $letter_spacing_map , lv2 );
+    font-weight: map-get( $fonts_weight_map , lv3 );
+    margin: 0 auto 50px;
+    text-align: center;
+}
+
+// sectionM
+@mixin section_titleM {
+    background-image: url(../../images/mixin/section_titleM.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    font-size: map-get( $fonts_map , section_titleM );
+    color: map-get( $colors_map  , font_base );
+    line-height: map-get( $line_height_map , section_titleM );
+    letter-spacing: map-get( $letter_spacing_map , lv2 );
+    font-weight: map-get( $fonts_weight_map , lv3 );
+    margin: 0 auto 20px;
+    text-align: center;
+}
+
+
+

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>items_page</title>
+
+    <!-- css -->
+    @@loop('template/csslink.html',[
+    {"csslink" : "css/owl.carousel.min.css"},
+    {"csslink" : "css/owl.theme.default.css"},
+    {"csslink" : "css/style.css"}
+    ])
+
+</head>
+
+<body>
+
+    <header class="header_navbar">
+        @@include("template/header.html")
+    </header>
+
+    <section class="container ">
+        <div class="section_title">一般商品</div>
+        <div class="all_product center">
+            <aside id="filter" class="filter">
+                <div class="filter_content">
+                    <form class="filter_inside" onsubmit="return returnR(this)">
+                        <div class="header_clear">
+                            <span class="filter_word dis_ib pad10">篩選器</span>
+                        </div>
+                        <ul class="dis_f_w">
+                            <li class="filter_price filter_sort dis_ib pad_5_0_10 w_lg_100">
+                                <span class="dis_ib pad_5_0_10">價格(0~1500元)</span>
+                                <div class="range_wrap">
+                                    <div id="range" class="range">
+                                        <div id="range_stretch" class="range_stretch"
+                                            style="width:130px;margin-left: 0px"></div>
+                                        <button id="circle_button1" class="circle_button circle_button1"
+                                            style="margin-left: 120px"></button>
+                                        <button id="circle_button2" class="circle_button circle_button2"></button>
+                                        <input id="circle_input1" class="circle_input1 selectors" type="number" min="0"
+                                            max="1500" /> ~
+                                        <input id="circle_input2" class="circle_input2 selectors" type="number" min="0"
+                                            max="1500" /> 元
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="filter_lists filter_sort w_lg_30">
+                                <span>包包</span>
+                                <div class="category">
+                                    <label class="filter_sort_item dis_ib">
+                                        <input class="select_checkbox pad_5_0_10" value="red_bag_class" type="checkbox"
+                                            id="red_bag" name="red_bag" />
+                                        <span>紅色</span>
+                                    </label>
+                                    <br />
+                                    <label class="filter_sort_item dis_ib">
+                                        <input class="select_checkbox pad_5_0_10" value="blue_bag_class" type="checkbox"
+                                            id="blue_bag" name="blue_bag" />
+                                        <span>藍色</span>
+                                    </label>
+                                    <br />
+                                    <label class="filter_sort_item dis_ib">
+                                        <input class="select_checkbox pad_5_0_10" value="green_bag_class"
+                                            type="checkbox" id="green_bag" name="green_bag" />
+                                        <span>綠色</span>
+                                    </label>
+                                </div>
+                            </li>
+                            <li class="filter_lists filter_sort w_lg_30">
+                                <span>衣服</span>
+                                <div class="category">
+                                    <label class="filter_sort_item dis_ib">
+                                        <input class="select_checkbox pad_5_0_10" value="red_bag_class" type="checkbox"
+                                            id="red_bag" name="red_bag" />
+                                        <span>紅色</span>
+                                    </label>
+                                    <br />
+                                    <label class="filter_sort_item dis_ib">
+                                        <input class="select_checkbox pad_5_0_10" value="blue_bag_class" type="checkbox"
+                                            id="blue_bag" name="blue_bag" />
+                                        <span>藍色</span>
+                                    </label>
+                                    <br />
+                                    <label class="filter_sort_item dis_ib">
+                                        <input class="select_checkbox pad_5_0_10" value="green_bag_class"
+                                            type="checkbox" id="green_bag" name="green_bag" />
+                                        <span>綠色</span>
+                                    </label>
+                                </div>
+                            </li>
+                            <li class="filter_lists filter_sort w_lg_30">
+                                <span>馬克杯</span>
+                                <div class="category">
+                                    <label class="filter_sort_item dis_ib">
+                                        <input class="select_checkbox pad_5_0_10" ｚvalue="red_bag_class" type="checkbox"
+                                            id="red_bag" name="red_bag" />
+                                        <span>紅色</span>
+                                    </label>
+                                    <br />
+                                    <label class="filter_sort_item dis_ib">
+                                        <input class="select_checkbox pad_5_0_10" value="blue_bag_class" type="checkbox"
+                                            id="blue_bag" name="blue_bag" />
+                                        <span>藍色</span>
+                                    </label>
+                                    <br />
+                                    <label class="filter_sort_item dis_ib">
+                                        <input class="select_checkbox pad_5_0_10" value="green_bag_class"
+                                            type="checkbox" id="green_bag" name="green_bag" />
+                                        <span>綠色</span>
+                                    </label>
+                                </div>
+                            </li>
+                        </ul>
+                    </form>
+                </div>
+            </aside>
+            <div class="all_sort_same">
+                <div class="order_by_search">
+                    <button id="phone_select_button" class="btn phone_select_button dis_lg_n">篩選器</button>
+                    <!-- <div class="order_by"> -->
+                    <!-- <span>排列順序:</span> -->
+                    <!-- <select name="" class="select_dropdown">
+                                    <option value="最新商品">最新商品</option>
+                                    <option value="熱門排行">熱門排行</option>
+                                </select> -->
+                    <!-- </div> -->
+                    <!-- <div class="search">
+                                <input type="text" placeholder="輸入你想搜尋的商品" />
+                                <button><i class="fas fa-search"></i></button>
+                            </div> -->
+                </div>
+                <!-- <div class="sort_same owl-carousel owl-theme" style="padding-top: 350px;"> -->
+                <div class="sort_same pt350 owl-carousel owl-theme" >
+                    <div class="card_bg card_bg1">
+                        <div class="gray_linear_gradient center">
+                            <div class="sort_same_item_img center">
+                                <a href="item.html"><img src="https://picsum.photos/210/190?random=1"></a>
+                            </div>
+                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                            <p class="sort_same_item_price text_align_c">NT.450</p>
+                            <div class="btn m-b m-a">加入購物車</div>
+                        </div>
+                    </div>
+                    <div class="card_bg card_bg1">
+                        <div class="gray_linear_gradient center">
+                            <div class="sort_same_item_img center">
+                                <img src="https://picsum.photos/210/190?random=1">
+                            </div>
+                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                            <p class="sort_same_item_price text_align_c">NT.450</p>
+                            <div class="btn m-b m-a">加入購物車</div>
+                        </div>
+                    </div>
+                    <div class="card_bg card_bg1">
+                        <div class="gray_linear_gradient center">
+                            <div class="sort_same_item_img center">
+                                <img src="https://picsum.photos/210/190?random=1">
+                            </div>
+                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                            <p class="sort_same_item_price text_align_c">NT.450</p>
+                            <div class="btn m-b m-a">加入購物車</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sort_same owl-carousel owl-theme">
+                    <div class="card_bg card_bg2">
+                        <div class="gray_linear_gradient center">
+                            <div class="sort_same_item_img center">
+                                <img src="https://picsum.photos/210/190?random=1">
+                            </div>
+                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                            <p class="sort_same_item_price text_align_c">NT.450</p>
+                            <div class="btn m-b m-a">加入購物車</div>
+                        </div>
+                    </div>
+                    <div class="card_bg card_bg2">
+                        <div class="gray_linear_gradient center">
+                            <div class="sort_same_item_img center">
+                                <img src="https://picsum.photos/210/190?random=1">
+                            </div>
+                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                            <p class="sort_same_item_price text_align_c">NT.450</p>
+                            <div class="btn m-b m-a">加入購物車</div>
+                        </div>
+                    </div>
+                    <div class="card_bg card_bg2">
+                        <div class="gray_linear_gradient center">
+                            <div class="sort_same_item_img center">
+                                <img src="https://picsum.photos/210/190?random=1">
+                            </div>
+                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                            <p class="sort_same_item_price text_align_c">NT.450</p>
+                            <div class="btn m-b m-a">加入購物車</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sort_same owl-carousel owl-theme">
+                    <div class="card_bg card_bg3">
+                        <div class="gray_linear_gradient center">
+                            <div class="sort_same_item_img center">
+                                <img src="https://picsum.photos/210/190?random=1">
+                            </div>
+                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                            <p class="sort_same_item_price text_align_c">NT.450</p>
+                            <div class="btn m-b m-a">加入購物車</div>
+                        </div>
+                    </div>
+                    <div class="card_bg card_bg3">
+                        <div class="gray_linear_gradient center">
+                            <div class="sort_same_item_img center">
+                                <img src="https://picsum.photos/210/190?random=1">
+                            </div>
+                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                            <p class="sort_same_item_price text_align_c">NT.450</p>
+                            <div class="btn m-b m-a">加入購物車</div>
+                        </div>
+                    </div>
+                    <div class="card_bg card_bg3">
+                        <div class="gray_linear_gradient center">
+                            <div class="sort_same_item_img center">
+                                <img src="https://picsum.photos/210/190?random=1">
+                            </div>
+                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                            <p class="sort_same_item_price text_align_c">NT.450</p>
+                            <div class="btn m-b m-a">加入購物車</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sort_same owl-carousel owl-theme">
+                    <div class="card_bg card_bg4">
+                        <div class="gray_linear_gradient center">
+                            <div class="sort_same_item_img center">
+                                <img src="https://picsum.photos/210/190?random=1">
+                            </div>
+                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                            <p class="sort_same_item_price text_align_c">NT.450</p>
+                            <div class="btn m-b m-a">加入購物車</div>
+                        </div>
+                    </div>
+                    <div class="card_bg card_bg4">
+                        <div class="gray_linear_gradient center">
+                            <div class="sort_same_item_img center">
+                                <img src="https://picsum.photos/210/190?random=1">
+                            </div>
+                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                            <p class="sort_same_item_price text_align_c">NT.450</p>
+                            <div class="btn m-b m-a">加入購物車</div>
+                        </div>
+                    </div>
+                    <div class="card_bg card_bg4">
+                        <div class="gray_linear_gradient center">
+                            <div class="sort_same_item_img center">
+                                <img src="https://picsum.photos/210/190?random=1">
+                            </div>
+                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                            <p class="sort_same_item_price text_align_c">NT.450</p>
+                            <div class="btn m-b m-a">加入購物車</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @@include("template/footer.html")
+    <!-- ====================================== -->
+    
+    <!-- js -->
+    @@loop('template/jslink.html',[
+    {"jslink" : "https://kit.fontawesome.com/6a6d2775fc.js"},
+    {"jslink" : "js/jquery.min.js"},
+    {"jslink" : "js/owl.carousel.js"}
+    ])
+    <script>
+        $('.owl-carousel').owlCarousel({
+            loop: false,
+            margin: 0,
+            nav: true,
+            // dots:true,
+            // dotsEach:true,
+            // dotsData:true,
+            responsive: {
+                0: {
+                    items: 1,
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 3,
+                }
+            }
+        })
+    </script>
+
+    <!-- ====================================== -->
+
+</body>
+
+</html>

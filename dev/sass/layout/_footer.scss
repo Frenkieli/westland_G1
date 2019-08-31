@@ -1,0 +1,19 @@
+.section_footer{
+    background-image: url("../images/footer/footer_gbi.png");
+    background-position: center 20%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    .footer_copyright{
+        text-align: center;
+        font-size: 16px;
+    }
+    .footer_social{
+        margin: auto;
+        text-align: center;
+        img{
+            width: 40px;
+            height: 40px;
+            margin: 15px 10px;
+        }
+    }
+}

@@ -1,0 +1,179 @@
+
+/* ///////////////////// */
+     /* 日曆 */
+/* //////////////////// */
+// .calendar_wood{
+//     padding:0 10px;
+//     box-sizing: border-box;
+//     background-image: url(../images/member/wood01.png);
+//     background-repeat: no-repeat;
+   
+//     background-position: center;
+   
+// }
+
+///////////////////////////////
+//           篩選器         //
+/////////////////////////////
+
+
+////////////////////////////
+//      page_title  M      //
+///////////////////////////
+
+
+
+.newswrap{
+    width: 100%;
+    //篩選器
+    .selectpart {
+        margin: auto;
+        width: 100%;
+        display: block;
+        .select_group {
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            .select_frame {
+                width: 90%;
+                margin: auto;
+                padding: 15px 0;
+                background-color: #9dba65;
+                border-radius: 20px;
+                display: flex;
+                flex-wrap: row nowrap;
+                justify-content: space-around;
+                -webkit-box-align: center;
+                align-items: center;
+                text-align: center;
+                .select_phone {
+                    select{
+                        border: #5a7528 solid 3px;
+                        width: 150px;
+                        height: 50px;
+                        padding: 3px;
+                        border-radius: 10px;
+                        font-size: 16px;
+                    }
+                    
+                  }
+                .noshow{
+                    .select_btn{
+                        width: 100%;
+                        cursor: pointer;
+                        background-color: #ddedb7;
+                        border: none;
+                        padding: 5px 25px;
+                        border-radius: 10px;
+                        box-shadow: 0px 3px 0px #5a7528;
+                        color: #111;
+                        font: 16px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 767px){
+   .noshow {
+    display: none; 
+    }
+    .select_btn{
+        display: none;
+      }
+}
+  @media all and (min-width: 768px) {
+    .select_phone {
+      display: none;
+    }
+  }
+
+///////////////////////////////////
+//       活動內容               //
+//////////////////////////////////
+
+ 
+
+.activity_content{
+    
+    width: 80%;
+    background-color: #9dba65;
+    border-radius: 40px;
+    padding: 5px 0;
+    display: block;
+    height: auto;
+    margin:  50px auto;
+    
+    .activity_part{
+        display: flex;
+        flex-wrap: wrap;
+        margin: 20px 20px;
+        background-color: #FFF;
+        border-radius: 40px;
+        .activity_pic{
+            margin: auto;
+            padding: 10px 0;
+            img{
+                width: 100%;
+                // overflow: hidden;
+                display: block;
+                border-radius:10%; 
+            }
+            
+        }
+        .activity_text{
+            padding: 0 20px; 
+            width: 100%;
+            display: inline-block;
+            vertical-align: middle;
+            h4{
+                font-family: 'Noto Sans TC','sans-serif'; 
+                font-size: 18px;
+                font-weight:bold;
+            }
+            p{
+                padding: 0 20px; 
+                line-height: 30px;
+            }
+           
+        }   
+    }
+}
+@media screen and (min-width: 768px){
+
+    .activity_content{
+        box-sizing: border-box;
+        max-width: 900px;
+        background-color: #9dba65;
+        border-radius: 40px;
+        padding: 5px 0;
+        margin:  50px auto;
+        
+        .activity_part{
+            display: flex;
+            margin: 20px 20px;
+            background-color: #FFF;
+            border-radius: 40px;
+            .activity_text{
+                box-sizing: border-box;
+                padding:20px;
+                width: 65%;
+                display: inline-block;
+                vertical-align: middle;
+                h4{
+                    font-family: 'Noto Sans TC','sans-serif'; 
+                    font-size: 18px;
+                    font-weight:bold;
+                }
+                p{
+                    padding: 0 15px; 
+                    line-height: 30px;
+                }
+               
+            }   
+        }
+    }
+
+}

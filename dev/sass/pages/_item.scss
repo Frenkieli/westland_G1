@@ -1,0 +1,203 @@
+// *{
+//     outline: solid 1px #f00;
+// }
+//共用
+// 麵包屑
+.item_bread_crumbs{
+    display: flex;
+    padding: 10px 0;
+    li{
+        a{
+            display: inline-block;
+            margin: 0 10px;
+        }
+        &::after{
+            content: ">";
+            display: inline-block;
+        }
+    }
+    li:last-child{
+        &::after{
+            display: none;
+        }
+    }
+}
+// 右半部商品資訊
+.item_intro_wrap{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    .item_intro_title{
+        padding: 10px;
+        font-weight: map-get( $fonts_weight_map , lv2 );
+        color: map-get( $colors_map , font_base );
+    }
+    .item_intro_box{
+        display: flex;
+        .intro_box_title{    
+            padding: 10px;
+        }
+        .intro_box_text,.item_price,.item_lave{
+            padding: 12px;
+        }
+        .intro_box_text{
+            line-height: map-get( $line_height_map , p );
+        }
+    }
+    .item_intro_totalprice{
+        text-align: right;
+        padding: 20px;
+        .intro_totalprice{
+            color: #c00;
+        }
+    }
+}
+// 下半部按鈕
+.item_btn_box{
+    display: flex;
+    justify-content: center;
+    .inline_block{
+        margin: 0 20px;
+        display: inline-block;
+    }
+}
+
+// 下半部推薦商品
+.item_recom_section{
+    .item_recom_wrap{
+        display: flex;
+        justify-content: space-around;
+        @at-root
+        .item_recom_box{
+            .item_recom_name{
+                margin: 5px 0;
+                text-align: center;
+            }
+            span{
+                margin: 5px 0;
+                display: block;
+            }
+        }
+    }
+}
+
+
+
+
+@include rwd(desktop){
+    // 背景圖
+    .item_page{
+        background-image: url("/images/background/page_bgi-01.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    // 麵包屑
+    .item_bread_crumbs{
+        li{
+            a{
+                font-size: 22px;
+            }
+            &::after{
+                font-size: 22px;
+            }
+        }
+    }
+    .item_intro_section{
+        justify-content: center;
+        display: flex;
+    }
+    // 左半部商品圖片
+    .item_intro_wrap{
+        width: 45%;
+        margin: 0 20px;
+        .item_intro_img{
+            width: 90%;
+            margin: 0 auto;
+            img{
+                vertical-align: middle;
+            }
+        }
+    }
+    // 右半部商品資訊
+    .item_intro_wrap{
+        .item_intro_title{
+            font-size: 30px;
+        }
+        .item_intro_box{
+            margin: 15px 0;
+            .intro_box_title{
+                width: 10%;
+                font-size: 20px;    
+            }
+            .intro_box_text,.item_price,.item_lave{
+                font-size: 18px;
+                width: 90%;
+            }
+        }
+        .item_intro_totalprice{
+            margin: 15px 0;
+            font-size: 28px;
+        }
+    }
+    
+
+    // 下半部推薦商品
+    .item_recom_section{
+        .item_recom_wrap{
+            @at-root
+            .item_recom_box{
+                width: 200px;
+            }
+        }
+    }
+
+
+}
+
+
+
+@include rwd(phone){
+    .item_page{
+        background-image: url("/images/background/bgiM.svg");
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    .item_intro_wrap{
+        width: 90%;
+    }
+    
+    // 右半部商品資訊
+    .item_intro_wrap{
+        .item_intro_title{
+            font-size: 22px;
+        }
+        .item_intro_box{
+            margin: 5px 0;
+            .intro_box_title{
+                width: 20%;
+                font-size: 18px;
+            }
+            .intro_box_text,.item_price,.item_lave{
+                font-size: 16px;
+                width: 80%;
+            }
+        }
+        .item_intro_totalprice{
+            margin: 5px 0;
+            font-size: 22px;
+        }
+    }
+
+    // 下半部推薦商品
+    .item_recom_section{
+        .item_recom_wrap{
+            flex-wrap: wrap;
+            @at-root
+            .item_recom_box{
+                width: 40%;
+            }
+        }
+    }
+
+    
+}

@@ -1,0 +1,31 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "gulp",
+    "build": "mkdir dev\\js , dev\\php ,dev\\sass\\common,dev\\sass\\mixins,dev\\sass\\lib,dev\\sass\\modules,dev\\html,dev\\js\\lib"
+  },
+  "author": "",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "bootstrap": "^4.3.1",
+    "bootstrap-sass": "^3.4.1",
+    "gsap": "^2.1.3",
+    "gulp-sourcemaps": "^2.6.5",
+    "jquery": "^3.4.1",
+    "scrollmagic": "^2.0.7"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-file-include": "^2.1.0",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-sass": "^4.0.2"
+  },
+  "description": ""
+}

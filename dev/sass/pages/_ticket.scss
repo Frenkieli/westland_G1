@@ -1,0 +1,393 @@
+// *{
+//     outline: solid 1px #f00;
+// }
+///共同
+.ticket_customize{
+    display: flex;
+}
+.ticket_customize_wrap{
+    .customize_items{
+        width: 90%;
+        margin: 0 auto;
+        background-color: #FBDC92;
+        border-radius: 15px;
+        box-shadow: 5px 5px #DC9C55;
+        .customize_items_title{
+            padding: 15px 15px 5px;
+        }
+        @at-root
+        .customize_items_box{
+            display: flex; 
+            flex-wrap: wrap;
+            padding: 15px;
+            margin-bottom: 20px;
+            .customize_item{
+                background-color: #E2B771;
+                box-shadow: -5px -5px #DC9C55;
+                border-radius: 20px;
+                height: 70px;
+                padding: 5px;
+                cursor: pointer;
+                img{
+                    position: relative;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%,-50%);
+                }
+            }
+        }
+    }
+    .customize_mascot_role{
+        background-image: url("../images/cusitems/rock.png");
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        @at-root
+        .customize_mascot{
+            width: 90%;
+            margin: 0 auto;
+            img{
+                padding: 50px 20px 0;
+                width: 60%;
+                display: block;
+                margin: 0 auto;
+            }
+        }
+        @at-root
+        .customize_items_set_box{
+            .customize_items_set{
+                border: solid 2px map-get( $colors_map , active_base );
+                border-radius: 20px;
+                margin: 0 auto;
+                width: 60%;
+                display: flex;
+                justify-content: center;
+                background-color: #fff;
+                box-sizing: border-box;
+                .customize_set{
+                    width: 100%;
+                    text-align: center;
+                    i{
+                        cursor: pointer;
+                        vertical-align: top;
+                        font-size: 20px;
+                        margin: 0 auto;
+                        width: 100%;
+                        padding: 10px 0;
+                        color: map-get( $colors_map , active_base );
+                    }
+                }
+                li{
+                    border-right: solid 2px map-get( $colors_map , active_base );
+                }
+                li:nth-child(5){
+                    border-right: none;
+                }
+            }
+        }
+    }
+    .customize_mascots_box{
+        display: flex;
+        .customize_mascots{
+            border: solid 3px map-get( $colors_map , active_shadow );
+            border-radius: 10px;
+            background-color: #fff;
+            text-align: center;
+            cursor: pointer;
+            img{
+                vertical-align: top;
+                position: relative;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+}
+.customize_backimage{
+    position: relative;
+    height: 785px;
+    background-image: url("../images/background/ticket_backimage.svg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    @at-root
+    .ticket_title,.ticket_subtitle{
+        text-align: center;
+    }
+    .ticket_title{
+        color: #E2B771;
+        text-shadow: 2px 2px #DC9C55;
+        border-bottom: solid 4px #E2B771;
+        letter-spacing: map-get( $letter_spacing_map , lv2 );
+    }
+    .ticket_subtitle{
+        color: #E2B771;
+        text-shadow: 2px 2px #DC9C55;
+        letter-spacing: map-get( $letter_spacing_map , lv3 );
+    }
+    @at-root
+    .ticket_amount{
+        width: 300px;
+        display: flex;
+        align-items: center;
+        .ticket_amount_title{
+            margin: 0 10px;
+            padding: 10px;
+        }
+        @at-root
+        .ticket_amount_box{
+            display: flex;
+            align-items: center;
+            .ticket_amounts{
+                padding: 5px 0;
+                width: 60px;
+                text-align: center;
+            }
+            .count{
+                padding: 3px 6px;
+                background-color: #DC9C55;
+                font-size: 24px;
+                cursor: pointer;
+                i{
+                    color: #fff;
+                }
+            }
+        }
+    }
+    .ticket_customize_sub{
+        position: absolute;
+        bottom: 10px;
+        right: 0px;
+        .customize_sub{
+            width: 100%;
+        }
+    }
+}
+.ticket_news_wrap{
+    background-image: url("../images/background/ticket_news.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: auto;
+    .ticket_news_box{
+        margin: auto;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba($color: #FFE8CF, $alpha: 0.9);
+        border-radius: 50px;
+        box-sizing: border-box;
+        @at-root
+        .ticket_news_box_list{
+            border-bottom: dashed 2px #000;
+            display: flex;
+            align-items: center;
+            .triangle{
+                width: 0;
+                height: 0;
+                border-left: solid 18px map-get( $colors_map , hover_base );
+                border-top: solid 10px transparent;
+                border-bottom: solid 10px transparent;
+                margin-right: 30px;
+            }
+            &:hover{
+                .triangle{
+                    border-left: solid 18px map-get( $colors_map , active_base );
+                }
+            }
+        }
+    }
+}
+
+
+
+
+@include rwd(desktop){
+    .ticket_customize_wrap{
+        margin: 0 20px;
+    }
+    .ticket_page{
+        background-image: url("../images/background/page_bgi-01.svg");
+        background-size: cover;
+    }
+    .ticket_customize{
+        justify-content: center;
+        .ticket_customize_wrap{
+            width: 45%;
+        }
+    }
+    .ticket_customize_wrap{
+        .customize_items{
+            .customize_items_title{
+                font-size: 24px;
+            }
+            @at-root
+            .customize_items_box{
+                .customize_item{
+                    width: 25%;
+                    margin: 1.5% 2.9%;
+                }
+            }
+        }
+        .customize_mascot_role{
+            // outline: solid 1px #f00;
+            @at-root
+            .customize_mascot{
+                // outline: solid 1px #f00;
+                img{
+                    height: 272px;
+                }
+            }
+            @at-root
+            .customize_items_set_box{
+                // outline: solid 1px #f00;
+                padding: 25px;
+            }
+        }
+        .customize_mascots_box{
+            margin-bottom: 20px;
+            // outline: solid 1px #f00;
+            .customize_mascots{
+                // outline: solid 1px #f00;
+                width: 100px;
+                margin: 0 5px;
+            }
+        }
+    }
+
+    .customize_backimage{
+        .ticket_title{
+            font-size: 52px;
+            padding: 10px 50px;
+            margin-top: 80px;
+        }
+        .ticket_subtitle{
+            font-size: 28px;
+            padding: 16px;
+        }
+        .uploadpic{
+            padding: 10px;
+        }
+        .ticket_picture{
+            width: 300px;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+        .ticket_customize_sub{
+            width: 190px;
+            height: 190px;
+        }
+    }
+// ==============//=======//==============//
+
+    .ticket_news_wrap{
+        width: 625px;
+        height: 400px;
+        .ticket_news_box{
+            width: 520px;
+            height: 320px;
+            padding: 40px;
+            @at-root
+            .ticket_news_box_list{
+                font-size: 22px;
+                line-height: 26px;
+                padding: 10px;
+            }
+        }
+    }
+//======
+    
+
+}
+
+
+
+
+//==============================
+@include rwd(phone){
+    .ticket_page{
+        background-image: url("../images/background/bgiM.svg");
+        background-size: cover;
+    }
+    .ticket_customize{
+        flex-direction: column;
+    }
+    .ticket_customize_wrap{
+        margin: 20px;
+        .customize_items{
+            .customize_items_title{
+                font-size: 18px;
+            }
+            @at-root
+            .customize_items_box{
+                .customize_item{
+                    width: 20%;
+                    margin: 2% 4.8%;
+                    img{
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .customize_mascot_role{
+            @at-root
+            .customize_mascot{
+                img{
+                    height: 200px;
+                }
+            }
+            @at-root
+            .customize_items_set_box{
+                padding: 10px;
+            }
+        }
+        .customize_mascots_box{
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 10px;
+            .customize_mascots{
+                width: 80px;
+                margin: 5px 12.5px;
+            }
+        }
+    }
+    .customize_backimage{
+        height: 550px;
+        .ticket_title{
+            font-size: 32px;  
+            padding: 10px 20px; 
+            margin-top: 40px; 
+        }
+        .ticket_subtitle{
+            font-size: 22px; 
+            padding: 6px;
+        }
+        .uploadpic{
+            padding: 6px;
+        }
+        .ticket_picture{
+            width: 200px;
+            height: 200px;
+            margin-bottom: 10px;
+        }
+        .ticket_customize_sub{
+            width: 130px;
+            height: 130px;
+        }
+    }
+
+//==============
+    .ticket_news_wrap{
+        height: 300px;  
+        .ticket_news_box{
+            width: 85%;
+            padding: 20px;
+            @at-root
+            .ticket_news_box_list{
+                font-size: 16px;
+                line-height: 22px;
+                padding: 5px 0;
+            }
+        }
+    }
+}

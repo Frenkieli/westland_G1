@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <!-- css -->
+    @@loop('template/csslink.html',[
+    {"csslink" : "css/swiper.min.css"},
+    {"csslink" : "css/style.css"}
+    ])
+    
+     <!-- =======以下為背景嘗試 -->
+    <style>
+        
+        .header_navbar{
+            background-image: url("images/index/home_bg_first_2.png");
+            background-size: cover;
+        }
+        .section_facility{
+            background-image: url("images/index/home_bg_2.png");
+            background-size: cover;
+            width: 100%;
+            background-position: 50% 100%;
+            background-repeat: no-repeat;
+        }
+        .team{
+            background-image: url("images/index/home_bg_3.png");
+            background-size: cover;
+            width: 100%;
+            background-position: 50% 100%;
+            background-repeat: no-repeat;
+        }
+        .ticket_customize_scetion{
+            background-image: url("images/index/home_bg_4.png");
+            background-size: cover;
+            width: 100%;
+            background-position: 50% 100%;
+            background-repeat: no-repeat;
+        }
+        .section_store{
+            background-image: url("images/index/home_bg_3.png");
+            background-size: cover;
+            width: 100%;
+            background-position: 50% 100%;
+            background-repeat: no-repeat;
+        }
+    </style>
+
+     <!-- =======以上為背景嘗試 -->
+</head>
+
+<body>
+    <header class="header_navbar">
+        @@include("template/header.html")
+        <!-- =======以下為背景嘗試 -->
+        <div class="section_Podium">
+            <div class="Podium_welcome"><img src="images/index/welcome.png" alt="歡迎光臨"></div>
+            <div class="Podium_winner">
+                <div class="winner_people">
+                    <img src="images/robot/robot.png" alt="">
+                    <img src="images/index/block.png" alt="">
+                </div>
+                <div class="winner_people">
+                    <img src="images/robot/robot.png" alt="">
+                    <img src="images/index/block.png" alt="">
+                </div>
+                <div class="winner_people">
+                    <img src="images/robot/robot.png" alt="">
+                    <img src="images/index/block.png" alt="">
+                </div>
+                <div class="winner_people">
+                    <img src="images/robot/robot.png" alt="">
+                    <img src="images/index/block.png" alt="">
+                </div>
+            </div>
+            <div class="winner_teammate">
+                <div class="teammate_post">
+                    <div class="ticket_name">
+                        <p>匿名人士</p>
+                    </div>
+                    <div class="ticket_img"><img src="images/ticket/FB_IMG_1566403713083.jpg"></div>
+                    <div class="ticket_team">
+                        <p> 某某隊</p>
+                    </div>
+                    <div class="ticket_reward">
+                        <p> $123456789</p>
+                    </div>
+                    <img class="ticket_mascot" src="images/robot/robot.png" alt="">
+                </div>
+                <div class="teammate_post">
+                    <div class="ticket_name">
+                        <p>匿名人士</p>
+                    </div>
+                    <div class="ticket_img"><img src="images/ticket/FB_IMG_1566403713083.jpg"></div>
+                    <div class="ticket_team">
+                        <p> 某某隊</p>
+                    </div>
+                    <div class="ticket_reward">
+                        <p> $123456789</p>
+                    </div>
+                    <img class="ticket_mascot" src="images/robot/robot.png" alt="">
+                </div>
+                <div class="teammate_post">
+                    <div class="ticket_name">
+                        <p>匿名人士</p>
+                    </div>
+                    <div class="ticket_img"><img src="images/ticket/FB_IMG_1566403713083.jpg"></div>
+                    <div class="ticket_team">
+                        <p> 某某隊</p>
+                    </div>
+                    <div class="ticket_reward">
+                        <p> $123456789</p>
+                    </div>
+                    <img class="ticket_mascot" src="images/robot/robot.png" alt="">
+                </div>
+                <div class="teammate_post">
+                    <div class="ticket_name">
+                        <p>匿名人士</p>
+                    </div>
+                    <div class="ticket_img"><img src="images/ticket/FB_IMG_1566403713083.jpg"></div>
+                    <div class="ticket_team">
+                        <p> 某某隊</p>
+                    </div>
+                    <div class="ticket_reward">
+                        <p> $123456789</p>
+                    </div>
+                    <img class="ticket_mascot" src="images/robot/robot.png" alt="">
+                </div>
+                <div class="teammate_post">
+                    <div class="ticket_name">
+                        <p>匿名人士</p>
+                    </div>
+                    <div class="ticket_img"><img src="images/ticket/FB_IMG_1566403713083.jpg"></div>
+                    <div class="ticket_team">
+                        <p> 某某隊</p>
+                    </div>
+                    <div class="ticket_reward">
+                        <p> $123456789</p>
+                    </div>
+                    <img class="ticket_mascot" src="images/robot/robot.png" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- =======以上為背景嘗試 -->
+    </header>
+
+    <section class="section_facility">
+        <div class="title_box">
+            <h3 class="section_title">設施介紹</h3>
+        </div>
+        <div class="facility_slider">
+            <ul class="slider_container">
+                <li>
+                    <div>
+                        <div class="slider_img">
+                            <img src="images/information/pirateShip.svg">
+                            <div class="slider_star"><img src="https://picsum.photos/40/40/?random=1">X50</div>
+                        </div>
+                        <div class="slider_text">
+                            <img src="https://picsum.photos/200/40/?random=1">
+                            <div class="slider_member">
+                                <div class="slider_memberimg">
+                                    <img src="https://api.fnkr.net/testimg/200x200/00CED1/FFF/?text=img+placeholder">
+                                </div>
+                                <p><span>XXX:</span>物品味道調整焦點，其中臺中東方重大，阿宅人民共和國很熱新浪本論壇，下列同意，預期信譽反饋，交友獲得。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div class="slider_img">
+                            <img src="images/information/pirateShip.svg">
+                            <div class="slider_star"><img src="https://picsum.photos/40/40/?random=1">X50</div>
+                        </div>
+                        <div class="slider_text">
+                            <img src="https://picsum.photos/200/40/?random=1">
+                            <div class="slider_member">
+                                <div class="slider_memberimg">
+                                    <img src="https://api.fnkr.net/testimg/200x200/00CED1/FFF/?text=img+placeholder">
+                                </div>
+                                <p><span>XXX:</span>物品味道調整焦點，其中臺中東方重大，阿宅人民共和國很熱新浪本論壇，下列同意，預期信譽反饋，交友獲得。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div class="slider_img">
+                            <img src="images/information/pirateShip.svg">
+                            <div class="slider_star"><img src="https://picsum.photos/40/40/?random=1">X50</div>
+                        </div>
+                        <div class="slider_text">
+                            <img src="https://picsum.photos/200/40/?random=1">
+                            <div class="slider_member">
+                                <div class="slider_memberimg">
+                                    <img src="https://api.fnkr.net/testimg/200x200/00CED1/FFF/?text=img+placeholder">
+                                </div>
+                                <p><span>XXX:</span>物品味道調整焦點，其中臺中東方重大，阿宅人民共和國很熱新浪本論壇，下列同意，預期信譽反饋，交友獲得。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div class="slider_img">
+                            <img src="images/information/pirateShip.svg">
+                            <div class="slider_star"><img src="https://picsum.photos/40/40/?random=1">X50</div>
+                        </div>
+                        <div class="slider_text">
+                            <img src="https://picsum.photos/200/40/?random=1">
+                            <div class="slider_member">
+                                <div class="slider_memberimg">
+                                    <img src="https://api.fnkr.net/testimg/200x200/00CED1/FFF/?text=img+placeholder">
+                                </div>
+                                <p><span>XXX:</span>物品味道調整焦點，其中臺中東方重大，阿宅人民共和國很熱新浪本論壇，下列同意，預期信譽反饋，交友獲得。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div class="slider_img">
+                            <img src="images/information/pirateShip.svg">
+                            <div class="slider_star"><img src="https://picsum.photos/40/40/?random=1">X50</div>
+                        </div>
+                        <div class="slider_text">
+                            <img src="https://picsum.photos/200/40/?random=1">
+                            <div class="slider_member">
+                                <div class="slider_memberimg">
+                                    <img src="https://api.fnkr.net/testimg/200x200/00CED1/FFF/?text=img+placeholder">
+                                </div>
+                                <p><span>XXX:</span>物品味道調整焦點，其中臺中東方重大，阿宅人民共和國很熱新浪本論壇，下列同意，預期信譽反饋，交友獲得。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div>
+                        <div class="slider_img">
+                            <img src="images/information/pirateShip.svg">
+                            <div class="slider_star"><img src="https://picsum.photos/40/40/?random=1">X50</div>
+                        </div>
+                        <div class="slider_text">
+                            <img src="https://picsum.photos/200/40/?random=1">
+                            <div class="slider_member">
+                                <div class="slider_memberimg">
+                                    <img src="https://api.fnkr.net/testimg/200x200/00CED1/FFF/?text=img+placeholder">
+                                </div>
+                                <p><span>XXX:</span>物品味道調整焦點，其中臺中東方重大，阿宅人民共和國很熱新浪本論壇，下列同意，預期信譽反饋，交友獲得。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="facility_rule">
+            <div class="facility_ruleol">
+                <p>園區規則</p>
+                <ol>
+                    <li>Lorem, ipsum.</li>
+                    <li>Lorem, ipsum.</li>
+                    <li>Lorem, ipsum.</li>
+                    <li>Lorem, ipsum.</li>
+                    <li>Lorem, ipsum.</li>
+                    <li>Lorem, ipsum.</li>
+                    <li>Lorem, ipsum.</li>
+                    <li>Lorem, ipsum.</li>
+                </ol>
+            </div>
+        </div>
+
+    </section>
+
+    <section class="team">
+        <div class="container">
+            <h2 class="team_title section_title">最新團隊</h2>
+            <div class="team_bulletin_board">
+                <div class="img">
+                    <img src="images/team/Canopy.png" alt="揪團遮雨棚">
+                </div>
+                <div class="team_container">
+                    <div class="team_container_list">
+                        <div id="join" class="team_join_list">
+                            <div class="team_list_box">
+                                <div class="list_box_img">
+                                    <p class="wanted_name">小帥帥</p>
+                                    <div class="wanted_playerphoto">
+                                        <img src="images/team/FB_IMG_1566404286898.jpg">
+                                    </div>
+                                    <p class="wanted_teamname">帥帥隊驢子</p>
+                                    <p class="wanted_bounty">$77777</p>
+                                    <div class="wanted_mascot">
+                                        <img src="images/team/alpaca.svg">
+                                    </div>
+                                </div>
+                                <div class="list_box_info">
+                                    <p>隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
+                                    <p>精神標語 :</p>
+                                    <p class="info_teamslogan">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
+                                    <p>人數 : <span class="info_teamcount">1</span></p>
+                                </div>
+                            </div>
+                            <div class="team_list_box">
+                                <div class="list_box_img">
+                                    <p class="wanted_name">小帥帥</p>
+                                    <div class="wanted_playerphoto">
+                                        <img src="images/team/FB_IMG_1566404442214.jpg">
+                                    </div>
+                                    <p class="wanted_teamname">帥帥隊</p>
+                                    <p class="wanted_bounty">$77776</p>
+                                    <div class="wanted_mascot">
+                                        <img src="images/team/alpaca.svg">
+                                    </div>
+                                </div>
+                                <div class="list_box_info">
+                                    <p>隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
+                                    <p>精神標語 :</p>
+                                    <p class="info_teamslogan">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
+                                    <p>人數 : <span class="info_teamcount">1</span></p>
+                                </div>
+                            </div>
+                            <div class="team_list_box">
+                                <div class="list_box_img">
+                                    <p class="wanted_name">小帥帥</p>
+                                    <div class="wanted_playerphoto">
+                                        <img src="images/team/FB_IMG_1566404671794.jpg">
+                                    </div>
+                                    <p class="wanted_teamname">帥帥隊</p>
+                                    <p class="wanted_bounty">$77777</p>
+                                    <div class="wanted_mascot">
+                                        <img src="images/team/alpaca.svg">
+                                    </div>
+                                </div>
+                                <div class="list_box_info">
+                                    <p>隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
+                                    <p>精神標語 :</p>
+                                    <p class="info_teamslogan">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
+                                    <p>人數 : <span class="info_teamcount">1</span></p>
+                                </div>
+                            </div>
+                            <div class="team_list_box">
+                                <div class="list_box_img">
+                                    <p class="wanted_name">小帥帥</p>
+                                    <div class="wanted_playerphoto">
+                                        <img src="images/team/FB_IMG_1566404795035.jpg">
+                                    </div>
+                                    <p class="wanted_teamname">帥帥隊</p>
+                                    <p class="wanted_bounty">$77777</p>
+                                    <div class="wanted_mascot">
+                                        <img src="images/team/alpaca.svg">
+                                    </div>
+                                </div>
+                                <div class="list_box_info">
+                                    <p>隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
+                                    <p>精神標語 :</p>
+                                    <p class="info_teamslogan">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
+                                    <p>人數 : <span class="info_teamcount">1</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <img src="images/team/bulletin_board.svg" alt="揪團布告欄"> -->
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="ticket_customize_scetion">
+        <div class="container">
+            @@include("template/ticket_section.html") 
+        </div>
+    </section>
+
+
+    <section class="section_store">
+        <div class="title_box">
+            <h3 class="section_title">商品介紹</h3>
+        </div>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <p>商品XXX</p>
+                    <img src="https://picsum.photos/300/200/?random=1">
+                    <div class="store_btn">加入購物車</div>
+                </div>
+                <div class="swiper-slide">
+                    <p>商品XXX</p>
+                    <img src="https://picsum.photos/300/200/?random=1">
+                    <div class="store_btn">加入購物車</div>
+                </div>
+                <div class="swiper-slide">
+                    <p>商品XXX</p>
+                    <img src="https://picsum.photos/300/200/?random=1">
+                    <div class="store_btn">加入購物車</div>
+                </div>
+                <div class="swiper-slide">
+                    <p>商品XXX</p>
+                    <img src="https://picsum.photos/300/200/?random=1">
+                    <div class="store_btn">加入購物車</div>
+                </div>
+                <div class="swiper-slide">
+                    <p>商品XXX</p>
+                    <img src="https://picsum.photos/300/200/?random=1">
+                    <div class="store_btn">加入購物車</div>
+                </div>
+                <div class="swiper-slide">
+                    <p>商品XXX</p>
+                    <img src="https://picsum.photos/300/200/?random=1">
+                    <div class="store_btn">加入購物車</div>
+                </div>
+                <div class="swiper-slide">
+                    <p>商品XXX</p>
+                    <img src="https://picsum.photos/300/200/?random=1">
+                    <div class="store_btn">加入購物車</div>
+                </div>
+                <div class="swiper-slide">
+                    <p>商品XXX</p>
+                    <img src="https://picsum.photos/300/200/?random=1">
+                    <div class="store_btn">加入購物車</div>
+                </div>
+                <div class="swiper-slide">
+                    <p>商品XXX</p>
+                    <img src="https://picsum.photos/300/200/?random=1">
+                    <div class="store_btn">加入購物車</div>
+                </div>
+                <div class="swiper-slide">
+                    <p>商品XXX</p>
+                    <img src="https://picsum.photos/300/200/?random=1">
+                    <div class="store_btn">加入購物車</div>
+                </div>
+            </div>
+            <!-- Add Pagination -->
+            <div class=" swiper-pagination"></div>
+        </div>
+    </section>
+    @@include("template/footer.html")
+    
+    <!-- js -->
+    @@loop('template/jslink.html',[
+    {"jslink" : "js/swiper.min.js"},
+    {"jslink" : "https://kit.fontawesome.com/6a6d2775fc.js"},
+    {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"},
+    {"jslink" : "js/jquery.cubeSlider.js"},
+    {"jslink" : "js/ticket_page.js"}
+    ])
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            effect: 'coverflow',
+            grabCursor: true,
+            centeredSlides: true,
+            slidesPerView: 'auto',
+            loop: true,
+            coverflowEffect: {
+                rotate: 50,
+                stretch: 0,
+                depth: 100,
+                modifier: 1,
+                slideShadows: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+            },
+        });
+        let sliderWidth = document.getElementsByClassName('slider_container')[0].offsetWidth;
+        let sliderHeight = document.getElementsByClassName('slider_container')[0].offsetHeight;
+        let facility_slider = document.getElementsByClassName('facility_slider')[0];
+
+        document.getElementsByClassName('slider_container')[0].style.perspective = sliderWidth * 5 + "px";
+        console.log(sliderWidth, "====", sliderHeight);
+        $('.slider_container').polygon({
+
+            // width of the cube slider
+            width: sliderWidth,
+
+            // height of the cube slider
+            height: sliderHeight,
+
+            // autoplay interval
+            timer: false,
+        });
+    </script>
+</body>
+
+</html>

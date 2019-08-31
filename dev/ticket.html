@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ticket_page</title>
+    
+    <!-- css -->
+    @@loop('template/csslink.html',[
+    {"csslink" : "css/style.css"}
+    ])
+
+</head>
+<body class="ticket_page">
+
+    <header class="header_navbar">
+        @@include("template/header.html")
+    </header>
+
+    <h2 class="page_title">線上購票</h2>
+    <section class="ticket_customize_scetion container">
+        @@include("template/ticket_section.html") 
+    </section>
+    <!-- 樂園活動消息 -->
+    <section class="ticket_news_section container">
+        <div class="section_title">最新消息</div>
+        <div class="ticket_news_wrap">
+            <ul class="ticket_news_box">
+                <li class="ticket_news_box_list">
+                    <span class="triangle"></span>8/18-8/24 : 樂園挑戰
+                </li>
+                <li class="ticket_news_box_list">
+                    <span class="triangle"></span>8/18-8/24 : 樂園挑戰
+                </li>
+                <li class="ticket_news_box_list">
+                    <span class="triangle"></span>8/18-8/24 : 樂園挑戰
+                </li>
+                <li class="ticket_news_box_list">
+                    <span class="triangle"></span>8/18-8/24 : 樂園挑戰
+                </li>
+                <li class="ticket_news_box_list">
+                    <span class="triangle"></span>8/18-8/24 : 樂園挑戰
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- js -->
+    @@loop('template/jslink.html',[
+    {"jslink" : "https://kit.fontawesome.com/6a6d2775fc.js"},
+    {"jslink" : "js/ticket_page.js"}
+    ])
+
+</body>
+</html>

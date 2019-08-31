@@ -1,0 +1,245 @@
+.section_Podium{
+    .Podium_welcome{
+        background-image: url("../images/mixin/page_title.svg");
+        background-size: cover;
+        width: 30%;
+        min-width: 300px;
+        padding: 1% 5%;
+        margin:0  auto;
+        text-align: center;
+        img{
+            width: 100%;
+            min-width: 200px;
+        }
+        @include rwd(phone) {
+            margin:0  auto 20%;
+        }
+    }
+    .Podium_winner{
+        width: 55%;
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        .winner_people{
+            width: 10px;
+            &:nth-child(1){
+                flex-grow: 1;
+            }
+            &:nth-child(2){
+                flex-grow: 2;
+            }
+            &:nth-child(3){
+                flex-grow: 3;
+            }
+            &:nth-child(4){
+                flex-grow: 4;
+            }
+            img:nth-child(1){
+                position: relative;
+                z-index: 1;
+                margin-bottom: -20%;
+            }
+        }
+        img{
+            width: 100%;
+        }
+        @include rwd(phone) {
+            width: 90%;
+        }
+    }
+    .winner_teammate{
+        width: 50%;
+        max-width: 1200px;
+        margin:-5% auto 0;
+        display: flex;
+        overflow: hidden;
+        vertical-align: middle;
+        box-sizing: border-box;
+        @include rwd(phone){
+            padding-right: 10%;
+            width: 95%;
+        }
+        .teammate_post{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 1%;
+            padding: 1%;
+            background-image: url("../images/index/wanted.png");
+            background-size: 100% 100%;
+            background-position: center;
+            position: relative;
+            .ticket_img{
+                text-align: center;
+            }
+            img{
+                width: 80%;
+            }
+            .ticket_team{
+                p{
+                    font-size: 16px;
+                }
+                background-image: url("../images/ticket/ticket_board.png");
+                background-size: cover;
+                width: 70%;
+                text-align: center;
+                margin-top: -25px;
+                padding: 5px;
+            }
+            .ticket_mascot{
+                position: absolute;
+                right: 0%;
+                bottom: 25%;
+                width: 30%;
+            }
+        }
+    }
+}
+.section_facility{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 95%;
+    margin: auto;
+    padding-top: 80px;
+    margin: auto;
+    .title_box{
+        width: 100%;
+    }
+    .facility_slider{
+        width: 60%;
+        padding-bottom: 40%;
+        position: relative;
+        .slider_container>li {
+            float: left;
+            list-style-type: none;
+            position: absolute;
+            background-color: rgba(184, 124, 11, 0.219);
+            transition-property: all;
+            transition-duration: 1s;
+            transition-timing-function: ease-in-out;
+            text-align: center;
+            color: #fff;
+            cursor: pointer;
+            overflow: hidden;
+            backface-visibility: hidden;
+        }
+
+        .slider_container {
+            width: 40%;
+            height: 60%;
+            bottom: 0;
+            top: 0;
+            right: 0;
+            left: 0;
+            margin:auto;
+            transform-style: preserve-3d;
+            perspective: 5000px;
+            // perspective-origin: center -250px;
+            position: absolute;
+        }
+
+        .slider_container>li>div {
+            // position: absolute;
+            // top: 10px;
+            // right: 10px;
+            // left: 10px;
+            // bottom: 10px;
+            padding: 10px;
+            .slider_img{
+                position: relative;
+                height: 50%;
+                text-align: center;
+                >img{
+                    width: 70%;
+                }
+                .slider_star{
+                    position: absolute;
+                    left: 5px;
+                    top: 5px;
+                    img{
+                        vertical-align: middle;
+                    }
+                }
+            }
+            .slider_text{
+                height: 50%;
+                text-align: left;
+                background-image: url();
+                img{
+                    width: 10%;
+                }
+                .slider_member{
+                    display: flex;
+                    .slider_memberimg{
+                        width: 30%;
+                        position: relative;
+                        img{
+                            width: 80%;
+                            position: absolute;
+                            left: 0;
+                            right: 0;
+                            margin: auto;
+                        }
+                    }
+                    p{
+                        width: 70%;
+                    }
+                }
+            }
+        }
+    }
+    .facility_rule{
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        ol{
+            width: 100%;
+            padding: 10px;
+            list-style: decimal;
+        }
+        @include rwd(desktop){
+            padding-right: 10%;
+        }
+    }
+    @include rwd(phone) {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        overflow: hidden;
+        .facility_slider{
+            width:95%;
+            padding-bottom: 130%;
+            .slider_container{
+                width: 80%;
+            }
+        }
+    }
+}
+.section_store{
+    width: 100%;
+    overflow: hidden;
+    .swiper-container {
+        width: 95%;
+        margin: auto;
+        padding-top: 50px;  
+        padding-bottom: 50px;
+    }
+
+    .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 300px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .store_btn{
+        @include btn_active;
+        margin: 20px;
+    }
+}

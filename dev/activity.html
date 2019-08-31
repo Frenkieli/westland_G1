@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- css -->
+    @@loop('template/csslink.html',[
+    {"csslink" : "https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css"},
+    {"csslink" : "css/style.css"},
+    {"csslink" : "css/day.css"}
+    ])
+
+</head>
+
+<body> 
+    <header class="header_navbar">
+    @@include("template/header.html")
+    </header>
+
+
+    <section>
+        <!-- --------月曆的------ -->
+        <!-- 標題:木板 -->
+        <div class="wood_title page_title">
+            活動專區
+        </div>
+        <!-- 標題:頁面 -->
+        <div class="calendar_title section_title">
+           月曆查詢
+        </div>
+        <!-- 月曆開始 -->
+        <div class="wrapper">
+            <div class="calendar_wood">
+                <div id="calendari"></div>
+            </div>
+            
+          </div>
+          <script src="js/day.js"></script>
+    
+          <!-- 月曆結束 -->
+
+    </section>
+    
+       
+        <!-- ------活動公告-------- -->
+        <section class="activitypages">
+
+            <div class="activity_title section_title">活動公告</div>
+        <div class="newswrap">
+                    <!-- 篩選器 -->
+            <div class="selectpart">
+                <div class="select_group">
+                    <div class="select_frame">
+                        <h3 >篩選條件:</h3>
+                        <div class="noshow filter-active">
+                            <button type="button" class="select_btn" id="all">All</button>
+                        </div>
+                        <div class="noshow">
+                            <button type="button" class="select_btn" id="newgroup">活動資訊</button>
+                        </div>
+                        <div class="noshow">
+                            <button type="button" class="select_btn" id="park">一般資訊</button>
+                        </div>
+
+                            <!-- 手機的篩選器 -->
+                        <div class="select_phone">
+                            <select>
+                                <option>All</option>
+                                <option>活動資訊</option>
+                                <option>一般資訊</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+            </div>   <!-- 篩選結束 -->
+            <!-- 活動內容 -->
+            <div class="activity_frame">
+                <div class="activity_content">
+                    <div class="activity_part">
+                        <div class="activity_pic">
+                            <img src="images/member/pic01.jpg" alt="活動照片">
+                        </div>
+                        <div class="activity_text">
+                            <h4>活動資訊</h4>
+                            <hr>
+                            <p >2019/09/09</p>
+                            <p>  
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt quo tenetur, veniam dolorem rem qui earum ad optio magnam repellat rerum nemo illo a saepe aperiam veritatis ullam similique reprehenderit?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="activity_content">
+                        <div class="activity_part">
+                            <div class="activity_pic">
+                                <img src="images/member/pic01.jpg" alt="活動照片">
+                            </div>
+                            <div class="activity_text">
+                                <h4>一般資訊</h4>
+                                <hr>
+                                <p >2019/09/09</p>
+                                <p>  
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt quo tenetur, veniam dolorem rem qui earum ad optio magnam repellat rerum nemo illo a saepe aperiam veritatis ullam similique reprehenderit?
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>    
+    @@include("template/footer.html")
+
+    <!-- js -->
+    @@loop('template/jslink.html',[
+    {"jslink" : "js/canlendar.js"}
+    ])
+</body>
+
+</html>

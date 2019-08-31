@@ -1,0 +1,113 @@
+.font {
+    font-family: 'Noto Sans TC', sans-serif;
+}
+
+@include rwd(phone) {
+    .section_rides_DetailedIntroduction {
+        .page_title {
+            background-size: 20%;
+            font-size: 10%;
+        }
+        padding-top: 200px;
+        margin: auto;
+        max-width: 1000px;
+        margin-bottom: 200px;
+    }
+    .section_messageBoard {
+        .page_title {
+            background-size: 20%;
+            font-size: 10%;
+        }
+        .message_container {
+            display: flex;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            .who {
+                flex-grow: 1;
+            }
+            #status {
+                display: none;
+            }
+            margin: 50px;
+            // #messages{
+            //由他自然生成
+            // }
+            #messagesBox {
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .buttonControl {
+                    flex-grow: 2;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    button {
+                        @include btn();
+                    }
+                }
+                #message {
+                    margin: auto;
+                    width: 80%;
+                    flex-grow: 2;
+                }
+            }
+        }
+    }
+}
+
+@include rwd(desktop) {
+    .section_rides_DetailedIntroduction {
+        .page_title {
+            background-size: 20%;
+        }
+        padding-top: 200px;
+        margin: auto;
+        max-width: 1200px;
+        margin-bottom: 200px;
+    }
+    .section_messageBoard {
+        max-width: 1200px;
+        margin: 200px auto 200px auto;
+        .page_title {
+            background-size: 20%;
+        }
+        .message_container {
+            display: flex;
+            width: 80%;
+            margin: auto;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            margin-bottom: 50px;
+            .who {
+                flex-grow: 2;
+            }
+            #status {
+                display: none;
+            }
+            // #messages{
+            //由他自然生成
+            // }
+            #messagesBox {
+                flex-grow: 8;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .buttonControl {
+                    flex-grow: 1;
+                    button {
+                        @include btn();
+                        font-family: 'Noto Sans TC', sans-serif;
+                    }
+                }
+                #message {
+                    background-color: #fff;
+                    margin: 5%;
+                    width: 80%;
+                    flex-grow: 5;
+                    font-family: 'Noto Sans TC', sans-serif;
+                }
+            }
+        }
+    }
+}

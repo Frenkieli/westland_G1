@@ -1,0 +1,70 @@
+@import 'base/reset';
+@import 'base/var';
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,400,500,700|Noto+Sans:400,700&display=swap');
+
+// @import 'base/reboot';  
+@import 'mixins/mixin';
+// @import 'animation/animation';
+// owl.carousel.min.css
+@import "pages/theme.default";
+
+
+// @import 'layout/grid';
+@import 'layout/header';
+@import 'layout/footer';
+
+@import 'pages/home';
+@import 'pages/activity'; 
+@import 'pages/team';
+@import 'pages/ticket';
+@import 'pages/information';
+@import 'pages/information_inner_page';
+@import 'pages/items';
+@import 'pages/item';
+@import 'pages/shopcar';
+@import 'pages/member';
+@import 'pages/member_center';
+@import 'pages/gameplay';
+@import 'pages/backend';
+// ==========================================
+h1,h2,h3,h4,h5,h6,p,a,span,div,ul,li{
+    font-family: "Noto Sans TC" , 'Noto Sans';
+}
+
+.container{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    // margin: 0 auto 50px;
+}
+
+.btn{
+    @include btn
+}
+.btn--active{
+    @include btn_active
+}
+.center{
+    margin: 0 auto;
+}
+
+
+
+// ==================RWD======================
+@include rwd(desktop){
+    .section_title{
+        @include section_title;
+    }
+    .page_title{
+        @include page_title;
+    }
+}
+
+@include rwd(phone){
+    .section_title{
+        @include section_titleM;
+    }
+    .page_title{
+        @include page_titleM;
+    }
+}
