@@ -13,52 +13,13 @@
     {"csslink" : "css/style.css"}
     ])
     
-     <!-- =======以下為背景嘗試 -->
-    <style>
-        
-        .header_navbar{
-            background-image: url("images/index/home_bg_first_2.png");
-            background-size: cover;
-        }
-        .section_facility{
-            background-image: url("images/index/home_bg_2.png");
-            background-size: cover;
-            width: 100%;
-            background-position: 50% 100%;
-            background-repeat: no-repeat;
-        }
-        .team{
-            background-image: url("images/index/home_bg_3.png");
-            background-size: cover;
-            width: 100%;
-            background-position: 50% 100%;
-            background-repeat: no-repeat;
-        }
-        .ticket_customize_scetion{
-            background-image: url("images/index/home_bg_4.png");
-            background-size: cover;
-            width: 100%;
-            background-position: 50% 100%;
-            background-repeat: no-repeat;
-        }
-        .section_store{
-            background-image: url("images/index/home_bg_3.png");
-            background-size: cover;
-            width: 100%;
-            background-position: 50% 100%;
-            background-repeat: no-repeat;
-        }
-    </style>
-
-     <!-- =======以上為背景嘗試 -->
 </head>
 
 <body>
-    <header class="header_navbar">
+    <header class="header_navbar index_navbar">
         @@include("template/header.html")
-        <!-- =======以下為背景嘗試 -->
         <div class="section_Podium">
-            <div class="Podium_welcome"><img src="images/index/welcome.png" alt="歡迎光臨"></div>
+            <div class="Podium_welcome"><img src="images/index/welcome_3.png" alt="歡迎光臨"></div>
             <div class="Podium_winner">
                 <div class="winner_people">
                     <img src="images/robot/robot.png" alt="">
@@ -145,7 +106,6 @@
                 </div>
             </div>
         </div>
-        <!-- =======以上為背景嘗試 -->
     </header>
 
     <section class="section_facility">
@@ -268,28 +228,26 @@
 
         <div class="facility_rule">
             <div class="facility_ruleol">
-                <p>園區規則</p>
+                <p>獲取賞金方法</p>
                 <ol>
-                    <li>Lorem, ipsum.</li>
-                    <li>Lorem, ipsum.</li>
-                    <li>Lorem, ipsum.</li>
-                    <li>Lorem, ipsum.</li>
-                    <li>Lorem, ipsum.</li>
-                    <li>Lorem, ipsum.</li>
-                    <li>Lorem, ipsum.</li>
-                    <li>Lorem, ipsum.</li>
+                    <li>快速加入會員</li>
+                    <li>客製專屬吉祥物和門票</li>
+                    <li>掃描QRcode進入樂園</li>
+                    <li>掃瞄遊玩設施QRcode並完成經典任務->賺取賞金</li>
+                    <li>隊伍賞金前四名，榮登首頁</li>
+                    <li>賞金轉換為購物金->購買商品</li>
                 </ol>
             </div>
         </div>
 
     </section>
 
-    <section class="team">
+    <section class="team index_team">
         <div class="container">
-            <h2 class="team_title section_title">最新團隊</h2>
+            <h3 class="section_title">最新團隊</h3>
             <div class="team_bulletin_board">
-                <div class="img">
-                    <img src="images/team/Canopy.png" alt="揪團遮雨棚">
+                <div class="img_Canopy">
+                    <img src="images/team/做伙揪團＿0825_O-01.png" alt="揪團遮雨棚">
                 </div>
                 <div class="team_container">
                     <div class="team_container_list">
@@ -371,19 +329,22 @@
                                 </div>
                             </div>
                         </div>
-                        </div>
+                        
                     </div>
                 </div>
-                <!-- <img src="images/team/bulletin_board.svg" alt="揪團布告欄"> -->
+                <div class="img_Wooden_pile">
+                    <img src="images/team/做伙揪團＿0825_O-03.png" alt="">
+                </div>
+            </div>
             </div>
         </div>
     </section>
 
 
 
-    <section class="ticket_customize_scetion">
+    <section class="ticket_customize_scetion index_ticket_customize">
         <div class="container">
-            @@include("template/ticket_section.html") 
+            @@include("template/ticket_section.html")
         </div>
     </section>
 
@@ -451,6 +412,12 @@
     </section>
     @@include("template/footer.html")
     
+    <style>
+        .section_footer{
+            margin-top: -87px;
+        }
+    </style>
+
     <!-- js -->
     @@loop('template/jslink.html',[
     {"jslink" : "js/swiper.min.js"},

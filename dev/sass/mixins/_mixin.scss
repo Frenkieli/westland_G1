@@ -199,7 +199,7 @@
 
 // pageM
 @mixin page_titleM {
-    background-image: url(../../images/mixin/page_titleM.svg);
+    background-image: url("../images/mixin/page_titleM.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -217,7 +217,7 @@
 
 // section
 @mixin section_title {
-    background-image: url(../../images/mixin/section_title.svg);
+    background-image: url("../images/mixin/section_title.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
@@ -232,7 +232,7 @@
 
 // sectionM
 @mixin section_titleM {
-    background-image: url(../../images/mixin/section_titleM.svg);
+    background-image: url("../images/mixin/section_titleM.svg");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
