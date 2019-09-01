@@ -1,6 +1,19 @@
 ///////////////////
 //  會員登錄     //
 //////////////////
+@include rwd(desktop){
+    .member_page{
+        background-image: url("../images/background/home_bgi_1.png");
+        background-size: cover;
+    }
+}
+@include rwd(phone){
+    .member_page{
+        background-image: url("../images/background/home_bgiM_1.jpg");
+        background-size: cover;
+    }
+}
+
 section{
     margin: auto;
 }

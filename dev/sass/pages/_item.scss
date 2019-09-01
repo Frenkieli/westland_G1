@@ -85,12 +85,6 @@
 
 
 @include rwd(desktop){
-    // 背景圖
-    .item_page{
-        background-image: url("/images/background/page_bgi-01.svg");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
     // 麵包屑
     .item_bread_crumbs{
         li{
@@ -157,11 +151,6 @@
 
 
 @include rwd(phone){
-    .item_page{
-        background-image: url("/images/background/bgiM.svg");
-        background-repeat: no-repeat;
-        background-size: cover;
-    }
     .item_intro_wrap{
         width: 90%;
     }

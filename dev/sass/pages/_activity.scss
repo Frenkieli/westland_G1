@@ -77,18 +77,18 @@
 
 
 @media (max-width: 767px){
-   .noshow {
-    display: none; 
+    .noshow {
+        display: none; 
     }
     .select_btn{
         display: none;
-      }
+    }
 }
-  @media all and (min-width: 768px) {
+@media all and (min-width: 768px) {
     .select_phone {
       display: none;
     }
-  }
+}
 
 ///////////////////////////////////
 //       活動內容               //

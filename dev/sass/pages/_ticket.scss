@@ -206,10 +206,6 @@
     .ticket_customize_wrap{
         margin: 0 20px;
     }
-    .ticket_page{
-        background-image: url("../images/background/page_bgi-01.svg");
-        background-size: cover;
-    }
     .ticket_customize{
         justify-content: center;
         .ticket_customize_wrap{
@@ -305,10 +301,6 @@
 
 //==============================
 @include rwd(phone){
-    .ticket_page{
-        background-image: url("../images/background/bgiM.svg");
-        background-size: cover;
-    }
     .ticket_customize{
         flex-direction: column;
     }

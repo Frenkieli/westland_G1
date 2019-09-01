@@ -21,7 +21,7 @@
 @import 'pages/information_inner_page';
 @import 'pages/items';
 @import 'pages/item';
-@import 'pages/shopcar';
+@import 'pages/shoppingCart';
 @import 'pages/member';
 @import 'pages/member_center';
 @import 'pages/gameplay';
@@ -48,7 +48,18 @@ h1,h2,h3,h4,h5,h6,p,a,span,div,ul,li{
     margin: 0 auto;
 }
 
-
+@include rwd(desktop){
+    .shoppingCart_page,.activity_page,.gameplay_page,.information_inner_page,.information_page,.item_page,.items_page,.member_page,.memberLocation_page,.shoppingCart_page,.team_page,.ticket_page{
+        background-image: url("../images/background/home_bgi_1.png");
+        background-size: cover;
+    }
+}
+@include rwd(phone){
+    .shoppingCart_page,.activity_page,.gameplay_page,.information_inner_page,.information_page,.item_page,.items_page,.member_page,.memberLocation_page,.shoppingCart_page,.team_page,.ticket_page{
+        background-image: url("../images/background/home_bgiM_1.jpg");
+        background-size: cover;
+    }
+}
 
 // ==================RWD======================
 @include rwd(desktop){
