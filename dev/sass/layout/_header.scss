@@ -1,5 +1,5 @@
 .header_navbar{
-    position: fixed;
+    position: relative;
     width: 100%;
     a{
         text-decoration: none;
@@ -80,7 +80,7 @@
             margin: 0 auto 40px;
             a{
                 position: relative;
-                z-index: 10;
+                z-index: 99;
             }
         }
         #logo{
@@ -95,7 +95,7 @@
             width: 100%;
             top: -425px;
             transition: 0.5s 0.3s;
-            z-index: 4;
+            z-index: 9;
         }
         .navbar_container_list img{
             width: 100%;

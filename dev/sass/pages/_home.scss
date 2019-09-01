@@ -1,21 +1,32 @@
 .index_navbar{
-    background-image: url("../images/index/home_bg_first_2.png");
-    background-size: cover;
+    @include rwd(desktop){
+        background-image: url("../images/index/home_bg_first_2.png");
+        background-size: cover;
+    }
+    @include rwd(phone){
+        background-image: url("../images/index/homeM_bg_first_3.jpg");
+        background-size: cover;
+        background-position: bottom;
+    }
+    
 }
+
 .section_Podium{
     .Podium_welcome{
         background-image: url("../images/mixin/page_title.svg");
         background-size: cover;
         width: 30%;
-        min-width: 300px;
-        padding: 1% 5%;
-        margin:0  auto;
+        max-width: 300px;
+        padding: 1.4% 5%;
+        margin: 0 auto;
         text-align: center;
         img{
             width: 100%;
             min-width: 200px;
         }
         @include rwd(phone) {
+            background-size: 100% 100%;
+            width: 80%;
             margin:0  auto 20%;
         }
     }
@@ -106,10 +117,17 @@
     flex-wrap: wrap;
     margin: auto;
     padding-top: 80px;
-    background-image: url("../images/index/home_bg_2.png");
-    width: 100%;
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
+//===
+    @include rwd(desktop){
+        background-image: url("../images/index/home_bg_2.png");
+        background-repeat: no-repeat;
+        width: 100%;
+        background-size: 100% 100%;
+    }
+    @include rwd(phone){
+        background-image: url("../images/index/homeM_bg_3.jpg");
+    }
+//===
     .title_box{
         width: 100%;
     }
@@ -230,29 +248,52 @@
     .section_title{
         margin: 0 auto 0;
     }
-    background-image: url("../images/index/home_bg_3.png");
-    background-size: 100% 100%;
-    width: 100%;
-    background-position: 30% 100%;
-    background-repeat: no-repeat;
+//===
+    @include rwd(desktop){
+        background-image: url("../images/index/home_bg_3_1.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width: 100%;
+        background-position: 30% 100%;
+    }
+    @include rwd(phone){
+        background-image: url("../images/index/homeM_bg_2.png");
+        // background-size: 150%;
+    }
+//===
     .img_Wooden_pile img{
         width: 100%;
     }
 }
 .index_ticket_customize{
-    background-image: url("../images/index/home_bg_4.png");
-    background-size: 100% 100%;
-    width: 100%;
-    background-position: 50% 100%;
-    background-repeat: no-repeat;
+    //===
+    @include rwd(desktop){
+        background-image: url("../images/index/home_bg_4.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width: 100%;
+        background-position: 50% 100%;
+    }
+    @include rwd(phone){
+        background-image: url("../images/index/homeM_bg_2.png");
+    }
+    //===
 }
 .section_store{
     width: 100%;
     overflow: hidden;
-    background-image: url("../images/index/home_bg_3.png");
-    background-size: 100% 100%;
-    background-position: 50% 100%;
-    background-repeat: no-repeat;
+    //===
+    @include rwd(desktop){
+        background-image: url("../images/index/home_bg_3_1.png");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: 50% 100%;
+    }
+    @include rwd(phone){
+        background-image: url("../images/index/homeM_bg_2.png");
+        background-position: center;
+    }
+    //===
     padding-bottom: 87px;
     .swiper-container {
         width: 95%;
