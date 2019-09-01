@@ -108,12 +108,12 @@
         }
     }
 
-    // .section_camera,
-    // .section_mission,
-    // .page_title,
-    // .playticket_title {
-    //     display: none;
-    // }
+    .section_camera,
+    .section_mission,
+    .play_title,
+    .playticket_title {
+        display: none;
+    }
 
     .section_playticket {
         position: fixed;
