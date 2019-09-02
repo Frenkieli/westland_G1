@@ -1,4 +1,13 @@
 .header_navbar{
+    .navbar_fixed{
+        z-index: 999;
+        position: fixed;
+        width: 100%;
+        // padding-bottom: 170px;
+    }
+    .nav_space{
+        height: 170px;
+    }
     position: relative;
     width: 100%;
     a{
@@ -22,6 +31,9 @@
         }
     }
     @include rwd(phone) {
+        .nav_space{
+            height: 127px;
+        }
         .navbar_cloud,.forcomputerdemo{
             display: none;
         }
