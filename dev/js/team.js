@@ -1,4 +1,3 @@
-
 function $id(id) {
     return document.getElementById(id);
 }
@@ -82,6 +81,24 @@ function create() {
 }
 
 window.addEventListener("load", function () {
+    $('.owl-carousel').owlCarousel({
+        loop: true,
+        margin: 100,
+        nav: true,
+        // dots: true,
+        dotsEach: true,
+        responsive: {
+            0: {
+                items: 1
+            },
+            600: {
+                items: 1
+            },
+            1000: {
+                items: 1
+            }
+        }
+    })
     $id("team_join").addEventListener("click", join, false);
     $id("team_joined").addEventListener("click", joined, false);
     $id("team_create").addEventListener("click", create, false);
