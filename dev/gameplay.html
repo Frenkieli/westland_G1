@@ -11,7 +11,7 @@
     @@loop('template/csslink.html',[
     {"csslink" : "css/style.css"}
     ])
-     
+
 </head>
 
 <body class="gameplay_page">
@@ -19,7 +19,7 @@
         @@include("template/header.html")
     </header>
 
-    <h2 class="page_title">遊玩設施</h2>
+    <h2 class="page_title play_title">遊玩設施</h2>
     <section class="section_playticket">
         <h3 class="playticket_title">
             <p> 您的客製門票</p>
@@ -56,57 +56,75 @@
         <div class="demo_container">
             <div class="demo_facility">
                 <div class="demo_scan">
-                    <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+A">
+                    <p>入口</p>
+                    <p id="QRcode0"></p>
                     <div class="btn">掃描</div>
                 </div>
+                <div class="demo_text"><p>這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p></div>
             </div>
             <div class="demo_facility">
                 <div class="demo_scan">
-                    <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+B">
+                    <p>設施一</p>
+                    <p id="QRcode1"></p>
                     <div class="btn">掃描</div>
                 </div>
+                <div class="demo_text"><p>這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p></div>
             </div>
             <div class="demo_facility">
                 <div class="demo_scan">
-                    <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+C">
+                    <p>設施二</p>
+                    <p id="QRcode2"></p>
                     <div class="btn">掃描</div>
                 </div>
+                <div class="demo_text"><p>這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p></div>
             </div>
             <div class="demo_facility">
                 <div class="demo_scan">
-                    <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+D">
+                    <p>設施三</p>
+                    <p id="QRcode3"></p>
                     <div class="btn">掃描</div>
                 </div>
+                <div class="demo_text"><p>這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p></div>
             </div>
             <div class="demo_facility">
                 <div class="demo_scan">
-                    <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+E">
+                    <p>商店</p>
+                    <p id="QRcode4"></p>
                     <div class="btn">掃描</div>
                 </div>
+                <div class="demo_text"><p>這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p></div>
             </div>
             <div class="demo_facility">
                 <div class="demo_scan">
-                    <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+F">
+                    <p>設施四</p>
+                    <p id="QRcode5"></p>
                     <div class="btn">掃描</div>
                 </div>
+                <div class="demo_text"><p>這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p></div>
             </div>
             <div class="demo_facility">
                 <div class="demo_scan">
-                    <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+G">
+                    <p>設施五</p>
+                    <p id="QRcode6"></p>
                     <div class="btn">掃描</div>
                 </div>
+                <div class="demo_text"><p>這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p></div>
             </div>
             <div class="demo_facility">
                 <div class="demo_scan">
-                    <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+H">
+                    <p>設施六</p>
+                    <p id="QRcode7"></p>
                     <div class="btn">掃描</div>
                 </div>
+                <div class="demo_text"><p>這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p></div>
             </div>
             <div class="demo_facility">
                 <div class="demo_scan">
-                    <img src="https://api.fnkr.net/testimg/350x200/00CED1/FFF/?text=img+I">
+                    <p>出口</p>
+                    <p id="QRcode8"></p>
                     <div class="btn">掃描</div>
                 </div>
+                <div class="demo_text"><p>這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p></div>
             </div>
         </div>
         <div class="demo_arrow demo_toparrow"><img src="images/arrow/top.png" alt=""></div>
@@ -137,11 +155,36 @@
     </section>
     @@include("template/footer.html")
 
+
+
     <!-- js -->
     @@loop('template/jslink.html',[
-    {"jslink" : "js/instascan.min.js"}
+    {"jslink" : "js/instascan.min.js"},
+    {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"},
+    {"jslink" : "js/jquery-qrcode-0.17.0.min.js"}
     ])
 
+
+    <!-- 產生QRcode -->
+    <script>
+        $(document).ready(function () {
+            let array = ['e0000000001', 'f0000000001', 'f0000000002', 'f0000000003', 'e0000000002', 'f0000000004', 'f0000000005', 'f0000000006', 'e0000000003'];
+            for (let i = 0; i < 9; i++) {
+                theURL = array[i];
+                // qrcodes[i].text(array[i]);
+                $(`#QRcode${i}`).qrcode({
+                    text: theURL,
+                    size: 200,
+                    fill: '#000',
+                    background: '#fff',
+                    // mode: 2,
+                    // label: 'silvia.com',
+                    // fontname: 'Tahoma',
+                    // fontcolor: 'red',
+                });
+            }
+        });
+    </script>
     <script type="text/javascript">
         ;
         let check = false;
@@ -201,10 +244,10 @@
         demo_toparrow.addEventListener('click', moveTop, false);
         demo_bottom.addEventListener('click', moveBottom, false);
 
-        document.addEventListener('keydown',keyMove,false);
+        document.addEventListener('keydown', keyMove, false);
 
-        function keyMove(e){
-            
+        function keyMove(e) {
+            console.log();
         };
 
         function moveRight(e) {

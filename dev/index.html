@@ -12,7 +12,7 @@
     {"csslink" : "css/swiper.min.css"},
     {"csslink" : "css/style.css"}
     ])
-    
+
 </head>
 
 <body>
@@ -329,14 +329,17 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
+
                 </div>
                 <div class="img_Wooden_pile">
                     <img src="images/team/做伙揪團＿0825_O-03.png" alt="">
                 </div>
             </div>
-            </div>
+        </div>
+        <!-- <img src="images/team/bulletin_board.svg" alt="揪團布告欄"> -->
+        </div>
         </div>
     </section>
 
@@ -411,57 +414,57 @@
         </div>
     </section>
     @@include("template/footer.html")
-    
-    <style>
-        .section_footer{
-            margin-top: -87px;
-        }
-    </style>
+    <<<<<<< HEAD=======>>>>>>> DonkeyVer2
+        <style>
+            .section_footer {
+                margin-top: -87px;
+            }
+        </style>
+        <<<<<<< HEAD=======>>>>>>> DonkeyVer2
+            <!-- js -->
+            @@loop('template/jslink.html',[
+            {"jslink" : "js/swiper.min.js"},
+            {"jslink" : "https://kit.fontawesome.com/6a6d2775fc.js"},
+            {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"},
+            {"jslink" : "js/jquery.cubeSlider.js"},
+            {"jslink" : "js/ticket_page.js"}
+            ])
+            <script>
+                var swiper = new Swiper('.swiper-container', {
+                    effect: 'coverflow',
+                    grabCursor: true,
+                    centeredSlides: true,
+                    slidesPerView: 'auto',
+                    loop: true,
+                    coverflowEffect: {
+                        rotate: 50,
+                        stretch: 0,
+                        depth: 100,
+                        modifier: 1,
+                        slideShadows: false,
+                    },
+                    pagination: {
+                        el: '.swiper-pagination',
+                    },
+                });
+                let sliderWidth = document.getElementsByClassName('slider_container')[0].offsetWidth;
+                let sliderHeight = document.getElementsByClassName('slider_container')[0].offsetHeight;
+                let facility_slider = document.getElementsByClassName('facility_slider')[0];
 
-    <!-- js -->
-    @@loop('template/jslink.html',[
-    {"jslink" : "js/swiper.min.js"},
-    {"jslink" : "https://kit.fontawesome.com/6a6d2775fc.js"},
-    {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"},
-    {"jslink" : "js/jquery.cubeSlider.js"},
-    {"jslink" : "js/ticket_page.js"}
-    ])
-    <script>
-        var swiper = new Swiper('.swiper-container', {
-            effect: 'coverflow',
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: 'auto',
-            loop: true,
-            coverflowEffect: {
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-            },
-        });
-        let sliderWidth = document.getElementsByClassName('slider_container')[0].offsetWidth;
-        let sliderHeight = document.getElementsByClassName('slider_container')[0].offsetHeight;
-        let facility_slider = document.getElementsByClassName('facility_slider')[0];
+                document.getElementsByClassName('slider_container')[0].style.perspective = sliderWidth * 5 + "px";
+                console.log(sliderWidth, "====", sliderHeight);
+                $('.slider_container').polygon({
 
-        document.getElementsByClassName('slider_container')[0].style.perspective = sliderWidth * 5 + "px";
-        console.log(sliderWidth, "====", sliderHeight);
-        $('.slider_container').polygon({
+                    // width of the cube slider
+                    width: sliderWidth,
 
-            // width of the cube slider
-            width: sliderWidth,
+                    // height of the cube slider
+                    height: sliderHeight,
 
-            // height of the cube slider
-            height: sliderHeight,
-
-            // autoplay interval
-            timer: false,
-        });
-    </script>
+                    // autoplay interval
+                    timer: false,
+                });
+            </script>
 </body>
 
 </html>
