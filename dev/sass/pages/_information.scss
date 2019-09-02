@@ -223,6 +223,32 @@
                                 height: 370px;
                                 margin-top: -45%;
                                 margin-left: -35%;
+                                &:first-child{
+                                &:hover {
+                                    animation:jump 2s ease-in-out infinite;
+                                    @keyframes jump {
+                                        0% {
+                                            transform: translateX(0%) translateY(0%);
+                                            filter:drop-shadow(12px 12px 3px rgba(0, 0, 0, 0.7));      
+                                        }
+                                        25% {
+                                            transform: translateX(-5%) translateY(-5%) rotate(-5deg);
+                                            filter:drop-shadow(24px 24px 7px rgba(0,0,0,0.6));      
+                                        }
+                                        50% {
+                                            transform: translateX(0%) translateY(10%);
+                                            filter:drop-shadow(48px 48px 10px rgba(0,0,0,0.5));      
+                                        }
+                                        75% {
+                                            transform: translateX(5%) translateY(-2%) rotate(5deg);
+                                            filter:drop-shadow(24px 24px 7px rgba(0,0,0,0.6));  
+                                        }
+                                        100% {
+                                            filter:drop-shadow(12px 12px 3px rgba(0,0,0,0.7));     
+                                        }
+                                    }
+                                    }
+                                }
                             }
                             .plot {
                                 z-index: -3;
@@ -252,6 +278,28 @@
                     background-repeat: no-repeat;
                     background-position: center;
                     background-size: 1300px;
+                    &:hover{
+                        .mascot{
+                            animation:winnermove 1s ease-in-out infinite;
+                            @keyframes winnermove {
+                                0% {
+                                    transform: translateX(0%) translateY(0%);
+                                }
+                                25% {
+                                    transform: translateX(-5%) translateY(-2%) rotate(-5deg);
+                                }
+                                50% {
+                                    transform: translateX(0%) translateY(0%);
+                                }
+                                75% {
+                                    transform: translateX(5%) translateY(-2%) rotate(5deg);
+                                }
+                                100% {
+                                    transform: translateX(0%) translateY(0%);
+                                }
+                            }
+                        }
+                    }
                 }
                 &:nth-child(2) {
                     margin: auto;
@@ -288,11 +336,35 @@
                     }
                     .park1 {
                         margin-top: 20px;
-                        margin-right: 300px;
+                        margin-right: 15000px;
+                        animation:float 2s ease-in-out infinite;
+                        @keyframes float{
+                            0%{
+                               transform:perspective(500px)rotatey(10deg);
+                            }
+                            50%{
+                               transform:perspective(500px)rotatey(0deg);
+                            }
+                            100%{
+                               transform:perspective(500px)rotatey(10deg);
+                            }
+                         }
                     }
                     .park2 {
                         margin-top: -300px;
-                        margin-right: -390px;
+                        margin-right: -350px;
+                        animation:float 2s ease-in-out infinite;
+                        @keyframes float{
+                            0%{
+                               transform:perspective(500px)rotatey(0deg);
+                            }
+                            50%{
+                               transform:perspective(500px)rotatey(10deg);
+                            }
+                            100%{
+                               transform:perspective(500px)rotatey(0deg);
+                            }
+                         }
                     }
                 }
                 .aboutUs_inner {
@@ -305,6 +377,12 @@
                     h4 {
                         text-align: center;
                         padding: 20px;
+                    }
+                    iframe{
+                        background-color:#5a7528cc;
+                        border: 1px solid #5a752825;
+                        border-radius: 25px;
+                        padding: 30px;
                     }
                 }
             }
