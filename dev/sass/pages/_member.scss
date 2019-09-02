@@ -1,203 +1,215 @@
+// display: none;
 ///////////////////
 //  會員登錄     //
 //////////////////
-section{
+section {
     margin: auto;
 }
 
-#lightBox{ //燈箱
-    display: none; 
+#lightBox {
+    //燈箱
+    // display: none;
     width: 100%;
     height: 100vh;
     position: fixed;
+
     // background: rgba(66, 66, 66, 0.6);
-    #loginTable{ //登入區
+    #loginTable {
+        //登入區
+        background-image: url("../../images/member/logincus.png");
+        background-size: cover;
+        background-position: top 5px right 0px;
+        background-repeat: no-repeat;
         position: relative;
-        top:25%;
-        max-width: 300px; 
-        width:60%; 
+        top: 25%;
+        max-width: 300px;
+        width: 60%;
         margin: 0 auto;
         border-radius: 10px;
-        border: 2px solid #5A7529;
+        border: 2px solid #5a7529;
         text-align: center;
         // .login_bg{ //背景
-           
+
         // }
-        .login_box{ //文字大區
-           
-            .login_cancel{ //刪除鈕
+        .login_box {
+            //文字大區
+
+            .login_cancel {
+                //刪除鈕
                 width: 25px;
                 position: absolute;
-                top:0;
+                top: 0;
                 right: 0;
-                   
             }
-            #mem_id{ //帳號
+            #mem_id {
+                //帳號
                 width: 50%;
-                margin: 5% 0 5% 0;
+                margin: 10% 0 0% 0;
                 padding-left: 10px;
                 border-radius: 10px;
                 line-height: 25px;
             }
-            #mem_psw{ //密碼
+            #mem_psw {
+                //密碼
                 width: 50%;
-                margin: 5% 0 5% 0;
+                margin: 10% 0 0% 0;
                 padding-left: 10px;
                 border-radius: 10px;
                 line-height: 25px;
             }
-            .login_forget { // 忘記密碼 
+            .login_forget {
+                // 忘記密碼
                 color: #999;
                 font-size: 12px;
                 display: block;
                 text-align: right;
                 margin-right: 20%;
-            } 
-            .btn{ //按鈕
-                margin: 0;
-            } 
-            h3{
+            }
+            // .btn{ //按鈕
+            //     margin-bottom:20px ;
+            // }
+            h3 {
                 line-height: 40px;
                 padding: 4%;
             }
             //  立即註冊區
-            .smalltext{
+            .smalltext {
                 width: 65%;
                 margin: 1% 0 0 5%;
-                span{ //還不是會員
-                    color: #5A7529;
+                span {
+                    //還不是會員
+                    color: #5a7529;
                     font-size: 12px;
                     margin-right: 5%;
                 }
-                #register{
+                #register {
                     color: #999;
                     font-size: 12px;
                     text-decoration-line: underline;
                 }
             }
             //快速註冊
-            .fasttext{
+            .fasttext {
                 margin: 1% 0 0 50%;
-                #register_fast{
+                #register_fast {
                     color: #fff;
                     font-size: 12px;
                     text-decoration-line: underline;
-                    background-color: #5A7529;
+                    background-color: #5a7529;
                     display: inline-block;
                     width: 60px;
                     line-height: 20px;
                 }
             }
-            }
         }
-        }
+    }
+}
 
-
-///////////////////////  
+///////////////////////
 //      會員註冊     //
-////////////////////// 
- #register_lightbox{
-    // display: none;
+//////////////////////
+#register_lightbox {
+    display: none;
     position: fixed;
     width: 100%;
     height: 100vh;
-    // top: 0;
-    // background: rgba(66, 66, 66, 0.6);//透明
-    .registerTable{ //註冊區
+    // background-image: url("")
+    .registerTable {
+        //註冊區
         position: relative;
-        top:20%;
+        top: 20%;
         max-width: 300px;
-        width:60%; 
+        width: 60%;
         border-radius: 10px;
         border: 2px solid sienna;
         text-align: center;
-        margin:  0 auto;
-        .login_cancel{ //刪除鈕
+        margin: 0 auto;
+        .login_cancel {
+            //刪除鈕
             width: 25px;
             position: absolute;
-            top:0;
-            right: 0;     
+            top: 0;
+            right: 0;
         }
-        h3{
+        h3 {
             line-height: 40px;
             padding: 4% 0;
         }
-        span{
+        span {
             display: inline-block;
             width: 35%;
             margin-top: 8px;
             text-align: left;
-      
         }
-        input{
+        input {
             width: 50%;
             margin: 3% 0;
             line-height: 24px;
-           
         }
-    #password_question{
+        #password_question {
             padding: 2%;
         }
-        .btn{ //按鈕
+        .btn {
+            //按鈕
             margin: auto;
-        } 
+        }
     }
- } 
+}
 
- ///////////////////////  
+///////////////////////
 //  會員重新申請密碼   //
-////////////////////// 
+//////////////////////
 
-#password_lightbox{ 
+#password_lightbox {
     width: 100%;
     height: 100vh;
-    position: fixed; 
+    position: fixed;
     //隱藏
     display: none;
 
-    .passwordTable{ //重設密碼區
+    .passwordTable {
+        //重設密碼區
         position: relative;
-        top:25%;
+        top: 25%;
         width: 60%;
         max-width: 300px;
         margin: 0 auto;
         border-radius: 10px;
         border: 2px solid sienna;
-        text-align: center; 
-        .password_box{
-           
+        text-align: center;
+        .password_box {
             margin: auto;
-            
-            .login_cancel{ //刪除鈕
+
+            .login_cancel {
+                //刪除鈕
                 width: 25px;
                 position: absolute;
-                top:0;
-                right: 0;         
+                top: 0;
+                right: 0;
             }
-            h3{
+            h3 {
                 line-height: 40px;
                 padding: 4%;
             }
-            span{
+            span {
                 display: inline-block;
                 width: 30%;
-              
+
                 margin-top: 2px;
-                text-align: left;  
+                text-align: left;
             }
-            input{
+            input {
                 width: 50%;
                 margin: 3% 0;
-                line-height: 24px; 
+                line-height: 24px;
             }
-            #password_question{
-                padding:2%;
+            #password_question {
+                padding: 2%;
             }
-            .btn{ //按鈕
+            .btn {
+                //按鈕
                 margin: auto;
-            } 
-
+            }
         }
-        
-}
+    }
 }

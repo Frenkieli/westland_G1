@@ -1,274 +1,314 @@
+/////////////////////// ///////////////////////
+//              會員中心選單                //
+// //////////////////////////////////////////
 
-///////////////////////
-//  會員中心         //
-//////////////////////
-
-.account{
-    padding-bottom:100px;
-    // background-color: #fff8e4;  //背景顏色//
-    .infowrap{ 
+.account {
+    margin: auto;
+    text-align: center;
+    .infowrap {
         display: flex;
+        flex-direction: column;
         justify-content: center; //置中
-        //////////////////////////
-        width: 70%;
-        max-width:1200px;
+        /////////////////////////////
+        width: 100%;
         margin: auto;
-        padding: 10px;
-        .menulist{ //選單部分
-            // width: 100%;
-            width: 20%;
-            // max-width: 1200px;
-            // margin: auto;
-            margin: auto 0;
-            padding: 5px ;
-            // padding: 0 20px;
+        padding-top: 10px;
+        .menulist {
+            //選單部分
+            width: 100%;
+            padding: 0 1px;
+            margin: auto;
             background-color: #9dba65;
             border-top-left-radius: 10px;
-            border-bottom-left-radius: 10px;
-            // border-top-right-radius: 10px;
-            .mymenu{
-                padding: 10px 0;
-                justify-content: flex-end;
-                box-orient: horizontal;
-                // width: 100%;
-                display: flex;
-                box-direction:normal;
-                flex-flow: row wrap;
-                margin-bottom:80px;
-                li{
-                    width: 100%;
-                    border:2px solid #fff8e4;
-                    text-align:center;
-                    list-style:none;
-                    padding: 20px ;
-                    a {
-                        cursor: pointer;
-                        align-items: center;
-                        box-sizing: border-box;
-                        color: #fff8e4;
-                        font-size: 24px;
-                        font-family: 'Noto Sans TC',sans-serif;   
-                    }
-                    
-                }
-                
-            }
-        }
-        ///////////////////////////
-        //     個人資訊          //
-        //////////////////////////
-        .info_content{ //個人資訊部分
-            width: 50%;
-            display: block;
-            min-height: 600px;
-            background-color: #fff;
-            padding: 10px;
             border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
-            // .content_form{
-            //     display: block;
-                
-            // }
-            margin-bottom: 150px;
-            border: 2px solid #9dba65;
-            height: 100%; 
-            margin: 200px 0;
-}
-            h3{
-                background-color: #9dba65;
-                // color: #fff8e4;
-                padding-top:5px;
-                font-size: 24px;
-                font-family: 'Noto Sans TC',sans-serif;
-                border-radius: 10px;
-            }
-            .content_item{
+            .mymenu {
+                box-sizing: border-box;
+                padding: 10px 0px;
+                justify-content: center;
+                width: 100%;
                 display: flex;
-                padding: 10px;
-                align-items: center;
-                span{
-                    width: 30%;
-                    margin-top: 8px;
-                    text-align: left;
-                    display: block;
-                    padding-right: 20px;
-                    font-size: 20px;
+                flex-wrap: wrap;
+                border-color: #fff8e4;
+                border-top-style: dashed;
+                border-bottom-style: dashed;
+                li {
+                    width: 46%;
+                    text-align: center;
+                    list-style: none;
+                    padding: 5px 0;
                 }
-                input{
-                    width: 70%;
-                    line-height: 2;
-                    margin: 0px auto 0px auto;
+                a {
+                    cursor: pointer;
+                    text-decoration: none;
+                    align-items: center;
+                    box-sizing: border-box;
+                    color: #fff8e4;
+                    font-size: 14px;
+                    line-height: 1.5rem;
                     font-family: "Noto Sans TC", sans-serif;
-                    line-height: normal;
-                    padding: 0px 10px;
-                }
-                #dit_button{ //修改資料 按鈕
-                    //Button在css的長寬：130x30px,font-size:14p
-                    border: 2px solid #9dba65;
-                    width: 130px;
-                    height: 30px;
-                    font-size:14p;
-                    display: block;
-                    line-height: 1px;
-                    margin-left:400px;
-                }
-
-            }
-
-           ////////////////////////////////
-           //     訂單部分               //
-           /////////////////////////////// 
-
-          .order_content{
-            width: 50%;
-            display: block;
-            min-height: 600px;
-            background-color: #fff;
-            padding: 10px;
-            border-top-right-radius: 10px;
-            border-bottom-right-radius: 10px;
-            margin-bottom: 150px;
-            border: 2px solid #9dba65;
-            height: 100%; 
-            margin: 200px 0;
-            .order_item{
-                width: 90%;
-                max-width: 1200px;
-                margin: auto;
-                border: 1px solid #9dba65;
-                border-radius: 5px;
-                table{
-                    
-                     border-collapse:collapse;
-                     width: 100%;
-                     height: 50%;
-                     tr{
-                        font-family: "Noto Sans TC", sans-serif;
-                        line-height: normal;
-                        font-size:20px;
-         
-                     }
-                }
-
-            }
-          } 
-            ////////////////////////////
-            //   購票                 //
-            ////////////////////////////
-            .ticket_content{
-                width: 50%;
-                display: block;
-                min-height: 600px;
-                background-color: #fff;
-                padding: 10px;
-                border-top-right-radius: 10px;
-                border-bottom-right-radius: 10px;
-                margin-bottom: 150px;
-                border: 2px solid #9dba65;
-                height: 100%; 
-                margin: 200px 0;
-                .ticket_item{
-                    width: 90%;
-                    max-width: 1200px;
-                    margin: auto;
-                    border: 1px solid #9dba65;
-                    border-radius: 5px;
-                table{
-                    
-                     border-collapse:collapse;
-                     width: 100%;
-                     height: 50%;
-                     tr{
-                        font-family: "Noto Sans TC", sans-serif;
-                        line-height: normal;
-                        font-size:20px;
-         
-                        }
-                     }
-                } 
-            }
-            ////////////////////////////
-            //       組隊紀錄        ///
-            ///////////////////////////
-            .team_content{
-                width: 50%;
-                display: block;
-                min-height: 600px;
-                background-color: #fff;
-                padding: 10px;
-                border-top-right-radius: 10px;
-                border-bottom-right-radius: 10px;
-                margin-bottom: 150px;
-                border: 2px solid #9dba65;
-                height: 100%; 
-                margin: 200px 0;
-                .team_list{
-                    .team_item{
-                        width: 90%;
-                        max-width: 1200px;
-                        display: flex;
-                        flex-flow: row wrap;
-                        margin: auto;
-                        .team_history{
-                            border: 2px solid #9dba65;
-                            border-radius: 20px;
-                            margin: 50px 0px;
-                            .team_picbox{
-                                img{
-                                    // padding-bottom: 30px;
-                                    width: 100%;
-                                    vertical-align: middle;
-                                    // width: 40%;
-                                    margin: auto;
-                                }
-                                
-                             }
-                            }
-                        }
-                
+                    &:hover {
+                        text-decoration: underline;
+                        // transition:all 5s;
                     }
                 }
-                ///////////////////////////////////////////
-                //              評分/留言              //
-                ///////////////////////////////////////
-                .evaluation_content{
-                    width: 50%;
-                    display: block;
-                    min-height: 600px;
-                    background-color: #fff;
-                    padding: 10px;
-                    border-top-right-radius: 10px;
-                    border-bottom-right-radius: 10px;
-                    margin-bottom: 150px;
-                    border: 2px solid #9dba65;
-                    height: 100%; 
-                    margin: 200px 0;
-                    .score_item{
-                        width: 90%;
-                        max-width: 1200px;
-                        margin: 20px;
-                        border: 1px solid #9dba65;
-                        border-radius: 5px;
-                        display: flex;
-                        justify-content: space-around;
-
-                    }
-                    .message_item{
-                        width: 90%;
-                        max-width: 1200px;
-                        display: flex;
-                        flex-flow: row wrap;
-                        margin: auto;
-                        .message_pot{
-                            border: 2px solid #9dba65;
-                            border-radius: 10px;
-                            margin: 20px 0px;
-                            span{
-                                margin-right: 10px;
-                            }
-                        }
-                    }
-                }
-
             }
         }
+    }
+}
+@media screen and (min-width: 768px) {
+    .account {
+        .infowrap {
+            max-width: 700px;
+            // .menulist{
+
+            // }
+            .info_content {
+                // width: 70%;
+                text-align: center;
+            }
+        }
+    }
+}
+
+// @media screen and (min-width: 768px){
+//     .account{
+//         .infowrap{
+//             display: flex;
+//             flex-direction: row;
+//             flex-wrap: nowrap;
+//             justify-content: flex-start;
+//             max-width: 1000px;
+//             .menulist{ //選單部分
+//                 width: 40%;
+//                 // padding:0 1px;
+//                 margin: auto;
+//                 background-color: #9dba65;
+//                 border-top-left-radius: 10px;
+//                 border-top-right-radius: 0px;
+//                 border-bottom-left-radius: 10px;
+//                 .mymenu{
+//                     box-sizing: border-box;
+//                     width: 100%;
+//                     display: flex;
+//                     flex-direction: column;
+//                 }
+//                 li{
+//                     width: 100%;
+//                     text-align:center;
+//                     list-style:none;
+//                     padding:50px;
+//                 }
+//             }
+//         }
+//     }
+// }
+//////////////////////////
+//     個人資訊         //
+//////////////////////////
+.info_content {
+    //個人資訊部分
+    // background-image: url("../../images/member/center.png");
+    // background-size:contain;
+    // background-repeat: no-repeat;
+
+    width: 100%;
+    display: block;
+    // background-color: #fff;
+    border: 1px solid #9dba65;
+    text-align: left;
+    h3 {
+        background-color: #9dba65;
+        border-color: #fff8e4;
+        color: #fff;
+        width: 45%;
+        padding: 5px 0;
+        font-family: "Noto Sans TC", sans-serif;
+        border-radius: 10px;
+        font-size: 14px;
+        margin-top: 20px;
+    }
+    .content_item {
+        display: flex;
+        padding: 10px;
+        align-items: center;
+        span {
+            width: 30%;
+            margin-top: 8px;
+            text-align: left;
+            display: block;
+            padding-right: 20px;
+            font-size: 14px;
+        }
+        .member_span {
+            text-align: center;
+        }
+        .memid {
+            padding-left: 16px;
+        }
+        input {
+            width: 40%;
+            line-height: 2;
+            margin: 0px auto 0px auto;
+            font-family: "Noto Sans TC", sans-serif;
+            line-height: normal;
+            padding: 5px;
+        }
+    }
+    .but_item {
+        text-align: right;
+        #dit_button {
+            //修改資料 按鈕
+            //Button在css的長寬：130x30px,font-size:14p
+            border: 1px solid #9dba65;
+            width: 130px;
+            height: 30px;
+            font-size: 14p;
+            display: block;
+            margin: auto;
+            text-align: center;
+        }
+    }
+}
+////////////////////////////////
+//     訂單部分               //
+///////////////////////////////
+
+.order_content {
+    width: 100%;
+    display: block;
+    background-color: #fff;
+    padding-bottom: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border: 1px solid #9dba65;
+    h3 {
+        padding: 20px 0;
+    }
+    .order_item {
+        width: 90%;
+        margin: auto;
+        border: 1px solid #9dba65;
+        border-radius: 5px;
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            height: 50%;
+            tr {
+                font-family: "Noto Sans TC", sans-serif;
+                line-height: normal;
+                font-size: 14px;
+            }
+        }
+    }
+}
+////////////////////////////
+//   購票                 //
+////////////////////////////
+.ticket_content {
+    width: 100%;
+    display: block;
+    // min-height: 600px;
+    background-color: #fff;
+    padding-bottom: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    // margin-bottom: 150px;
+    border: 1px solid #9dba65;
+    // height: 100%;
+    // margin: 200px 0;
+    h3 {
+        padding: 20px 0;
+    }
+    .ticket_item {
+        width: 90%;
+        margin: auto;
+        border: 1px solid #9dba65;
+        border-radius: 5px;
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            height: 50%;
+            tr {
+                font-family: "Noto Sans TC", sans-serif;
+                line-height: normal;
+                font-size: 14px;
+            }
+        }
+    }
+}
+////////////////////////////
+//       組隊紀錄        ///
+///////////////////////////
+// .team_content{
+//     width: 100%;
+//     display: block;
+//     background-color: #fff;
+//     padding-bottom: 10px;
+//     border-bottom-left-radius: 10px;
+//     border-bottom-right-radius: 10px;
+//     margin-bottom: 10px;
+//     border: 1px solid #9dba65;
+//     .team_list{
+//         .team_item{
+//             width: 100%;
+//             display: flex;
+//             flex-flow: row wrap;
+//             margin: auto;
+//             .team_history{
+//                 border: 1px solid #9dba65;
+//                 border-radius: 20px;
+//                 margin: 50px 0px;
+//                 .team_picbox{
+//                     img{
+//                         width: 100%;
+//                         vertical-align: middle;
+//                         margin: auto;
+//                     }
+
+//                  }
+//                 }
+//             }
+
+//         }
+//     }
+////////////////////////////////////////
+//              評分/留言              /
+///////////////////////////////////////
+.evaluation_content {
+    width: 100%;
+    display: block;
+    background-color: #fff;
+    padding-bottom: 10px;
+    border: 1px solid #9dba65;
+    .score_item {
+        width: 80%;
+        margin: 20px auto;
+        border: 1px solid #9dba65;
+        border-radius: 5px;
+        display: flex;
+        justify-content: space-around;
+    }
+    .message_item {
+        width: 80%;
+        display: flex;
+        flex-flow: row wrap;
+        margin: auto;
+        .message_pot {
+            border: 1px solid #9dba65;
+            border-radius: 10px;
+            margin: 20px 0px;
+            .equ_historypic {
+                padding: 10px 0;
+            }
+            .equ_message {
+                p {
+                    text-align: left;
+                    line-height: 1.5rem;
+                }
+            }
+            span {
+                margin-right: 10px;
+            }
+        }
+    }
+}
