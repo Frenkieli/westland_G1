@@ -8,7 +8,6 @@
         background-size: cover;
         background-position: bottom;
     }
-    
 }
 
 .section_Podium{
@@ -86,8 +85,12 @@
         vertical-align: middle;
         box-sizing: border-box;
         @include rwd(phone) {
-            padding-right: 10%;
-            width: 95%;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+            .teammate_post{
+                width: 29%;
+            }
         }
         .teammate_post {
             display: flex;
@@ -233,7 +236,6 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
         ol {
             width: 100%;
             padding: 10px;

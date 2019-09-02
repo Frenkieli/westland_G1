@@ -5,7 +5,7 @@
         text-decoration: none;
         color: #5A7529;
         font-family: 'Noto Sans TC', sans-serif;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 400;
     }
     #navbar_buttom-check{
@@ -14,6 +14,12 @@
     .navbar_icons{
         display: flex;
         align-items: center;
+        a{
+            img{
+                width: 30px;
+                height: 30px;
+            }
+        }
     }
     @include rwd(phone) {
         .navbar_cloud,.forcomputerdemo{
@@ -75,6 +81,7 @@
         }
         .navbar_container{
             display: flex;
+            align-items: center;
             justify-content: space-between;
             padding-top: 10px;
             margin: 0 auto 40px;
