@@ -120,7 +120,13 @@
                 position: absolute;
                 z-index: -3;    
                 margin-bottom: -385px;
-            }  
+            }
+            .desertBottom{
+                bottom: 0;
+                position: absolute;
+                margin-bottom: 200px;
+                z-index: -2;
+            }
         }
         .ridesIntroduction_container{
             background-image: url("../images/information/road.svg");
@@ -148,25 +154,26 @@
                     position: absolute;
                     width: 196px;
                     top: 0;
-                    right: 0;
                     &:nth-child(1) {
                         //吉祥物
-                        width: 160px;
-                        height: 200px;
-                        margin-right: 804px;
-                        margin-top: 215px;
+                        width: 300px;
+                        height: 300px;
+                        left:0;
+                        margin-left: 230px;
+                        margin-top: 25px;
                     }
                     &:nth-child(2) {
-                        width: 250px;
-                        height: 250px;
-                        margin-right: 246px;
-                        margin-top: 173px;
+                        width: 400px;
+                        height: 400px;
+                        right: 0;
+                        margin-right:230px;
+                        margin-top: -20px;
                     }
                     &:nth-child(3) {
-                        width: 200px;
-                        height: 200px;
+                        width: 300px;
+                        height: 300px;
                         margin-right: 459px;
-                        margin-top: 581px;
+                        margin-top: 1150px;
                     }
                     &:nth-child(4) {
                         // 鴨子
@@ -187,7 +194,7 @@
                         width: 170px;
                         height: 170px;
                         margin-right: 600px;
-                        margin-top: 220px;
+                        margin-top: 156px;
                     }
                 }
                 &:first-child {
@@ -235,6 +242,10 @@
                                     margin-top:-45%;
                                     margin-left: -35%;
                                 }
+                                .plot{
+                                    z-index: -3;
+                                    margin-top: 20%;
+                                }
                             }
                         }
                     }
@@ -244,33 +255,36 @@
     }
     .section_aboutUs {
         margin: auto;
-        max-width: 1200px;
+        width: 95vw;
+        .section_title {
+            @include fontsize( page_titleM);
+            @include fontweight( lv2);
+        }
         .aboutUs_container {
             margin: auto;
             width: 100%;
-            height: 1448px;
-            .section_title {
-                @include fontsize( page_titleM);
-                @include fontweight( lv2);
-            }
-            .board {
-                width: 100%;
-                height: 100%;
-            }
-            .mascot {
-                position: absolute;
-                bottom: 0;
-                right: 0;
-                width: 200px;
-                height: 200px;
-            }
             .aboutUs_item {
+                min-height: 800px;
                 position: relative;
-                display: flex;
-                justify-content: space-around;
                 margin: auto;
-                width: 971px;
-                height: 647px;
+                &:first-child {
+                    background-image: url("../images/information/board.svg");
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    background-size: 1300px;
+                }
+                .board {
+                    width: 100%;
+                }
+                .mascot {
+                    position: absolute;
+                    bottom: 0;
+                    right: 0;
+                    margin-right: 161px;
+                    margin-bottom: -50px;
+                    width: 320px;
+                    height: 320px;
+                }
                 .aboutUs_text {
                     position: absolute;
                     width: 50%;
