@@ -114,10 +114,18 @@
     .playticket_title {
         display: none;
     }
-    .demo_text p{
-        font-size: 20px;
-        padding-left: 10px;
-        padding-top: 50px;
+    .demo_text{
+        padding: 20px;
+        .demo_img{
+            width: 300px;
+            height: 200px;
+            float: left;
+        }
+        p{
+            font-size: 20px;
+            padding-left: 10px;
+            width: 55%;
+        }
     }
     .demo_scan{
         float: left;

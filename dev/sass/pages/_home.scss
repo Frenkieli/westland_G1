@@ -222,7 +222,8 @@
             float: left;
             list-style-type: none;
             position: absolute;
-            background-color: rgba(184, 124, 11, 0.219);
+            background-image: url("../images/index/slideback.png");
+            background-size: cover;
             transition-property: all;
             transition-duration: 1s;
             transition-timing-function: ease-in-out;
@@ -265,8 +266,15 @@
                     position: absolute;
                     left: 5px;
                     top: 5px;
-                    img {
+                    .slider_coin {
                         vertical-align: middle;
+                        width: 30px;
+                        height: 30px;
+                        margin-right: 3px;
+                    }
+                    .slider_name{
+                        padding: 3px;
+                        display: block;
                     }
                 }
             }
@@ -303,7 +311,23 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-
+        @include rwd(phone) {
+            width: 95%;
+        }
+        .facility_ruleol{
+            padding-top: 35%;
+            padding-bottom: 15%;
+            padding-left: 30%;
+            padding-right: 30%;
+            background-image: url("../images/index/cavern.png");
+            background-size: 100% 100%;
+            @include rwd(phone) {
+                padding-top: 35%;
+                padding-bottom: 15%;
+                padding-left: 30%;
+                padding-right: 30%;
+            }
+        }
         ol {
             width: 100%;
             padding: 10px;
