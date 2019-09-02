@@ -22,22 +22,31 @@
             <div class="Podium_welcome"><img src="images/index/welcome_3.png" alt="歡迎光臨"></div>
             <div class="Podium_winner">
                 <div class="winner_people">
-                    <img src="images/robot/robot.png" alt="">
+                    <img class="winner4th" src="images/robot/robot.png" alt="">
                     <img src="images/index/block.png" alt="">
                 </div>
                 <div class="winner_people">
-                    <img src="images/robot/robot.png" alt="">
+                    <img class="winner4th" src="images/robot/robot.png" alt="">
                     <img src="images/index/block.png" alt="">
                 </div>
                 <div class="winner_people">
-                    <img src="images/robot/robot.png" alt="">
+                    <img class="winner4th" src="images/robot/robot.png" alt="">
                     <img src="images/index/block.png" alt="">
                 </div>
                 <div class="winner_people">
-                    <img src="images/robot/robot.png" alt="">
+                    <img class="winner4th" src="images/robot/robot.png" alt="">
                     <img src="images/index/block.png" alt="">
                 </div>
             </div>
+            <script>
+                setTimeout(() => {
+                    let winnerPeoples =document.querySelectorAll('.Podium_winner img:first-child');
+                    for(let i =0;i<winnerPeoples.length;i++){
+                        winnerPeoples[i].className='winnermove';
+                    console.log('開始');
+                    }
+                }, 1200);
+            </script>
             <div class="winner_teammate">
                 <div class="teammate_post">
                     <div class="ticket_name">

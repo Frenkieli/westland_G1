@@ -1,18 +1,17 @@
-.index_navbar{
-    @include rwd(desktop){
+.index_navbar {
+    @include rwd(desktop) {
         background-image: url("../images/index/home_bg_first_2.png");
         background-size: cover;
     }
-    @include rwd(phone){
+    @include rwd(phone) {
         background-image: url("../images/index/homeM_bg_first_3.jpg");
         background-size: cover;
         background-position: bottom;
     }
-    
 }
 
-.section_Podium{
-    .Podium_welcome{
+.section_Podium {
+    .Podium_welcome {
         background-image: url("../images/mixin/page_title.svg");
         background-size: cover;
         width: 30%;
@@ -27,7 +26,7 @@
         @include rwd(phone) {
             background-size: 100% 100%;
             width: 80%;
-            margin:0  auto 20%;
+            margin: 0 auto 20%;
         }
     }
     .Podium_winner {
@@ -40,15 +39,56 @@
             width: 10px;
             &:nth-child(1) {
                 flex-grow: 1;
+                .winner4th:first-child {
+                    animation: winner4th 0.3s backwards ease-out;
+                }
+                @keyframes winner4th {
+                    0% {
+                        transform: rotate(-90deg) translateY(-200%);
+                        opacity: 0;
+                    }
+                    100% {
+                        transform: rotate(0deg) translateY(0%);
+                    }
+                }
+                @keyframes winnermove {
+                    0% {
+                        transform: translateX(0%) translateY(0%);
+                    }
+                    25% {
+                        transform: translateX(-5%) translateY(-2%) rotate(-5deg);
+                    }
+                    50% {
+                        transform: translateX(0%) translateY(0%);
+                    }
+                    75% {
+                        transform: translateX(5%) translateY(-2%) rotate(5deg);
+                    }
+                    100% {
+                        transform: translateX(0%) translateY(0%);
+                    }
+                }
             }
             &:nth-child(2) {
                 flex-grow: 2;
+                .winner4th:first-child {
+                    animation: winner4th 0.3s backwards ease-out 0.3s;
+                }
             }
             &:nth-child(3) {
                 flex-grow: 3;
+                .winner4th:first-child {
+                    animation: winner4th 0.3s backwards ease-out 0.6s;
+                }
             }
             &:nth-child(4) {
                 flex-grow: 4;
+                .winner4th:first-child {
+                    animation: winner4th 0.3s backwards ease-out 0.9s;
+                }
+            }
+            .winnermove {
+                animation: winnermove 4s infinite;
             }
             img:nth-child(1) {
                 position: relative;
@@ -67,7 +107,6 @@
                         animation: rubberBand 1s;
                     }
                 }
-
             }
         }
         img {
@@ -131,17 +170,17 @@
     flex-wrap: wrap;
     margin: auto;
     padding-top: 80px;
-    @include rwd(desktop){
+    @include rwd(desktop) {
         background-image: url("../images/index/home_bg_2.png");
         background-repeat: no-repeat;
         width: 100%;
         background-size: 100% 100%;
     }
-    @include rwd(phone){
+    @include rwd(phone) {
         background-image: url("../images/index/homeM_bg_3.jpg");
     }
-//===
-    .title_box{
+    //===
+    .title_box {
         width: 100%;
     }
     .facility_slider {
@@ -257,52 +296,52 @@
         }
     }
 }
-.index_team{
-    .section_title{
+.index_team {
+    .section_title {
         margin: 0 auto 0;
     }
-//===
-    @include rwd(desktop){
+    //===
+    @include rwd(desktop) {
         background-image: url("../images/index/home_bg_3_1.png");
         background-repeat: no-repeat;
         background-size: 100% 100%;
         width: 100%;
         background-position: 30% 100%;
     }
-    @include rwd(phone){
+    @include rwd(phone) {
         background-image: url("../images/index/homeM_bg_2.png");
         // background-size: 150%;
     }
-//===
-    .img_Wooden_pile img{
+    //===
+    .img_Wooden_pile img {
         width: 100%;
     }
 }
-.index_ticket_customize{
+.index_ticket_customize {
     //===
-    @include rwd(desktop){
+    @include rwd(desktop) {
         background-image: url("../images/index/home_bg_4.png");
         background-repeat: no-repeat;
         background-size: 100% 100%;
         width: 100%;
         background-position: 50% 100%;
     }
-    @include rwd(phone){
+    @include rwd(phone) {
         background-image: url("../images/index/homeM_bg_2.png");
     }
     //===
 }
-.section_store{
+.section_store {
     width: 100%;
     overflow: hidden;
     //===
-    @include rwd(desktop){
+    @include rwd(desktop) {
         background-image: url("../images/index/home_bg_3_1.png");
         background-repeat: no-repeat;
         background-size: 100% 100%;
         background-position: 50% 100%;
     }
-    @include rwd(phone){
+    @include rwd(phone) {
         background-image: url("../images/index/homeM_bg_2.png");
         background-position: center;
     }
@@ -326,13 +365,13 @@
         align-items: center;
         background-size: 100% 100%;
         color: #fff;
-        &:nth-child(n){
+        &:nth-child(n) {
             background-image: url("../images/product/cactus.png");
         }
-        &:nth-child(2n){
+        &:nth-child(2n) {
             background-image: url("../images/product/dinosaur.png");
         }
-        &:nth-child(3n){
+        &:nth-child(3n) {
             background-image: url("../images/product/eagle.png");
         }
     }
