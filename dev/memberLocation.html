@@ -22,7 +22,6 @@
         @@include("template/header.html")
     </header>
     <!-- ------會員中心部分------ -->
-    <!-- ------會員中心部分------ -->
     <section class="account">
         <div class="infowrap">
             <div class="menulist tab-demo">
@@ -37,10 +36,10 @@
                         <a href="#tab02"id="default_open" >訂單紀錄</a>
                     </li>
                     <li>
-                        <a href="#tab03"id="default_open" >組隊紀錄</a>
+                        <a href="#tab03"id="default_open" >購票紀錄</a>
                     </li>
                     <li>
-                        <a href="#tab04"id="default_open" >購票紀錄</a>
+                        <a href="#tab04"id="default_open" >組隊紀錄(暫定)</a>
                     </li>
                     <li>
                         <a href="#tab05"id="default_open" >評分與留言紀錄</a>
@@ -59,7 +58,7 @@
                         <!-- 帳號 -->
                         <div class="content_item">
                             <span>帳號</span>
-                            <span>56789</span>
+                            <span class="member_span">56789</span>
                         </div>
                         <!-- 姓名 -->
                         <div class="content_item">
@@ -91,7 +90,7 @@
                         <h3>我的購物金</h3>
                         <div class="content_item">
                             <span>購物金</span>
-                            <span>600</span>
+                            <span class="member_span">600</span>
                         </div>
                         <!-- 修改資料按鈕 -->
                         <div class="content_item">
@@ -148,15 +147,15 @@
 
                 </div>
                 <!-- ---------組隊部分 -------------------->
-                <div id="tab04"class="team_content tab-inner" style="display: none">
+                <!-- <div id="tab04"class="team_content tab-inner" style="display: none">
                     <div class="team_list" id="team_list">
                         <h3>歷史紀錄</h3>
-                        <div class="team_item">
+                        <div class="team_item"> -->
                             <!-- 第一隊 -->
-                            <div class="team_history">
+                            <!-- <div class="team_history">
                                 <div class="team_picbox">
                                     <img src="images/member/teammem.png" alt="組隊照片">
-                                </div>
+                                </div> -->
                                 <!-- <div class="team_textbox">
                                     <span>隊名</span>
                                     <span>小虎隊</span>
@@ -165,11 +164,11 @@
                                     <span>$60000</span>
                                     <br>
                                 </div> -->
-                            </div>
+                            <!-- </div>
                         </div>
                     </div>
 
-                </div>
+                </div> -->
                 <!-- ---------評分/留言部分 -------------------->
                 <div id="tab05"class="evaluation_content tab-inner" style="display: none">
                     <div class="evaluation_list" id="evaluation_list">
@@ -218,6 +217,22 @@
     @@include("template/footer.html")
 
     <!-- js -->
+     <script src="js/jquery-1.11.0.min.js"></script>  
+     <script>
+     // <!------ tab open page ----->
+
+    $(function(){
+        var $li = $('ul.tab-title li');
+            $($li. eq(0) .addClass('active').find('a').attr('href')).siblings('.tab-inner').hide();
+        
+            $li.click(function(){
+                $($(this).find('a'). attr ('href')).show().siblings ('.tab-inner').hide();
+                $(this).addClass('active'). siblings ('.active').removeClass('active');
+            });
+        });
+// <!------ tab open page ----->
+     
+     </script>
     @@loop('template/jslink.html',[
     ])
 </body>
