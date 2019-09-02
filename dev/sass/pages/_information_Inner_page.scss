@@ -58,25 +58,27 @@
 
 @include rwd(desktop) {
     .section_rides_DetailedIntroduction {
-        .page_title {
-            background-size: 20%;
-        }
         padding-top: 200px;
         margin: auto;
-        max-width: 1200px;
         margin-bottom: 200px;
+        .section_title {
+            margin: 150px;
+        }
+        #example3{
+            transform: scale(1.25);
+        }
     }
     .section_messageBoard {
-        max-width: 1200px;
+        max-width: 1500px;
         margin: 200px auto 200px auto;
-        .page_title {
-            background-size: 20%;
-        }
         .message_container {
             display: flex;
             width: 80%;
             margin: auto;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            background-color:#5a7528cc;
+            border: 1px solid #5a752825;
+            border-radius: 25px;
+            padding: 20px;
             margin-bottom: 50px;
             .who {
                 flex-grow: 2;
@@ -93,6 +95,8 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
+                background-color: rgba(160, 228, 146, 0.377);
+                border-radius: 20px;
                 .buttonControl {
                     flex-grow: 1;
                     button {
@@ -106,6 +110,8 @@
                     width: 80%;
                     flex-grow: 5;
                     font-family: 'Noto Sans TC', sans-serif;
+                    padding: 20px;
+
                 }
             }
         }
