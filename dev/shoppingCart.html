@@ -6,10 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>shopping_cart_page</title>
-    
+
     <!-- css -->
     @@loop('template/csslink.html',[
-    {"csslink" : "css/style.css"}
+    {"csslink" : "css/style.css"},
+    {"csslink" : "css/owl.carousel.min.css"},
+    {"csslink" : "css/owl.theme.default.css"}
+
     ])
 
 </head>
@@ -44,6 +47,8 @@
             </div>
 
             <form action="cartUpdate.php" method="get">
+
+
                 <div class="bg_fdfff3">
                     <div class="shopping_cart  m40_0_0  dis_f_jc_c">
                         <div class="col48 m-a col-lg-3 dis_f_jc_c shopping_cart_item">
@@ -89,6 +94,8 @@
                         </div>
                     </div>
                 </div>
+
+
             </form>
             <div class="bg_fdfff3 bg_fdfff3_d ta-r p10 bt">
                 <p class="ta-r dis-lg-ib mb-0 mt-15 mt-lg-0">總計：<span id="sumTotalPrice"></span>元</p>
@@ -98,13 +105,97 @@
                 <button type="submit" class="btn mlr" id="check">進行結帳</button>
             </div>
     </section>
-
+    <section class="item_recom_section container">
+            <h3 class="section_title">推薦商品</h3>
+            <div class="shop-tab-inner">
+                <div class="col-2 col-xl-1 ta-r v-xl-hide">
+                    <img src="images/product/arrow_left.png" alt="" class="prev po-r w-40 pointer">
+                </div>
+                <!-- <div class="sort_same pt350 owl-carousel owl-theme"> -->
+                <div class="sort_same owl-carousel owl-theme">
+                    <div class="hoverObj card_bg card_bg1">
+                        <div class="gray_linear_gradient center">
+                            <div class="sort_same_item_img center">
+                                <a href="item.html"><img src="images/product/product_small/pd_s-01.jpg"></a>
+                            </div>
+                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                            <p class="sort_same_item_price text_align_c">NT.450</p>
+                            <div class="btn m-b m-a">加入購物車</div>
+                        </div>
+                    </div>
+                    <div class="hoverObj card_bg card_bg1">
+                        <div class="gray_linear_gradient center">
+                            <div class="sort_same_item_img center">
+                                <img src="images/product/product_small/pd_s-02.jpg">
+                            </div>
+                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                            <p class="sort_same_item_price text_align_c">NT.450</p>
+                            <div class="btn m-b m-a">加入購物車</div>
+                        </div>
+                    </div>
+                    <div class="hoverObj card_bg card_bg1">
+                        <div class="gray_linear_gradient center">
+                            <div class="sort_same_item_img center">
+                                <img src="images/product/product_small/pd_s-03.jpg">
+                            </div>
+                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                            <p class="sort_same_item_price text_align_c">NT.450</p>
+                            <div class="btn m-b m-a">加入購物車</div>
+                        </div>
+                    </div>
+                    <div class="hoverObj card_bg card_bg1">
+                        <div class="gray_linear_gradient center">
+                            <div class="sort_same_item_img center">
+                                <img src="images/product/product_small/pd_s-03.jpg">
+                            </div>
+                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                            <p class="sort_same_item_price text_align_c">NT.450</p>
+                            <div class="btn m-b m-a">加入購物車</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2 col-xl-1 v-xl-hide">
+                    <img src="images/product/arrow_right.png" alt="" class="next po-r w-40 pointer">
+                </div>
+            </div>
+        </section>
     @@include("template/footer.html")
 
     <!-- js -->
     @@loop('template/jslink.html',[
-    {"jslink" : "https://kit.fontawesome.com/6a6d2775fc.js"}
+    {"jslink" : "https://kit.fontawesome.com/6a6d2775fc.js"},
+    {"jslink" : "js/jquery.min.js"},
+    {"jslink" : "js/owl.carousel.js"}
     ])
+
+    <script>
+        $('.owl-carousel').each(function () {
+            $(this).owlCarousel({
+                loop: false,
+                margin: 0,
+                nav: false,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                    },
+                    768: {
+                        items: 2
+                    },
+                    1200: {
+                        items: 4
+                    }
+                },
+            });
+            $(this).siblings().find('.next').click(function () {
+                $(this).parent().siblings('.owl-carousel').trigger('next.owl.carousel');
+            });
+            $(this).siblings().find('.prev').click(function () {
+                $(this).parent().siblings('.owl-carousel').trigger('prev.owl.carousel');
+            });
+        });
+
+    </script>
 </body>
 
 </html>

@@ -82,6 +82,10 @@ justify-content: center;
 .mlr{
 margin: 20px 10px;
 }
+// .card_bg .sort_same_item_img img{
+//   margin: 5% auto;
+//   width: 80%;
+// }
 @include rwd(desktop){
 .shopping_cart > div + div {
   // height: 30px;
