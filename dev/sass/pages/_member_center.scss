@@ -112,7 +112,10 @@
             text-align:center;
         }
         .memid {
-            padding-left: 16px;
+            padding-left: 30px;
+        }
+        .memdoller{
+            padding-left: 30px;
         }
         input {
             width: 40%;
@@ -138,6 +141,20 @@
         }
     }
 }
+@media screen and (min-width: 768px) {
+    .info_content{
+        .content_item{
+            .memid{
+                padding-left:90px;
+            }
+            .memdoller{
+                padding-left:90px;
+            }
+        }
+    }
+}
+
+
 ////////////////////////////////
 //     訂單部分               //
 ///////////////////////////////
