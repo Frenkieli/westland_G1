@@ -14,7 +14,10 @@
     .join_button_container{
         width: 100%;
         text-align: center;
-        margin-bottom: 7%;
+        margin-top: 5%;
+        @include rwd(phone){
+            margin-top: 1%;
+        }
         :first-child{
             margin-right:15%;
             @include rwd(phone){
@@ -50,6 +53,12 @@
         justify-content: space-aroeund;
         flex-direction: column;
         align-items: center;
+        #select_team{
+            margin-top:7%; 
+            @include rwd(phone){
+                margin-top:0%; 
+            }
+        }
     }
     .team_list_box{
         margin: auto;
@@ -153,6 +162,9 @@
 
 //board
 .team_bulletin_board{
+    // *{
+    //     outline: 1px blue solid;
+    // }
     max-width: 1200px;
     width: 100%;
     margin: auto;
@@ -173,8 +185,6 @@
                 display: none;
             }
         }
-        
-        
     }
     .img_Wooden_pile{
         width: 100%;
@@ -209,6 +219,8 @@
             display: flex;
             justify-content: space-around;
             h4{
+                position: relative;
+                z-index: 1;
                 box-sizing: border-box;
                 background-image: linear-gradient(0,#DDEDB7 10%,#fff);
                 width: 35%;
@@ -236,6 +248,7 @@
             width: 100%;
             margin: auto;
             background: #DDEDB7;
+            position: relative;
             @include rwd(phone){
                 // background:none;
             }
@@ -413,7 +426,6 @@
                         padding-bottom:2%    
                     }
                     .wanted_playerphoto{
-
                         width: 100%;
                         // height: 100px;
                         >img{
@@ -467,6 +479,9 @@
                     .info_teamslogan{
                         line-height: 20px;
                         min-height: 100px;
+                        @include rwd(phone){
+                            min-height: 80px;
+                        }
                     }                 
                     width: 35%;
                     margin-left:-7%; 
@@ -479,4 +494,38 @@
             }
         }
     }
+}
+.no_can_join{
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    line-height: 65vh;
+    // display: inline-block;
+    font-family: 'Noto Sans T Chinese';
+    font-size: 48px;
+    color: #666; 
+    transform: rotate(3deg);
+    opacity: 0;
+}
+.no_joined{
+    position: absolute;
+    z-index: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    text-align: center;
+    line-height: 65vh;
+    // display: inline-block;
+    font-family: 'Noto Sans T Chinese';
+    font-size: 48px;
+    color: #666; 
+    transform: rotate(3deg);
+    opacity: 0;
 }
