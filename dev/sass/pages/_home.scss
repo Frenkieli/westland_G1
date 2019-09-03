@@ -156,8 +156,12 @@
         vertical-align: middle;
         box-sizing: border-box;
         @include rwd(phone) {
-            padding-right: 10%;
-            width: 95%;
+            width: 100%;
+            flex-wrap: wrap;
+            justify-content: center;
+            .teammate_post{
+                width: 29%;
+            }
         }
         .teammate_post {
             display: flex;

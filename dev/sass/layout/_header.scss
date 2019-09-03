@@ -1,11 +1,20 @@
 .header_navbar{
+    .navbar_fixed{
+        z-index: 999;
+        position: fixed;
+        width: 100%;
+        // padding-bottom: 170px;
+    }
+    .nav_space{
+        height: 170px;
+    }
     position: relative;
     width: 100%;
     a{
         text-decoration: none;
         color: #5A7529;
         font-family: 'Noto Sans TC', sans-serif;
-        font-size: 24px;
+        font-size: 20px;
         font-weight: 400;
     }
     #navbar_buttom-check{
@@ -14,8 +23,17 @@
     .navbar_icons{
         display: flex;
         align-items: center;
+        a{
+            img{
+                width: 30px;
+                height: 30px;
+            }
+        }
     }
     @include rwd(phone) {
+        .nav_space{
+            height: 127px;
+        }
         .navbar_cloud,.forcomputerdemo{
             display: none;
         }
@@ -75,6 +93,7 @@
         }
         .navbar_container{
             display: flex;
+            align-items: center;
             justify-content: space-between;
             padding-top: 10px;
             margin: 0 auto 40px;

@@ -1,13 +1,12 @@
 @import 'base/reset';
 @import 'base/var';
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+TC:300,400,500,700|Noto+Sans:400,700&display=swap');
-
-// @import 'base/reboot';  
 @import 'mixins/mixin';
+
+@import 'base/robot';
 // @import 'animation/animation';
 // owl.carousel.min.css
 @import "pages/theme.default";
-
 
 // @import 'layout/grid';
 @import 'layout/header';
@@ -52,6 +51,9 @@ h1,h2,h3,h4,h5,h6,p,a,span,div,ul,li{
     .shoppingCart_page,.activity_page,.gameplay_page,.information_inner_page,.information_page,.item_page,.items_page,.member_page,.memberLocation_page,.shoppingCart_page,.team_page,.ticket_page{
         background-image: url("../images/background/home_bgi_1.png");
         background-size: cover;
+    }
+    .index_team,.index_ticket_customize,.section_store{
+        padding-top: 80px;
     }
 }
 @include rwd(phone){
