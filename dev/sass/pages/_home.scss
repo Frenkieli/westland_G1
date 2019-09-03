@@ -394,7 +394,6 @@
         padding-bottom: 30%;
         position: relative;
         .slider_container > li {
-            box-shadow: 0px 1px 4px rgb(75, 54, 36);
             float: left;
             list-style-type: none;
             position: absolute;
@@ -623,7 +622,7 @@
     //===
     padding-bottom: 87px;
     .swiper-container {
-        width: 95%;
+        width: 100%;
         margin: auto;
         padding-top: 50px;
         padding-bottom: 50px;
@@ -650,6 +649,7 @@
             background-image: url("../images/product/eagle.png");
         }
     }
+    
     .store_btn {
         @include btn_active;
         margin: 20px;

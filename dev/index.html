@@ -15,7 +15,7 @@
 
 </head>
 
-<body>
+<body class="index">
     <header class="header_navbar index_navbar">
         @@include("template/header.html")
         <div class="section_Podium">
@@ -40,10 +40,10 @@
             </div>
             <script>
                 setTimeout(() => {
-                    let winnerPeoples =document.querySelectorAll('.Podium_winner img:first-child');
-                    for(let i =0;i<winnerPeoples.length;i++){
-                        winnerPeoples[i].className='winnermove';
-                    console.log('開始');
+                    let winnerPeoples = document.querySelectorAll('.Podium_winner img:first-child');
+                    for (let i = 0; i < winnerPeoples.length; i++) {
+                        winnerPeoples[i].className = 'winnermove';
+                        console.log('開始');
                     }
                 }, 1200);
             </script>
@@ -118,7 +118,7 @@
     </header>
 
     @@include("template/index_facility.html")
-<!-- 
+    <!-- 
     <section class="section_facility">
         <div class="title_box">
             <h3 class="section_title">設施介紹</h3>
@@ -385,6 +385,8 @@
                 ])
             </div>
             <!-- Add Pagination -->
+            <div class="swiper-button-prev swiper_btn"></div>
+            <div class="swiper-button-next swiper_btn"></div>
             <div class=" swiper-pagination"></div>
         </div>
     </section>
@@ -395,7 +397,7 @@
             margin-top: -87px;
         }
     </style>
-    
+
     <!-- js -->
     @@loop('template/jslink.html',[
     {"jslink" : "js/swiper.min.js"},
@@ -411,6 +413,8 @@
             centeredSlides: true,
             slidesPerView: 'auto',
             loop: true,
+            prevButton: '.swiper-button-prev',
+            nextButton: '.swiper-button-next',
             coverflowEffect: {
                 rotate: 50,
                 stretch: 0,
@@ -421,6 +425,10 @@
             pagination: {
                 el: '.swiper-pagination',
             },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }
         });
         let sliderWidth = document.getElementsByClassName('slider_container')[0].offsetWidth;
         let sliderHeight = document.getElementsByClassName('slider_container')[0].offsetHeight;
