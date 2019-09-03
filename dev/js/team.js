@@ -47,9 +47,10 @@ function join() {
 }
 
 function joinInvitation(e){
+    // e.preventdefault();
     // e.stopPropagation();
-    // console.log(e.target); 
-    
+    // console.log(e.currentTarget); 
+    // console.log(this);
     // wanted_name=this.firstChild.firstChild.innerText;
     // console.log(this.firstChild);
     // console.log(wanted_name);
@@ -76,7 +77,6 @@ function joinInvitation(e){
         $id("team_join_window").style.opacity = 0;
     }, false);
     $id("ok").addEventListener("click", () => {
-        
         // this.remove();
         $id("joined").append(this);
         // console.log(e.currentTarget);
@@ -116,7 +116,8 @@ function joined() {
     $id("no").innerText = '我不想';
 }
 
-function dropOut() {
+function dropOut(e) {
+    e.stopPropagation();
     // wanted_name='';
     // wanted_playerphoto='';
     // wanted_teamname='';
