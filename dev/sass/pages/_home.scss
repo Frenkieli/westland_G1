@@ -148,7 +148,7 @@
         }
     }
     .winner_teammate {
-        width: 50%;
+        width: 60%;
         max-width: 1200px;
         margin: -5% auto 0;
         display: flex;
@@ -164,6 +164,7 @@
             }
         }
         .teammate_post {
+            font-size: 18px;
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -173,6 +174,20 @@
             background-size: 100% 100%;
             background-position: center;
             position: relative;
+            @include rwd(phone) {
+                font-size: 16px;
+            }
+            .ticket_name{
+                margin-bottom: 10px;
+                @include rwd(phone) {
+                    margin: 10px 0;
+                }
+            }
+            .ticket_reward{
+                p{
+                    margin: 10px 0;
+                }
+            }
             .ticket_img {
                 text-align: center;
             }
@@ -358,6 +373,9 @@
 .index_team {
     .section_title {
         margin: 0 auto 0;
+        @include rwd(phone){
+            margin: 0 auto 20px;
+        }
     }
     //===
     @include rwd(desktop) {
@@ -409,7 +427,7 @@
     .swiper-container {
         width: 95%;
         margin: auto;
-        padding-top: 50px;
+        // padding-top: 50px;
         padding-bottom: 50px;
     }
 

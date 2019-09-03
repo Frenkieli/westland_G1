@@ -10,7 +10,8 @@
     .robot_text{
         transition: 0.5s;
         transition-delay: 0.2s;
-        height: 200px;
+        // height: 200px;
+        height: 0px;
         opacity: 0;
         #dialogBox{
             transition: 0.5s;
@@ -37,7 +38,7 @@
     .section_robot{
         width: 300px;
         bottom: -100px;
-        right: 100px;
+        right: -10px;
         &:hover{
             background-color: #9dba65;
             border-radius: 10px 10px 0 0;
