@@ -1,7 +1,6 @@
 // .font {
 //     font-family: 'Noto Sans TC', sans-serif;
 // }
-
 @include rwd(phone) {
     .section_ridesIntroduction {
         margin-top: 180px;
@@ -27,7 +26,6 @@
         }
         .ridesIntroduction_container {
             width: 100%;
-            background-color: #FBC166;
             .ridesIntroduction_frame {
                 text-align: center;
                 @include fontsize( section_titleM);
@@ -104,149 +102,157 @@
     .section_ridesIntroduction {
         margin: auto;
         width: 95vw;
-        .ridesIntroduction_bgelement {
-            width: 100%;
-            margin-top: 600px;
-            position: relative;
-            .desert {
-                bottom: 0;
-                position: absolute;
-                margin-bottom: -190px;
-                z-index: -2;
-            }
-            .distantView {
-                bottom: 0;
-                opacity: 0.8;
-                position: absolute;
-                z-index: -3;
-                margin-bottom: -385px;
-            }
-            .desertBottom {
-                bottom: 0;
-                position: absolute;
-                margin-bottom: 200px;
-                z-index: -2;
-            }
+    }
+    .ridesIntroduction_container {
+        background-image: url("../images/information/road.svg");
+        background-repeat: no-repeat;
+        background-size: 2100px;
+        background-position: 100% 90%;
+        position: relative;
+        margin: auto;
+        width: 100%;
+        .section_title {
+            @include fontsize( page_titleM);
+            @include fontweight( lv2);
+            width: 300px;
         }
-        .ridesIntroduction_container {
-            background-image: url("../images/information/road.svg");
-            background-repeat: no-repeat;
-            background-size: 2100px;
-            background-position: 100% 50%;
-            position: relative;
-            margin: auto;
+        .ridesIntroduction_frame {
             width: 100%;
-            background-color: #FBC166;
-            .ridesIntroduction_frame {
-                width: 100%;
-                margin: auto;
-                height: 500px;
-                margin-top: 227px;
-                display: flex;
-                justify-content: space-around;
-                align-items: center;
-                .section_title {
-                    @include fontsize( page_titleM);
-                    @include fontweight( lv2);
+            margin: auto;
+            height: 500px;
+            margin-top: 227px;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            &:nth-child(2) {
+                margin-top: 300px;
+            }
+            &:nth-child(4) {
+                margin-bottom: 300px;
+            }
+            .illustration {
+                position: absolute;
+                width: 196px;
+                top: 0;
+                &:nth-child(1) {
+                    //吉祥物
                     width: 300px;
+                    height: 300px;
+                    left: 0;
+                    margin-left: 230px;
+                    margin-top: 914px;
                 }
-                .illustration {
-                    position: absolute;
-                    width: 196px;
-                    top: 0;
+                &:nth-child(2) {
+                    width: 400px;
+                    height: 400px;
+                    right: 0;
+                    margin-right: 670px;
+                    margin-top: 303px;
+                    //帳篷
+                }
+                &:nth-child(3) {
+                    width: 300px;
+                    height: 300px;
+                    right: 0;
+                    margin-right: 900px;
+                    margin-top: 1500px;
+                }
+                &:nth-child(4) {
+                    // 鴨子
+                    width: 300px;
+                    height: 300px;
+                    margin-right: 523px;
+                    margin-top: 950px;
+                }
+                &:nth-child(5) {
+                    // 火車
+                    width: 300px;
+                    height: 300px;
+                    margin-right: 686px;
+                    margin-top: -980px;
+                }
+                &:nth-child(6) {
+                    //氣球
+                    width: 170px;
+                    height: 170px;
+                    margin-right: 600px;
+                    margin-top: 680px;
+                }
+            }
+            &:first-child {
+                height: 100px;
+                position: relative;
+            }
+            .ridesIntroduction_box {
+                z-index: 1;
+                height: 100%;
+                width: 30%;
+                background-color: rgba(255, 255, 255, 0.486);
+                border-radius: 20px;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                .ridesIntroduction_column {
+                    height: 40%;
+                    width: 100%;
+                    justify-content: space-around;
                     &:nth-child(1) {
-                        //吉祥物
-                        width: 300px;
-                        height: 300px;
-                        left: 0;
-                        margin-left: 230px;
-                        margin-top: 25px;
-                    }
-                    &:nth-child(2) {
-                        width: 400px;
-                        height: 400px;
-                        right: 0;
-                        margin-right: 230px;
-                        margin-top: -20px;
-                    }
-                    &:nth-child(3) {
-                        width: 300px;
-                        height: 300px;
-                        right: 0;
-                        margin-right: 900px;
-                        margin-top: 1500px;
-                    }
-                    &:nth-child(4) {
-                        // 鴨子
-                        width: 300px;
-                        height: 300px;
-                        margin-right: 523px;
-                        margin-top: 654px;
-                    }
-                    &:nth-child(5) {
-                        // 火車
-                        width: 300px;
-                        height: 300px;
-                        margin-right: 686px;
-                        margin-top: -980px;
-                    }
-                    &:nth-child(6) {
-                        //氣球
-                        width: 170px;
-                        height: 170px;
-                        margin-right: 600px;
-                        margin-top: 156px;
-                    }
-                }
-                &:first-child {
-                    height: 100px;
-                    position: relative;
-                }
-                .ridesIntroduction_box {
-                    z-index: 1;
-                    height: 100%;
-                    width: 30%;
-                    background-color: rgba(255, 255, 255, 0.486);
-                    border-radius: 20px;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-end;
-                    .ridesIntroduction_column {
-                        height: 40%;
-                        width: 100%;
-                        justify-content: space-around;
-                        &:nth-child(1) {
-                            text-align: center;
-                            &::before {
-                                content: '';
-                                vertical-align: middle;
-                                display: inline-block;
-                                width: 0;
-                                height: 100%;
-                            }
+                        text-align: center;
+                        &::before {
+                            content: '';
+                            vertical-align: middle;
+                            display: inline-block;
+                            width: 0;
+                            height: 100%;
                         }
-                        .text {
-                            display: flex;
-                            justify-content: space-around;
-                            .text_box {
-                                position: relative;
-                                width: 50%;
-                                p {
-                                    padding: 20px;
+                    }
+                    .text {
+                        display: flex;
+                        justify-content: space-around;
+                        .text_box {
+                            position: relative;
+                            width: 50%;
+                            p {
+                                padding: 20px;
+                            }
+                            img {
+                                top: 0;
+                                left: 0;
+                                position: absolute;
+                                width: 370px;
+                                height: 370px;
+                                margin-top: -45%;
+                                margin-left: -35%;
+                                &:first-child{
+                                &:hover {
+                                    animation:jump 2s ease-in-out infinite;
+                                    @keyframes jump {
+                                        0% {
+                                            transform: translateX(0%) translateY(0%);
+                                            filter:drop-shadow(12px 12px 3px rgba(0, 0, 0, 0.7));      
+                                        }
+                                        25% {
+                                            transform: translateX(-5%) translateY(-5%) rotate(-5deg);
+                                            filter:drop-shadow(24px 24px 7px rgba(0,0,0,0.6));      
+                                        }
+                                        50% {
+                                            transform: translateX(0%) translateY(10%);
+                                            filter:drop-shadow(48px 48px 10px rgba(0,0,0,0.5));      
+                                        }
+                                        75% {
+                                            transform: translateX(5%) translateY(-2%) rotate(5deg);
+                                            filter:drop-shadow(24px 24px 7px rgba(0,0,0,0.6));  
+                                        }
+                                        100% {
+                                            filter:drop-shadow(12px 12px 3px rgba(0,0,0,0.7));     
+                                        }
+                                    }
+                                    }
                                 }
-                                img {
-                                    top: 0;
-                                    left: 0;
-                                    position: absolute;
-                                    width: 370px;
-                                    height: 370px;
-                                    margin-top: -45%;
-                                    margin-left: -35%;
-                                }
-                                .plot {
-                                    z-index: -3;
-                                    margin-top: 20%;
-                                }
+                            }
+                            .plot {
+                                z-index: -3;
+                                margin-top: 20%;
                             }
                         }
                     }
@@ -265,15 +271,41 @@
             margin: auto;
             width: 100%;
             .aboutUs_item {
-                border: 1px solid #000;
-                min-height: 800px;
+                min-height: 600px;
                 position: relative;
-                margin: auto;
                 &:first-child {
                     background-image: url("../images/information/board.svg");
                     background-repeat: no-repeat;
                     background-position: center;
                     background-size: 1300px;
+                    &:hover{
+                        .mascot{
+                            animation:winnermove 1s ease-in-out infinite;
+                            @keyframes winnermove {
+                                0% {
+                                    transform: translateX(0%) translateY(0%);
+                                }
+                                25% {
+                                    transform: translateX(-5%) translateY(-2%) rotate(-5deg);
+                                }
+                                50% {
+                                    transform: translateX(0%) translateY(0%);
+                                }
+                                75% {
+                                    transform: translateX(5%) translateY(-2%) rotate(5deg);
+                                }
+                                100% {
+                                    transform: translateX(0%) translateY(0%);
+                                }
+                            }
+                        }
+                    }
+                }
+                &:nth-child(2) {
+                    margin: auto;
+                    width: 70%;
+                    display: flex;
+                    padding: 200px 0 0 0;
                 }
                 .board {
                     width: 100%;
@@ -293,59 +325,64 @@
                     height: 50%;
                     top: 0;
                     right: 50%;
-                    transform: translate(50%, 30%);
+                    transform: translate(50%, 10%);
                     text-align: center;
                     p {
                         text-align: left;
-                        padding: 25px;
+                        padding: 0 50px 0 50px;
                     }
                     h4 {
-                        padding: 25px;
+                        padding: 20px;
                     }
-                    .park {
-                        position: absolute;
-                        top: 0;
-                        left: 0;
-                        &:nth-child(1) {
-                            margin-left: -50px;
-                        }
-                        &:nth-child(2) {
-                            margin-left: -50px;
-                        }
+                    .park1 {
+                        margin-top: 20px;
+                        margin-right: 15000px;
+                        animation:float 2s ease-in-out infinite;
+                        @keyframes float{
+                            0%{
+                               transform:perspective(500px)rotatey(10deg);
+                            }
+                            50%{
+                               transform:perspective(500px)rotatey(0deg);
+                            }
+                            100%{
+                               transform:perspective(500px)rotatey(10deg);
+                            }
+                         }
+                    }
+                    .park2 {
+                        margin-top: -300px;
+                        margin-right: -350px;
+                        animation:float 2s ease-in-out infinite;
+                        @keyframes float{
+                            0%{
+                               transform:perspective(500px)rotatey(0deg);
+                            }
+                            50%{
+                               transform:perspective(500px)rotatey(10deg);
+                            }
+                            100%{
+                               transform:perspective(500px)rotatey(0deg);
+                            }
+                         }
                     }
                 }
                 .aboutUs_inner {
-                    position: relative;
+                    height:600px;
                     width: 50%;
-                    height: 100%;
-                    .map {
-                        position: absolute;
-                        bottom: 50%;
-                        right: 50%;
-                        transform: translate(50%, 50%);
-                        width: 100%;
-                        height: 50%;
-                    }
-                    .point {
-                        position: absolute;
-                        bottom: 50%;
-                        right: 50%;
-                        transform: translate(50%, 50%);
-                        width: 50px;
-                        height: 50px;
-                    }
-                    p,
-                    h4 {
-                        display: inline-block;
-                        width: 100%;
-                        position: absolute;
-                        bottom: 50%;
-                        right: 50%;
-                        transform: translate(50%, 50%);
+                    p {
+                        text-align: left;
+                        padding:0 50px 20px 50px;
                     }
                     h4 {
-                        bottom: 70%;
                         text-align: center;
+                        padding: 20px;
+                    }
+                    iframe{
+                        background-color:#5a7528cc;
+                        border: 1px solid #5a752825;
+                        border-radius: 25px;
+                        padding: 30px;
                     }
                 }
             }
