@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>item_page</title>
-    
+
     <!-- css -->
     @@loop('template/csslink.html',[
     {"csslink" : "css/style.css"}
     ])
 
 </head>
+
 <body class="item_page">
 
     <header class="header_navbar">
@@ -28,7 +30,7 @@
     <section class="item_intro_section container">
         <div class="item_intro_wrap center">
             <div class="item_intro_img">
-                <img src="images/item/item.svg" alt="商品圖片">
+                <img src="images/product/product_big/pd_b_01.jpg" alt="商品圖片">
             </div>
         </div>
         <div class="item_intro_wrap center">
@@ -59,8 +61,8 @@
             </div>
             <div class="item_intro_totalprice">
                 <p class="intro_box_title">總價
-                <span class="intro_totalprice">450</span>
-                元</p>
+                    <span class="intro_totalprice">450</span>
+                    元</p>
             </div>
         </div>
     </section>
@@ -71,23 +73,55 @@
 
     <section class="item_recom_section container">
         <h3 class="section_title">推薦商品</h3>
-        <div class="item_recom_wrap">
-            <div class="item_recom_box">
-                <img src="images/item/item.svg" alt="推薦商品一">
-                <p class="item_recom_name">推薦商品名稱<span>NT.450</span></p>
-            </div>
-            <div class="item_recom_box">
-                <img src="images/item/item.svg" alt="推薦商品二">
-                <p class="item_recom_name">推薦商品名稱<span>NT.450</span></p>
-            </div>
-            <div class="item_recom_box">
-                <img src="images/item/item.svg" alt="推薦商品三">
-                <p class="item_recom_name">推薦商品名稱<span>NT.450</span></p>
-            </div>
-            <div class="item_recom_box">
-                <img src="images/item/item.svg" alt="推薦商品四">
-                <p class="item_recom_name">推薦商品名稱<span>NT.450</span></p>
-            </div>
+        <div class="item_recom_wrap sort_same owl-carousel owl-theme">
+            
+                <div class="card_bg card_bg1">
+                    <div class="gray_linear_gradient center">
+                        <div class="sort_same_item_img center">
+                            <img src="images/product/product_small/pd_s-03.jpg">
+                        </div>
+                        <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                        <p class="sort_same_item_price text_align_c">NT.450</p>
+                        <div class="btn m-b m-a">加入購物車</div>
+                    </div>
+                </div>
+           
+            
+                <div class="card_bg card_bg3">
+                    <div class="gray_linear_gradient center">
+                        <div class="sort_same_item_img center">
+                            <img src="images/product/product_small/pd_s-13.jpg">
+                        </div>
+                        <p class="sort_same_item_title text_align_c">仙人掌馬克杯</p>
+                        <p class="sort_same_item_price text_align_c">NT.450</p>
+                        <div class="btn m-b m-a">加入購物車</div>
+                    </div>
+                </div>
+            
+            
+                    <div class="card_bg card_bg2">
+                        <div class="gray_linear_gradient center">
+                            <div class="sort_same_item_img center">
+                                <img src="images/product/product_small/pd_s-12.jpg">
+                            </div>
+                            <p class="sort_same_item_title text_align_c">仙人掌衣服</p>
+                            <p class="sort_same_item_price text_align_c">NT.450</p>
+                            <div class="btn m-b m-a">加入購物車</div>
+                        </div>
+                    </div>
+                
+            
+                <div class="card_bg card_bg1">
+                    <div class="gray_linear_gradient center">
+                        <div class="sort_same_item_img center">
+                            <img src="images/product/product_small/pd_s-03.jpg">
+                        </div>
+                        <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                        <p class="sort_same_item_price text_align_c">NT.450</p>
+                        <div class="btn m-b m-a">加入購物車</div>
+                    </div>
+                </div>
+            
         </div>
     </section>
     <!-- ================ -->
@@ -96,8 +130,40 @@
 
     <!-- js -->
     @@loop('template/jslink.html',[
-    {"jslink" : "https://kit.fontawesome.com/6a6d2775fc.js"}
+    {"jslink" : "https://kit.fontawesome.com/6a6d2775fc.js"},
+    {"jslink" : "js/jquery.min.js"},
+    {"jslink" : "js/owl.carousel.js"}
     ])
 
+    <script>
+            $('.owl-carousel').each(function () {
+                $(this).owlCarousel({
+                    loop: false,
+                    margin: 0,
+                    nav: false,
+                    responsiveClass: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                        },
+                        768: {
+                            items: 2
+                        },
+                        1200: {
+                            items: 3,
+                        }
+                    },
+                });
+                $(this).siblings().find('.next').click(function () {
+                    $(this).parent().siblings('.owl-carousel').trigger('next.owl.carousel');
+                });
+                $(this).siblings().find('.prev').click(function () {
+                    $(this).parent().siblings('.owl-carousel').trigger('prev.owl.carousel');
+                });
+            });
+    
+        </script>
+
 </body>
+
 </html>
