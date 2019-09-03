@@ -9,6 +9,8 @@
 
     <!-- css -->
     @@loop('template/csslink.html',[
+    {"csslink" : "css/owl.carousel.min.css"},
+    {"csslink" : "css/owl.theme.default.css"},
     {"csslink" : "css/style.css"}
     ])
 
@@ -73,9 +75,33 @@
 
     <section class="item_recom_section container">
         <h3 class="section_title">推薦商品</h3>
-        <div class="item_recom_wrap sort_same owl-carousel owl-theme">
-            
-                <div class="card_bg card_bg1">
+        <div class="shop-tab-inner">
+            <div class="col-2 col-xl-1 ta-r v-xl-hide">
+                <img src="images/product/arrow_left.png" alt="" class="prev po-r w-40 pointer">
+            </div>
+            <!-- <div class="sort_same pt350 owl-carousel owl-theme"> -->
+            <div class="sort_same owl-carousel owl-theme">
+                <div class="hoverObj card_bg card_bg1">
+                    <div class="gray_linear_gradient center">
+                        <div class="sort_same_item_img center">
+                            <a href="item.html"><img src="images/product/product_small/pd_s-01.jpg"></a>
+                        </div>
+                        <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                        <p class="sort_same_item_price text_align_c">NT.450</p>
+                        <div class="btn m-b m-a">加入購物車</div>
+                    </div>
+                </div>
+                <div class="hoverObj card_bg card_bg1">
+                    <div class="gray_linear_gradient center">
+                        <div class="sort_same_item_img center">
+                            <img src="images/product/product_small/pd_s-02.jpg">
+                        </div>
+                        <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                        <p class="sort_same_item_price text_align_c">NT.450</p>
+                        <div class="btn m-b m-a">加入購物車</div>
+                    </div>
+                </div>
+                <div class="hoverObj card_bg card_bg1">
                     <div class="gray_linear_gradient center">
                         <div class="sort_same_item_img center">
                             <img src="images/product/product_small/pd_s-03.jpg">
@@ -85,43 +111,10 @@
                         <div class="btn m-b m-a">加入購物車</div>
                     </div>
                 </div>
-           
-            
-                <div class="card_bg card_bg3">
-                    <div class="gray_linear_gradient center">
-                        <div class="sort_same_item_img center">
-                            <img src="images/product/product_small/pd_s-13.jpg">
-                        </div>
-                        <p class="sort_same_item_title text_align_c">仙人掌馬克杯</p>
-                        <p class="sort_same_item_price text_align_c">NT.450</p>
-                        <div class="btn m-b m-a">加入購物車</div>
-                    </div>
-                </div>
-            
-            
-                    <div class="card_bg card_bg2">
-                        <div class="gray_linear_gradient center">
-                            <div class="sort_same_item_img center">
-                                <img src="images/product/product_small/pd_s-12.jpg">
-                            </div>
-                            <p class="sort_same_item_title text_align_c">仙人掌衣服</p>
-                            <p class="sort_same_item_price text_align_c">NT.450</p>
-                            <div class="btn m-b m-a">加入購物車</div>
-                        </div>
-                    </div>
-                
-            
-                <div class="card_bg card_bg1">
-                    <div class="gray_linear_gradient center">
-                        <div class="sort_same_item_img center">
-                            <img src="images/product/product_small/pd_s-03.jpg">
-                        </div>
-                        <p class="sort_same_item_title text_align_c">仙人掌包包</p>
-                        <p class="sort_same_item_price text_align_c">NT.450</p>
-                        <div class="btn m-b m-a">加入購物車</div>
-                    </div>
-                </div>
-            
+            </div>
+            <div class="col-2 col-xl-1 v-xl-hide">
+                <img src="images/product/arrow_right.png" alt="" class="next po-r w-40 pointer">
+            </div>
         </div>
     </section>
     <!-- ================ -->
@@ -136,33 +129,33 @@
     ])
 
     <script>
-            $('.owl-carousel').each(function () {
-                $(this).owlCarousel({
-                    loop: false,
-                    margin: 0,
-                    nav: false,
-                    responsiveClass: true,
-                    responsive: {
-                        0: {
-                            items: 1,
-                        },
-                        768: {
-                            items: 2
-                        },
-                        1200: {
-                            items: 3,
-                        }
+        $('.owl-carousel').each(function () {
+            $(this).owlCarousel({
+                loop: false,
+                margin: 0,
+                nav: false,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
                     },
-                });
-                $(this).siblings().find('.next').click(function () {
-                    $(this).parent().siblings('.owl-carousel').trigger('next.owl.carousel');
-                });
-                $(this).siblings().find('.prev').click(function () {
-                    $(this).parent().siblings('.owl-carousel').trigger('prev.owl.carousel');
-                });
+                    768: {
+                        items: 2
+                    },
+                    1200: {
+                        items: 3,
+                    }
+                },
             });
-    
-        </script>
+            $(this).siblings().find('.next').click(function () {
+                $(this).parent().siblings('.owl-carousel').trigger('next.owl.carousel');
+            });
+            $(this).siblings().find('.prev').click(function () {
+                $(this).parent().siblings('.owl-carousel').trigger('prev.owl.carousel');
+            });
+        });
+
+    </script>
 
 </body>
 

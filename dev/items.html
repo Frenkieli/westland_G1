@@ -140,7 +140,7 @@
                     </div>
                     <!-- <div class="sort_same pt350 owl-carousel owl-theme"> -->
                     <div class="sort_same owl-carousel owl-theme">
-                        <div class="card_bg card_bg1">
+                        <div class=" card_bg card_bg1">
                             <div class="gray_linear_gradient center">
                                 <div class="sort_same_item_img center">
                                     <a href="item.html"><img src="images/product/product_small/pd_s-01.jpg"></a>
@@ -150,7 +150,7 @@
                                 <div class="btn m-b m-a">加入購物車</div>
                             </div>
                         </div>
-                        <div class="card_bg card_bg1">
+                        <div class=" card_bg card_bg1">
                             <div class="gray_linear_gradient center">
                                 <div class="sort_same_item_img center">
                                     <img src="images/product/product_small/pd_s-02.jpg">
@@ -160,7 +160,7 @@
                                 <div class="btn m-b m-a">加入購物車</div>
                             </div>
                         </div>
-                        <div class="card_bg card_bg1">
+                        <div class=" card_bg card_bg1">
                             <div class="gray_linear_gradient center">
                                 <div class="sort_same_item_img center">
                                     <img src="images/product/product_small/pd_s-03.jpg">
@@ -181,7 +181,7 @@
                         <img src="images/product/arrow_left.png" alt="" class="prev po-r w-40 pointer">
                     </div>
                     <div class="sort_same owl-carousel owl-theme owl-theme">
-                        <div class="card_bg card_bg2">
+                        <div class=" card_bg card_bg2">
                             <div class="gray_linear_gradient center">
                                 <div class="sort_same_item_img center">
                                     <img src="images/product/product_small/pd_s-10.jpg">
@@ -191,7 +191,7 @@
                                 <div class="btn m-b m-a">加入購物車</div>
                             </div>
                         </div>
-                        <div class="card_bg card_bg2">
+                        <div class=" card_bg card_bg2">
                             <div class="gray_linear_gradient center">
                                 <div class="sort_same_item_img center">
                                     <img src="images/product/product_small/pd_s-11.jpg">
@@ -201,7 +201,7 @@
                                 <div class="btn m-b m-a">加入購物車</div>
                             </div>
                         </div>
-                        <div class="card_bg card_bg2">
+                        <div class=" card_bg card_bg2">
                             <div class="gray_linear_gradient center">
                                 <div class="sort_same_item_img center">
                                     <img src="images/product/product_small/pd_s-12.jpg">
@@ -222,7 +222,7 @@
                         <img src="images/product/arrow_left.png" alt="" class="prev po-r w-40 pointer">
                     </div>
                     <div class="sort_same owl-carousel owl-theme owl-theme">
-                        <div class="card_bg card_bg3">
+                        <div class=" card_bg card_bg3">
                             <div class="gray_linear_gradient center">
                                 <div class="sort_same_item_img center">
                                     <img src="images/product/product_small/pd_s-13.jpg">
@@ -232,7 +232,7 @@
                                 <div class="btn m-b m-a">加入購物車</div>
                             </div>
                         </div>
-                        <div class="card_bg card_bg3">
+                        <div class=" card_bg card_bg3">
                             <div class="gray_linear_gradient center">
                                 <div class="sort_same_item_img center">
                                     <img src="images/product/product_small/pd_s-14.jpg">
@@ -242,7 +242,7 @@
                                 <div class="btn m-b m-a">加入購物車</div>
                             </div>
                         </div>
-                        <div class="card_bg card_bg3">
+                        <div class=" card_bg card_bg3">
                             <div class="gray_linear_gradient center">
                                 <div class="sort_same_item_img center">
                                     <img src="images/product/product_small/pd_s-16.jpg">
@@ -263,7 +263,7 @@
                         <img src="images/product/arrow_left.png" alt="" class="prev po-r w-40 pointer">
                     </div>    
                     <div class="sort_same owl-carousel owl-theme owl-theme">
-                        <div class="card_bg card_bg4">
+                        <div class=" card_bg card_bg4">
                             <div class="gray_linear_gradient center">
                                 <div class="sort_same_item_img center">
                                     <img src="images/product/product_small/pd_s-16.jpg">
@@ -273,7 +273,7 @@
                                 <div class="btn m-b m-a">加入購物車</div>
                             </div>
                         </div>
-                        <div class="card_bg card_bg4">
+                        <div class=" card_bg card_bg4">
                             <div class="gray_linear_gradient center">
                                 <div class="sort_same_item_img center">
                                     <img src="images/product/product_small/pd_s-16.jpg">
@@ -283,7 +283,7 @@
                                 <div class="btn m-b m-a">加入購物車</div>
                             </div>
                         </div>
-                        <div class="card_bg card_bg4">
+                        <div class=" card_bg card_bg4">
                             <div class="gray_linear_gradient center">
                                 <div class="sort_same_item_img center">
                                     <img src="images/product/product_small/pd_s-16.jpg">
@@ -402,6 +402,81 @@
 
         });
     </script>
+    <!-- ==================================== -->
+    <script>
+            var bot=85;
+            function showHoverObj() {
+
+                var card = document.querySelectorAll('.hoverObj');
+                console.log(card);
+                for (var i = 0; i < card.length; i++) {
+                    card[i].onmouseenter = function () {
+                        console.log(1);
+                        let grandpa = this.parentNode.parentNode.parentNode.parentNode;
+                        let fa = this.parentNode.parentNode.parentNode;
+                        if (grandpa.firstElementChild.className.indexOf("hoverObj_cactus") > -1 && grandpa.firstElementChild.nextElementSibling.className.indexOf("hoverObj_cactus") > -1) {
+                            return false;
+                        } else {
+                            console.log(grandpa);
+                            var theLeft = this.getBoundingClientRect().left;
+                            var theWidth = window.getComputedStyle(this.parentNode, null).getPropertyValue("width");
+                            var theGrandpaLeft = grandpa.getBoundingClientRect().left;
+    
+                            hoverObjImg = document.createElement("img");
+                            hoverObjImg.src = "../images/product/hoverObj_cactus.png";
+    
+                            hoverObjDiv = document.createElement("div");
+                            hoverObjDiv.style.width = "80px";
+                            hoverObjDiv.style.position = "absolute";
+                            hoverObjDiv.className = "hoverObj_cactus";
+                            hoverObjDiv.style.left = (parseInt(theLeft) - parseInt(theGrandpaLeft) + parseInt(theWidth) / 5 - parseInt(hoverObjDiv.style.width) / 3) + "px";
+                            hoverObjDiv.style.bottom = bot + "%";
+    
+                            hoverObjDiv.appendChild(hoverObjImg);
+                            grandpa.insertBefore(hoverObjDiv, fa);
+    
+                            function monAniUp() {
+    
+                                if (bot < 93) {
+                                    bot += 1.5;
+                                    hoverObjDiv.style.bottom = bot + "%";
+                                    setTimeout(monAniUp, 1);
+                                } else {
+                                    clearTimeout(theTimer);
+                                    hoverObjDiv.className += " bounceMon";
+                                }
+    
+                            }
+                            theTimer = setTimeout(monAniUp, 5);
+                        }
+                    };
+    
+                    card[i].onmouseleave = function () {
+                        theNode = this.parentNode.parentNode.parentNode.parentNode.firstElementChild;
+                        console.log(theNode);
+                        function monAniDown() {
+    
+                            if (bot > 85) {
+                                bot -= 1;
+                                theNode.style.bottom = bot + "%";
+                                setTimeout(monAniDown, 3);
+                            } else {
+                                clearTimeout(theTimer2);
+                                if (theNode.className.indexOf("hoverObj_cactus") > -1) {
+                                    theNode.parentNode.removeChild(theNode);
+                                }
+    
+                            }
+                        }
+                        theTimer2 = setTimeout(monAniDown, 5);
+                    };
+    
+                }
+            }
+            window.addEventListener('load',function(){
+                showHoverObj();
+            },false);
+        </script>
 </body>
 
 </html>

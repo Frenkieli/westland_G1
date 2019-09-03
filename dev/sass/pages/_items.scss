@@ -51,6 +51,7 @@
         text-align: center;
     }
     .card_bg{
+        position: relative;
         margin: auto;   //私加
         filter: drop-shadow(3px 3px 3px #592f13);
         height: 410px;
@@ -82,6 +83,11 @@
     .card_bg4{
         background-image: url("../images/product/horse.png");
     }
+    // .hoverObj{
+    //     position: absolute;
+    //     width: 220px;
+
+    // }
     .filter{
         width: 20%;
     }
