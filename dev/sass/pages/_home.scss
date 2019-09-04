@@ -176,14 +176,14 @@
             @include rwd(phone) {
                 font-size: 16px;
             }
-            .ticket_name{
+            .ticket_name {
                 margin-bottom: 10px;
                 @include rwd(phone) {
                     margin: 10px 0;
                 }
             }
-            .ticket_reward{
-                p{
+            .ticket_reward {
+                p {
                     margin: 10px 0;
                 }
             }
@@ -381,10 +381,35 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        #arrowlift,
+        #arrowright {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            height: 50px;
+            width: 50px;
+            z-index: 1;
+            img {
+                width: 100%;
+            }
+            &:hover {
+                img {
+                    animation: rubberBand 1s infinite;
+                }
+            }
+        }
+        #arrowlift {
+            left: 10px;
+            transform: rotate(-90deg);
+        }
+        #arrowright {
+            right: 10px;
+            transform: rotate(90deg);
+        }
     }
     @include rwd(desktop) {
         // background-image: url("../images/index/home_bg_2.png");
-        background-image: linear-gradient(#FFAE58 , #FFF4E3);
+        background-image: linear-gradient(#ffae58, #fff4e3);
         background-repeat: no-repeat;
         width: 100%;
         background-size: 100% 100%;
@@ -680,7 +705,7 @@
             background-image: url("../images/product/eagle.png");
         }
     }
-    
+
     .store_btn {
         @include btn_active;
         margin: 20px;
