@@ -92,16 +92,16 @@
 
 @include rwd(desktop){
     // 麵包屑
-    .item_bread_crumbs{
-        li{
-            a{
-                font-size: 22px;
-            }
-            &::after{
-                font-size: 22px;
-            }
-        }
-    }
+    // .item_bread_crumbs{
+    //     li{
+    //         a{
+    //             font-size: 18px;
+    //         }
+    //         &::after{
+    //             font-size: 18px;
+    //         }
+    //     }
+    // }
     .item_intro_section{
         justify-content: center;
         display: flex;

@@ -55,7 +55,7 @@ $.fn.polygon = function(options) {
 			if(0 < positionNum) {
 				return positionNum + -length;
 			} else {
-				return positionNum + length
+				return positionNum + length;
 			}
 		} else {
 			return positionNum;

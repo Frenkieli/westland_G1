@@ -1,0 +1,153 @@
+.start_door {
+    .door {
+        width: 100%;
+        height: 100vh;
+        background-image: url("../images/entrance/backwood.png");
+        position: relative;
+        &_window {
+            position: absolute;
+            transform: translateY(-50%);
+            top: 50%;
+            width: 15.2%;
+            &left {
+                left: 1.77%;
+            }
+            &right {
+                right: 1.77%;
+            }
+            img {
+                width: 100%;
+            }
+        }
+        &_container {
+            max-width: 1200px;
+            width: 64.4791%;
+            height: 100%;
+            margin: auto;
+            position: relative;
+            background-image: url("../images/entrance/doorback.png"),
+                radial-gradient(ellipse at center, #4c4c4c 1%, #000000 100%);
+            background-size: 100% 100%;
+            @include rwd(phone) {
+                width: 100%;
+            }
+            &leftdoor {
+                width: 40.1699%;
+
+                position: absolute;
+                bottom: 20px;
+                left: 9%;
+                height: 68.472%;
+                .door_open {
+                    transition: 1s ease-in-out;
+                    transform-origin: left;
+                    width: 100%;
+                    height: 100%;
+                }
+                &:hover .door_open {
+                    transform: rotateY(-40deg);
+                }
+                .door_door {
+                    width: 100%;
+                    height: 100%;
+                    transform: rotateY(180deg);
+                }
+                .door_text {
+                    position: absolute;
+                    transform: translate(-50%, -50%);
+                    top: 50%;
+                    left: 50%;
+                    width: 27.0993%;
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+            &rightdoor {
+                width: 40.1699%;
+                right: 9%;
+                position: absolute;
+                bottom: 20px;
+                height: 68.472%;
+                .door_open {
+                    width: 100%;
+                    height: 100%;
+                    transition: 1s ease-in-out;
+                    transform-origin: right;
+                }
+                &:hover .door_open {
+                    transform: rotateY(40deg);
+                }
+
+                .door_door {
+                    width: 100%;
+                    height: 100%;
+                }
+                .door_text {
+                    position: absolute;
+                    transform: translate(-50%, -50%);
+                    top: 50%;
+                    left: 50%;
+                    width: 27.0993%;
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+            &titlet {
+                width: 58.4501%;
+                height: 29.1572%;
+                position: absolute;
+                z-index: 1;
+                left: 0;
+                right: 0;
+                margin: auto;
+                top: 6.41025%;
+                background-image: url("../images/entrance/title.png");
+                background-size: 100% 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                padding-top: 1%;
+                box-sizing: border-box;
+                @include rwd(phone) {
+                    width: 95%;
+                }
+                .door_titlehat {
+                    position: absolute;
+                    width: 22.43961%;
+                    top: 10%;
+                    @include rwd(phone) {
+                    top: 20%;
+                    }
+                    &left {
+                        left: -5%;
+                        transform: rotateY(180deg);
+                        @include rwd(phone) {
+                            left: 0%;
+                        }
+                    }
+                    &right {
+                        right: -5%;
+                        @include rwd(phone) {
+                        right: -0%;
+                        }
+                    }
+                }
+                .door_titlestar {
+                    width: 15.547%;
+                    img {
+                        width: 33.3333%;
+                    }
+                }
+                .door_tltletext {
+                    width: 58.7317%;
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
