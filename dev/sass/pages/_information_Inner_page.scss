@@ -10,7 +10,7 @@
         }
         padding-top: 200px;
         margin: auto;
-        max-width: 1000px;
+        max-width: 95vw;
         margin-bottom: 200px;
     }
     .section_messageBoard {
@@ -21,6 +21,9 @@
         .message_container {
             display: flex;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            background-color: rgba(160, 228, 146, 0.5);
+            border: 10px solid #5a752825;
+            border-radius: 20px;
             .who {
                 flex-grow: 1;
             }
@@ -75,8 +78,8 @@
             display: flex;
             width: 80%;
             margin: auto;
-            background-color:#5a7528cc;
-            border: 1px solid #5a752825;
+            background-color: rgba(160, 228, 146, 0.5);
+            border: 10px solid #5a752825;
             border-radius: 25px;
             padding: 20px;
             margin-bottom: 50px;
@@ -95,7 +98,6 @@
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                background-color: rgba(160, 228, 146, 0.377);
                 border-radius: 20px;
                 .buttonControl {
                     flex-grow: 1;
