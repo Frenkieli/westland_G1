@@ -30,9 +30,7 @@ h1,h2,h3,h4,h5,h6,p,a,span,div,ul,li,ol{
     font-family: "Noto Sans TC" , 'Noto Sans';
 }
 
-.paragraph_title{
-    font-size: 22px;
-}
+
 .paragraph_p{
     font-size: 16px;
     line-height: 24px;
@@ -68,11 +66,30 @@ h1,h2,h3,h4,h5,h6,p,a,span,div,ul,li,ol{
     .index_team,.index_ticket_customize,.section_store,.section_facility,.activitypages{
         padding-top: 100px;
     }
+    .paragraph_title{
+        font-size: 22px;
+    }
+    .paragraph_p{
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.6px;
+    }
 }
 @include rwd(phone){
     .shoppingCart_page,.activity_page,.gameplay_page,.information_inner_page,.information_page,.item_page,.items_page,.member_page,.memberLocation_page,.shoppingCart_page,.team_page,.ticket_page{
         background-image: url("../images/background/home_bgiM_1.jpg");
         background-size: cover;
+    }
+    .index_team,.index_ticket_customize,.section_store,.section_facility,.activitypages{
+        padding-top: 50px;
+    }
+    .paragraph_title{
+        font-size: 20px;
+    }
+    .paragraph_p{
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.6px;
     }
 }
 

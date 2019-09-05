@@ -208,7 +208,7 @@
     line-height: map-get( $line_height_map , page_titleM );
     letter-spacing: map-get( $letter_spacing_map , lv2 );
     font-weight: map-get( $fonts_weight_map , lv3 );
-    margin: 0 auto 20px;
+    margin: 0 auto 40px;
     text-align: center;
 }
 
@@ -241,7 +241,7 @@
     line-height: map-get( $line_height_map , section_titleM );
     letter-spacing: map-get( $letter_spacing_map , lv2 );
     font-weight: map-get( $fonts_weight_map , lv3 );
-    margin: 0 auto 20px;
+    margin: 0 auto 30px;
     text-align: center;
 }
 

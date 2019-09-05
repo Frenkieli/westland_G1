@@ -20,7 +20,35 @@
 
     <h2 class="page_title">線上購票</h2>
     <section class="ticket_customize_scetion container_mb">
-        @@include("template/ticket_section.html") 
+        @@include("template/ticket_section.html")
+        <div class="ticket_customize_wrap">
+            <div class="customize_backimage">
+                <div class="ticket_title">客製您的門票</div>
+                <div class="ticket_subtitle">DEAD OR ALIVE</div>
+                <input class="uploadpic" type="file" id="uploadpic" value="">
+                <div class="ticket_picture">
+                    <img src="images/cusitems/ticket_bgi.svg" alt="預設圖">
+                </div>
+                <div class="ticket_amount">
+                    <span class="ticket_amount_title">數量 :</span>
+                    <div class="ticket_amount_box">
+                        <span class="plus count">
+                            <i class="fas fa-plus"></i>
+                        </span>
+                        <input class="ticket_amounts" type="text" id="ticket_amount" value="1">
+                        <span class="less count">
+                            <i class="fas fa-minus"></i>
+                        </span>
+                    </div>
+                </div>
+                <span class="opcatity_box"></span>
+                <div class="ticket_customize_sub">
+                    <img class="customize_sub" src="images/cusitems/role1.svg" alt="客製後出現位置">
+                </div>
+            </div>
+            <div class="btn--active center">立即購買</div>
+        </div>
+    </div>
     </section>
     <!-- 樂園活動消息 -->
     <section class="ticket_news_section container_mb">
