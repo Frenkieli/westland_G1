@@ -60,7 +60,21 @@
                     width: 20%;
                     top: 0;
                     left: 0;
-                    transform:translate(187%,25%); 
+                    transform:translate(187%,25%);
+                    #pirateShip{
+                        width: 95%; 
+                        padding: 10px 0 10px 0;
+                    }
+                    #waterSlide{
+                        width: 100%;
+                        height: 250px;
+                        padding: 0;
+                    }
+                    #waterSlide,#rollerCoaster,#Carousel,#ferrisWheel,#out{
+                        width: 100%;
+                        height: 250px;
+                        padding: 0;
+                    }
                     .demo_img{  
                         display: inline-block;
                         width:50%;
@@ -74,6 +88,8 @@
                         border-radius: 20px;
                         filter:drop-shadow(-25px 25px 25px rgba(26,58,70,0.7));
                         animation: gbdown 1s forwards;
+                        width: 100%;
+                        filter:drop-shadow(10px 15px 5px rgba(2, 2, 2, 0.685));
                         @keyframes  gbdown {
                             0% {
                                 transform: translateY(-200%);
@@ -289,7 +305,7 @@
             left: 0;
             transform: translate(85%,30%);
             width: 15%;
-            #QRcode0,#QRcode1,#QRcode2,#QRcode3,#QRcode4{
+            #QRcode0,#QRcode1,#QRcode2,#QRcode3,#QRcode4,#QRcode5,#QRcode6,#QRcode7,#QRcode8{
                 transform: scale(0.7);
             }
             .btn{
