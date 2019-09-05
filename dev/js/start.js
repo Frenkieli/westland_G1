@@ -18,17 +18,21 @@ function openDoor() {
 
 
         }
-        document.getElementsByClassName('door')[0].style.clipPath = 'polygon(0% 0%, 0% 100%, 0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%, 0 100%, 100% 100%, 100% 0%)';
-        // document.getElementsByTagName('body')[0].style.opacity = '0';
+
+        setTimeout(() => {
+            document.getElementsByClassName('door')[0].style.clipPath = 'polygon(0% 0%, 0% 100%, 0% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 0%, 0 100%, 100% 100%, 100% 0%)';
+            // document.getElementsByTagName('body')[0].style.opacity = '0';
+        }, 500);
+
     }
     if (this.id == 'fontend') {
         setTimeout(() => {
             window.location.href = 'index.html';
-        }, 1000);
+        }, 1500);
     } else {
         setTimeout(() => {
             window.location.href = 'backend/backend.html';
-        }, 1000);
+        }, 1500);
     }
 }
 
