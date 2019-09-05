@@ -14,9 +14,9 @@
     .join_button_container{
         width: 100%;
         text-align: center;
-        margin-top: 5%;
+        margin-bottom: 4%;
         @include rwd(phone){
-            margin-top: 1%;
+            margin-top: 7%;
         }
         :first-child{
             margin-right:15%;
@@ -30,6 +30,9 @@
                 margin-left:5%;
             }
         }
+    }
+    #chose_ticket{
+        margin-left:1%;
     }
     .team_join_container{
         background-image: url("../images/team/blue.svg");
@@ -53,10 +56,23 @@
         justify-content: space-aroeund;
         flex-direction: column;
         align-items: center;
-        #select_team{
-            margin-top:7%; 
+        .select_ticket{ 
+            background: rgb(0, 0, 0);
+            color: #fff;
+            border-radius:10px;
+            width: 50%;
+            margin: auto;
+            text-align: center;
             @include rwd(phone){
-                margin-top:0%; 
+                width: 80%;
+                margin-top:-5%;
+                margin-bottom:1%; 
+            }
+        }
+        #select_team{
+            margin-bottom:5%; 
+            @include rwd(phone){
+                margin-top:-1%; 
             }
         }
     }
@@ -141,15 +157,22 @@
         }
         .list_box_info{
             :first-child{
-                margin-top: 15%;
-                margin-bottom:10%; 
+                margin-top: 5%;
+                margin-bottom:5%;
+
+            }
+            .info_teamname{
+                min-height: 30px;
+                color: #770909;
             }
             :last-child{
                 margin-top: 15%;
             } 
             .info_teamslogan{
+                margin-top: 3%;
                 line-height: 25px;
                 min-height: 180px;
+                color: #770909;
                 @include rwd(phone){
                     line-height: 17px;
                     min-height: 80px;
@@ -296,7 +319,7 @@
                         @include rwd(phone){
                             bottom: 25%;
                             width:25%;
-                            right: 1%;
+                            right: 3%;
                         }
                         img{
                             width: 100%;
@@ -349,21 +372,35 @@
                             padding: 3% 0;
                         }
                     }
+                    .text_count{
+                        font-size: 16px;
+                        text-align: right;
+                    }
+                    .team_name_remainder{
+                        color: hsl(0, 100%, 35%);
+                    }
+                    .team_slogan_remainder{
+                        color: hsl(0, 100%, 35%);
+                    }
                     .create_team_name{
                         width: 100%;
                         // margin: auto;
                         border-radius:20px;
                         font-size: 30px;
+                        font-family: 'Noto Sans T Chinese';
                         @include rwd(phone){
                             font-size: 18px;
                         }
+                    }
+                    .create_team_slogan{
+                        font-family: 'Noto Sans T Chinese';
                     }
                     textarea{
                         width: 100%;
                         // margin: auto;
                         border-radius:20px;
                         font-size: 20px;
-                        margin-bottom:3%;
+                        // margin-bottom:3%;
                         @include rwd(phone){
                             font-size: 18px;
                         }
@@ -467,16 +504,28 @@
                 .list_box_info{
                     :first-child{
                         margin-top: 15%;
-                        margin-bottom:10%; 
+                        // margin-bottom:10%; 
+                        @include rwd(phone){
+                            margin-top: 12%;
+                        }
+                    }
+                    .info_teamname{
+                        // line-height: 0px;
+                        min-height: 25px;
+                        color: #770909;
                     }
                     :last-child{
-                        margin-top: 15%;
+                        margin-top: 10%;
+                        @include rwd(phone){
+                            margin-top: 0;
+                        }
                     } 
                     .info_teamslogan{
+                        color: #770909;
                         line-height: 20px;
                         min-height: 100px;
                         @include rwd(phone){
-                            min-height: 80px;
+                            min-height: 100px;
                         }
                     }                 
                     width: 35%;
