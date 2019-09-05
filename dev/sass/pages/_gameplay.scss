@@ -1,12 +1,17 @@
 @include rwd(desktop) {
     .section_demo {
+        margin-top: -100px;
+        width: 100%;
+        height: 90vh;
+        overflow: hidden;
+        font-size: 0;
         .small_map{
             position: absolute;
             top: 50%;
             left: 50%;
             width: 30%;
-            transform: translate(50%,-80%);
-            border: 5px dashed #000;
+            transform: translate(35%,-70%);
+            border: 5px dashed rgba(0, 0, 0, 0.479);
             padding: 20px;
             border-radius: 10px;
         }
@@ -14,8 +19,8 @@
             position: absolute;
             top: 0;
             right: 0;
-            margin-top:150px;
-            margin-right:150px;
+            margin-top:200px;
+            margin-right:180px;
             width: 50px;
             animation: where 1s infinite;
             @keyframes where {
@@ -26,18 +31,11 @@
                     transform-origin:55% 0;
                 };
                 50%{transform: rotateY(50deg);
-
                     transform-origin:55% 0;};
                 100%{transform: rotateY(0deg);
-
                     transform-origin:55% 0;};
             }
         }
-        width: 100%;
-        height: 90vh;
-        // background-color: rgba(0,0,0,0.5);
-        overflow: hidden;
-        font-size: 0;
         .demo_container {
             width: 300%;
             height: 300%;
@@ -49,27 +47,43 @@
                 height: 33.3333%;
                 font-size: 60px;
                 box-sizing: border-box;
+                position: relative;
+                .demo_text{
+                    background-color: rgba(255, 255, 255, 0.459);
+                    border-radius: 20px;
+                    position: absolute;
+                    width: 30%;
+                    top: 0;
+                    left: 0;
+                    margin-top:2%;
+                    margin-left: 30%;
+                    .demo_img{  
+                        width:100%;
+                        height: 50%;
+                        padding: 15px;
+                    }
+                    p{
+                        font-size: 20px;
+                        padding: 20px;
+                    }
+                }
             }
         }
         .demo_arrow {
             position: fixed;
             width: 50px;
             height: 50px;
-            margin: auto;
-            z-index: 9999999999999999999999999999999;
+            z-index: 50;
             img {
                 width: 100%;
+                filter:drop-shadow(10px 15px 5px rgba(2, 2, 2, 0.685));
             }
         }
         .demo_toparrow {
-            top: 150px;
-            left: 0;
-            right: 0;
-            &:hover {
-                img{
-
-                    animation: rubberBand 1s infinite;
-                }
+            top: 12%;
+            left: 48%;
+            img{
+                animation: rubberBand 1s infinite;
             }
         }
         @keyframes rubberBand {
@@ -101,76 +115,87 @@
             }
         }
         .demo_leftarrow {
-            top: 0;
-            bottom: 0;
-            left: 500px;
+            top: 50%;
+            left: 5%;
             transform: rotate(-90deg);
-            &:hover {
-                img{
-
-                    animation: rubberBand 1s infinite;
-                }
+            img{
+                animation: rubberBand 1s infinite;
             }
         }
-
         .demo_rightarrow {
-            top: 0;
-            bottom: 0;
-            right: 50px;
+            top: 50%;
+            right: 5%;
             transform: rotate(90deg);
-            &:hover {
-                img{
-
-                    animation: rubberBand 1s infinite;
-                }
+            img{
+                animation: rubberBand 1s infinite;
             }
         }
         .demo_bottom {
-            bottom: 100px;
-            left: 0;
-            right: 0;
+            bottom: 0%;
+            right: 48%;
             transform: rotate(180deg);
-            &:hover {
-                img{
-
-                    animation: rubberBand 1s infinite;
-                }
+            img{
+                animation: rubberBand 1s infinite;
             }
         }
     }
-
     .section_camera,
     .section_mission,
     .play_title,
     .playticket_title {
         display: none;
     }
-    .demo_text{
-        background-color: rgba(255, 255, 255, 0.459);
-        border-radius: 20px;
-        padding: 20px;
-        width: 40%;
-        margin: auto;
-        .demo_img{
-            width: 300px;
-            height: 200px;
-            float: left;
-        }
-        p{
-            // font-size: 20px;
-            padding-left: 10px;
-            width: 55%;
-        }
-    }
+
     .demo_scan{
+        position: relative;
         padding: 20px;
         padding-top: 0;
         text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
+        position: relative;
+        .demo_scaninner{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 40%;
+            .btn{
+                margin: auto;
+            }
+        }
         p{
             margin: 10px;
+        }
+        .direction_right{
+            z-index: 55;
+            font-size: 35px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            margin-right:-900px;
+            margin-bottom:-110px; 
+            color:rgba(36, 36, 36, 0.795);
+        }
+        .direction_bottom{
+            z-index: 55;
+            font-size: 35px;
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            margin-right:-350px;
+            margin-bottom:-300px; 
+            color:rgba(36, 36, 36, 0.795);
+        }
+        .direction_left{
+            z-index: 55;
+            font-size: 35px;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            margin-left:50px;
+            margin-bottom:-80px; 
+            color:rgba(36, 36, 36, 0.795);
         }
     }
 
@@ -190,6 +215,7 @@
             margin-bottom: 30px;
         }
         .playticket_ticket {
+            transform: scale(0.6) translate(19%,40%);
             width: 95%;
             margin: auto;
             display: flex;

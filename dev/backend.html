@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    @@loop('template/csslink.html',[
+    {"csslink" : "css/style.css"}
+    ])
+
+</head>
+
+<body>
+    <section class="section_backend">
+        <div class="backend_left">
+            <a href="#" class="back_end">管理員管理</a>
+            <a href="#" class="back_end">商品管理</a>
+            <a href="#" class="back_end">會員查詢</a>
+            <a href="#" class="back_end">訂單管理</a>
+            <a href="#" class="back_end">活動管理</a>
+            <a href="#" class="back_end">檢舉留言管理</a>
+            <a href="#" class="back_end">機器人文本管理</a>
+            <a href="#" class="back_end">經典任務管理</a>
+            <a href="#" class="back_end">票價管理</a>
+            <a href="#" class="back_end">設施管理</a>
+            <a href="#" class="back_end">隨機問答管理</a>
+            <a href="#" class="back_end">兌換獎品管理</a>
+            <a href="#" class="back_end">克制吉祥物配件管理</a>
+            <a href="#" class="back_end">結算和計分重製</a>
+        </div>
+        <div class="backend_right">
+            <div class="right_title">
+                商品管理 <input id="newitem" type="button" value="新增">
+            </div>
+            <table id="main_back">
+            </table>
+        </div>
+    </section>
+
+    <script>
+
+
+        let fakeDate = [
+            [0000000001, "商品A", 'images/backend/1.png', '1', '1200', '黑色', '吉祥物', '簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介'],
+            [0000000002, "商品B", 'images/backend/2.png', '0', '1200', '黑色', '吉祥物', '簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介'],
+            [0000000003, "商品C", 'images/backend/3.png', '1', '1200', '黑色', '吉祥物', '簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介'],
+            [0000000004, "商品D", 'images/backend/4.png', '0', '1200', '黑色', '吉祥物', '簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介'],
+            [0000000005, "商品F", 'images/backend/5.png', '1', '1200', '黑色', '吉祥物', '簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介'],
+        ];
+
+
+        let tdBulid = {
+            tdp() {
+                let intd = document.createElement('p');
+                return intd;
+            },
+            tdButton() {
+                let intd = document.createElement('input');
+                intd.type = 'button';
+                return intd;
+            },
+            tdText() {
+                let intd = document.createElement('input');
+                intd.type = 'text';
+                return intd;
+            }, tdLongText() {
+                let intd = document.createElement('input');
+                intd.type = 'text';
+                intd.width = "500px";
+                return intd;
+            }
+        };
+
+        window.addEventListener('load', init, false);
+
+        function init() {
+            // console.log('45645646');
+            // main_back.style.backgroundColor= '#000';
+            let main_back = document.getElementById('main_back');
+            let dataType = [1, 3, 3, 2, 3, 3, 3, 4];
+
+            let tableHeader = document.createElement('tr');
+
+            tableHeader.innerHTML = "<th>商品編號</th><th>商品名稱</th><th>商品照片</th><th>商品上下架</th><th>價格</th><th>商品樣式</th><th>種類</th><th>簡介</th><th>修改</th><th>刪除</th>";
+            main_back.appendChild(tableHeader);
+            let inTr;
+            fakeDate.forEach((value) => {
+                console.log(111);
+                inTr = document.createElement('tr');
+                for (i = 0; i < value.length; i++) {
+                    let num = dataType[i];
+                    let inTd = document.createElement('td');
+                    if (i == 0) {
+                        inTr.id = value[0];
+                    }
+                    switch (num) {
+                        case 1:
+                            inDate = tdBulid.tdp();
+                            inDate.innerText = value[i];
+                            break;
+                        case 2:
+                            inDate = tdBulid.tdButton();
+                            if (inDate.value) {
+                                inDate.value = "上架";
+                            } else {
+                                inDate.value = "下架";
+                            }
+                            break;
+                        case 3:
+                            inDate = tdBulid.tdText();
+                            inDate.value = value[i];
+                            break;
+                        case 4:
+                            inDate = tdBulid.tdLongText();
+                            inDate.value = value[i];
+                            break;
+
+                        default:
+                            break;
+                    }
+
+                    inTd.appendChild(inDate);
+                    inTr.appendChild(inTd);
+                }
+
+                let lastTd = document.createElement('td');
+                let lastDate = document.createElement('input');
+                lastDate.type = 'button';
+                lastDate.value = "修改";
+                lastTd.appendChild(lastDate);
+                inTr.appendChild(lastTd);
+                lastTd = document.createElement('td');
+                lastDate = document.createElement('input');
+                lastDate.type = 'button';
+                lastDate.value = "刪除";
+                lastTd.appendChild(lastDate);
+                inTr.appendChild(lastTd);
+
+                main_back.appendChild(inTr);
+            });
+
+
+        }
+
+
+
+
+        // function tdp() {
+        //     let intd = document.createElement('p');
+        // }
+        // function tdButton() {
+        //     let intd = document.createElement('p');
+        // }
+        // function tdtext() {
+        //     let intd = document.createElement('p');
+        // }
+
+
+    </script>
+
+</body>
+
+</html>
