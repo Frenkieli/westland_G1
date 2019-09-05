@@ -19,7 +19,6 @@
         @@include("template/header.html")
     </header>
     @@include("template/robot.html")
-
     <h2 class="page_title play_title">遊玩設施</h2>
     <section class="section_playticket">
         <h3 class="playticket_title">
@@ -54,106 +53,136 @@
     </section>
 
     <section class="section_demo">
+        
+        <div class="map_container">
             <img class="small_map" src="images/gameplay/Jiugongge.svg" alt="小地圖">
             <img class="point" src="images/gameplay/point.svg" alt="所在位置">
+        </div>
         <div class="demo_container">
             <div class="demo_facility">
                 <div class="demo_scan">
-                    <p>入口</p>
-                    <p id="QRcode0"></p>
-                    <div class="btn">掃描</div>
+                    <div class="demo_scaninner">
+                        <div class="section_title">商店</div>
+                        <div class="direction_right">往滑水道</div>
+                        <div class="direction_bottom">往摩天輪</div>
+                        <p id="QRcode0"></p>
+                        <div class="btn">掃描</div>
+                    </div>
                 </div>
                 <div class="demo_text">
-                    
-                    <p class="paragraph_p"><img class="demo_img" src="images/information/pirateShip.svg">這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p>
+                    <p><img class="demo_img" src="images/gameplay/store.svg">這裡是兌換獎品的地方，來看看您贏得多少寶藏吧!</p>
                 </div>
             </div>
             <div class="demo_facility">
                 <div class="demo_scan">
-                    <p>設施一</p>
-                    <p id="QRcode1"></p>
-                    <div class="btn">掃描</div>
+                    <div class="demo_scaninner">
+                        <div class="section_title">滑水道</div>
+                        <div class="direction_right">往旋轉椅</div>
+                        <div class="direction_bottom">往入口</div>
+                        <div class="direction_left">往商店</div>
+                        <p id="QRcode1"></p>
+                        <div class="btn">掃描</div>
+                    </div>
                 </div>
                 <div class="demo_text">
-                    
-                    <p class="paragraph_p"><img class="demo_img" src="images/information/pirateShip.svg">這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p>
+                    <img class="demo_imgBG" src="images/gameplay/bg-waterSlide.svg">
+                    <p><img class="demo_img" src="images/gameplay/waterSlide.svg">兩條採用露天與密閉混和設計的滑水道，全國首創的府衝玩法。在明暗變化全國首創的輔衝玩法中，手握飛毯，頭下腳上有如阿拉丁控制魔毯的飛行一般。</p>
                 </div>
             </div>
             <div class="demo_facility">
                 <div class="demo_scan">
-                    <p>設施二</p>
-                    <p id="QRcode2"></p>
-                    <div class="btn">掃描</div>
+                    <div class="demo_scaninner">
+                        <p>旋轉椅</p>
+                        <p id="QRcode2"></p>
+                        <div class="btn">掃描</div>
+                    </div>
                 </div>
                 <div class="demo_text">
                     
-                    <p class="paragraph_p"><img class="demo_img" src="images/information/pirateShip.svg">這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p>
+                    <p><img class="demo_img" src="images/information/pirateShip.svg">這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p>
                 </div>
             </div>
             <div class="demo_facility">
                 <div class="demo_scan">
-                    <p>設施三</p>
-                    <p id="QRcode3"></p>
-                    <div class="btn">掃描</div>
+                    <div class="demo_scaninner">
+                        <p>海盜船</p>
+                        <p id="QRcode3"></p>
+                        <div class="btn">掃描</div>
+                    </div>
                 </div>
                 <div class="demo_text">
                     
-                    <p class="paragraph_p"><img class="demo_img" src="images/information/pirateShip.svg">這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p>
+                    <p><img class="demo_img" src="images/information/pirateShip.svg">這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p>
                 </div>
             </div>
             <div class="demo_facility">
                 <div class="demo_scan">
-                    <p>商店</p>
-                    <p id="QRcode4"></p>
-                    <div class="btn">掃描</div>
+                    <div class="demo_scaninner">
+                        <div class="section_title">入口</div>
+                        <div class="direction_top">往滑水道</div>
+                        <div class="direction_right">往海盜船</div>
+                        <div class="direction_bottom">往旋轉木馬</div>
+                        <div class="direction_left">往摩天輪</div>
+                        <p id="QRcode4"></p>
+                        <div class="btn">掃描</div>
+                    </div>
                 </div>
                 <div class="demo_text">
-                    
-                    <p class="paragraph_p"><img class="demo_img" src="images/information/pirateShip.svg">這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p>
+                    <img class="demo_imgBG" src="images/gameplay/bg-entrance.svg">
+                    <img class="demo_img" src="images/gameplay/entrance.svg">
+                    <h4>歡迎您的蒞臨!!</h4>
+                    <p>進入本園區，您可以盡情享受逛園區的樂趣，請往右或左，或往上下移動，遊玩設施並掃QRcode，然後到我們兌換商店(左上角)兌換獎品喔，祝您遊玩愉快!!</p>
                 </div>
             </div>
             <div class="demo_facility">
                 <div class="demo_scan">
-                    <p>設施四</p>
-                    <p id="QRcode5"></p>
-                    <div class="btn">掃描</div>
+                    <div class="demo_scaninner">
+                        <p>設施四</p>
+                        <p id="QRcode5"></p>
+                        <div class="btn">掃描</div>
+                    </div>
                 </div>
                 <div class="demo_text">
                     
-                    <p class="paragraph_p"><img class="demo_img" src="images/information/pirateShip.svg">這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p>
+                    <p><img class="demo_img" src="images/information/pirateShip.svg">這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p>
                 </div>
             </div>
             <div class="demo_facility">
                 <div class="demo_scan">
-                    <p>設施五</p>
-                    <p id="QRcode6"></p>
-                    <div class="btn">掃描</div>
+                    <div class="demo_scaninner">
+                        <p>設施五</p>
+                        <p id="QRcode6"></p>
+                        <div class="btn">掃描</div>
+                    </div>
                 </div>
                 <div class="demo_text">
                     
-                    <p class="paragraph_p"><img class="demo_img" src="images/information/pirateShip.svg">這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p>
+                    <p><img class="demo_img" src="images/information/pirateShip.svg">這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p>
                 </div>
             </div>
             <div class="demo_facility">
                 <div class="demo_scan">
-                    <p>設施六</p>
-                    <p id="QRcode7"></p>
-                    <div class="btn">掃描</div>
+                    <div class="demo_scaninner">
+                        <p>設施六</p>
+                        <p id="QRcode7"></p>
+                        <div class="btn">掃描</div>
+                    </div>
                 </div>
                 <div class="demo_text">
                     
-                    <p class="paragraph_p"><img class="demo_img" src="images/information/pirateShip.svg">這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p>
+                    <p><img class="demo_img" src="images/information/pirateShip.svg">這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p>
                 </div>
             </div>
             <div class="demo_facility">
                 <div class="demo_scan">
-                    <p>出口</p>
-                    <p id="QRcode8"></p>
-                    <div class="btn">掃描</div>
+                    <div class="demo_scaninner">
+                        <p>出口</p>
+                        <p id="QRcode8"></p>
+                        <div class="btn">掃描</div>
+                    </div>
                 </div>
-                <div class="demo_text">
-                    
-                    <p class="paragraph_p"><img class="demo_img" src="images/information/pirateShip.svg">這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p>
+                <div class="demo_text">                
+                    <p><img class="demo_img" src="images/information/pirateShip.svg">這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介這是簡介</p>
                 </div>
             </div>
         </div>
