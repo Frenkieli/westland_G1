@@ -23,21 +23,211 @@
                 position: absolute;
                 top:0;
                 left: 0;
-                margin-top:150px;
-                margin-left: 340px;
                 width: 50px;
-                animation: where 1s infinite;
-                @keyframes where {
-                    0%{transform: rotateY(50deg);
+                margin-top:180px;
+                margin-left: 350px;
+                animation:gateToPirateShip 5s forwards;
+            }
+            .gateToWaterSlide_point{//入口到滑水道
+                position: absolute;
+                top:0;
+                left: 0;
+                width: 50px;
+                margin-top:180px;
+                margin-left: 350px;
+                animation: gateToWaterSlide 5s infinite;
+                @keyframes gateToWaterSlide {
+                    from {
+                        margin-top:180px;
+                        margin-left: 350px;
+                        transform: rotateY(50deg);
                         transform-origin:55% 0;
-                    };
-                    25%{transform: rotateY(100deg);
+                    }
+                    5%{
+                        transform: rotateY(100deg);
                         transform-origin:55% 0;
-                    };
-                    50%{transform: rotateY(50deg);
-                        transform-origin:55% 0;};
-                    100%{transform: rotateY(0deg);
-                        transform-origin:55% 0;};
+                    }
+                    10%{
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    15%{
+                        transform: rotateY(0deg);
+                        transform-origin:55% 0;
+                    }
+                    20%{
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    25% {
+                        margin-top:161px;
+                        margin-left:317px;
+                        transform: rotateY(100deg);
+                        transform-origin:55% 0;
+                    }
+                    30%{
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    35%{
+                        transform: rotateY(0deg);
+                        transform-origin:55% 0;
+                    }
+                    40%{
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    45%{
+                        transform: rotateY(100deg);
+                        transform-origin:55% 0;
+                    }
+                    50% {
+                        margin-top:143px;
+                        margin-left:282px;
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    55%{
+                        transform: rotateY(0deg);
+                        transform-origin:55% 0;
+                    }
+                    60%{
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    65%{
+                        transform: rotateY(100deg);
+                        transform-origin:55% 0;
+                    }
+                    70%{
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    75% {
+                        margin-top:87px;
+                        margin-left:360px;
+                        transform: rotateY(0deg);
+                        transform-origin:55% 0;
+                    }
+                    80%{
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    85%{
+                        transform: rotateY(100deg);
+                        transform-origin:55% 0;
+                    }
+                    90%{
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    to {
+                        margin-top:60px;
+                        margin-left: 326px;
+                        transform: rotateY(0deg);
+                        transform-origin:55% 0;
+                    }
+                }
+            }
+            .gateToPirateShip_point{//入口到海盜船
+                position: absolute;
+                top:0;
+                left: 0;
+                width: 50px;
+                margin-top:180px;
+                margin-left: 350px;
+                animation: gateToPirateShip 5s infinite;
+                @keyframes gateToPirateShip {
+                    from {
+                        margin-top:180px;
+                        margin-left: 350px;
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    5%{
+                        transform: rotateY(100deg);
+                        transform-origin:55% 0;
+                    }
+                    10%{
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    15%{
+                        transform: rotateY(0deg);
+                        transform-origin:55% 0;
+                    }
+                    20%{
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    25% {
+                        margin-top:161px;
+                        margin-left:317px;
+                        transform: rotateY(100deg);
+                        transform-origin:55% 0;
+                    }
+                    30%{
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    35%{
+                        transform: rotateY(0deg);
+                        transform-origin:55% 0;
+                    }
+                    40%{
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    45%{
+                        transform: rotateY(100deg);
+                        transform-origin:55% 0;
+                    }
+                    50% {
+                        margin-top:135px;
+                        margin-left:273px;
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    55%{
+                        transform: rotateY(0deg);
+                        transform-origin:55% 0;
+                    }
+                    60%{
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    65%{
+                        transform: rotateY(100deg);
+                        transform-origin:55% 0;
+                    }
+                    70%{
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    75% {
+                        margin-top:145px;
+                        margin-left:230px;
+                        transform: rotateY(0deg);
+                        transform-origin:55% 0;
+                    }
+                    80%{
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    85%{
+                        transform: rotateY(100deg);
+                        transform-origin:55% 0;
+                    }
+                    90%{
+                        transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    }
+                    to {
+                        margin-top:122px;
+                        margin-left: 202px;
+                        transform: rotateY(0deg);
+                        transform-origin:55% 0;
+                    }
                 }
             }
         }
