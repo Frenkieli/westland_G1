@@ -149,8 +149,10 @@
             } 
             .info_teamslogan{
                 line-height: 25px;
+                min-height: 180px;
                 @include rwd(phone){
                     line-height: 17px;
+                    min-height: 80px;
                 }
             }                 
             width: 40%;
@@ -497,14 +499,18 @@
     top: 0;
     bottom: 0;
     margin: auto;
-    text-align: center;
-    line-height: 65vh;
-    // display: inline-block;
-    font-family: 'Noto Sans T Chinese';
-    font-size: 48px;
-    color: #666; 
-    transform: rotate(3deg);
+    width: 50%;
+    transform: rotate(1deg);
     opacity: 0;
+    display: flex;
+    align-items: center;
+    @include rwd(phone){
+        width: 60%;        
+    }
+    img{
+        vertical-align: top;
+        width: 100%;
+    }
 }
 .no_joined{
     position: absolute;
@@ -514,12 +520,17 @@
     top: 0;
     bottom: 0;
     margin: auto;
-    text-align: center;
-    line-height: 65vh;
-    // display: inline-block;
-    font-family: 'Noto Sans T Chinese';
-    font-size: 48px;
-    color: #666; 
-    transform: rotate(3deg);
+    width: 50%;
+    transform: rotate(1deg);
     opacity: 0;
+    display: flex;
+    align-items: center;
+    @include rwd(phone){
+        width: 60%;        
+    }
+    img{
+        vertical-align: top;
+        width: 100%;
+        
+    }
 }
