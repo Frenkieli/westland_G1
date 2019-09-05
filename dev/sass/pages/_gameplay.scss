@@ -113,7 +113,7 @@
                     }
                     h4{
                         font-size: 26px;
-                        line-height: 50px;
+                        line-height: 25px;
                         text-align: center;
                     }
                 }
@@ -132,6 +132,12 @@
         .demo_toparrow {
             top: 13%;
             left: 48%;
+            p{
+                z-index: 55;
+                position: absolute;
+                font-size: 25px;
+                cursor: pointer;
+            }
             img{
                 animation: rubberBand 1s infinite;
                 &:hover{
@@ -181,6 +187,13 @@
             top: 45%;
             left: 5%;
             transform: rotate(-90deg);
+            p{
+                z-index: 55;
+                position: absolute;
+                font-size: 25px;
+                transform: rotate(90deg);
+                cursor: pointer;
+            }
             img{
                 animation: rubberBand 1s infinite;
                 &:hover{
@@ -202,6 +215,13 @@
             top: 45%;
             right: 5%;
             transform: rotate(90deg);
+            p{
+                z-index: 55;
+                position: absolute;
+                font-size: 25px;
+                transform: rotate(-90deg);
+                cursor: pointer;
+            }
             img{
                 animation: rubberBand 1s infinite;
                 &:hover{
@@ -223,6 +243,13 @@
             bottom: 15%;
             right: 49.5%;
             transform: rotate(180deg);
+            p{
+                z-index: 55;
+                position: absolute;
+                font-size: 25px;
+                transform: rotate(-180deg);
+                cursor: pointer;
+            }
             img{
                 animation: rubberBand 1s infinite;
                 &:hover{
