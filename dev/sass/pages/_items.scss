@@ -50,16 +50,19 @@
     .text_align_c{
         text-align: center;
     }
+    .fi_dr_sh{
+        filter: drop-shadow(2px 2px 1px #5e371d9f);
+    }
     .card_bg{
         position: relative;
-        margin: auto;   //私加
-        filter: drop-shadow(3px 3px 3px #592f13);
+        
+        margin: 50px auto;   //私加
         height: 410px;
         width: 221px;
         background-size: 100% 100%;
         background-repeat: no-repeat;
         position: relative;
-        margin-bottom: 50px;
+        // margin-bottom: 50px;
         .gray_linear_gradient{
         background-image: linear-gradient(#fff 60%, #ddd 110%);
         border-radius: 10px;
@@ -83,18 +86,30 @@
     .card_bg4{
         background-image: url("../images/product/horse.png");
     }
-    // .hoverObj{
-    //     position: absolute;
-    //     width: 220px;
-
+    // .active{
+    //     height: 500px;
     // }
+    .hoverObj_img img{
+        z-index: 2;
+        position: absolute;
+        width: 130%;
+        right: -15%;
+        top:-10%;
+    }
+    .hoverObj_img{
+        opacity: 0;
+        transition: .2s;
+    }
+    .hoverObj:hover .hoverObj_img{
+       opacity: 1;
+    }
     .filter{
         width: 20%;
     }
     .filter_content{
         width: 80%;
         border-radius: 20px;
-        box-shadow: 8px 8px 5px #592F13;
+        // box-shadow: 8px 8px 5px #592F13;
         padding: 15px 15px 15px 15px;
         background: #f09100  ;
         z-index: 1;
@@ -195,7 +210,7 @@
         display: flex;
         justify-content: space-evenly;
     }
-    .card_bg .sort_same_item_img img{
+    .sort_same_item_img img{
         margin: 5% auto;
         width: 80%;
     }
@@ -299,7 +314,7 @@
     }
     .card_bg{
         margin: 50px auto;
-        filter: drop-shadow(3px 3px 3px #592f13);
+        // filter: drop-shadow(3px 3px 3px #592f13);
         // height: 410px;
         height: 500px;
         // width: 221px;
