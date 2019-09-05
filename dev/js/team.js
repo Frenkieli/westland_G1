@@ -1,17 +1,16 @@
-let wanted_name='';
-let wanted_playerphoto='';
-let wanted_teamname='';
-let wanted_bounty='';
-let wanted_mascot='';
-let info_teamname='';
-let info_teamslogan='';
-let info_teamcount='';
+let wanted_name = '';
+let wanted_playerphoto = '';
+let wanted_teamname = '';
+let wanted_bounty = '';
+let wanted_mascot = '';
+let info_teamname = '';
+let info_teamslogan = '';
+let info_teamcount = '';
 
 function $id(id) {
     return document.getElementById(id);
 }
 function join() {
-    // console.log(1);
     $id("joined").style.display = 'none';
     $id("create").style.display = 'none';
     $id("join").style.display = '';
@@ -19,19 +18,19 @@ function join() {
     $id("team_joined").classList.remove('team_option_select');
     $id("team_create").classList.remove('team_option_select');
     var select = document.querySelectorAll('#join .team_list_box')
-    console.log(select.length);
-    if(select.length==0)
-        document.querySelector('.no_can_join').style.display='';
+    // console.log(select.length);
+    if (select.length == 0)
+        document.querySelector('.no_can_join').style.display = '';
     else
-        document.querySelector('.no_can_join').style.display='none';
+        document.querySelector('.no_can_join').style.display = 'none';
     select.forEach((ele, index) => {
         ele.classList.add('click_join');
-        ele.style.cursor="pointer";
-        ele.removeEventListener('click',dropOut,true);
+        ele.style.cursor = "pointer";
+        ele.removeEventListener('click', dropOut, false);
     });
-    var click_joins=document.querySelectorAll('.click_join');
-    click_joins.forEach((ele,index)=>{
-        ele.addEventListener('click', joinInvitation,true);
+    var click_joins = document.querySelectorAll('.click_join');
+    click_joins.forEach((ele, index) => {
+        ele.addEventListener('click', joinInvitation, false);
         // console.log('!');    
     });
     // for(i in select){
@@ -46,50 +45,50 @@ function join() {
     $id("no").innerText = '我不要';
 }
 
-function joinInvitation(e){
-    // e.preventdefault();
-    // e.stopPropagation();
-    // console.log(e.currentTarget); 
-    // console.log(this);
-    // wanted_name=this.firstChild.firstChild.innerText;
-    // console.log(this.firstChild);
-    // console.log(wanted_name);
-    // wanted_playerphoto='';
-    // wanted_teamname='';
-    // wanted_bounty='';
-    // wanted_mascot='';
-    // info_teamname='';
-    // info_teamslogan='';
-    // info_teamcount='';
-    // console.log(document.querySelector('.team_join_container').firstChild.removeChild);
-    // document.querySelector('.team_join_container').firstChild;
-    // console.log(this.firstChild);
-    // console.log($id('join'));
-    // console.log(e.targe);
-    let select_team=$id('select_team');
-    select_team.removeChild(select_team.firstChild);
-    let c=this.cloneNode(true);
-    select_team.appendChild(c);
+function joinInvitation() {
+    // console.log(1);
     $id("team_join_window").style.opacity = 1;
     $id("team_join_window").style.clipPath = "polygon(0 0% , 100% 00% , 100% 100%,0 100%)";
+    let select_team = $id('select_team');
+    select_team.removeChild(select_team.firstChild);
+    wanted_name = this.firstElementChild.firstElementChild.innerText;
+    let playerphoto_src = this.firstElementChild.firstElementChild.nextElementSibling.firstElementChild.src;
+    wanted_playerphoto = playerphoto_src.substr(playerphoto_src.indexOf('images'));
+    wanted_teamname = this.firstElementChild.firstElementChild.nextElementSibling.nextElementSibling.innerText;
+    wanted_bounty = this.firstElementChild.lastElementChild.previousElementSibling.innerText;
+    let mascot_src = this.firstElementChild.lastElementChild.firstElementChild.src;
+    wanted_mascot = mascot_src.substr(mascot_src.indexOf('images'));
+    info_teamname = this.lastElementChild.firstElementChild.firstElementChild.innerText;
+    info_teamslogan = this.lastElementChild.firstElementChild.nextElementSibling.nextElementSibling.innerText;
+    info_teamcount = this.lastElementChild.lastElementChild.firstElementChild.innerText;
+    console.log(wanted_name);
+    console.log(wanted_playerphoto);
+    console.log(wanted_teamname);
+    console.log(wanted_bounty);
+    console.log(wanted_mascot);
+    console.log(info_teamname);
+    console.log(info_teamslogan);
+    console.log(info_teamcount);
+    let reference_this = this;
+    let cl = this.cloneNode(true);
+    select_team.appendChild(cl);
     $id("no").addEventListener("click", () => {
         $id("team_join_window").style.clipPath = "polygon(0 50% , 100% 50% , 100% 50%,0 50%)";
         $id("team_join_window").style.opacity = 0;
+        $id("ok").removeEventListener("click", move, false);
     }, false);
-    $id("ok").addEventListener("click", () => {
-        // this.remove();
-        $id("joined").append(this);
-        // console.log(e.currentTarget);
-        console.log(this);
+    $id("ok").addEventListener("click", move, false);
+    function move() {
+        reference_this.remove();
+        $id("joined").append(reference_this);
         $id("team_join_window").style.clipPath = "polygon(0 50% , 100% 50% , 100% 50%,0 50%)";
         $id("team_join_window").style.opacity = 0;
-        this.classList.remove('click_join');
+        reference_this.classList.remove('click_join');
         var select = document.querySelectorAll('#join .team_list_box')
-        if(select.length==0)
-            document.querySelector('.no_can_join').style.display='';
-    }, false);
+        if (select.length == 0)
+            document.querySelector('.no_can_join').style.display = '';
+    }
 }
-
 function joined() {
     $id("join").style.display = 'none';
     $id("create").style.display = 'none';
@@ -97,56 +96,70 @@ function joined() {
     $id("team_joined").classList.add('team_option_select');
     $id("team_join").classList.remove('team_option_select');
     $id("team_create").classList.remove('team_option_select');
-    let select=document.querySelectorAll('#joined .team_list_box');
-    if(select.length==0)
-        document.querySelector('.no_joined').style.display='';
+    let select = document.querySelectorAll('#joined .team_list_box');
+    for (let i = 0; i < document.querySelectorAll('.team_list_box').length; i++) {
+        document.querySelectorAll('.team_list_box')[i].removeEventListener('click', joinInvitation, false);
+    }
+    if (select.length == 0)
+        document.querySelector('.no_joined').style.display = '';
     else
-        document.querySelector('.no_joined').style.display='none';
-    // console.log(select.length);
-    select.forEach((ele,index)=>{
+        document.querySelector('.no_joined').style.display = 'none';
+    select.forEach((ele, index) => {
         ele.classList.add('click_joined');
-        ele.style.cursor="pointer";
-        ele.removeEventListener('click',joinInvitation,false);
+        ele.style.cursor = "pointer";
+        ele.removeEventListener('click', joinInvitation, false);
     });
-    let click_joined=document.querySelectorAll('.click_joined');
-    click_joined.forEach((ele,index)=>{
-        ele.addEventListener('click',dropOut,false);
+    let click_joined = document.querySelectorAll('.click_joined');
+    click_joined.forEach((ele, index) => {
+        ele.addEventListener('click', dropOut, false);
     });
     $id("ok").innerText = '退出團隊';
     $id("no").innerText = '我不想';
 }
 
-function dropOut(e) {
-    e.stopPropagation();
-    // wanted_name='';
-    // wanted_playerphoto='';
-    // wanted_teamname='';
-    // wanted_bounty='';
-    // wanted_mascot='';
-    // info_teamname='';
-    // info_teamslogan='';
-    // info_teamcount='';
-    let select_team=$id('select_team');
-    select_team.removeChild(select_team.firstChild);
-    let c=this.cloneNode(true);
-    select_team.appendChild(c);
+function dropOut() {
+    // console.log(2);
     $id("team_join_window").style.opacity = 1;
     $id("team_join_window").style.clipPath = "polygon(0 0% , 100% 00% , 100% 100%,0 100%)";
+    let select_team = $id('select_team');
+    select_team.removeChild(select_team.firstChild);
+    wanted_name = this.firstElementChild.firstElementChild.innerText;
+    let playerphoto_src = this.firstElementChild.firstElementChild.nextElementSibling.firstElementChild.src;
+    wanted_playerphoto = playerphoto_src.substr(playerphoto_src.indexOf('images'));
+    wanted_teamname = this.firstElementChild.firstElementChild.nextElementSibling.nextElementSibling.innerText;
+    wanted_bounty = this.firstElementChild.lastElementChild.previousElementSibling.innerText;
+    let mascot_src = this.firstElementChild.lastElementChild.firstElementChild.src;
+    wanted_mascot = mascot_src.substr(mascot_src.indexOf('images'));
+    info_teamname = this.lastElementChild.firstElementChild.firstElementChild.innerText;
+    info_teamslogan = this.lastElementChild.firstElementChild.nextElementSibling.nextElementSibling.innerText;
+    info_teamcount = this.lastElementChild.lastElementChild.firstElementChild.innerText;
+    console.log(wanted_name);
+    console.log(wanted_playerphoto);
+    console.log(wanted_teamname);
+    console.log(wanted_bounty);
+    console.log(wanted_mascot);
+    console.log(info_teamname);
+    console.log(info_teamslogan);
+    console.log(info_teamcount);
+    let reference_this = this;
+    let c = this.cloneNode(true);
+    select_team.appendChild(c);
     $id("no").addEventListener("click", () => {
         $id("team_join_window").style.clipPath = "polygon(0 50% , 100% 50% , 100% 50%,0 50%)";
         $id("team_join_window").style.opacity = 0;
+        $id("ok").removeEventListener("click", move, false);
     }, false);
-    $id("ok").addEventListener("click", () => {
-        this.remove();
-        $id("join").append(this);
+    $id("ok").addEventListener("click", move, false);
+    function move() {
+        reference_this.remove();
+        $id("join").append(reference_this);
         $id("team_join_window").style.clipPath = "polygon(0 50% , 100% 50% , 100% 50%,0 50%)";
         $id("team_join_window").style.opacity = 0;
-        this.classList.remove('click_joined');
+        reference_this.classList.remove('click_joined');
         var select = document.querySelectorAll('#joined .team_list_box')
-        if(select.length==0)
-            document.querySelector('.no_joined').style.display='';
-    }, false);        
-   
+        if (select.length == 0)
+            document.querySelector('.no_joined').style.display = '';
+    }
 }
 
 function create() {
@@ -180,12 +193,9 @@ window.addEventListener("load", () => {
     $id("team_join").addEventListener("click", join, false);
     $id("team_joined").addEventListener("click", joined, false);
     $id("team_create").addEventListener("click", create, false);
+    document.querySelector('.no_can_join').style.display = "none";
+    document.querySelector('.no_joined').style.display = "none";
+    document.querySelector('.no_can_join').style.opacity = 1;
+    document.querySelector('.no_joined').style.opacity = 1;
     join();
-    document.querySelector('.no_can_join').style.display="none";
-    document.querySelector('.no_joined').style.display="none";
-    document.querySelector('.no_can_join').style.opacity=1;
-    document.querySelector('.no_joined').style.opacity=1;
-    // create();
-    // $id("team_join_window").style.opacity=1;
-    // $id("team_join_window").style.display="none";
 }, false);
