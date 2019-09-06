@@ -7,37 +7,333 @@
         height: 90vh;
         overflow: hidden;
         font-size: 0;
-        .map_container{
+        .map_container {
             top: 15%;
             left: 52%;
             width: 28%;
-            transform: translate(25%,-60%);
+            transform: translate(25%, -60%);
             position: relative;
-            .small_map{
+            .small_map {
                 position: absolute;
                 border: 5px dashed rgba(0, 0, 0, 0.479);
                 border-radius: 10px;
                 width: 430px;
             }
-            .point{
+            .gateToWaterSlide_point {
+                //入口到滑水道
                 position: absolute;
-                top:0;
+                top: 0;
                 left: 0;
-                margin-top:150px;
-                margin-left: 340px;
                 width: 50px;
-                animation: where 1s infinite;
-                @keyframes where {
-                    0%{transform: rotateY(50deg);
-                        transform-origin:55% 0;
-                    };
-                    25%{transform: rotateY(100deg);
-                        transform-origin:55% 0;
-                    };
-                    50%{transform: rotateY(50deg);
-                        transform-origin:55% 0;};
-                    100%{transform: rotateY(0deg);
-                        transform-origin:55% 0;};
+                margin-top: 180px;
+                margin-left: 350px;
+                animation: gateToWaterSlide 5s infinite;
+                @keyframes gateToWaterSlide {
+                    from {
+                        margin-top: 180px;
+                        margin-left: 350px;
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    5% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    10% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    15% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    20% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    25% {
+                        margin-top: 161px;
+                        margin-left: 317px;
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    30% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    35% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    40% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    45% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    50% {
+                        margin-top: 143px;
+                        margin-left: 282px;
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    55% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    60% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    65% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    70% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    75% {
+                        margin-top: 87px;
+                        margin-left: 360px;
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    80% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    85% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    90% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    to {
+                        margin-top: 60px;
+                        margin-left: 326px;
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                }
+            }
+            .gateToPirateShip_point {
+                //入口到海盜船
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 50px;
+                margin-top: 180px;
+                margin-left: 350px;
+                animation: gateToPirateShip 5s infinite;
+                @keyframes gateToPirateShip {
+                    from {
+                        margin-top: 180px;
+                        margin-left: 350px;
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    5% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    10% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    15% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    20% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    25% {
+                        margin-top: 161px;
+                        margin-left: 317px;
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    30% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    35% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    40% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    45% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    50% {
+                        margin-top: 135px;
+                        margin-left: 273px;
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    55% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    60% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    65% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    70% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    75% {
+                        margin-top: 145px;
+                        margin-left: 230px;
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    80% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    85% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    90% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    to {
+                        margin-top: 122px;
+                        margin-left: 202px;
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                }
+            }
+            .point {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 50px;
+                margin-top: 87px;
+                margin-left: 360px;
+                animation: gateToFerrisWheel 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            }
+            .gateToFerrisWheel_point {
+                //入口到摩天輪
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 50px;
+                margin-top: 180px;
+                margin-left: 350px;
+                animation: gateToFerrisWheel 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+                @keyframes gateToFerrisWheel {
+                    from {
+                        margin-top: 180px;
+                        margin-left: 350px;
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    5% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    10% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    15% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    20% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    25% {
+                        margin-top: 161px;
+                        margin-left: 317px;
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    30% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    35% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    40% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    45% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    50% {
+                        margin-top: 143px;
+                        margin-left: 282px;
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    55% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    60% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    65% {
+                        margin-top: 87px;
+                        margin-left: 360px;
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    70% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    75% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    80% {
+                        margin-top: 12px;
+                        margin-left: 239px;
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    85% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    90% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    to {
+                        margin-top: 49px;
+                        margin-left: 171px;
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
                 }
             }
         }
@@ -53,28 +349,48 @@
                 font-size: 60px;
                 box-sizing: border-box;
                 position: relative;
-                .demo_text{
+                .demo_text {
                     background-color: rgba(255, 255, 255, 0.459);
                     border-radius: 20px;
                     position: absolute;
                     width: 20%;
                     top: 0;
                     left: 0;
-                    transform:translate(187%,25%); 
-                    .demo_img{  
-                        display: inline-block;
-                        width:50%;
-                        height:50%;
-                        padding: 15% 25% 5% 25%;
-                        filter:drop-shadow(-25px 25px 25px rgba(26,58,70,0.7));
+                    transform: translate(187%, 25%);
+                    #pirateShip {
+                        width: 95%;
+                        padding: 10px 0 10px 0;
                     }
-                    .demo_imgBG{
+                    #waterSlide {
+                        width: 100%;
+                        height: 250px;
+                        padding: 0;
+                    }
+                    #waterSlide,
+                    #rollerCoaster,
+                    #Carousel,
+                    #ferrisWheel,
+                    #out {
+                        width: 100%;
+                        height: 250px;
+                        padding: 10px 0 10px 0;
+                    }
+                    .demo_img {
+                        display: inline-block;
+                        width: 50%;
+                        height: 50%;
+                        padding: 15% 25% 5% 25%;
+                        filter: drop-shadow(-25px 25px 25px rgba(26, 58, 70, 0.7));
+                    }
+                    .demo_imgBG {
                         opacity: 0.55;
-                        position: absolute; 
+                        position: absolute;
                         border-radius: 20px;
-                        filter:drop-shadow(-25px 25px 25px rgba(26,58,70,0.7));
+                        filter: drop-shadow(-25px 25px 25px rgba(26, 58, 70, 0.7));
                         animation: gbdown 1s forwards;
-                        @keyframes  gbdown {
+                        width: 100%;
+                        filter: drop-shadow(10px 15px 5px rgba(2, 2, 2, 0.685));
+                        @keyframes gbdown {
                             0% {
                                 transform: translateY(-200%);
                             }
@@ -84,36 +400,31 @@
                             75% {
                                 transform: scale(1.25, 0.75);
                             }
-                
                             80% {
                                 transform: scale(0.75, 1.25);
                             }
-                
                             85% {
                                 transform: scale(1.15, 0.85);
                             }
-                
                             90% {
                                 transform: scale(0.95, 1.05);
                             }
-                
                             95% {
                                 transform: scale(1.05, 0.95);
                             }
-                
                             100% {
                                 transform: scale(1, 1);
                             }
                         }
                     }
-                    p{
+                    p {
                         font-size: 18px;
                         padding: 2%;
                         line-height: 25px;
                     }
-                    h4{
+                    h4 {
                         font-size: 26px;
-                        line-height: 50px;
+                        line-height: 25px;
                         text-align: center;
                     }
                 }
@@ -126,15 +437,21 @@
             z-index: 50;
             img {
                 width: 100%;
-                filter:drop-shadow(10px 15px 5px rgba(2, 2, 2, 0.685));
+                filter: drop-shadow(10px 15px 5px rgba(2, 2, 2, 0.685));
             }
         }
         .demo_toparrow {
             top: 13%;
             left: 48%;
-            img{
+            p {
+                z-index: 55;
+                position: absolute;
+                font-size: 25px;
+                cursor: pointer;
+            }
+            img {
                 animation: rubberBand 1s infinite;
-                &:hover{
+                &:hover {
                     animation: tobig_T 1s infinite;
                     @keyframes tobig_T {
                         from {
@@ -156,23 +473,18 @@
             30% {
                 transform: scale(1.25, 0.75);
             }
-
             40% {
                 transform: scale(0.75, 1.25);
             }
-
             50% {
                 transform: scale(1.15, 0.85);
             }
-
             65% {
                 transform: scale(0.95, 1.05);
             }
-
             75% {
                 transform: scale(1.05, 0.95);
             }
-
             to {
                 transform: scale(1, 1);
             }
@@ -181,9 +493,16 @@
             top: 45%;
             left: 5%;
             transform: rotate(-90deg);
-            img{
+            p {
+                z-index: 55;
+                position: absolute;
+                font-size: 25px;
+                transform: rotate(90deg);
+                cursor: pointer;
+            }
+            img {
                 animation: rubberBand 1s infinite;
-                &:hover{
+                &:hover {
                     animation: tobig_L 1s infinite;
                     @keyframes tobig_L {
                         from {
@@ -202,9 +521,16 @@
             top: 45%;
             right: 5%;
             transform: rotate(90deg);
-            img{
+            p {
+                z-index: 55;
+                position: absolute;
+                font-size: 25px;
+                transform: rotate(-90deg);
+                cursor: pointer;
+            }
+            img {
                 animation: rubberBand 1s infinite;
-                &:hover{
+                &:hover {
                     animation: tobig_R 1s infinite;
                     @keyframes tobig_R {
                         from {
@@ -223,9 +549,16 @@
             bottom: 15%;
             right: 49.5%;
             transform: rotate(180deg);
-            img{
+            p {
+                z-index: 55;
+                position: absolute;
+                font-size: 25px;
+                transform: rotate(-180deg);
+                cursor: pointer;
+            }
+            img {
                 animation: rubberBand 1s infinite;
-                &:hover{
+                &:hover {
                     animation: tobig_B 1s infinite;
                     @keyframes tobig_B {
                         from {
@@ -247,7 +580,7 @@
     .playticket_title {
         display: none;
     }
-    .demo_scan{
+    .demo_scan {
         position: relative;
         padding: 20px;
         padding-top: 0;
@@ -256,66 +589,72 @@
         flex-direction: column;
         align-items: center;
         position: relative;
-        .demo_scaninner{
+        .demo_scaninner {
             position: absolute;
             top: 0;
             left: 0;
-            transform: translate(85%,30%);
+            transform: translate(85%, 30%);
             width: 15%;
-            #QRcode0,#QRcode1,#QRcode2,#QRcode3,#QRcode4{
+            #QRcode0,
+            #QRcode1,
+            #QRcode2,
+            #QRcode3,
+            #QRcode4,
+            #QRcode5,
+            #QRcode6,
+            #QRcode7,
+            #QRcode8 {
                 transform: scale(0.7);
             }
-            .btn{
+            .btn {
                 margin: auto;
             }
-            .section_title{
+            .section_title {
                 margin: 0;
                 padding: 0;
             }
         }
-
-        .direction_right{
+        .direction_right {
             z-index: 55;
             font-size: 35px;
             position: absolute;
             left: 0;
             bottom: 0;
-            transform: translate(830%,50%);
-            color:rgba(36, 36, 36, 0.795);
+            transform: translate(830%, 50%) rotate(60deg);
+            color: rgba(36, 36, 36, 0.795);
         }
-        .direction_bottom{
+        .direction_bottom {
             z-index: 55;
             font-size: 35px;
             position: absolute;
             right: 0;
             bottom: 0;
-            transform: translate(180%,670%);
-            color:rgba(36, 36, 36, 0.795);
-            &:nth-child(3){
-                transform: translate(270%,620%);
+            transform: translate(180%, 670%);
+            color: rgba(36, 36, 36, 0.795);
+            &:nth-child(3) {
+                transform: translate(270%, 620%);
                 border-style: none;
             }
         }
-        .direction_left{
+        .direction_left {
             z-index: 55;
             font-size: 35px;
             position: absolute;
             left: 0;
             bottom: 0;
-            transform: translate(-100%,50%);
-            color:rgba(36, 36, 36, 0.795);
+            transform: translate(-100%, 50%);
+            color: rgba(36, 36, 36, 0.795);
         }
-        .direction_top{
+        .direction_top {
             z-index: 55;
             font-size: 35px;
             position: absolute;
             left: 0;
             top: 0;
-            transform: translate(270%,-55%);
-            color:rgba(36, 36, 36, 0.795);
+            transform: translate(270%, -55%);
+            color: rgba(36, 36, 36, 0.795);
         }
     }
-
     .section_playticket {
         position: fixed;
         left: 5%;
@@ -332,7 +671,7 @@
             margin-bottom: 30px;
         }
         .playticket_ticket {
-            transform: scale(0.5) translate(25%,30%);
+            transform: scale(0.5) translate(25%, 30%);
             width: 100%;
             margin: auto;
             display: flex;

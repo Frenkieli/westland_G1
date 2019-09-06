@@ -142,10 +142,10 @@
                                     </div>
                                 </div>
                                 <div class="list_box_info">
-                                    <p>隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
-                                    <p>精神標語 :</p>
-                                    <p class="info_teamslogan">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
-                                    <p>人數 : <span class="info_teamcount">1</span></p>
+                                    <p class="paragraph_p">隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
+                                    <p class="paragraph_p">精神標語 :</p>
+                                    <p class="info_teamslogan paragraph_p">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
+                                    <p class="paragraph_p">人數 : <span class="info_teamcount">1</span></p>
                                 </div>
                             </div>
                             <div class="team_list_box">
@@ -161,10 +161,10 @@
                                     </div>
                                 </div>
                                 <div class="list_box_info">
-                                    <p>隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
-                                    <p>精神標語 :</p>
-                                    <p class="info_teamslogan">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
-                                    <p>人數 : <span class="info_teamcount">1</span></p>
+                                    <p class="paragraph_p">隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
+                                    <p class="paragraph_p">精神標語 :</p>
+                                    <p class="info_teamslogan paragraph_p">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
+                                    <p class="paragraph_p">人數 : <span class="info_teamcount">1</span></p>
                                 </div>
                             </div>
                             <div class="team_list_box">
@@ -180,10 +180,10 @@
                                     </div>
                                 </div>
                                 <div class="list_box_info">
-                                    <p>隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
-                                    <p>精神標語 :</p>
-                                    <p class="info_teamslogan">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
-                                    <p>人數 : <span class="info_teamcount">1</span></p>
+                                    <p class="paragraph_p">隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
+                                    <p class="paragraph_p">精神標語 :</p>
+                                    <p class="info_teamslogan paragraph_p">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
+                                    <p class="paragraph_p">人數 : <span class="info_teamcount">1</span></p>
                                 </div>
                             </div>
                             <div class="team_list_box">
@@ -199,10 +199,10 @@
                                     </div>
                                 </div>
                                 <div class="list_box_info">
-                                    <p>隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
-                                    <p>精神標語 :</p>
-                                    <p class="info_teamslogan">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
-                                    <p>人數 : <span class="info_teamcount">1</span></p>
+                                    <p class="paragraph_p">隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
+                                    <p class="paragraph_p">精神標語 :</p>
+                                    <p class="info_teamslogan paragraph_p">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
+                                    <p class="paragraph_p">人數 : <span class="info_teamcount">1</span></p>
                                 </div>
                             </div>
                         </div>
@@ -225,6 +225,24 @@
     <section class="ticket_customize_scetion index_ticket_customize">
         <div class="container">
             @@include("template/ticket_section.html")
+            <div class="ticket_customize_wrap">
+                <div class="customize_backimage">
+                    <div class="ticket_title">客製您的門票</div>
+                    <div class="ticket_subtitle">DEAD OR ALIVE</div>
+                    <input class="uploadpic" type="file" id="uploadpic" value="">
+                    <div class="ticket_picture">
+                        <img src="images/cusitems/ticket_bgi.svg" alt="預設圖">
+                    </div>
+                    <div class="ticket_amount">
+                        <a class="center" href="ticket.html"><div class="btn">前往客製</div></a>
+                    </div>
+                    <span class="opcatity_box"></span>
+                    <div class="ticket_customize_sub">
+                        <img class="customize_sub" src="images/cusitems/role1.svg" alt="客製後出現位置">
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
     </section>
 
@@ -270,7 +288,7 @@
     {"jslink" : "https://kit.fontawesome.com/6a6d2775fc.js"},
     {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"},
     {"jslink" : "js/jquery.cubeSlider.js"},
-    {"jslink" : "js/ticket_page.js"}
+    {"jslink" : "js/ticket_index.js"}
     ])
     <script>
         var swiper = new Swiper('.swiper-container', {
