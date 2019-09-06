@@ -23,13 +23,46 @@
             border: ridge 1px #888888;
             border-radius: 10px;
             background-color: #fff;
+            position: relative;
+            padding: 10px;
+            box-sizing: border-box;
+            .btn{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+                padding: 5px;
+                cursor: pointer;
+            }
         }
         input {
             width: 93%;
         }
     }
-    .robot_eye {
-        position: absolute;
+    .swiper {
+        animation: robotmove 2s infinite;
+    }
+    @keyframes robotmove {
+        0% {
+            transform: translateX(0%) translateY(0%) ;
+        }
+        25% {
+            transform: translateX(-5%) translateY(-2%) rotate(-5deg);
+        }
+        50% {
+            transform: translateX(0%) translateY(5%) ;
+        }
+        75% {
+            transform: translateX(5%) translateY(-2%) rotate(5deg);
+        }
+        100% {
+            transform: translateX(0%) translateY(0%) ;
+        }
     }
 }
 @include rwd(desktop) {
@@ -88,6 +121,10 @@
         box-sizing: border-box;
         padding: 30px;
         .problem_text {
+            #puzzle{
+                position: relative;
+                top: -100%;
+            }
             width: 100%;
             font-size: 60px;
             text-align: center;
@@ -96,6 +133,8 @@
             width: 33%;
             box-sizing: border-box;
             padding: 1%;
+            position: relative;
+            top: 100%;
             img {
                 width: 100%;
             }

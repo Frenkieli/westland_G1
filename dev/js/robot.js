@@ -63,6 +63,8 @@ function random(n) { // 從 0 到 n-1 中選一個亂數
 function say() { // 當送出鍵按下時，會呼叫這個函數進行回答動作
     append(document.getElementById("say").value); // 先將使用者輸入的問句放到「對話區」顯示。
     answer(); // 然後回答使用者的問題。
+    document.getElementById('dialogBox').innerHTML = '';
+    document.getElementById("say").value = '';
 }
 
 function keyin(event) { // 當按下 enter 鍵時，會呼叫此函數進行回答
