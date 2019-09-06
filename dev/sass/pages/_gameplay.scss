@@ -448,6 +448,145 @@
                     }
                 }
             }
+
+            .WaterSlideToswivelChair_point {
+                //滑水道到旋轉椅
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 50px;
+                margin-top: 188px;
+                margin-left: 176px;
+                animation: WaterSlideToswivelChair_point 5s linear forwards;
+                @keyframes WaterSlideToswivelChair_point{
+                    from {
+                        margin-top: 60px;
+                        margin-left: 326px;
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    5% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    10% {
+                        margin-top: 82px;
+                        margin-left: 360px;
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    15% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    20% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    25% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    30% {
+                        margin-top: 147px;
+                        margin-left: 263px;
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    35% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    40% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    45% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    50% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    55% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    60% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    65% {
+                        margin-top: 188px;
+                        margin-left: 176px;
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    70% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    75% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    80% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    85% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    90% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    to {
+                        margin-top: 158px;
+                        margin-left: 101px;
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                }
+            }
+            .WaterSlideToStore_point {
+                //滑水道到商店
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 50px;
+                margin-top: 188px;
+                margin-left: 176px;
+                animation: WaterSlideToStore_point 1s forwards;
+                @keyframes WaterSlideToStore_point{
+                    from {
+                        margin-top: 60px;
+                        margin-left: 326px;
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    5% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    10% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    15% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    to {
+                        margin-top: 31px;
+                        margin-left: 276px;
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                }
+            }
         }
         .demo_container {
             width: 300%;
