@@ -19,6 +19,29 @@
                 border-radius: 10px;
                 width: 430px;
             }
+            .point {
+                position: absolute;
+                top: 0;
+                left: 0;
+                margin-top: 180px;
+                margin-left: 350px;
+                width: 50px;
+                animation: where 1s infinite;
+                @keyframes where {
+                    0%{transform: rotateY(50deg);
+                        transform-origin:55% 0;
+                    };
+                    25%{transform: rotateY(100deg);
+                        transform-origin:55% 0;
+                    };
+                    50%{transform: rotateY(50deg);
+    
+                        transform-origin:55% 0;};
+                    100%{transform: rotateY(0deg);
+    
+                        transform-origin:55% 0;};
+                }
+            }
             .gateToWaterSlide_point {
                 //入口到滑水道
                 position: absolute;
@@ -27,7 +50,7 @@
                 width: 50px;
                 margin-top: 180px;
                 margin-left: 350px;
-                animation: gateToWaterSlide 5s infinite;
+                animation: gateToWaterSlide 5s forwards;
                 @keyframes gateToWaterSlide {
                     from {
                         margin-top: 180px;
@@ -129,7 +152,7 @@
                 width: 50px;
                 margin-top: 180px;
                 margin-left: 350px;
-                animation: gateToPirateShip 5s infinite;
+                animation: gateToPirateShip 5s forwards;
                 @keyframes gateToPirateShip {
                     from {
                         margin-top: 180px;
@@ -231,7 +254,7 @@
                 width: 50px;
                 margin-top: 180px;
                 margin-left: 350px;
-                animation: gateToFerrisWheel 7s linear infinite;
+                animation: gateToFerrisWheel 5s linear forwards;
                 @keyframes gateToFerrisWheel {
                     from {
                         margin-top: 180px;
@@ -325,24 +348,15 @@
                     }
                 }
             }
-            .point {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 50px;
-                margin-top: 87px;
-                margin-left: 360px;
-                animation: gaterollerCoaster 7s linear forwards;
-            }
-            .gateToFerrisWheel_point {
-                //入口到摩天輪
+            .gateTorollerCoaster_point {
+                //入口到雲霄飛車
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 50px;
                 margin-top: 180px;
                 margin-left: 350px;
-                animation: gaterollerCoaster 7s linear infinite;
+                animation: gaterollerCoaster 5s linear forwards;
                 @keyframes gaterollerCoaster {
                     from {
                         margin-top: 180px;
@@ -427,6 +441,8 @@
                         transform-origin: 55% 0;
                     }
                     to {
+                        margin-top: 8px;
+                        margin-left: 238px;
                         transform: rotateY(0deg);
                         transform-origin: 55% 0;
                     }
