@@ -223,15 +223,6 @@
                     }
                 }
             }
-            .point {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 50px;
-                margin-top: 87px;
-                margin-left: 360px;
-                animation: gateToFerrisWheel 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
-            }
             .gateToFerrisWheel_point {
                 //入口到摩天輪
                 position: absolute;
@@ -240,7 +231,7 @@
                 width: 50px;
                 margin-top: 180px;
                 margin-left: 350px;
-                animation: gateToFerrisWheel 5s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+                animation: gateToFerrisWheel 7s linear infinite;
                 @keyframes gateToFerrisWheel {
                     from {
                         margin-top: 180px;
@@ -265,12 +256,12 @@
                         transform-origin: 55% 0;
                     }
                     25% {
-                        margin-top: 161px;
-                        margin-left: 317px;
                         transform: rotateY(100deg);
                         transform-origin: 55% 0;
                     }
                     30% {
+                        margin-top: 143px;
+                        margin-left: 282px;
                         transform: rotateY(50deg);
                         transform-origin: 55% 0;
                     }
@@ -287,8 +278,6 @@
                         transform-origin: 55% 0;
                     }
                     50% {
-                        margin-top: 143px;
-                        margin-left: 282px;
                         transform: rotateY(50deg);
                         transform-origin: 55% 0;
                     }
@@ -330,7 +319,114 @@
                     }
                     to {
                         margin-top: 49px;
-                        margin-left: 171px;
+                        margin-left: 169px;
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                }
+            }
+            .point {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 50px;
+                margin-top: 87px;
+                margin-left: 360px;
+                animation: gaterollerCoaster 7s linear forwards;
+            }
+            .gateToFerrisWheel_point {
+                //入口到摩天輪
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 50px;
+                margin-top: 180px;
+                margin-left: 350px;
+                animation: gaterollerCoaster 7s linear infinite;
+                @keyframes gaterollerCoaster {
+                    from {
+                        margin-top: 180px;
+                        margin-left: 350px;
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    5% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    10% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    15% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    20% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    25% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    30% {
+                        margin-top: 143px;
+                        margin-left: 282px;
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    35% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    40% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    45% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    50% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    55% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    60% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    65% {
+                        margin-top: 87px;
+                        margin-left: 360px;
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    70% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    75% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    80% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    85% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    90% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    to {
                         transform: rotateY(0deg);
                         transform-origin: 55% 0;
                     }
