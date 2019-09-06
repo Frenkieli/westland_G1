@@ -50,7 +50,7 @@
                 width: 50px;
                 margin-top: 180px;
                 margin-left: 350px;
-                animation: gateToWaterSlide 5s forwards;
+                animation: gateToWaterSlide 3s forwards;
                 @keyframes gateToWaterSlide {
                     from {
                         margin-top: 180px;
@@ -152,7 +152,7 @@
                 width: 50px;
                 margin-top: 180px;
                 margin-left: 350px;
-                animation: gateToPirateShip 5s forwards;
+                animation: gateToPirateShip 3s forwards;
                 @keyframes gateToPirateShip {
                     from {
                         margin-top: 180px;
@@ -254,7 +254,7 @@
                 width: 50px;
                 margin-top: 180px;
                 margin-left: 350px;
-                animation: gateToFerrisWheel 5s linear forwards;
+                animation: gateToFerrisWheel 3s linear forwards;
                 @keyframes gateToFerrisWheel {
                     from {
                         margin-top: 180px;
@@ -448,7 +448,42 @@
                     }
                 }
             }
-
+            .WaterSlideToStore_point {
+                //滑水道到商店
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 50px;
+                margin-top: 188px;
+                margin-left: 176px;
+                animation: WaterSlideToStore 1s forwards;
+                @keyframes WaterSlideToStore{
+                    from {
+                        margin-top: 60px;
+                        margin-left: 326px;
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    5% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    10% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    15% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    to {
+                        margin-top: 31px;
+                        margin-left: 276px;
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                }
+            }
             .WaterSlideToswivelChair_point {
                 //滑水道到旋轉椅
                 position: absolute;
@@ -457,8 +492,8 @@
                 width: 50px;
                 margin-top: 188px;
                 margin-left: 176px;
-                animation: WaterSlideToswivelChair_point 5s linear forwards;
-                @keyframes WaterSlideToswivelChair_point{
+                animation: WaterSlideToswivelChair 2s linear forwards;
+                @keyframes WaterSlideToswivelChair{
                     from {
                         margin-top: 60px;
                         margin-left: 326px;
@@ -551,19 +586,19 @@
                     }
                 }
             }
-            .WaterSlideToStore_point {
-                //滑水道到商店
+            .FerrisWheelToExit_point {
+                //摩天輪到出口
                 position: absolute;
                 top: 0;
                 left: 0;
                 width: 50px;
-                margin-top: 188px;
-                margin-left: 176px;
-                animation: WaterSlideToStore_point 1s forwards;
-                @keyframes WaterSlideToStore_point{
+                margin-top: 158px;
+                margin-left: 101px;
+                animation: FerrisWheelToExit 2s linear forwards;
+                @keyframes FerrisWheelToExit{
                     from {
-                        margin-top: 60px;
-                        margin-left: 326px;
+                        margin-top: 49px;
+                        margin-left: 169px;
                         transform: rotateY(50deg);
                         transform-origin: 55% 0;
                     }
@@ -579,15 +614,138 @@
                         transform: rotateY(0deg);
                         transform-origin: 55% 0;
                     }
-                    to {
-                        margin-top: 31px;
-                        margin-left: 276px;
+                    20% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    25% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    30% {
+                        margin-top: 72px;
+                        margin-left: 116px;
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    35% {
                         transform: rotateY(0deg);
                         transform-origin: 55% 0;
                     }
-                }
+                    40% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    45% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    50% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    55% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    60% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    65% {
+                        margin-top: 121px;
+                        margin-left: 47px;
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    70% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    75% {
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
+                    80% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    85% {
+                        transform: rotateY(100deg);
+                        transform-origin: 55% 0;
+                    }
+                    90% {
+                        transform: rotateY(50deg);
+                        transform-origin: 55% 0;
+                    }
+                    to {
+                        margin-top: 89px;
+                        margin-left: -1px;
+                        transform: rotateY(0deg);
+                        transform-origin: 55% 0;
+                    }
             }
         }
+        .point {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-top: 180px;
+            margin-left: 350px;
+            width: 50px;
+            // animation: FerrisWheelToExit_point 5s linear forwards;
+        }
+        .WaterSlideToGate_point {
+            //滑水道到入口
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            margin-top: 60px;
+            margin-left: 326px;
+            animation: gateToWaterSlide 2s linear forwards alternate-reverse;
+        }
+        .ExitToFerrisWheel_point {
+            //出口到摩天輪
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            margin-top: 60px;
+            margin-left: 326px;
+            animation: FerrisWheelToExit 2s linear forwards alternate-reverse;
+        }
+        .rollerCoasterToGate_point {
+            //雲霄飛車到入口
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            margin-top: 60px;
+            margin-left: 326px;
+            animation: gaterollerCoaster 5s linear forwards alternate-reverse;
+        }
+        .swivelChairToWaterSlide_point {
+            //旋轉椅到滑水道
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            margin-top: 60px;
+            margin-left: 326px;
+            animation: WaterSlideToswivelChair 2s linear forwards alternate-reverse;
+        }
+        .storeToWaterSlide_point {
+            //商店到滑水道
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            margin-top: 60px;
+            margin-left: 326px;
+            animation: WaterSlideToStore 1s linear forwards alternate-reverse;
+        }
+    }
         .demo_container {
             width: 300%;
             height: 300%;

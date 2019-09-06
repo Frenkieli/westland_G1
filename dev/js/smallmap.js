@@ -58,20 +58,34 @@ function moveRight(e) {
             demo_rightarrow.style.display = 'none';
         }
         demo_leftarrow.style.display = '';
-        if(place==5){
-            let gateTorollerCoaster_point =document.createElement('img');//增加入口到雲霄飛車事件
-            gateTorollerCoaster_point.src="images/gameplay/point.svg";
-            gateTorollerCoaster_point.className='gateTorollerCoaster_point point';
-            smallMap.appendChild(gateTorollerCoaster_point);
-            place=6;
-        }
-        if(place==2){
-            let WaterSlideToswivelChair_point =document.createElement('img');//增加滑水道到旋轉椅事件
-            WaterSlideToswivelChair_point.src="images/gameplay/point.svg";
-            WaterSlideToswivelChair_point.className='WaterSlideToswivelChair_point point';
-            smallMap.appendChild(WaterSlideToswivelChair_point);
-            place=3;
-        }
+    }
+    if(place===5){
+        let gateTorollerCoaster_point =document.createElement('img');//增加入口到雲霄飛車事件
+        gateTorollerCoaster_point.src="images/gameplay/point.svg";
+        gateTorollerCoaster_point.className='gateTorollerCoaster_point point';
+        smallMap.appendChild(gateTorollerCoaster_point);
+        place=6;
+    }else
+    if(place===2){
+        let WaterSlideToswivelChair_point =document.createElement('img');//增加滑水道到旋轉椅事件
+        WaterSlideToswivelChair_point.src="images/gameplay/point.svg";
+        WaterSlideToswivelChair_point.className='WaterSlideToswivelChair_point point';
+        smallMap.appendChild(WaterSlideToswivelChair_point);
+        place=3;
+    }else
+    if(place===8){
+        let FerrisWheelToExit_point =document.createElement('img');//增加旋轉椅到出口事件
+        FerrisWheelToExit_point.src="images/gameplay/point.svg";
+        FerrisWheelToExit_point.className='FerrisWheelToExit_point point';
+        smallMap.appendChild(FerrisWheelToExit_point);
+        place=9;
+    }
+    if(place===1){
+        let storeToWaterSlide_point =document.createElement('img');//增加商店到滑水道事件
+        storeToWaterSlide_point.src="images/gameplay/point.svg";
+        storeToWaterSlide_point.className='storeToWaterSlide_point point';
+        smallMap.appendChild(storeToWaterSlide_point);
+        place=2;
     }
 };
 
@@ -98,6 +112,27 @@ function moveLeft(e) {
             smallMap.appendChild(WaterSlideToStore_point);
             place=1;
         }
+        if(place==9){
+            let ExitToFerrisWheel_point =document.createElement('img');//增加出口到摩天輪事件
+            ExitToFerrisWheel_point.src="images/gameplay/point.svg";
+            ExitToFerrisWheel_point.className='ExitToFerrisWheel_point point';
+            smallMap.appendChild(ExitToFerrisWheel_point);
+            place=8;
+        }
+        if(place==6){
+            let rollerCoasterToGate_point =document.createElement('img');//增加雲霄飛車到入口事件
+            rollerCoasterToGate_point.src="images/gameplay/point.svg";
+            rollerCoasterToGate_point.className='rollerCoasterToGate_point point';
+            smallMap.appendChild(rollerCoasterToGate_point);
+            place=5;
+        }
+        if(place==3){
+            let swivelChairToWaterSlide_point =document.createElement('img');//增加旋轉椅到滑水道事件
+            swivelChairToWaterSlide_point.src="images/gameplay/point.svg";
+            swivelChairToWaterSlide_point.className='swivelChairToWaterSlide_point point';
+            smallMap.appendChild(swivelChairToWaterSlide_point);
+            place=2;
+        }
     }
 };
 
@@ -113,10 +148,17 @@ function moveBottom(e) {
         demo_toparrow.style.display = '';
     }
     if(place==5){
-    let gateToFerrisWheel_point =document.createElement('img');//增加入口到摩天輪事件
-    gateToFerrisWheel_point.src="images/gameplay/point.svg";
-    gateToFerrisWheel_point.className='gateToFerrisWheel_point point';
-    smallMap.appendChild(gateToFerrisWheel_point);
+        let gateToFerrisWheel_point =document.createElement('img');//增加入口到摩天輪事件
+        gateToFerrisWheel_point.src="images/gameplay/point.svg";
+        gateToFerrisWheel_point.className='gateToFerrisWheel_point point';
+        smallMap.appendChild(gateToFerrisWheel_point);
+        place=8;
     }
-    place=4;
+    if(place==2){
+        let WaterSlideToGate_point =document.createElement('img');//增加滑水道到入口事件
+        WaterSlideToGate_point.src="images/gameplay/point.svg";
+        WaterSlideToGate_point.className='WaterSlideToGate_point point';
+        smallMap.appendChild(WaterSlideToGate_point);
+    }
+    place=5;
 };
