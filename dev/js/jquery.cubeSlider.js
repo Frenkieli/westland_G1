@@ -31,6 +31,54 @@
 		});
 
 
+		// 手指事件
+
+		let facility_slider = document.getElementById('facility_slider');
+
+		function touchmoveBanner() {
+			var touchMove = 0;
+			var touchIn = 0;
+			facility_slider.addEventListener('touchstart', function (e) {
+				var touch = event.targetTouches[0];
+				touchIn = touch.pageX;
+				console.log(touch.pageX, 'touchIn');
+			}, false);
+			// 判斷手指頭進場
+			facility_slider.addEventListener('touchmove', function (e) {
+				if (event.targetTouches.length == 1) {
+					var touch = event.targetTouches[0];
+					// 把元素放在手指所在的位置
+					touchMove = touchIn - touch.pageX;
+					facility_slider.style.transform = `rotateY(${-touchMove / 5}deg)`;
+					facility_slider.style.transition = '0s';
+
+				}
+
+			}, false);
+			// 判斷手指頭移動距離,和移動時回饋
+			facility_slider.addEventListener('touchend', function (e) {
+				if (touchMove > 100) {
+					index = index + 1;
+					move(index % length);
+					console.log(index);
+					// console.log(cat_slide.style.right, 'slidrRight');
+				} else if (touchMove < -100) {
+					index = index - 1;
+					move(index % length);
+					console.log(index);
+					// console.log(cat_slide.style.right, 'slidrLeft');
+				} else {
+				}
+				facility_slider.style.transition = '1s ease-in-out';
+				facility_slider.style.transform = `rotateY(0deg)`;
+			}, false);
+			//判斷要進行的事件
+		}
+
+		touchmoveBanner();
+
+		// 手指事件結束
+
 
 		$child.css({
 			width: ops.width,
