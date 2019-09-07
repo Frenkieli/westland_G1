@@ -1,56 +1,87 @@
-.section_robot{
+.section_robot {
     transition: 0.5s;
     z-index: 10;
     padding: 10px;
-    *{
+    * {
         width: 100%;
     }
     position: fixed;
     // bottom: 0;
-    .robot_text{
+    .robot_text {
         transition: 0.5s;
         transition-delay: 0.2s;
         // height: 200px;
         height: 0px;
         opacity: 0;
-        #dialogBox{
+        #dialogBox {
             transition: 0.5s;
             transition-delay: 0.4s;
-            width: 95%; 
+            width: 95%;
             // height: 125px;
             height: 0px;
             opacity: 0;
             border: ridge 1px #888888;
             border-radius: 10px;
             background-color: #fff;
+            position: relative;
+            padding: 10px;
+            box-sizing: border-box;
+            .btn{
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+                padding: 5px;
+                cursor: pointer;
+            }
         }
-        input{
+        input {
             width: 93%;
         }
     }
-    .robot_eye{
-        position: absolute;
+    .swiper {
+        animation: robotmove 2s infinite;
     }
-
-    
+    @keyframes robotmove {
+        0% {
+            transform: translateX(0%) translateY(0%) ;
+        }
+        25% {
+            transform: translateX(-5%) translateY(-2%) rotate(-5deg);
+        }
+        50% {
+            transform: translateX(0%) translateY(5%) ;
+        }
+        75% {
+            transform: translateX(5%) translateY(-2%) rotate(5deg);
+        }
+        100% {
+            transform: translateX(0%) translateY(0%) ;
+        }
+    }
 }
-@include rwd(desktop){
-    .section_robot{
+@include rwd(desktop) {
+    .section_robot {
         width: 300px;
         bottom: -100px;
         right: -10px;
-        &:hover{
+        &:hover {
             background-color: #9dba65;
             border-radius: 10px 10px 0 0;
             bottom: 0;
-            .robot_text{
+            .robot_text {
                 height: 200px;
                 opacity: 1;
-                #dialogBox{
+                #dialogBox {
                     height: 125px;
                     opacity: 1;
                 }
-                input{
+                input {
                     width: 95%;
                 }
             }
@@ -58,10 +89,63 @@
     }
 }
 
-@include rwd(phone){
-    .section_robot{
+@include rwd(phone) {
+    .section_robot {
         width: 150px;
         bottom: -50px;
         right: -60px;
+    }
+}
+
+.problem {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 6;
+    display: none;
+    &_container {
+        max-width: 1200px;
+        width: 60%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        background-image: url("../images/problem/background.png");
+        background-size: 100% 100%;
+        box-sizing: border-box;
+        padding: 30px;
+        .problem_text {
+            #puzzle{
+                position: relative;
+                top: -100%;
+            }
+            width: 100%;
+            font-size: 60px;
+            text-align: center;
+        }
+        .problem_answer {
+            width: 33%;
+            box-sizing: border-box;
+            padding: 1%;
+            position: relative;
+            top: 100%;
+            img {
+                width: 100%;
+            }
+        }
+        .problem_reply {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            clip-path: circle(0%);
+            display: none;
+        }
     }
 }
