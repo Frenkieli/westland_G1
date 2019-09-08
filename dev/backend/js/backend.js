@@ -72,39 +72,49 @@
         clearTable();
         console.log(2);
         getProduct();
-        function getProduct(){
-            var xhr = new XMLHttpRequest();
-            xhr.onload=function(){
-                if(xhr.status==200){
+        function getProduct() {
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                if (xhr.status == 200) {
                     showProduct(xhr.responseText);
                 }
-                else{
+                else {
                     alert(xhr.status);
                 }
             }
-            var url ="../php/getProduct_JSON.php";
-            xhr.open('get',url,true);
+            let url = "../php/getProduct_JSON.php";
+            xhr.open('get', url, true);
             xhr.send(null);
         }
-        function showProduct(jsonStr){
-               let products=JSON.parse(jsonStr);
-               console.log(products);
+        function showProduct(jsonStr) {
+            let products = JSON.parse(jsonStr);
+            fakeDate = new Array(products.length);
+            for (let i = 0; i < products.length; i++) {
+                fakeDate[i] = new Array(products[i].product_no, products[i].product_name, products[i].product_image, products[i].product_status, products[i].product_price, products[i].product_ifo, products[i].product_style, products[i].product_sort, products[i].product_category, products[i].product_count);
+            }
+            dataType = [1, 3, 3, 2, 3, 4, 3, 3, 3, 3];
+            buttonValue = ['下架', '上架'];
+            updata = 1;
+            let tableHeader = document.createElement('tr');
+            tableHeader.innerHTML = "<th>商品編號</th><th>商品名稱</th><th>商品照片</th><th>商品上下架</th><th>價格</th><th>簡介</th><th>商品樣式</th><th>種類</th><th>類別</th><th>數量</th><th>修改</th><th>刪除</th>";
+            tableTh.appendChild(tableHeader);
+            makeTable();
+
         };
-        fakeDate = [
-            [1, "紅色仙人掌包包", 'images/products/product_list/pd_b_01.png', 1, '500', '紅色仙人掌包包', '紅色', '仙人掌', '包包', '20'],
-            // [0000000002, "商品B", 'images/backend/2.png', 0, '1200', '黑色', '吉祥物', '簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介'],
-            // [0000000003, "商品C", 'images/backend/3.png', 1, '1200', '黑色', '吉祥物', '簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介'],
-            // [0000000004, "商品D", 'images/backend/4.png', 0, '1200', '黑色', '吉祥物', '簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介'],
-            // [0000000005, "商品F", 'images/backend/5.png', 1, '1200', '黑色', '吉祥物', '簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介'],
-        ];
-        
-        dataType = [1, 3, 3, 2, 3, 4, 3, 3, 3, 3];
-        buttonValue = ['下架', '上架'];
-        updata = 1;
-        let tableHeader = document.createElement('tr');
-        tableHeader.innerHTML = "<th>商品編號</th><th>商品名稱</th><th>商品照片</th><th>商品上下架</th><th>價格</th><th>簡介</th><th>商品樣式</th><th>種類</th><th>類別</th><th>數量</th><th>修改</th><th>刪除</th>";
-        tableTh.appendChild(tableHeader);
-        makeTable();
+        //    fakeDate=[ [1, "紅色仙人掌包包", 'images/products/product_list/pd_b_01.png', 1, '500', '紅色仙人掌包包', '紅色', '仙人掌', '包包', '20'],
+        //     [0000000002, "商品B", 'images/backend/2.png', 0, '1200', '黑色', '吉祥物', '簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介'],
+        //     [0000000003, "商品C", 'images/backend/3.png', 1, '1200', '黑色', '吉祥物', '簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介'],
+        //     [0000000004, "商品D", 'images/backend/4.png', 0, '1200', '黑色', '吉祥物', '簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介'],
+        //     [0000000005, "商品F", 'images/backend/5.png', 1, '1200', '黑色', '吉祥物', '簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介']];
+
+        // console.log(fakeDate[0]);
+        // dataType = [1, 3, 3, 2, 3, 4, 3, 3, 3, 3];
+        // buttonValue = ['下架', '上架'];
+        // updata = 1;
+        // let tableHeader = document.createElement('tr');
+        // tableHeader.innerHTML = "<th>商品編號</th><th>商品名稱</th><th>商品照片</th><th>商品上下架</th><th>價格</th><th>簡介</th><th>商品樣式</th><th>種類</th><th>類別</th><th>數量</th><th>修改</th><th>刪除</th>";
+        // tableTh.appendChild(tableHeader);
+        // makeTable();
     }
     function member(e) {
         tableTitle.innerText = this.innerText;
