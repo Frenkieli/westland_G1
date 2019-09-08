@@ -1,7 +1,13 @@
 @include rwd(desktop) {
 .section_demo {
+    .page_title{
+        position: fixed;
+        padding: 10px;
+        top:10%; 
+        left: 68%;   
+    }
     .map_container {
-        top: 15%;
+        top: 22%;
         left: 52%;
         width: 28%;
         transform: translate(25%, -60%);

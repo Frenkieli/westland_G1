@@ -7,6 +7,7 @@
         height: 90vh;
         overflow: hidden;
         font-size: 0;
+        
         .demo_container {
             width: 300%;
             height: 300%;
@@ -120,6 +121,8 @@
                 position: absolute;
                 font-size: 25px;
                 cursor: pointer;
+                width: 150px;
+                text-align: right;
             }
             img {
                 animation: rubberBand 1s infinite;
@@ -166,6 +169,7 @@
             left: 5%;
             transform: rotate(-90deg);
             p {
+                margin-top: 20px;
                 z-index: 55;
                 position: absolute;
                 font-size: 25px;
@@ -227,6 +231,7 @@
                 font-size: 25px;
                 transform: rotate(-180deg);
                 cursor: pointer;
+                width: 150px;
             }
             img {
                 animation: rubberBand 1s infinite;
