@@ -2,8 +2,8 @@
     try{
         require_once("connectWestland.php");
         $sql ="select * from product";
-        $products =$pdo->query($sql);
-
+        $products =$pdo->prepare($sql);
+        $products->execute();
         if($products->rowCount()==0){
             echo "{}";
         }else{
