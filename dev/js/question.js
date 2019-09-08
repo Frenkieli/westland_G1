@@ -53,9 +53,7 @@
                         question_start();
                     }, 200);
                 }
-                console.log(i);
             }, 5);
-            console.log(2);
         });
     }
     question_start();
@@ -80,7 +78,6 @@
         let forQuestions = new Array;
 
         for (let i in questions) {
-            questions[i];
             forQuestions = new Array;
             let index = 0;
             for (let j in questions[i]) {
