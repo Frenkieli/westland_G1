@@ -1,0 +1,1335 @@
+@include rwd(desktop) {
+.section_demo {
+    .map_container {
+        top: 15%;
+        left: 52%;
+        width: 28%;
+        transform: translate(25%, -60%);
+        position: relative;
+        .small_map {
+            position: absolute;
+            border: 5px dashed rgba(0, 0, 0, 0.479);
+            border-radius: 10px;
+            width: 430px;
+        }
+        .point {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin-top: 180px;
+            margin-left: 350px;
+            width: 50px;
+            animation: where 1s infinite;
+            @keyframes where {
+                0%{transform: rotateY(50deg);
+                    transform-origin:55% 0;
+                };
+                25%{transform: rotateY(100deg);
+                    transform-origin:55% 0;
+                };
+                50%{transform: rotateY(50deg);
+
+                    transform-origin:55% 0;};
+                100%{transform: rotateY(0deg);
+
+                    transform-origin:55% 0;};
+            }
+        }
+        .WaterSlideToStore_point {
+            //滑水道到商店
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            animation: WaterSlideToStore 1s forwards;
+            @keyframes WaterSlideToStore{
+                from {
+                    margin-top: 60px;
+                    margin-left: 326px;
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                10% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                20% {
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                30% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                40% {
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                50% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                60% {
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                70% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                to {
+                    margin-top: 31px;
+                    margin-left: 276px;
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+            }
+        }
+        .storeToWaterSlide_point {
+        //商店到滑水道
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        animation: WaterSlideToStore 1s linear forwards alternate-reverse;
+        }
+        .gateToWaterSlide_point {
+            //入口到滑水道
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            animation: gateToWaterSlide 1s forwards;
+            @keyframes gateToWaterSlide {
+                from {
+                    margin-top: 180px;
+                    margin-left: 350px;
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                5% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                10% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                15% {
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                20% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                25% {
+                    margin-top: 161px;
+                    margin-left: 317px;
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                30% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                35% {
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                40% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                45% {
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                50% {
+                    margin-top: 143px;
+                    margin-left: 282px;
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                55% {
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                60% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                65% {
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                70% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                75% {
+                    margin-top: 87px;
+                    margin-left: 360px;
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                80% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                85% {
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                90% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                to {
+                    margin-top: 60px;
+                    margin-left: 326px;
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+            }
+        }
+    .WaterSlideToGate_point {
+        //滑水道到入口
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        animation: gateToWaterSlide 1s linear forwards alternate-reverse;
+    }
+    .WaterSlideToswivelChair_point {
+    //滑水道到旋轉椅
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    animation: WaterSlideToswivelChair 1s linear forwards;
+    @keyframes WaterSlideToswivelChair{
+        from {
+            margin-top: 60px;
+            margin-left: 326px;
+            transform: rotateY(0deg);
+            transform-origin: 55% 0;
+        }
+        5% {
+            transform: rotateY(50deg);
+            transform-origin: 55% 0;
+        }
+        10% {
+            margin-top: 82px;
+            margin-left: 360px;
+            transform: rotateY(50deg);
+            transform-origin: 55% 0;
+        }
+        15% {
+            transform: rotateY(0deg);
+            transform-origin: 55% 0;
+        }
+        20% {
+            transform: rotateY(50deg);
+            transform-origin: 55% 0;
+        }
+        25% {
+            transform: rotateY(100deg);
+            transform-origin: 55% 0;
+        }
+        30% {
+            margin-top: 147px;
+            margin-left: 263px;
+            transform: rotateY(50deg);
+            transform-origin: 55% 0;
+        }
+        35% {
+            transform: rotateY(0deg);
+            transform-origin: 55% 0;
+        }
+        40% {
+            transform: rotateY(50deg);
+            transform-origin: 55% 0;
+        }
+        45% {
+            transform: rotateY(100deg);
+            transform-origin: 55% 0;
+        }
+        50% {
+            transform: rotateY(50deg);
+            transform-origin: 55% 0;
+        }
+        55% {
+            transform: rotateY(0deg);
+            transform-origin: 55% 0;
+        }
+        60% {
+            transform: rotateY(50deg);
+            transform-origin: 55% 0;
+        }
+        65% {
+            margin-top: 188px;
+            margin-left: 176px;
+            transform: rotateY(100deg);
+            transform-origin: 55% 0;
+        }
+        70% {
+            transform: rotateY(50deg);
+            transform-origin: 55% 0;
+        }
+        75% {
+            transform: rotateY(0deg);
+            transform-origin: 55% 0;
+        }
+        80% {
+            transform: rotateY(50deg);
+            transform-origin: 55% 0;
+        }
+        85% {
+            transform: rotateY(100deg);
+            transform-origin: 55% 0;
+        }
+        90% {
+            transform: rotateY(50deg);
+            transform-origin: 55% 0;
+        }
+        to {
+            margin-top: 158px;
+            margin-left: 101px;
+            transform: rotateY(0deg);
+            transform-origin: 55% 0;
+            }
+        }   
+    }
+    .swivelChairToWaterSlide_point {
+        //旋轉椅到滑水道
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        animation: WaterSlideToswivelChair 1s linear forwards alternate-reverse;
+    }
+    .storeToPirateShip{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            animation: gateToPirateShip 3s forwards;
+            @keyframes gateToPirateShip {
+                from {
+                    margin-top: 180px;
+                    margin-left: 350px;
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                5% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                10% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                15% {
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                20% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                25% {
+                    margin-top: 161px;
+                    margin-left: 317px;
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                30% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                35% {
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                40% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                45% {
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                50% {
+                    margin-top: 135px;
+                    margin-left: 273px;
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                55% {
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                60% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                65% {
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                70% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                75% {
+                    margin-top: 145px;
+                    margin-left: 230px;
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                80% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                85% {
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                90% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                to {
+                    margin-top: 122px;
+                    margin-left: 202px;
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+            }
+        }
+    .gateToPirateShip_point {
+        //入口到海盜船
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        animation: gateToPirateShip 1s forwards;
+        @keyframes gateToPirateShip {
+            from {
+                margin-top: 180px;
+                margin-left: 350px;
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            5% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            10% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            15% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            20% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            25% {
+                margin-top: 161px;
+                margin-left: 317px;
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            30% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            35% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            40% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            45% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            50% {
+                margin-top: 135px;
+                margin-left: 273px;
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            55% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            60% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            65% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            70% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            75% {
+                margin-top: 145px;
+                margin-left: 230px;
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            80% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            85% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            90% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            to {
+                margin-top: 122px;
+                margin-left: 202px;
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+        }
+    }
+    .PirateShipToGate_point {
+        //海盜船到入口
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        animation: gateToPirateShip 1s linear forwards alternate-reverse;
+    }
+
+    .pirateShipToStore_point {
+        //海盜船到商店
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        animation: pirateShipToStore 1s linear forwards;
+        @keyframes pirateShipToStore {
+            from {
+                margin-top: 122px;
+                margin-left: 202px;
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            5% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            10% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            15% {
+                margin-top: 120px;
+                margin-left: 147px;
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            20% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            25% {
+                margin-top: 62px;
+                margin-left: 147px;
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            30% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            35% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            40% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            45% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            50% {
+                margin-top: 7px;
+                margin-left: 244px;
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            55% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            60% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            65% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            70% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            75% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            80% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            85% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            90% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            to {
+                margin-top: 31px;
+                margin-left: 276px;
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+        }
+    }
+    .StoreTopPirateShipe_point {
+        //商店到海盜船
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        animation: pirateShipToStore 1s linear forwards alternate-reverse;
+    }
+    .gateTorollerCoaster_point {
+        //入口到雲霄飛車
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        animation: gateTorollerCoaster 1s linear forwards;
+        @keyframes gateTorollerCoaster {
+            from {
+                margin-top: 180px;
+                margin-left: 350px;
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            5% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            10% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            15% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            20% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            25% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            30% {
+                margin-top: 143px;
+                margin-left: 282px;
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            35% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            40% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            45% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            50% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            55% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            60% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            65% {
+                margin-top: 87px;
+                margin-left: 360px;
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            70% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            75% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            80% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            85% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            90% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            to {
+                margin-top: 8px;
+                margin-left: 238px;
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+        }
+    }
+    .rollerCoasterToGate_point {
+        //雲霄飛車到入口
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        animation: gateTorollerCoaster 1s linear forwards alternate-reverse;
+    }
+    .rollerCoasterToSwivelChair_point {
+        //雲霄飛車到旋轉椅
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        animation: rollerCoasterToSwivelChair 1s linear forwards;
+        @keyframes rollerCoasterToSwivelChair {
+            from {
+                margin-top: 8px;
+                margin-left: 238px;
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            5% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            10% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            15% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            20% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            25% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            30% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            35% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            40% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            45% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            50% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            55% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            60% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            65% {
+                margin-top: 116px;
+                margin-left: 44px;
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            70% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            75% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            80% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            85% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            90% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            to {
+                margin-top: 158px;
+                margin-left: 101px;
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+        }
+    }
+    .swivelChairToRollerCoaster_point{
+        //旋轉椅到雲霄飛車
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        animation: rollerCoasterToSwivelChair 1s linear forwards alternate-reverse;
+    }
+    .gateToFerrisWheel_point {
+        //入口到摩天輪
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        margin-top: 180px;
+        margin-left: 350px;
+        animation: gateToFerrisWheel 1s linear forwards;
+        @keyframes gateToFerrisWheel {
+            from {
+                margin-top: 180px;
+                margin-left: 350px;
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            5% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            10% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            15% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            20% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            25% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            30% {
+                margin-top: 143px;
+                margin-left: 282px;
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            35% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            40% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            45% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            50% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            55% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            60% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            65% {
+                margin-top: 87px;
+                margin-left: 360px;
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            70% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            75% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            80% {
+                margin-top: 12px;
+                margin-left: 239px;
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            85% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            90% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            to {
+                margin-top: 49px;
+                margin-left: 169px;
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+        }
+    }
+    
+    .FerrisWheelToGate_point{
+        //旋轉椅到雲霄飛車
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        animation: gateToFerrisWheel 1s linear forwards alternate-reverse;
+    }
+    .FerrisWheelToExit_point {
+            //摩天輪到出口
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            margin-top: 158px;
+            margin-left: 101px;
+            animation: FerrisWheelToExit 1s linear forwards;
+            @keyframes FerrisWheelToExit{
+                from {
+                    margin-top: 49px;
+                    margin-left: 169px;
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                5% {
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                10% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                15% {
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                20% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                25% {
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                30% {
+                    margin-top: 72px;
+                    margin-left: 116px;
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                35% {
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                40% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                45% {
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                50% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                55% {
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                60% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                65% {
+                    margin-top: 121px;
+                    margin-left: 47px;
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                70% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                75% {
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                80% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                85% {
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                90% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                to {
+                    margin-top: 89px;
+                    margin-left: -1px;
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+        }
+    }
+
+    .ExitToFerrisWheel_point {
+        //出口到摩天輪
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        margin-top: 60px;
+        margin-left: 326px;
+        animation: FerrisWheelToExit 1s linear forwards alternate-reverse;
+    }
+    .FerrisWheelToCarousel_point {
+        //摩天輪到旋轉木馬
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        animation: FerrisWheelToCarousel 1s forwards;
+        @keyframes FerrisWheelToCarousel{
+            from {
+                margin-top: 49px;
+                margin-left: 169px;
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            10% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            20% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            30% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            40% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            50% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            60% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            70% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            to {
+                margin-top: 93px;
+                margin-left: 87px;
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+        }
+    }
+    .CarouselToFerrisWheel_point {
+    //旋轉木馬到摩天輪
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    animation: FerrisWheelToCarousel 1s linear forwards alternate-reverse;
+    }
+    .pirateShipTocarousel_point {
+            //海盜船到旋轉木馬
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            animation: pirateShipTocarousel 1s linear forwards;
+            @keyframes pirateShipTocarousel{
+                from {
+                    margin-top: 122px;
+                    margin-left: 202px;
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                5% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                10% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                15% {
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                20% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                25% {
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                30% {
+                    margin-top: 122px;
+                    margin-left: 127px;
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                35% {
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                40% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                45% {
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                50% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                55% {
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                60% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                65% {
+                    margin-top: 74px;
+                    margin-left: 127px;
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                70% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                75% {
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+                80% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                85% {
+                    transform: rotateY(100deg);
+                    transform-origin: 55% 0;
+                }
+                90% {
+                    transform: rotateY(50deg);
+                    transform-origin: 55% 0;
+                }
+                to {
+                    margin-top: 103px;
+                    margin-left: 72px;
+                    transform: rotateY(0deg);
+                    transform-origin: 55% 0;
+                }
+        }
+    }
+
+    .carouselTopirateShip_point {
+        //出口到摩天輪
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        margin-top: 60px;
+        margin-left: 326px;
+        animation: pirateShipTocarousel 1s linear forwards alternate-reverse;
+    }
+    .rollerCoasterToExit_point {
+        //雲霄飛車到出口
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+        animation: rollerCoasterToExit 1s linear forwards;
+        @keyframes rollerCoasterToExit{
+            from {
+                margin-top: 8px;
+                margin-left: 238px;
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            5% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            10% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            15% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            20% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            25% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            30% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            35% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            40% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            45% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            50% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            55% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            60% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            65% {
+                margin-top: 115px;
+                margin-left: 46px;
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            70% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            75% {
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+            80% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            85% {
+                transform: rotateY(100deg);
+                transform-origin: 55% 0;
+            }
+            90% {
+                transform: rotateY(50deg);
+                transform-origin: 55% 0;
+            }
+            to {
+                margin-top: 89px;
+                margin-left: -1px;
+                transform: rotateY(0deg);
+                transform-origin: 55% 0;
+            }
+        }
+    }
+        .exitToRollerCoaster_point {
+            //出口到雲霄飛車
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50px;
+            margin-top: 60px;
+            margin-left: 326px;
+            animation: rollerCoasterToExit 1s linear forwards alternate-reverse;
+        }
+    }
+    }
+}
