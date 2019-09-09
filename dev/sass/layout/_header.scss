@@ -218,6 +218,7 @@
                 color: #f09100 ;
                 &::after{
                     width: 100%;
+                    border-bottom: #5A7529 2px solid; 
                 }
             }
             &::after{
@@ -226,7 +227,7 @@
                 bottom: 0;
                 left: 0;
                 width: 0;
-                border-bottom: #5A7529 2px solid;    
+                border-bottom: #5A7529 2px solid; 
                 transition: 0.5s;
             }
         }

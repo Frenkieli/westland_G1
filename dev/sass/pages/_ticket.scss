@@ -56,10 +56,10 @@
             margin: 0 auto;
             // outline: solid 1px #f00;
             #customize_opabox{
-                // outline: solid 1px #f00;
+                outline: solid 1px #f00;
                 width: 30%;
                 position: absolute;
-                top: 50%;
+                top: 30%;
                 left: 35%;
                 > img{
                     vertical-align: middle;
@@ -77,6 +77,8 @@
         }
         @at-root
         .customize_items_set_box{
+            position: relative;
+            z-index: 2;
             .customize_items_set{
                 border: solid 2px map-get( $colors_map , active_base );
                 border-radius: 20px;
@@ -118,6 +120,8 @@
             text-align: center;
             cursor: pointer;
             img{
+                width: 75px;
+                height: 75px;
                 vertical-align: top;
                 position: relative;
                 top: 50%;

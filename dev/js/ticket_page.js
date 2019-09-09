@@ -1,7 +1,7 @@
 // 小圖換大圖
 function showLarge(e){
     let now = e.target;
-    let change = now.src.replace("_small","").replace(".png",".svg");
+    let change = now.src;
     document.getElementById("big").src = change;
 }
 
