@@ -24,6 +24,7 @@
 @import 'pages/member';
 @import 'pages/member_center';
 @import 'pages/gameplay';
+@import 'pages/gameplay_Jiugongge';
 @import 'pages/start';
 // ==========================================
 h1,h2,h3,h4,h5,h6,p,a,span,div,ul,li,ol{
@@ -57,6 +58,103 @@ h1,h2,h3,h4,h5,h6,p,a,span,div,ul,li,ol{
 .center{
     margin: 0 auto;
 }
+.gameplay_page{
+    .navbar_container_list{
+        .gameplay_nav{
+            color: #f09100;
+            &::after{
+                content: '';
+                width: 100%;
+                border-bottom: #f09100 2px solid;
+            }
+        }
+    }
+}
+.team_page{
+    .navbar_container_list{
+        .team_nav{
+            color: #f09100;
+            &::after{
+                content: '';
+                width: 100%;
+                border-bottom: #f09100 2px solid;
+            }
+        }
+    }
+}
+.ticket_page{
+    .navbar_container_list{
+        .ticket_nav{
+            color: #f09100;
+            &::after{
+                content: '';
+                width: 100%;
+                border-bottom: #f09100 2px solid;
+            }
+        }
+    }
+}
+.items_page{
+    .navbar_container_list{
+        .items_nav{
+            color: #f09100;
+            &::after{
+                content: '';
+                width: 100%;
+                border-bottom: #f09100 2px solid;
+            }
+        }
+    }
+}
+.item_page{
+    .navbar_container_list{
+        .items_nav{
+            color: #f09100;
+            &::after{
+                content: '';
+                width: 100%;
+                border-bottom: #f09100 2px solid;
+            }
+        }
+    }
+}
+.activity_page{
+    .navbar_container_list{
+        .activity_nav{
+            color: #f09100;
+            &::after{
+                content: '';
+                width: 100%;
+                border-bottom: #f09100 2px solid;
+            }
+        }
+    }
+}
+.information_page{
+    .navbar_container_list{
+        .information_nav{
+            color: #f09100;
+            &::after{
+                content: '';
+                width: 100%;
+                border-bottom: #f09100 2px solid;
+            }
+        }
+    }
+}
+.information_inner_page{
+    .navbar_container_list{
+        .information_nav{
+            color: #f09100;
+            &::after{
+                content: '';
+                width: 100%;
+                border-bottom: #f09100 2px solid;
+            }
+        }
+    }
+}
+
 
 @include rwd(desktop){
     .shoppingCart_page,.activity_page,.gameplay_page,.information_inner_page,.information_page,.item_page,.items_page,.member_page,.memberLocation_page,.shoppingCart_page,.team_page,.ticket_page{

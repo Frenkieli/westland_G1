@@ -35,6 +35,8 @@
                 padding: 5px;
                 cursor: pointer;
                 img{
+                    width: 80%;
+                    height: 100%;
                     position: relative;
                     top: 50%;
                     left: 50%;
@@ -49,9 +51,24 @@
         background-repeat: no-repeat;
         @at-root
         .customize_mascot{
+            position: relative;
             width: 90%;
             margin: 0 auto;
-            img{
+            // outline: solid 1px #f00;
+            #customize_opabox{
+                outline: solid 1px #f00;
+                width: 30%;
+                position: absolute;
+                top: 30%;
+                left: 35%;
+                > img{
+                    vertical-align: middle;
+                    // outline: solid 1px #f00;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            > img{
                 padding: 50px 20px 0;
                 width: 60%;
                 display: block;
@@ -60,6 +77,8 @@
         }
         @at-root
         .customize_items_set_box{
+            position: relative;
+            z-index: 2;
             .customize_items_set{
                 border: solid 2px map-get( $colors_map , active_base );
                 border-radius: 20px;
@@ -101,6 +120,8 @@
             text-align: center;
             cursor: pointer;
             img{
+                width: 75px;
+                height: 75px;
                 vertical-align: top;
                 position: relative;
                 top: 50%;

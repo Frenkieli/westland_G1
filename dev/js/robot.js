@@ -56,13 +56,38 @@ var qaList = [
     { Q: "", A: "我了解|我能理解|還有問題嗎 ?|請繼續說下去|可以說的更詳細一點嗎?|這樣喔! 我知道!|然後呢? 發生甚麼事?|再來呢? 可以多說一些嗎|接下來呢? |可以多告訴我一些嗎?|多談談有關你的事，好嗎?|想多聊一聊嗎|可否多告訴我一些呢?" }
 ];
 
+function getRobot_text() {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            showRobot_text(xhr.responseText);
+        }
+        else {
+            alert(xhr.status);
+        }
+    }
+    var url = "php/getRobot_text_JOSN.php";
+    xhr.open('get', url, true);
+    xhr.send(null);
+}
+function showRobot_text(jsonStr) {
+    qaList = JSON.parse(jsonStr);
+    // console.log(Robot_text);
+};
+
+
+getRobot_text();
+
 function random(n) { // 從 0 到 n-1 中選一個亂數
     return Math.floor(Math.random() * n);
 }
 
 function say() { // 當送出鍵按下時，會呼叫這個函數進行回答動作
+    console.log(qaList,'最後三');
+    dialogBox.innerHTML = '';
     append(document.getElementById("say").value); // 先將使用者輸入的問句放到「對話區」顯示。
-    answer(); // 然後回答使用者的問題。
+    answer(document.getElementById("say").value); // 然後回答使用者的問題。
+    document.getElementById("say").value = '';
 }
 
 function keyin(event) { // 當按下 enter 鍵時，會呼叫此函數進行回答
@@ -73,17 +98,16 @@ function keyin(event) { // 當按下 enter 鍵時，會呼叫此函數進行回�
 function append(line) { // 將 line 放到「對話區」顯示。
     var dialogBox = document.getElementById("dialogBox"); // 取出對話框 
     dialogBox.innerHTML += line + "<BR/>\n"; // 加入 line 這行文字，並加入換行 <BR/>\n
-    dialogBox.scrollTop = dialogBox.scrollHeight; // 捲動到最下方。
 }
 
-function answer() { // 回答問題
+function answer(value) { // 回答問題
     setTimeout(function () { // 停頓 1 到 3 秒再回答問題 (因為若回答太快就不像人了，人打字需要時間)
-        append(">> " + getAnswer());
+        append(">> " + getAnswer(value));
     }, 500 + random(1000));
 }
 
-function getAnswer() {
-    var say = document.getElementById("say").value; // 取得使用者輸入的問句。
+function getAnswer(value) {
+    var say = value; // 取得使用者輸入的問句。
     for (var i in qaList) { // 對於每一個 QA 
         try {
             var qa = qaList[i];

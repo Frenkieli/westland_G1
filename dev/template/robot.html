@@ -11,31 +11,30 @@
         </div>
     </div>
     <img class="robot_img" src="images/robot/robot.png" alt="">
-    <div class="robot_eye robot_lefteye"></div>
-    <div class="robot_eye robot_righteye"></div>
-
 </section>
 <section class="problem">
     <div class="problem_container">
         <div class="problem_text">
             <p id="puzzle">一加一等於多少？？</p>
         </div>
-        <div class="problem_answer">
+        <div id="problem_answer1" class="problem_answer">
             <img src="images/problem/question2/1.png">
         </div>
-        <div class="problem_answer">
+        <div id="problem_answer2" class="problem_answer">
             <img src="images/problem/question2/2.png">
         </div>
-        <div class="problem_answer">
+        <div id="problem_answer3" class="problem_answer">
             <img src="images/problem/question2/3.png">
         </div>
-        <div class="problem_reply"><img src="https://api.fnkr.net/testimg/300x300/000000/FFF/?text=img+placeholder">
+        <div class="problem_reply">
+            <img src="images/problem/ok.png">
         </div>
     </div>
 </section>
 
     @@loop('jslink.html',[
-        {"jslink" : "js/robot.js"}
+        {"jslink" : "js/robot.js"},
+        {"jslink" : "js/question.js"}
     ])
 
 <script type="text/javascript">

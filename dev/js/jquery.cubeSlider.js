@@ -21,13 +21,13 @@
 		$('#arrowlift').click(function () {
 			index = index - 1;
 			move(index % length);
-			console.log(index);
+			// console.log(index);
 		});
 
 		$('#arrowright').click(function () {
 			index = index + 1;
 			move(index % length);
-			console.log(index);
+			// console.log(index);
 		});
 
 

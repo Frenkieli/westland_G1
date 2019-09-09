@@ -222,7 +222,7 @@
                     <div class="ticket_subtitle">DEAD OR ALIVE</div>
                     <input class="uploadpic" type="file" id="uploadpic" value="">
                     <div class="ticket_picture">
-                        <img src="images/cusitems/ticket_bgi.svg" alt="預設圖">
+                        <img id="preinstallpic" src="images/cusitems/ticket_bgi.svg" alt="預設圖">
                     </div>
                     <div class="ticket_amount">
                         <a class="center" href="ticket.html">
@@ -267,22 +267,26 @@
             <div class=" swiper-pagination"></div>
         </div>
     </section>
-    @@include("template/robot.html")
-    @@include("template/footer.html")
     <style>
-
+        .section_footer {
+            margin-top: -87px;
+        }
     </style>
-
-<!-- js -->
+    <!-- js -->
     @@loop('template/jslink.html',[
     {"jslink" : "js/swiper.min.js"},
     {"jslink" : "https://kit.fontawesome.com/6a6d2775fc.js"},
-    {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"}, 
+    {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"},
+    {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"},
+    {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"},
     {"jslink" : "js/jquery.cubeSlider.js"},
     {"jslink" : "js/ticket_index.js"},
+    {"jslink" : "js/indexgetproduct.js"},
     {"jslink" : "js/index.js"}
     ])
 
+    @@include("template/robot.html")
+    @@include("template/footer.html")
 
 </body>
 
