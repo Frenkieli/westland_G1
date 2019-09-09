@@ -11,6 +11,7 @@ function $id(id) {
     return document.getElementById(id);
 }
 function join() {
+    document.querySelector('.select_ticket_content').innerText="請選擇加入隊伍使用的門票 :";
     $id("joined").style.display = 'none';
     $id("create").style.display = 'none';
     $id("join").style.display = '';
@@ -47,6 +48,7 @@ function join() {
 
 function joinInvitation() {
     // console.log(1);
+    this.style.cursor='context-menu';
     $id("team_join_window").style.opacity = 1;
     $id("team_join_window").style.clipPath = "polygon(0 0% , 100% 00% , 100% 100%,0 100%)";
     let select_team = $id('select_team');
@@ -58,8 +60,9 @@ function joinInvitation() {
     wanted_bounty = this.firstElementChild.lastElementChild.previousElementSibling.innerText;
     let mascot_src = this.firstElementChild.lastElementChild.firstElementChild.src;
     wanted_mascot = mascot_src.substr(mascot_src.indexOf('images'));
-    info_teamname = this.lastElementChild.firstElementChild.firstElementChild.innerText;
-    info_teamslogan = this.lastElementChild.firstElementChild.nextElementSibling.nextElementSibling.innerText;
+    console.log(this.lastElementChild.firstElementChild);
+    info_teamname = this.lastElementChild.firstElementChild.nextElementSibling.innerText;
+    info_teamslogan = this.lastElementChild.lastElementChild.previousElementSibling.innerText;
     info_teamcount = this.lastElementChild.lastElementChild.firstElementChild.innerText;
     console.log(wanted_name);
     console.log(wanted_playerphoto);
@@ -76,6 +79,7 @@ function joinInvitation() {
         $id("team_join_window").style.clipPath = "polygon(0 50% , 100% 50% , 100% 50%,0 50%)";
         $id("team_join_window").style.opacity = 0;
         $id("ok").removeEventListener("click", move, false);
+        this.style.cursor="pointer";;
     }, false);
     $id("ok").addEventListener("click", move, false);
     function move() {
@@ -90,6 +94,7 @@ function joinInvitation() {
     }
 }
 function joined() {
+    document.querySelector('.select_ticket_content').innerText="加入此隊伍所選擇的票號 :";
     $id("join").style.display = 'none';
     $id("create").style.display = 'none';
     $id("joined").style.display = '';
@@ -119,6 +124,7 @@ function joined() {
 
 function dropOut() {
     // console.log(2);
+    this.style.cursor='context-menu';
     $id("team_join_window").style.opacity = 1;
     $id("team_join_window").style.clipPath = "polygon(0 0% , 100% 00% , 100% 100%,0 100%)";
     let select_team = $id('select_team');
@@ -130,8 +136,9 @@ function dropOut() {
     wanted_bounty = this.firstElementChild.lastElementChild.previousElementSibling.innerText;
     let mascot_src = this.firstElementChild.lastElementChild.firstElementChild.src;
     wanted_mascot = mascot_src.substr(mascot_src.indexOf('images'));
-    info_teamname = this.lastElementChild.firstElementChild.firstElementChild.innerText;
-    info_teamslogan = this.lastElementChild.firstElementChild.nextElementSibling.nextElementSibling.innerText;
+    console.log(this.lastElementChild.firstElementChild);
+    info_teamname = this.lastElementChild.firstElementChild.nextElementSibling.innerText;
+    info_teamslogan = this.lastElementChild.lastElementChild.previousElementSibling.innerText;
     info_teamcount = this.lastElementChild.lastElementChild.firstElementChild.innerText;
     console.log(wanted_name);
     console.log(wanted_playerphoto);
@@ -148,6 +155,7 @@ function dropOut() {
         $id("team_join_window").style.clipPath = "polygon(0 50% , 100% 50% , 100% 50%,0 50%)";
         $id("team_join_window").style.opacity = 0;
         $id("ok").removeEventListener("click", move, false);
+        this.style.cursor="pointer";;
     }, false);
     $id("ok").addEventListener("click", move, false);
     function move() {
@@ -193,6 +201,14 @@ window.addEventListener("load", () => {
     $id("team_join").addEventListener("click", join, false);
     $id("team_joined").addEventListener("click", joined, false);
     $id("team_create").addEventListener("click", create, false);
+    document.querySelector('.create_team_name').addEventListener("input",()=>{
+        let select=document.querySelector('.create_team_name').value;
+        document.querySelector('.team_name_remainder').innerText=6-select.length;
+    },false);
+    document.querySelector('.create_team_slogan').addEventListener("input",()=>{
+        let select=document.querySelector('.create_team_slogan').value;
+        document.querySelector('.team_slogan_remainder').innerText=40-select.length;
+    },false);
     document.querySelector('.no_can_join').style.display = "none";
     document.querySelector('.no_joined').style.display = "none";
     document.querySelector('.no_can_join').style.opacity = 1;

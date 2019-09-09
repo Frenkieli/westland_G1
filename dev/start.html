@@ -12,7 +12,6 @@
 </head>
 
 <body class="start_door">
-
     <section class="door">
         <div class="door_window door_windowleft"><img src="images/entrance/window.png" alt="窗戶"></div>
         <div class="door_window door_windowright"><img src="images/entrance/window.png" alt="窗戶"></div>
@@ -28,24 +27,25 @@
             <div class="door_containerleftdoor">
                 <div class="door_open">
                     <img class="door_door" src="images/entrance/door.png" alt="">
-                    <a class="door_text" href="index.html"><img  src="images/entrance/fontend.png" alt=""></a>
+                    <a id="fontend" class="door_text" href="#"><img src="images/entrance/fontend.png" alt=""></a>
                 </div>
             </div>
             <div class="door_containerrightdoor">
                 <div class="door_open">
                     <img class="door_door" src="images/entrance/door.png" alt="">
-                    <a class="door_text" href="backend/backend.html"><img src="images/entrance/backend.png" alt=""></a>
+                    <a class="door_text" href="#"><img src="images/entrance/backend.png" alt=""></a>
                 </div>
             </div>
         </div>
     </section>
-
-
-
-
     @@loop('template/jslink.html',[
-    {"jslink" : "js/swiper.min.js"}
+    {"jslink" : "https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"},
+    {"jslink" : "js/start.js"}
     ])
+
+
+
+
 
 </body>
 

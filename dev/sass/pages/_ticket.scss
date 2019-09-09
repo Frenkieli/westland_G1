@@ -7,15 +7,20 @@
 }
 
 .ticket_customize_wrap{
+    .customize_mascots_boxs{
+        background-color: #FBDC92;
+        border-radius: 10px;
+        box-shadow: 5px 5px #DC9C55;
+    }
+    .customize_items_title{
+        padding: 15px 15px 5px;
+    }
     .customize_items{
-        width: 90%;
+        width: 100%;
         margin: 0 auto;
         background-color: #FBDC92;
         border-radius: 15px;
         box-shadow: 5px 5px #DC9C55;
-        .customize_items_title{
-            padding: 15px 15px 5px;
-        }
         @at-root
         .customize_items_box{
             display: flex; 
@@ -89,9 +94,10 @@
     .customize_mascots_box{
         display: flex;
         .customize_mascots{
-            border: solid 3px map-get( $colors_map , active_shadow );
+            // border: solid 3px map-get( $colors_map , active_base );
             border-radius: 10px;
-            background-color: #fff;
+            background-color: #E2B771;
+            box-shadow: -3px -3px #DC9C55;
             text-align: center;
             cursor: pointer;
             img{
@@ -112,6 +118,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    @include rwd(desktop){
+        margin-top: 40px;
+    }
     @at-root
     .ticket_title,.ticket_subtitle{
         text-align: center;
@@ -215,9 +224,6 @@
     }
     .ticket_customize_wrap{
         .customize_items{
-            .customize_items_title{
-                font-size: 24px;
-            }
             @at-root
             .customize_items_box{
                 .customize_item{
@@ -243,6 +249,7 @@
         }
         .customize_mascots_box{
             margin-bottom: 20px;
+            padding: 15px 10px;
             // outline: solid 1px #f00;
             .customize_mascots{
                 // outline: solid 1px #f00;
@@ -305,14 +312,19 @@
     .ticket_customize{
         flex-direction: column;
     }
+    .customize_items_title{
+        font-size: 16px;
+        text-align: center;
+        padding: 15px 15px 5px;
+    }
     .ticket_customize_wrap{
-        margin: 20px;
+        margin: 0 20px 20px;
         .customize_items{
-            .customize_items_title{
-                font-size: 18px;
-            }
+            width: 100%;
+            
             @at-root
             .customize_items_box{
+                padding: 5px 10px 5px 20px;
                 .customize_item{
                     width: 20%;
                     margin: 2% 4.8%;
@@ -337,7 +349,8 @@
         .customize_mascots_box{
             flex-wrap: wrap;
             justify-content: center;
-            margin-bottom: 10px;
+            padding: 5px 0 5px;
+            // margin-bottom: 10px;
             .customize_mascots{
                 width: 80px;
                 margin: 5px 12.5px;
@@ -345,7 +358,7 @@
         }
     }
     .customize_backimage{
-        height: 550px;
+        height: 500px;
         .ticket_title{
             font-size: 32px;  
             padding: 10px 20px; 
@@ -366,12 +379,13 @@
         .ticket_customize_sub{
             width: 130px;
             height: 130px;
+            right: -20px;
         }
     }
 
 //==============
     .ticket_news_wrap{
-        height: 300px;  
+        height: 240px;  
         .ticket_news_box{
             width: 85%;
             padding: 20px;

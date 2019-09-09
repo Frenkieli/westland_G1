@@ -38,15 +38,6 @@
                     <img src="images/index/block.png" alt="">
                 </div>
             </div>
-            <script>
-                setTimeout(() => {
-                    let winnerPeoples = document.querySelectorAll('.Podium_winner img:first-child');
-                    for (let i = 0; i < winnerPeoples.length; i++) {
-                        winnerPeoples[i].className = 'winnermove';
-                        console.log('開始');
-                    }
-                }, 1200);
-            </script>
             <div class="winner_teammate">
                 <div class="teammate_post">
                     <div class="ticket_name">
@@ -118,7 +109,7 @@
     </header>
 
     @@include("template/index_facility.html")
-    
+
     <section class="team index_team">
         <div class="container">
             <h3 class="section_title">最新團隊</h3>
@@ -142,10 +133,10 @@
                                     </div>
                                 </div>
                                 <div class="list_box_info">
-                                    <p>隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
-                                    <p>精神標語 :</p>
-                                    <p class="info_teamslogan">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
-                                    <p>人數 : <span class="info_teamcount">1</span></p>
+                                    <p class="paragraph_p">隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
+                                    <p class="paragraph_p">精神標語 :</p>
+                                    <p class="info_teamslogan paragraph_p">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
+                                    <p class="paragraph_p">人數 : <span class="info_teamcount">1</span></p>
                                 </div>
                             </div>
                             <div class="team_list_box">
@@ -161,10 +152,10 @@
                                     </div>
                                 </div>
                                 <div class="list_box_info">
-                                    <p>隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
-                                    <p>精神標語 :</p>
-                                    <p class="info_teamslogan">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
-                                    <p>人數 : <span class="info_teamcount">1</span></p>
+                                    <p class="paragraph_p">隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
+                                    <p class="paragraph_p">精神標語 :</p>
+                                    <p class="info_teamslogan paragraph_p">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
+                                    <p class="paragraph_p">人數 : <span class="info_teamcount">1</span></p>
                                 </div>
                             </div>
                             <div class="team_list_box">
@@ -180,10 +171,10 @@
                                     </div>
                                 </div>
                                 <div class="list_box_info">
-                                    <p>隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
-                                    <p>精神標語 :</p>
-                                    <p class="info_teamslogan">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
-                                    <p>人數 : <span class="info_teamcount">1</span></p>
+                                    <p class="paragraph_p">隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
+                                    <p class="paragraph_p">精神標語 :</p>
+                                    <p class="info_teamslogan paragraph_p">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
+                                    <p class="paragraph_p">人數 : <span class="info_teamcount">1</span></p>
                                 </div>
                             </div>
                             <div class="team_list_box">
@@ -199,10 +190,10 @@
                                     </div>
                                 </div>
                                 <div class="list_box_info">
-                                    <p>隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
-                                    <p>精神標語 :</p>
-                                    <p class="info_teamslogan">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
-                                    <p>人數 : <span class="info_teamcount">1</span></p>
+                                    <p class="paragraph_p">隊伍名稱 : <span class="info_teamname">帥帥隊</span></p>
+                                    <p class="paragraph_p">精神標語 :</p>
+                                    <p class="info_teamslogan paragraph_p">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
+                                    <p class="paragraph_p">人數 : <span class="info_teamcount">1</span></p>
                                 </div>
                             </div>
                         </div>
@@ -225,6 +216,26 @@
     <section class="ticket_customize_scetion index_ticket_customize">
         <div class="container">
             @@include("template/ticket_section.html")
+            <div class="ticket_customize_wrap">
+                <div class="customize_backimage">
+                    <div class="ticket_title">客製您的門票</div>
+                    <div class="ticket_subtitle">DEAD OR ALIVE</div>
+                    <input class="uploadpic" type="file" id="uploadpic" value="">
+                    <div class="ticket_picture">
+                        <img src="images/cusitems/ticket_bgi.svg" alt="預設圖">
+                    </div>
+                    <div class="ticket_amount">
+                        <a class="center" href="ticket.html">
+                            <div class="btn">前往客製</div>
+                        </a>
+                    </div>
+                    <span class="opcatity_box"></span>
+                    <div class="ticket_customize_sub">
+                        <img class="customize_sub" src="images/cusitems/role1.svg" alt="客製後出現位置">
+                    </div>
+                </div>
+            </div>
+        </div>
         </div>
     </section>
 
@@ -259,61 +270,20 @@
     @@include("template/robot.html")
     @@include("template/footer.html")
     <style>
-        .section_footer {
-            margin-top: -87px;
-        }
+
     </style>
 
-    <!-- js -->
+<!-- js -->
     @@loop('template/jslink.html',[
     {"jslink" : "js/swiper.min.js"},
     {"jslink" : "https://kit.fontawesome.com/6a6d2775fc.js"},
-    {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"},
+    {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"}, 
     {"jslink" : "js/jquery.cubeSlider.js"},
-    {"jslink" : "js/ticket_page.js"}
+    {"jslink" : "js/ticket_index.js"},
+    {"jslink" : "js/index.js"}
     ])
-    <script>
-        var swiper = new Swiper('.swiper-container', {
-            effect: 'coverflow',
-            grabCursor: true,
-            centeredSlides: true,
-            slidesPerView: 'auto',
-            loop: true,
-            prevButton: '.swiper-button-prev',
-            nextButton: '.swiper-button-next',
-            coverflowEffect: {
-                rotate: 50,
-                stretch: 0,
-                depth: 100,
-                modifier: 1,
-                slideShadows: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            }
-        });
-        let sliderWidth = document.getElementsByClassName('slider_container')[0].offsetWidth;
-        let sliderHeight = document.getElementsByClassName('slider_container')[0].offsetHeight;
-        let facility_slider = document.getElementsByClassName('facility_slider')[0];
 
-        document.getElementsByClassName('slider_container')[0].style.perspective = sliderWidth * 5 + "px";
-        console.log(sliderWidth, "====", sliderHeight);
-        $('.slider_container').polygon({
 
-            // width of the cube slider
-            width: sliderWidth,
-
-            // height of the cube slider
-            height: sliderHeight,
-
-            // autoplay interval
-            timer: false,
-        });
-    </script>
 </body>
 
 </html>

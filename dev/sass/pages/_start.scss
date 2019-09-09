@@ -1,12 +1,39 @@
 .start_door {
+    background-image: url("../images/background/home_bgi_1.png");
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
+    .bullet{
+        position: absolute;
+        z-index: 2;
+        animation: bullet 1s ease-in-out forwards;
+        img{
+            width: 100px;
+            @include rwd(phone) {
+                width: 30px;
+            }
+        }
+    }
+    @keyframes bullet {
+        0%{
+            opacity: 1;
+        }
+        100%{
+            opacity: 0;
+        }
+    }
+
     .door {
+        clip-path: polygon(0% 0%, 0% 100%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 50% 50%, 0 100%, 100% 100%, 100% 0%);
+        transition: 1s;
         width: 100%;
         height: 100vh;
         background-image: url("../images/entrance/backwood.png");
         position: relative;
+        
         &_window {
             position: absolute;
-            transform: translateY(-50%);
+            transform: translateY(-30%);
             top: 50%;
             width: 15.2%;
             &left {
@@ -24,28 +51,33 @@
             width: 64.4791%;
             height: 100%;
             margin: auto;
+            transition: 1s;
             position: relative;
             background-image: url("../images/entrance/doorback.png"),
                 radial-gradient(ellipse at center, #4c4c4c 1%, #000000 100%);
             background-size: 100% 100%;
+            transform-style: preserve-3d;
+            perspective: 2000px;
+            perspective-origin: top;
             @include rwd(phone) {
                 width: 100%;
             }
             &leftdoor {
                 width: 40.1699%;
+                z-index: 1;
 
                 position: absolute;
                 bottom: 20px;
                 left: 9%;
                 height: 68.472%;
                 .door_open {
-                    transition: 1s ease-in-out;
+                    transition: 0.8s ease-in-out;
                     transform-origin: left;
                     width: 100%;
                     height: 100%;
                 }
                 &:hover .door_open {
-                    transform: rotateY(-40deg);
+                    transform: rotateY(-30deg);
                 }
                 .door_door {
                     width: 100%;
@@ -60,11 +92,13 @@
                     width: 27.0993%;
                     img {
                         width: 100%;
+                        transform: translateZ(1px);
                     }
                 }
             }
             &rightdoor {
                 width: 40.1699%;
+                z-index: 1;
                 right: 9%;
                 position: absolute;
                 bottom: 20px;
@@ -72,7 +106,7 @@
                 .door_open {
                     width: 100%;
                     height: 100%;
-                    transition: 1s ease-in-out;
+                    transition:0.8s ease-in-out;
                     transform-origin: right;
                 }
                 &:hover .door_open {
@@ -91,6 +125,7 @@
                     width: 27.0993%;
                     img {
                         width: 100%;
+                        transform: translateZ(1px);
                     }
                 }
             }
@@ -98,7 +133,6 @@
                 width: 58.4501%;
                 height: 29.1572%;
                 position: absolute;
-                z-index: 1;
                 left: 0;
                 right: 0;
                 margin: auto;
@@ -111,6 +145,17 @@
                 justify-content: center;
                 padding-top: 1%;
                 box-sizing: border-box;
+                animation: titleMove 0.5s ease-in-out;
+                @keyframes titleMove {
+                    0%{
+                        transform: translateY(-100%);
+                        opacity: 0;
+                    }
+                    100%{
+                        transform: translateY(0%);
+                        opacity: 1;
+                    }
+                } 
                 @include rwd(phone) {
                     width: 95%;
                 }
@@ -124,14 +169,37 @@
                     &left {
                         left: -5%;
                         transform: rotateY(180deg);
+                        animation: coverLeft 0.8s ease-in-out 0.5s backwards;
                         @include rwd(phone) {
                             left: 0%;
+                        }
+                        @keyframes coverLeft {
+                            0%{
+                                transform:rotateY(180deg) rotate(90deg) translateY(-100px);
+                                opacity: 0;
+                            }
+                            100%{
+                                transform:rotateY(180deg) rotate(0deg) translateY(0px);
+                                opacity: 1;
+                            }
                         }
                     }
                     &right {
                         right: -5%;
+                        animation: coverRight 1.2s ease-in-out 0.5s backwards;
+
                         @include rwd(phone) {
                         right: -0%;
+                        }
+                        @keyframes coverRight {
+                            0%{
+                                transform:rotate(90deg) translateY(-200px);
+                                opacity: 0;
+                            }
+                            100%{
+                                transform:rotate(0deg) translateY(0px);
+                                opacity: 1;
+                            }
                         }
                     }
                 }
@@ -139,6 +207,9 @@
                     width: 15.547%;
                     img {
                         width: 33.3333%;
+                        &:nth-child(1){animation: titleMove 1s ease-in-out;}
+                        &:nth-child(2){animation: titleMove 1s ease-in-out 0.6s backwards;}
+                        &:nth-child(3){animation: titleMove 1s ease-in-out 0.3s backwards;}
                     }
                 }
                 .door_tltletext {

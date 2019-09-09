@@ -1,22 +1,22 @@
-.section_robot{
+.section_robot {
     transition: 0.5s;
     z-index: 10;
     padding: 10px;
-    *{
+    * {
         width: 100%;
     }
     position: fixed;
     // bottom: 0;
-    .robot_text{
+    .robot_text {
         transition: 0.5s;
         transition-delay: 0.2s;
         // height: 200px;
         height: 0px;
         opacity: 0;
-        #dialogBox{
+        #dialogBox {
             transition: 0.5s;
             transition-delay: 0.4s;
-            width: 95%; 
+            width: 95%;
             // height: 125px;
             height: 0px;
             opacity: 0;
@@ -24,33 +24,31 @@
             border-radius: 10px;
             background-color: #fff;
         }
-        input{
+        input {
             width: 93%;
         }
     }
-    .robot_eye{
+    .robot_eye {
         position: absolute;
     }
-
-    
 }
-@include rwd(desktop){
-    .section_robot{
+@include rwd(desktop) {
+    .section_robot {
         width: 300px;
         bottom: -100px;
         right: -10px;
-        &:hover{
+        &:hover {
             background-color: #9dba65;
             border-radius: 10px 10px 0 0;
             bottom: 0;
-            .robot_text{
+            .robot_text {
                 height: 200px;
                 opacity: 1;
-                #dialogBox{
+                #dialogBox {
                     height: 125px;
                     opacity: 1;
                 }
-                input{
+                input {
                     width: 95%;
                 }
             }
@@ -58,10 +56,57 @@
     }
 }
 
-@include rwd(phone){
-    .section_robot{
+@include rwd(phone) {
+    .section_robot {
         width: 150px;
         bottom: -50px;
         right: -60px;
+    }
+}
+
+.problem {
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 6;
+    display: none;
+    &_container {
+        max-width: 1200px;
+        width: 60%;
+        margin: auto;
+        display: flex;
+        flex-wrap: wrap;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        background-image: url("../images/problem/background.png");
+        background-size: 100% 100%;
+        box-sizing: border-box;
+        padding: 30px;
+        .problem_text {
+            width: 100%;
+            font-size: 60px;
+            text-align: center;
+        }
+        .problem_answer {
+            width: 33%;
+            box-sizing: border-box;
+            padding: 1%;
+            img {
+                width: 100%;
+            }
+        }
+        .problem_reply {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            clip-path: circle(0%);
+            display: none;
+        }
     }
 }
