@@ -17,7 +17,6 @@ gulp.task('template', function () {
         .pipe(gulp.dest('dest'));
 })
 
-
 // sass
 
 gulp.task('sass', function () {
@@ -87,14 +86,14 @@ gulp.task('default', function () {
         }))
         .pipe(gulp.dest('dest'));
 
-    browserSync.init({
-        server: {
-            //根目錄
-            baseDir: "./dest",
-            // 瀏覽器上的首頁
-            index: "index.html"
-        }
-    });
+    // browserSync.init({
+    //     server: {
+    //         //根目錄
+    //         baseDir: "./dest",
+    //         // 瀏覽器上的首頁
+    //         index: "index.html"
+    //     }
+    // });
 
     gulp.watch(["dev/*.html", "dev/template/*.html"], ['template']).on('change', reload);
     gulp.watch(["dev/sass/*.scss", "dev/sass/*/*"], ['sass']).on('change', reload);

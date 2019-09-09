@@ -140,9 +140,10 @@ function calendari(widget, data)
                 cela.className = 'fora';
 
             /* Si es avui el decorem */
-            if(data.getDate() == actual.getDate() &&
-           data.getMonth() == actual.getMonth())
-        cela.className = 'avui';
+        //     if(data.getDate() == actual.getDate() &&
+        //    data.getMonth() == actual.getMonth())
+        // cela.className = 'avui';
+        // 這個判斷要改寫
 
         actual.setDate(actual.getDate()+1);
             fila.appendChild(cela);
