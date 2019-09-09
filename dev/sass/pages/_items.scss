@@ -75,16 +75,16 @@
         }
     }
     .card_bg1{
-        background-image: url("../images/product/cactus.png");
+        background-image: url("../images/products/cactus.png");
     }
     .card_bg2{
-        background-image: url("../images/product/dinosaur.png");
+        background-image: url("../images/products/dinosaur.png");
     }
     .card_bg3{
-        background-image: url("../images/product/eagle.png");
+        background-image: url("../images/products/eagle.png");
     }
     .card_bg4{
-        background-image: url("../images/product/horse.png");
+        background-image: url("../images/products/horse.png");
     }
     // .active{
     //     height: 500px;
@@ -142,13 +142,13 @@
     .filter_sort_item{
         padding: 2px 0;
         span:before {
-            content: url("../images/product/checkbox.png");
+            content: url("../images/products/checkbox.png");
             width: 2em;
             display: inline-block;
             vertical-align: middle;
         }
         input[type="checkbox"]:checked + span:before {
-            content: url("../images/product/checkbox_checked.png");
+            content: url("../images/products/checkbox_checked.png");
         }
     }
     .checkbox_text span:before {
@@ -352,16 +352,16 @@
         transform: translateY(-50%);
     }
     .card_bg1{
-        background-image: url("../images/product/cactus.png");
+        background-image: url("../images/products/cactus.png");
     }
     .card_bg2{
-        background-image: url("../images/product/dinosaur.png");
+        background-image: url("../images/products/dinosaur.png");
     }
     .card_bg3{
-        background-image: url("../images/product/eagle.png");
+        background-image: url("../images/products/eagle.png");
     }
     .card_bg4{
-        background-image: url("../images/product/horse.png");
+        background-image: url("../images/products/horse.png");
     }
 //    .owl-stage-outer{
 //         position: relative;
