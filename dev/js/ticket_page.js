@@ -109,6 +109,19 @@ function trashitem(){
     opabox.removeChild(child);
 };
 
+//更換賞單圖片
+function changepic(){
+    let pic = document.getElementById("uploadpic").files[0];
+    let readpic = new FileReader();
+    readpic.readAsDataURL(pic);
+    readpic.addEventListener("load",function(){
+        let preinstallpic = document.getElementById("preinstallpic");
+        preinstallpic.src = this.result;
+        preinstallpic.style.width = "300px";
+        preinstallpic.style.height = "300px";
+    });
+}
+
 
 function init(){
     // 小圖換大圖
@@ -151,6 +164,10 @@ function init(){
     // 垃圾桶鈕
     let trash = document.getElementById("opabox_del");
     trash.addEventListener("click",trashitem);
+
+    //更換賞單圖片
+    let uploadpic = document.getElementById("uploadpic");
+    uploadpic.addEventListener("change",changepic);
 }
 
 //拖拉樣式位置
