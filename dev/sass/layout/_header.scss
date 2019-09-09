@@ -218,6 +218,7 @@
                 color: #f09100 ;
                 &::after{
                     width: 100%;
+                    border-bottom: #5A7529 2px solid; 
                 }
             }
             &::after{
@@ -226,12 +227,115 @@
                 bottom: 0;
                 left: 0;
                 width: 0;
-                border-bottom: #5A7529 2px solid;    
+                border-bottom: #5A7529 2px solid; 
                 transition: 0.5s;
             }
         }
         .navbar_icons-phone{
             display: none;
+        }
+    }
+}
+
+
+
+#lightBox {
+    //燈箱
+    display: none;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    bottom: 10px;
+    z-index: 3;
+    background: rgba(66, 66, 66, 0.6);
+    #loginTable {
+        //登入區
+        background-image: url("../../images/member/logincus.png");
+        background-size: cover;
+        background-position: top 5px right 0px;
+        background-repeat: no-repeat;
+        position: relative;
+        top: 25%;
+        max-width: 300px;
+        width: 60%;
+        margin: 0 auto;
+        border-radius: 10px;
+        border: 2px solid #5a7529;
+        text-align: center;
+        background-color: antiquewhite;
+        .login_box {
+            //文字大區
+
+            .login_cancel {
+                //刪除鈕
+                width: 25px;
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+            #mem_id {
+                //帳號
+                width: 50%;
+                margin: 10% 0 0% 0;
+                padding-left: 10px;
+                border-radius: 10px;
+                line-height: 25px;
+            }
+            #mem_psw {
+                //密碼
+                width: 50%;
+                margin: 10% 0 0% 0;
+                padding-left: 10px;
+                border-radius: 10px;
+                line-height: 25px;
+            }
+            .login_forget {
+                // 忘記密碼
+                // color: #555;
+                font-size: 12px;
+                display: block;
+                text-align: right;
+                // margin-right: 20%;
+            }
+          
+            h3 { //會員登入字體
+                line-height: 40px;
+                font-size:36px;
+                padding: 4%;
+                color: rgb(255, 255, 255);
+                font-size: 36px;
+                text-shadow: rgb(204, 204, 204) 0px 1px 0px, rgb(201, 201, 201) 0px 2px 0px, rgb(187, 187, 187) 0px 3px 0px, rgb(185, 185, 185) 0px 4px 0px, rgb(170, 170, 170) 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 6px 1px, rgba(0, 0, 0, 0.1) 0px 0px 5px, rgba(0, 0, 0, 0.3) 0px 1px 3px, rgba(0, 0, 0, 0.15) 0px 3px 5px, rgba(0, 0, 0, 0.2) 0px 5px 10px, rgba(0, 0, 0, 0.2) 0px 10px 10px, rgba(0, 0, 0, 0.1) 0px 20px 20px;
+
+            }
+            //  立即註冊區
+            .smalltext {
+                width: 65%;
+                margin: 1% 0 0 5%;
+                span {
+                    //還不是會員
+                    color: #5a7529;
+                    font-size: 12px;
+                    margin-right: 5%;
+                }
+                #register {
+                    color: #999;
+                    font-size: 12px;
+                    text-decoration-line: underline;
+                }
+            }
+            //快速註冊
+            .fasttext {
+                margin: 1% 0 0 50%;
+                #register_fast {
+                    color: #fff;
+                    font-size: 12px;
+                    text-decoration-line: underline;
+                    background-color: #5a7529;
+                    display: inline-block;
+                    width: 60px;
+                    line-height: 20px;
+                }
+            }
         }
     }
 }

@@ -89,20 +89,32 @@
     // .active{
     //     height: 500px;
     // }
+    
     .hoverObj_img img{
         z-index: 2;
         position: absolute;
         width: 130%;
+        height: 50%;
+        // height: 260px;
         right: -15%;
         top:-10%;
-    }
-    .hoverObj_img{
-        opacity: 0;
+        transform: scale(0.9);
         transition: .2s;
+        opacity: 0;
     }
-    .hoverObj:hover .hoverObj_img{
-       opacity: 1;
+    .hoverObj:hover .hoverObj_img img{
+        z-index: 2;
+        position: absolute;
+        width: 130%;
+        height: 50%;
+        // height: 260px;
+        right: -15%;
+        top:-10%;
+        transform: scale(1);
+        transition: .2s;
+        opacity: 1;
     }
+    
     .filter{
         width: 20%;
     }
@@ -117,7 +129,7 @@
     .filter_inside{
         margin: auto;
         border-radius: 20px;
-        padding: 15px 15px 15px 15px;
+        padding: 15px 15px 25px 15px;
         background: #F6EED4 ;
        .header_clear{
         font-size: 22px;

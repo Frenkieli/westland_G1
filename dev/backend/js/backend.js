@@ -31,46 +31,70 @@
         tdText() {
             let intd = document.createElement('input');
             intd.type = 'text';
+            intd.style.width = "120px";
+            intd.disabled = true;
             return intd;
-        }, tdLongText() {
+        },
+        tdLongText() {
             let intd = document.createElement('input');
             intd.type = 'text';
-            intd.width = "500px";
+            intd.style.width = "200px";
+            intd.disabled = true;
+            return intd;
+        },
+        tdimg() {
+            let intd = document.createElement('img');
             return intd;
         }
     };
-    let fakeDate = '';
     let dataType = '';
     let buttonValue = '';
-    let updata;
-
+    let updataBtn;
+    let deleteBtn;
+    let inputarray;
     function clearTable(e) {
         tableTh.innerHTML = '';
         tableTd.innerHTML = '';
     }
+
     function administrator(e) {
         tableTitle.innerText = this.innerText;
         clearTable();
-        console.log(1);
-        fakeDate = [
-            // [0000000001, "小明", 'sadfasfd6', 1],
-            // [0000000002, "小彭", 'sasfd6', 1],
-            // [0000000003, "小南", 'sfasfd6', 1],
-            // [0000000004, "小立", 'sasdfasfd6', 0],
-            // [0000000005, "小於", 'sfasfd6', 1]
-        ];
-        dataType = [1, 3, 3, 2];
-        buttonValue = ['停權', '正常'];
-        updata = 1;
-        let tableHeader = document.createElement('tr');
-        tableHeader.innerHTML = "<th>管理者編號</th><th>管理者名稱</th><th>密碼</th><th>帳號狀態</th><th>修改</th><th>刪除</th>";
-        tableTh.appendChild(tableHeader);
-        makeTable();
+        getAdministrator();
+        function getAdministrator() {
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    showAdministrator(xhr.responseText);
+                }
+                else {
+                    alert(xhr.status);
+                }
+            }
+            let url = "../php/getAdministrator_JSON.php";
+            xhr.open('get', url, true);
+            xhr.send(null);
+        }
+        function showAdministrator(jsonStr) {
+            let administrators = JSON.parse(jsonStr);
+            fakeDate = new Array(administrators.length);
+            for (let i = 0; i < administrators.length; i++) {
+                fakeDate[i] = new Array(administrators[i].admin_no, administrators[i].admin_name, administrators[i].admin_psw, administrators[i].admin_status);
+            }
+            dataType = [1, 3, 3, 2];
+            inputarray = [1, 2];
+            buttonValue = ['停權', '正常'];
+            updataBtn = 1;
+            deleteBtn = 0;
+            let tableHeader = document.createElement('tr');
+            tableHeader.innerHTML = "<th>管理者編號</th><th>管理者名稱</th><th>密碼</th><th>帳號狀態</th><th>修改</th>";
+            tableTh.appendChild(tableHeader);
+            makeTable();
+        }
     }
     function product(e) {
         tableTitle.innerText = this.innerText;
         clearTable();
-        console.log(2);
         getProduct();
         function getProduct() {
             let xhr = new XMLHttpRequest();
@@ -92,54 +116,60 @@
             for (let i = 0; i < products.length; i++) {
                 fakeDate[i] = new Array(products[i].product_no, products[i].product_name, products[i].product_image, products[i].product_status, products[i].product_price, products[i].product_ifo, products[i].product_style, products[i].product_sort, products[i].product_category, products[i].product_count);
             }
-            dataType = [1, 3, 3, 2, 3, 4, 3, 3, 3, 3];
+            dataType = [1, 3, 5, 2, 3, 4, 3, 3, 3, 3];
+            inputarray = [1, 4, 5, 6, 7, 8, 9];
             buttonValue = ['下架', '上架'];
-            updata = 1;
+            updataBtn = 1;
+            deleteBtn = 1;
             let tableHeader = document.createElement('tr');
-            tableHeader.innerHTML = "<th>商品編號</th><th>商品名稱</th><th>商品照片</th><th>商品上下架</th><th>價格</th><th>簡介</th><th>商品樣式</th><th>種類</th><th>類別</th><th>數量</th><th>修改</th><th>刪除</th>";
+            tableHeader.innerHTML = "<th>商品編號</th><th>商品名稱</th><th>商品照片</th><th>商品上下架</th><th>價格</th><th>簡介</th><th>商品樣式</th><th>種類</th><th>類別</th><th>數量</th><th>編輯</th><th>刪除</th>";
             tableTh.appendChild(tableHeader);
             makeTable();
-
+            // window.print();
         };
-        //    fakeDate=[ [1, "紅色仙人掌包包", 'images/products/product_list/pd_b_01.png', 1, '500', '紅色仙人掌包包', '紅色', '仙人掌', '包包', '20'],
-        //     [0000000002, "商品B", 'images/backend/2.png', 0, '1200', '黑色', '吉祥物', '簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介'],
-        //     [0000000003, "商品C", 'images/backend/3.png', 1, '1200', '黑色', '吉祥物', '簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介'],
-        //     [0000000004, "商品D", 'images/backend/4.png', 0, '1200', '黑色', '吉祥物', '簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介'],
-        //     [0000000005, "商品F", 'images/backend/5.png', 1, '1200', '黑色', '吉祥物', '簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介簡介']];
-
-        // console.log(fakeDate[0]);
-        // dataType = [1, 3, 3, 2, 3, 4, 3, 3, 3, 3];
-        // buttonValue = ['下架', '上架'];
-        // updata = 1;
-        // let tableHeader = document.createElement('tr');
-        // tableHeader.innerHTML = "<th>商品編號</th><th>商品名稱</th><th>商品照片</th><th>商品上下架</th><th>價格</th><th>簡介</th><th>商品樣式</th><th>種類</th><th>類別</th><th>數量</th><th>修改</th><th>刪除</th>";
-        // tableTh.appendChild(tableHeader);
-        // makeTable();
     }
     function member(e) {
         tableTitle.innerText = this.innerText;
         clearTable();
-        console.log(2);
+        getmember();
+        function getmember() {
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    showMember(xhr.responseText);
+                } else {
+                    alert(xhr.status);
+                }
+            }
+            let url = "../php/getMember_JSON.php";
+            xhr.open('get', url, true);
+            xhr.send(null);
+        }
+        function showMember(jsonStr) {
+            let members = JSON.parse(jsonStr);
+            fakeDate = new Array(members.length);
+            for (let i = 0; i < members.length; i++) {
+                // console.log(members);
+                fakeDate[i] = new Array(members[i].member_no, members[i].member_id, members[i].member_name, members[i].member_email, members[i].member_tel, members[i].member_birth, members[i].member_money, members[i].using_ticket_no, members[i].member_status);
+            }
+            dataType = [1, 1, 1, 1, 1, 1, 1, 1, 2];
+            inputarray = [];
+            buttonValue = ['停權', '正常'];
+            updataBtn = 0;
+            deleteBtn = 0;
+            let tableHeader = document.createElement('tr');
+            tableHeader.innerHTML = "<th>會員編號</th><th>會員帳號</th><th>會員姓名</th><th>E-mail</th><th>電話</th><th>生日</th><th>購物金</th><th>正在使用的票號</th><th>會員狀態</th>";
+            tableTh.appendChild(tableHeader);
+            makeTable();
+        }
 
-        fakeDate = [
-            // [0000000001, "sasdfasfklklv", '小王', 'ashdjkahdjk@gmail.com', 0985453515, '1999-01-01', 95213246, '00000000001',1],
-            // [0000000002, "vuemlsf", '小中', 'ashdjkahdjk@gmail.com', 0985453515, '1999-01-01', 95213246, '00000000002',0],
-            // [0000000003, "iviosdf", '小上', 'ashdjkahdjk@gmail.com', 0985453515, '1999-01-01', 95213246, '00000000003',1],
-            // [0000000004, "ivobdf894", '小下', 'ashdjkahdjk@gmail.com', 0985453515, '1999-01-01', 95213246, '00000000004',0],
-            // [0000000005, "afqklb8", '小又', 'ashdjkahdjk@gmail.com', 0985453515, '1999-01-01', 95213246, '00000000005',1]
-        ];
-        dataType = [1, 1, 1, 1, 1, 1, 1, 1, 2];
-        buttonValue = ['停權', '正常'];
-        updata = 0;
-        let tableHeader = document.createElement('tr');
-        tableHeader.innerHTML = "<th>會員編號</th><th>會員帳號</th><th>會員姓名</th><th>E-mail</th><th>電話</th><th>生日</th><th>購物金</th><th>正在使用的票號</th><th>會員狀態</th>";
-        tableTh.appendChild(tableHeader);
-        makeTable();
+
+
     }
     function makeTable(e) {
         let inTr;
         fakeDate.forEach((value) => {
-            console.log(111);
+            // console.log(111);
             inTr = document.createElement('tr');
             for (i = 0; i < value.length; i++) {
                 let num = dataType[i];
@@ -168,19 +198,27 @@
                         inDate = tdBulid.tdLongText();
                         inDate.value = value[i];
                         break;
+                    case 5:
+                        inDate = tdBulid.tdimg();
+                        inDate.style.width = "150px";
+                        inDate.src = "../" + value[i];
                     default:
                         break;
                 }
                 inTd.appendChild(inDate);
                 inTr.appendChild(inTd);
             }
-            if (updata) {
+            if (updataBtn) {
                 let lastTd = document.createElement('td');
                 let lastDate = document.createElement('input');
                 lastDate.type = 'button';
-                lastDate.value = "修改";
+                lastDate.classList.add('update');
+                lastDate.value = "編輯";
+                lastDate.style.backgroundColor = "#DDEDB7";
                 lastTd.appendChild(lastDate);
                 inTr.appendChild(lastTd);
+            }
+            if (deleteBtn) {
                 lastTd = document.createElement('td');
                 lastDate = document.createElement('input');
                 lastDate.type = 'button';
@@ -190,6 +228,28 @@
             }
             tableTd.appendChild(inTr);
         });
+        let all_update = document.querySelectorAll('.update');
+        for (let i = 0; i < all_update.length; i++) {
+            all_update[i].addEventListener('click', (e) => {
+                e.preventDefault();
+                if (e.target.value == '編輯') {
+                    e.target.value = '確認';
+                    e.target.style.backgroundColor = "#DC9C55";
+                    let inp = e.target.parentNode.parentNode.children;
+                    for (let j = 0; j < inputarray.length; j++) {
+                        inp[inputarray[j]].lastChild.disabled = false;
+                    }
+                }
+                else if (e.target.value == '確認') {
+                    e.target.value = '編輯';
+                    e.target.style.backgroundColor = "#DDEDB7";
+                    let inp = e.target.parentNode.parentNode.children;
+                    for (let j = 0; j < inputarray.length; j++) {
+                        inp[inputarray[j]].lastChild.disabled = true;
+                    }
+                }
+            }, false);
+        }
     }
     administrator();
     tableTitle.innerText = '管理員管理';

@@ -9,20 +9,78 @@
             <a href="index.html"><img id="logo" src="images/navBar/logo.svg" alt="logo"></a>
             <nav class="navbar_container_list">
                 <ul>
-                    <li><a href="gameplay.html">遊玩設施</a></li>
-                    <li><a href="team.html">做伙揪團</a></li>
-                    <li><a href="ticket.html">線上購票</a></li>
-                    <li><a href="items.html">周邊商品</a></li>
-                    <li><a href="activity.html">活動專區</a></li>
-                    <li><a href="information.html">園區資訊</a></li>
+                    <li><a class="gameplay_nav" href="gameplay.html">遊玩設施</a></li>
+                    <li><a class="team_nav" href="team.html">做伙揪團</a></li>
+                    <li><a class="ticket_nav" href="ticket.html">線上購票</a></li>
+                    <li><a class="items_nav" href="items.html">周邊商品</a></li>
+                    <li><a class="activity_nav" href="activity.html">活動專區</a></li>
+                    <li><a class="information_nav" href="information.html">園區資訊</a></li>
                 </ul>
                 <img class="phone_cloud" src="images/navBar/phonecloud.png" alt="雲朵">
             </nav>
 
             <div class="navbar_icons navbar_icons-table">
                 <a href="shoppingCart.html"><img class="navbar_memicon" src="images/navBar/shopcar.png" alt="購物車"></a>
-                <a href="member.html"><img class="navbar_memicon" src="images/navBar/member.png" alt="會員"></a>
+                <a href="#"><img class="navbar_memicon" src="images/navBar/member.png" alt="會員"></a>
             </div>
         </div>
     </div>
     <div class="nav_space"></div>
+      <!-- 1.貼了會員登入 -->
+       
+        <!-- -----------------會員登入------------------------ -->
+    <section id="lightBox">
+        <div id="loginTable">
+            <!-- 背景 -->
+            <!-- <img class="login_bg" src="pic/navBar/phonecloud.png" alt="登入的背景"> -->
+            <!-- 會員登入文字區域 -->
+            <div class="login_box">
+                <!-- 刪除按鈕 -->
+                <a href="#" class="login_cancel">
+                 <img src="images/member/login_camcel.png" alt="刪除鈕小icon">
+                </a>
+                <!-- 文字區     -->
+                <h3>會員登入</h3>
+                <!-- 帳號: -->
+                <input type="text" name="mem_id" id="mem_id" placeholder="帳號">
+                <br>
+                <!-- 密碼 -->
+                <input type="password" name="mem_psw" id="mem_psw" placeholder="密碼">
+                <br>
+                <!-- 忘記密碼 -->
+                <a href="#" class="login_forget" id="login_forget">忘記密碼</a>
+                <br>
+                <!-- 登入按鈕 -->
+                <a href="memberLocation.html" class="btn" id="login_button">登入</a>
+                <!-- 立即註冊 -->
+                <div class="smalltext">
+                    <span>還不是會員?</span>
+                    <a href="#" id="register">立即註冊</a>
+                    <br>
+                </div>
+                <!-- 快速註冊 -->
+                <div class="fasttext">
+                    <a href="#" id="register_fast">快速註冊</a>
+                    <br>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+        <!-- ---------------------------------------- -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script>
+        $(document).ready(function(){
+            //按了會員登入icon
+            $('.navbar_memicon').click(function(){
+                $('#lightBox').css('display','block');
+            });
+            //按了取消按鈕
+            $('.login_cancel img').click(function(){
+                $('#lightBox').css('display','none');
+            });
+        });    
+        </script>

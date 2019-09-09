@@ -23,6 +23,12 @@
 
 
     <section class="activity_section">
+    <!-- 天空 -->
+     <div class="sun_content">
+            <!-- <div class="circle"></div> -->
+            <!-- <img src="images/member/cloud01.png"class="skycloud" id="skycloud_a"> -->
+            <img src="images/member/wind.png" class="skycloud" id="skycloud_b">   
+        </div>
         <!-- --------月曆的------ -->
         <!-- 標題:木板 -->
         <div class="wood_title page_title">
@@ -33,14 +39,25 @@
             月曆查詢
         </div>
         <!-- 月曆開始 -->
+        <div class="body_content">
+            <div class="arm_right"></div>
+            <div class="arm_left"></div>
         <div class="wrapper">
+            <div class="content">
+                <div class="eye_left">
+                    <div id="pL" class="pupil"></div>   
+                </div>
+                <div class="eye_right">
+                    <div id="pR" class="pupil"></div> 
+                </div>
+             </div>
             <div class="calendar_wood">
                 <div id="calendari"></div>
             </div>
-
         </div>
+        </div>
+        
         <script src="js/day.js"></script>
-
         <!-- 月曆結束 -->
 
     </section>
@@ -57,13 +74,13 @@
                     <div class="select_frame">
                         <h3>篩選條件:</h3>
                         <div class="noshow filter-active">
-                            <button type="button" class="select_btn" id="all">All</button>
+                            <button type="button" class="btn" id="all">All</button>
                         </div>
                         <div class="noshow">
-                            <button type="button" class="select_btn" id="newgroup">活動資訊</button>
+                            <button type="button" class="btn" id="newgroup">活動資訊</button>
                         </div>
                         <div class="noshow">
-                            <button type="button" class="select_btn" id="park">一般資訊</button>
+                            <button type="button" class="btn" id="park">一般資訊</button>
                         </div>
 
                         <!-- 手機的篩選器 -->
