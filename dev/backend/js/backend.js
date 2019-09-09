@@ -52,11 +52,12 @@
     let updataBtn;
     let deleteBtn;
     let inputarray;
+    //清空資料表
     function clearTable(e) {
         tableTh.innerHTML = '';
         tableTd.innerHTML = '';
     }
-
+    //管理員管理
     function administrator(e) {
         tableTitle.innerText = this.innerText;
         clearTable();
@@ -92,6 +93,7 @@
             makeTable();
         }
     }
+    //商品管理
     function product(e) {
         tableTitle.innerText = this.innerText;
         clearTable();
@@ -128,6 +130,7 @@
             // window.print();
         };
     }
+    //會員查詢
     function member(e) {
         tableTitle.innerText = this.innerText;
         clearTable();
@@ -162,10 +165,8 @@
             tableTh.appendChild(tableHeader);
             makeTable();
         }
-
-
-
     }
+    //產生資料表
     function makeTable(e) {
         let inTr;
         fakeDate.forEach((value) => {

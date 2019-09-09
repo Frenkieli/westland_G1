@@ -3,7 +3,7 @@
         //=====建立資料庫連線=====
         require_once("connectWestland.php");
         //=====SQL語法=====
-        $sql ="select * from product where product_sort='仙人掌'";
+        $sql ="select * from product ";
         $products =$pdo->prepare($sql);
         $products->execute();
         if($products->rowCount()==0){
