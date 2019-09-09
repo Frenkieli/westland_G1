@@ -70,7 +70,8 @@
             }
             > img{
                 padding: 50px 20px 0;
-                width: 60%;
+                height: 250px;
+                width: 300px;
                 display: block;
                 margin: 0 auto;
             }
@@ -256,13 +257,13 @@
         .customize_mascot_role{
             // outline: solid 1px #f00;
             @at-root
-            .customize_mascot{
-                // outline: solid 1px #f00;
-                img{
-                    height: 272px;
-                }
-            }
-            @at-root
+            // .customize_mascot{
+            //     outline: solid 1px #f00;
+            //     img{
+            //         height: 272px;
+            //     }
+            // }
+            // @at-root
             .customize_items_set_box{
                 // outline: solid 1px #f00;
                 padding: 25px;

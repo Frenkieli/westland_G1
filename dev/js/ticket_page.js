@@ -6,30 +6,30 @@ function showLarge(e){
 }
 
 // 門票數量增加
-function countplus(){
-    let count = parseInt(document.getElementById("ticket_amount").value);
-    let box = document.querySelector(".opcatity_box");
-    console.log(count);
-    if( count>=1 ){
-        box.innerText = "";
-        count = count+1;
-    }
-    document.getElementById("ticket_amount").value = count;
-}
+// function countplus(){
+//     let count = parseInt(document.getElementById("ticket_amount").value);
+//     let box = document.querySelector(".opcatity_box");
+//     console.log(count);
+//     if( count>=1 ){
+//         box.innerText = "";
+//         count = count+1;
+//     }
+//     document.getElementById("ticket_amount").value = count;
+// }
 
 // 門票數量減少
-function countless(){
-    let count = parseInt(document.getElementById("ticket_amount").value);
-    let box = document.querySelector(".opcatity_box");
-    console.log(count);
-    if( count<=1 ){
-        count=1;
-        box.innerText = "門票數量數量不能少於1";
-    }else{
-        count = count-1;
-    }
-    document.getElementById("ticket_amount").value = count;
-}
+// function countless(){
+//     let count = parseInt(document.getElementById("ticket_amount").value);
+//     let box = document.querySelector(".opcatity_box");
+//     console.log(count);
+//     if( count<=1 ){
+//         count=1;
+//         box.innerText = "門票數量數量不能少於1";
+//     }else{
+//         count = count-1;
+//     }
+//     document.getElementById("ticket_amount").value = count;
+// }
 
 // // 檢查input type
 // function counttype(){
@@ -135,12 +135,12 @@ function init(){
     // count.addEventListener("keyup",counttype);
     
     // 門票數量增加
-    let ticketplus = document.querySelector(".plus");
-    ticketplus.addEventListener("click",countplus);
+    // let ticketplus = document.querySelector(".plus");
+    // ticketplus.addEventListener("click",countplus);
 
     // 門票數量減少
-    let ticketless = document.querySelector(".less");
-    ticketless.addEventListener("click",countless);
+    // let ticketless = document.querySelector(".less");
+    // ticketless.addEventListener("click",countless);
 
     // 選擇樣式
     let itemimg = document.getElementsByClassName("items_cus");
