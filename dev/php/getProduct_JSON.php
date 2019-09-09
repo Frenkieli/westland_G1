@@ -1,19 +1,19 @@
 <?php
     try{
+        //=====建立資料庫連線=====
         require_once("connectWestland.php");
-        $sql ="select * from product";
+        //=====SQL語法=====
+        $sql ="select * from product where product_sort='仙人掌'";
         $products =$pdo->prepare($sql);
         $products->execute();
         if($products->rowCount()==0){
             echo "{}";
         }else{
-            $product_array=[];
-            while($productRow=$products->fetch(PDO::FETCH_ASSOC)){
-                $product_array[]=$productRow;
-            }
-            echo json_encode($product_array);
+            //=====撈資料=====
+            $productRow=$products->fetchAll(PDO::FETCH_ASSOC);
+            //=====轉成json格式回傳=====
+            echo json_encode($productRow);
         }
-
     }catch(PDOException $e){
         echo $e->getMessage();
     }
