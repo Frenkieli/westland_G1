@@ -96,7 +96,15 @@
     display: block;
     height: auto;
     margin: 50px auto;
-
+    // animation: Updown 1s infinite alternate;
+    @keyframes Updown {
+        from {
+          margin-top: 30px;
+        }
+        to {
+          margin-top: 10px;
+        }
+      }
     .activity_part {
         display: flex;
         flex-wrap: wrap;
@@ -108,7 +116,6 @@
             padding: 10px 0;
             img {
                 width: 100%;
-                // overflow: hidden;
                 display: block;
                 border-radius: 10%;
             }
@@ -169,17 +176,110 @@
 //   日曆
 /////////////////////////////////////
 .activity_section {
+    position: relative;
+    .body_content{
+        
+        .arm_left {
+            width: 90px;
+            height: 200px;
+            background: #A0BA4F;
+            border: 1px ;
+            border-radius: 50% / 40%;
+            position: absolute;
+            top: 45%;
+            left: 32%;
+            transform: rotate(50deg);
+            z-index: -1;
+            animation:leftHand .5s ease-in-out infinite;
+        }
+        .arm_right {
+            width: 80px;
+            height: 180px;
+            background: #A0BA4F;
+            border: 1px ;
+            border-radius: 50% / 40%;
+            position: absolute;
+            top: 50%;
+            left: 63%;
+            transform: rotate(-50deg);
+            z-index: -1;
+        }
+        @keyframes leftHand{
+            0% {
+                transform: rotate(-60deg);
+            }
+            20% {
+                transform: rotate(-75deg);
+            }
+            40% {
+                transform: rotate(-90deg);
+            }
+            60% {
+                transform: rotate(-75deg);
+            }          
+            100%{
+                transform: rotate(-60deg);
+            }           
+        }
+
+    }
     .wrapper {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
         min-height: 100%;
-        background-image: url("../../images/member/fat.png");
+        // width: 90%;
+        background-image: url("../../images/member/canladerbody.png");
         background-position: top;
         background-repeat: no-repeat;
         padding: 10% 0 5% 0;
         background-size: contain;
+        position: relative;
+        .eye_left {
+            z-index: 9;
+            width: 70px;
+            height: 70px;
+            background: #fff;
+            border: 1px solid #000;
+            border-radius: 50%;
+            position: absolute;
+            top: 15%;
+            left: 43%;
+            animation: eye-blink 5s infinite;
+            }
+            
+            /* 眨眼 */
+            @keyframes eye-blink { 
+                0%, 6% {
+                    transform: scaleX(1) scaleY(1);
+            }
+                3% {
+                    transform: scaleX(1.03) scaleY(0.1);
+                }
+            }
+            .eye_right {
+                z-index: 2;
+                width: 70px;
+                height: 70px;
+                background: #fff;
+                border: 1px solid #000;
+                border-radius: 50%;
+                position: absolute;
+                top: 15%;
+                left: 53%;
+                animation: eye-blink 5s infinite;
+            }
+            .pupil {
+                z-index: 3;
+                width: 38px;
+                height: 38px;
+                background: #000;
+                border-radius: 50%;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+            }
     }
     button::-moz-focus-inner {
         border: 0;
@@ -287,8 +387,7 @@
         background: #6ac13c;
         color: #fff;
     }
-    .boto-next,
-    .boto-prev {
+    .boto-next,.boto-prev {
         background: rgba(0, 0, 0, 0.1);
         color: #fff;
         font-family: inherit;
@@ -313,8 +412,7 @@
         left: 10px;
         padding-right: 13px;
     }
-    .boto-next:hover,
-    .boto-prev:hover {
+    .boto-next:hover, .boto-prev:hover {
         background: rgba(0, 0, 0, 0.2);
     }
     button:hover {
@@ -324,3 +422,53 @@
         outline: none;
     }
 }
+    @media screen and (max-width:767px){
+        .wrapper{
+            background-image: none;
+        }
+    }
+    @media screen and (max-width: 1000px){
+       
+        .eye_left {
+            display: none;
+        }
+        .eye_right {
+            display: none;
+            }
+        .arm_left {
+            display: none;
+        }
+        .arm_right {
+            display: none;
+        }        
+    }
+    // @media screen and (max-width:768px){
+
+    // }
+
+    // 天空
+
+    
+    .activity_section{
+        .sun_content{
+            .skycloud{
+                width:20%;
+                z-index:-1;
+            }
+            #skycloud_b{
+                position:absolute;
+                top:80px;
+                right:0px;
+                animation : windtwo 10s ease-in infinite alternate; 
+                z-index:-1;
+            }
+            @keyframes windtwo{
+                from{
+                right:0px;
+                }
+                to{
+                right:1930px;
+                }
+            } 
+        }
+    }
