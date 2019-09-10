@@ -1,3 +1,5 @@
+import { url } from "inspector";
+
 // 小圖換大圖
 function showLarge(e) {
     let now = e.target;
@@ -119,6 +121,21 @@ function init() {
     //更換賞單圖片
     // let uploadpic = document.getElementById("uploadpic");
     // uploadpic.addEventListener("change",changepic);
+
+    //客製化樣式撈資料
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            customizedimg(xhr.responseText);
+        }
+        else {
+            alert(xhr.status);
+        }
+    }
+    let url = "../php/getProduct_JSON.php";
+    xhr.open('get', url, true);
+    xhr.send(null);
+    
 }
 
 //拖拉樣式位置
