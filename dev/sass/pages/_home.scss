@@ -504,12 +504,44 @@
         background-size: 100% 100%;
         width: 100%;
         background-position: 50% 100%;
+        .container{
+            .ticket_customize{
+                display: block;
+                .ticket_customize_wrap{
+                    width: 100%;
+                    .customize_mascots_boxs{
+                        width: 50%;
+                        float: right;
+                        margin-bottom: 20px;
+                    }
+                    .customize_mascot_role{
+                        width: 50%;
+                        float: left;
+                    }
+                    .customize_items{
+                        width: 50%;
+                        float: right;
+                    }
+                }
+            }
+            &::after{
+                content: '';
+                display: block;
+                clear: both;
+            }
+        }
     }
     @include rwd(phone) {
         background-image: url("../images/index/homeM_bg_2.png");
+        .center{
+            margin: 10px auto;
+        }
     }
     //===
 }
+
+
+
 .section_store {
     width: 100%;
     overflow: hidden;
@@ -523,6 +555,16 @@
     @include rwd(phone) {
         background-image: url("../images/index/homeM_bg_2.png");
         background-position: center;
+    }
+    .store_background {
+        background-image: linear-gradient(#fff 60%, #ddd 110%);
+        border-radius: 10px;
+        padding: 10px 0 30px;
+        color: #000;
+        box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
+        img{
+            width: 100%;
+        }
     }
     //===
     padding-bottom: 87px;
