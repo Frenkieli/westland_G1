@@ -124,6 +124,46 @@ function changepic(){
 
 
 function init(){
+    //客製化樣式撈資料
+    let xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            customizedimg(xhr.responseText);
+        }
+        else {
+            alert(xhr.status);
+        }
+    }
+    let url = "php/getTicket_customized_items_JOSN.php";
+    xhr.open('get', url, false);
+    // 樣式無法使用非同步，因為控制樣式的function會被吃到
+    xhr.send(null);
+    function customizedimg(jsonStr){
+        let ticket_custom = JSON.parse(jsonStr);
+        console.log(ticket_custom);
+        let breakpoint = ticket_custom.indexOf("break");
+
+        let items = document.getElementById("ticket_items");
+        let mascots = document.getElementById("ticket_mascots");
+
+        for(i=0;i<breakpoint;i++){
+            let img = document.createElement("img");
+            img.className="items_cus";
+            img.alt= "配件"+(i+1);
+            img.src = ticket_custom[i].mascot_customize_image;
+            items.children[i].appendChild(img);
+        }
+        console.log(breakpoint);
+        for(i=breakpoint+1;i<ticket_custom.length;i++){
+            let img = document.createElement("img");
+            img.className="mascots";
+            img.alt= "吉祥物"+(i-6);
+            img.src = ticket_custom[i].mascot_image;
+            mascots.children[i-7].appendChild(img);
+        }
+    }
+
+
     // 小圖換大圖
     let img = document.getElementsByClassName("mascots");
     for( let i=0 ; i<img.length ; i++ ){
