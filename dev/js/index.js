@@ -17,15 +17,21 @@
     window.addEventListener('load', pushSlide, false);
     function pushSlide() {
         console.log(arr);
+        let check = -1;
+        for (let index = 0,i = 0; index < arr.length; index++) {
+            if(check != arr[index][0]){
+                console.log(i,'++',arr[index][0]);
+                document.querySelectorAll('.slider_img>img')[i].src = arr[index][1];
+                document.querySelectorAll('.slider_title')[i].innerHTML = arr[index][2];
+                document.querySelectorAll('.slider_star')[i].innerHTML += arr[index][7];
+                document.querySelectorAll('.slider_score')[i].style.clipPath = ` polygon(0% 0% ,${arr[index][4] / arr[index][5] * 2}0% 0%,${arr[index][4] / arr[index][5] * 2}0% 100%,0% 100%)`;
+                document.querySelectorAll('.slider_member p')[i].innerHTML = arr[index][10];
+                check = arr[index][0];
+                i++;
+            }
+                
 
-        for (let index = 0; index < 6; index++) {
-            document.querySelectorAll('.slider_img>img')[index].src = arr[index][1];
-            document.querySelectorAll('.slider_title')[index].innerHTML = arr[index][2];
-            document.querySelectorAll('.slider_star')[index].innerHTML += arr[index][7];
-            document.querySelectorAll('.slider_score')[index].style.clipPath = ` polygon(0% 0% ,${arr[index][4] / arr[index][5] * 2}0% 0%,${arr[index][4] / arr[index][5] * 2}0% 100%,0% 100%)`;
-            
-
-            console.log(arr[index][4] / arr[index][5], '測試');
+            // console.log(arr[index][4] / arr[index][5], '測試');
         }
     }
     // 商品的套件程式碼

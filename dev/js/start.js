@@ -46,8 +46,8 @@ $(document).ready(function () {
         b = Math.round(Math.random() * 100);
         $('.start_door').append(`<div class="bullet" style="top: ${a}%;left:${b}%;"><img src="images/entrance/bullet.svg" alt=""></div>`);
         setTimeout(function () {
-            $('.bullet:nth-child(6)').remove();
-        }, 100)
+            $('.bullet:first-of-type').remove();
+        }, 1000)
 
     }, 500);
 });

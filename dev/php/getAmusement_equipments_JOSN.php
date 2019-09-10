@@ -1,7 +1,7 @@
 <?php
 try {
     require_once("connectWestland.php");
-    $sql = "select * from amusement_equipments";
+    $sql = "select * from amusement_equipments a left OUTER JOIN message_board b on a.equ_no = b.equ_no ;";
     $amusement_equipments = $pdo->prepare($sql);
     $amusement_equipments->execute();
     
