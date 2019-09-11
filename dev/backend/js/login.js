@@ -37,7 +37,7 @@ function loginEven() {
             }else{
                 alert(xhr.responseText + '歡迎你！');
                 localStorage['admin_name'] = xhr.responseText;
-                window.location.href = 'backend/backend.html';
+                window.location.href = 'backend.html';
             }
         } else {
             alert(xhr.status);

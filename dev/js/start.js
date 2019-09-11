@@ -31,7 +31,7 @@ function openDoor() {
         }, 1500);
     } else {
         setTimeout(() => {
-            window.location.href = 'backend/backend.html';
+            window.location.href = 'backend/login.html';
         }, 1500);
     }
 }
