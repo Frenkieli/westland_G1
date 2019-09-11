@@ -358,6 +358,9 @@
                 text-align: left;
                 padding: 15px;
                 box-sizing: border-box;
+                display:flex;
+                align-items: center;
+                position: relative;
                 @include rwd(phone) {
                     padding: 5px;
                     font-size: 12px;
@@ -365,32 +368,34 @@
                 img {
                     width: 10%;
                 }
-
+                .slider_score {
+                    width: 40%;
+                    position: absolute;
+                    left: 5px;
+                    top: -5%;
+                    @include rwd(phone) {
+                        top: -5%;
+                        left: 1%;
+                    }
+                }
                 .slider_member {
                     display: flex;
                     width: 90%;
                     margin: auto;
                     position: relative;
-                    .slider_score {
-                        width: 40%;
-                        position: absolute;
-                        left: 5px;
-                        top: -25%;
-                        @include rwd(phone) {
-                            top: -10%;
-                        }
-                    }
+
                     .slider_memberimg {
                         width: 30%;
-                        position: relative;
+                        // position: relative;
+                        text-align: center;
                         img {
                             width: 60%;
-                            position: absolute;
-                            left: 0;
-                            right: 0;
-                            top: 0;
-                            bottom: 0;
-                            margin: auto;
+                            // position: absolute;
+                            // left: 0;
+                            // right: 0;
+                            // top: 0;
+                            // bottom: 0;
+                            // margin: auto;
                             @include rwd(phone) {
                                 width: 90%;
                             }
@@ -400,7 +405,8 @@
                         color: black;
                         width: 70%;
                         height: 70%;
-                        padding: 5px 0;
+                        box-sizing: border-box;
+                        padding: 5px 5px;
                         font-size: 12px;
                         line-height: 22px;
                     }
