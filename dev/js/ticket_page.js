@@ -31,14 +31,6 @@ function showLarge(e){
 //     document.getElementById("ticket_amount").value = count;
 // }
 
-// // 檢查input type
-// function counttype(){
-//     let type = typeof counttype;
-//     alert(type);
-//     if( type != "number" ){
-//         alert("請勿輸入非數字選項");
-//     }
-// }
 
 //選擇樣式
 function showopa(e){
@@ -142,9 +134,11 @@ function init(){
         let ticket_custom = JSON.parse(jsonStr);
         console.log(ticket_custom);
         let breakpoint = ticket_custom.indexOf("break");
+        let point = ticket_custom.indexOf("point");
 
         let items = document.getElementById("ticket_items");
         let mascots = document.getElementById("ticket_mascots");
+        let activity = document.getElementById("ticket_activity");
 
         for(i=0;i<breakpoint;i++){
             let img = document.createElement("img");
@@ -154,12 +148,31 @@ function init(){
             items.children[i].appendChild(img);
         }
         console.log(breakpoint);
-        for(i=breakpoint+1;i<ticket_custom.length;i++){
+        for(i=breakpoint+1;i<point;i++){
             let img = document.createElement("img");
             img.className="mascots";
-            img.alt= "吉祥物"+(i-6);
+            img.alt= "吉祥物"+(i-breakpoint);
             img.src = ticket_custom[i].mascot_image;
-            mascots.children[i-7].appendChild(img);
+            mascots.children[i-(breakpoint+1)].appendChild(img);
+        }
+        console.log(point);
+        for(i=point+1;i<ticket_custom.length;i++){
+            let startspan = document.createElement("span");
+            let endspan = document.createElement("span");
+            let titlespan = document.createElement("span");
+
+            startspan.className="ticket_startdate";
+            startspan.innerText=ticket_custom[i].activity_date_start;
+
+            endspan.className="ticket_enddate";
+            endspan.innerText=ticket_custom[i].activity_date_end;
+
+            titlespan.className="ticket_activity_title";
+            titlespan.innerText=ticket_custom[i].activity_name;
+
+            activity.children[i-(point+1)].appendChild(startspan);
+            activity.children[i-(point+1)].appendChild(endspan);
+            activity.children[i-(point+1)].appendChild(titlespan);
         }
     }
 
@@ -169,10 +182,6 @@ function init(){
     for( let i=0 ; i<img.length ; i++ ){
         img[i].onclick = showLarge;
     }
-    
-    // 檢查input type
-    // let count = document.getElementById("ticket_amount");
-    // count.addEventListener("keyup",counttype);
     
     // 門票數量增加
     // let ticketplus = document.querySelector(".plus");
