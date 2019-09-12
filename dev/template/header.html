@@ -39,7 +39,7 @@
                     </div>
                 </div>
                 <!-- -----------------購物車彈跳品項end----------------- -->
-                <a href="#"><img class="navbar_memicon" src="images/navBar/member.png" alt="會員"></a>
+                <a href="#"><img class="navbar_memicon" id="navbar_loginicon" src="images/navBar/member.png" alt="會員"></a>
             </div>
         </div>
     </div>
@@ -88,19 +88,69 @@
     </section>
 
 
-        <!-- ---------------------------------------- -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script>
-        $(document).ready(function(){
-            //按了會員登入icon
-            $('.navbar_memicon').click(function(){
-                $('#lightBox').css('display','block');
-            });
-            //按了取消按鈕
-            $('.login_cancel img').click(function(){
-                $('#lightBox').css('display','none');
-            });
-        });    
-        </script>
-         <!-- ---------------------------------------- -->
-         
+    <!-- ///////////////會員//////////////// -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+        //按了會員登入icon
+        $('#navbar_loginicon').click(function(){
+            $('#lightBox').css('display','block');
+        });
+        //按了取消按鈕
+        $('.login_cancel img').click(function(){
+            $('#lightBox').css('display','none');
+        });
+    });    
+    </script>
+<!-- //////////////////////////////////////////////////////////////// -->
+    <script>
+    var nnn = /^[a-zA-Z0-9_-]{4,16}$/; //使用正規表達式
+
+    let memId = document.getElementById('mem_id');
+    let memPsw = document.getElementById('mem_psw');
+    let login = document.getElementById('login_button');
+
+    function checkId(){ //檢查帳號 
+        if (memId.value.search(nnn)){
+            console.log('不可');
+        }else{
+            console.log('可');
+        }
+    }
+    function checkPsw(){ //檢查密碼
+        if (memPsw.value.search(nnn)){
+            console.log('不可');
+        }else{
+            console.log('可');
+        }
+    }
+    function loginmem(){
+        let memIdValue = memId.value;
+        let memPswValue = memPsw.value;
+   
+    //使用Ajax去server端去做登入的工作
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            if (xhr.responseText.indexOf("sysError") != -1) {
+                alert("系統異常,請通知系統維護人員");
+            } else if (xhr.responseText.indexOf("loginError") != -1) {
+                alert("帳密錯誤");
+            }else{
+                alert(xhr.responseText);
+                // localStorage['admin_name'] = xhr.responseText;
+                window.location.href = "../memberLocation.html";
+            }
+        }else{
+                alert(xhr.status);
+        }
+    }
+    xhr.open("post", "php/getLogin.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    var data_info = `member_id=${memIdValue}&member_psw=${memPswValue}`;
+    xhr.send(data_info);
+    }    
+    login.addEventListener('click', loginmem, false);
+    memPsw.addEventListener('change', checkPsw, false);
+    memId.addEventListener('change', checkId, false);
+    </script>
