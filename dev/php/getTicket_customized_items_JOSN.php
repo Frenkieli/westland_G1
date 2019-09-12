@@ -4,7 +4,7 @@ try {
     require_once("connectWestland.php");
     // //=====SQL語法=====
     $array=[];
-
+//撈樣式
     $sql_items = "select * from mascot_customize";
     $ticket_items = $pdo->prepare($sql_items);
     $ticket_items->execute();
@@ -12,8 +12,10 @@ try {
     while($ticket_itemsRow=$ticket_items->fetch(PDO::FETCH_ASSOC)){
         $array[]=$ticket_itemsRow;
     }
-    $array[]="break";
 
+    $array[]="break"; //新增斷點
+    
+//撈吉祥物
     $sql_mas = "select * from mascot";
     $ticket_mascot = $pdo->prepare($sql_mas);
     $ticket_mascot->execute();
@@ -22,6 +24,16 @@ try {
         $array[]=$ticket_mascotRow;
     }
 
+    $array[]="point"; //新增斷點2
+
+//撈活動
+    $sql_act = "select * from activity";
+    $ticket_activity = $pdo->prepare($sql_act);
+    $ticket_activity->execute();
+
+    while($ticket_activityRow=$ticket_activity->fetch(PDO::FETCH_ASSOC)){
+        $array[]=$ticket_activityRow;
+    }
     echo json_encode($array);
 
 } catch (PDOException $e) {
