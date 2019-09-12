@@ -234,6 +234,48 @@
         .navbar_icons-phone{
             display: none;
         }
+        // 購物車彈跳品項start
+        .navbar_shoppingCart_popup_wrap{
+            position: relative;
+        }
+        .shoppingCart_popup{
+            // overflow: hidden;
+            position: absolute;
+            width: 250px;
+            padding-bottom: 10px;
+            background: white;
+            /* height: 200px; */
+            cursor: default;
+            /* top: 75px; */
+            right: 0;
+            border-radius: 10px;
+            color: #282828;
+            z-index: 50;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        .popup_item_title{
+            padding-bottom: 5px;
+            background: #5a7529;
+            line-height: 1.8;
+            color: #fff;
+            border-radius: 10px 10px 0 0;
+        }
+        .popup_item_title,.cart_popup_item{
+            display: flex;
+            align-items: center;
+            text-align: center;
+
+        }
+        .cart_popup_item{
+            padding-top: 5px;
+            img{
+                width: 100%;
+                vertical-align: middle;
+            }
+            div{
+                vertical-align: middle;
+            }
+        }
     }
 }
 
@@ -339,3 +381,42 @@
         }
     }
 }
+// ===================
+.col-1 {
+  width: 8.33333%; }
+
+.col-2 {
+  width: 16.66667%; }
+
+.col-3 {
+  width: 25%; }
+
+.col-4 {
+  width: 33.33333%; }
+
+.col-5 {
+  width: 41.66667%; }
+.col48{
+    width: 48%;
+}
+
+.col-6 {
+  width: 50%; }
+
+.col-7 {
+  width: 58.33333%; }
+
+.col-8 {
+  width: 66.66667%; }
+
+.col-9 {
+  width: 75%; }
+
+.col-10 {
+  width: 83.33333%; }
+
+.col-11 {
+  width: 91.66667%; }
+
+.col-12 {
+  width: 100%; }
