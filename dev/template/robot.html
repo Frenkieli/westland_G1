@@ -1,13 +1,21 @@
-<section class="section_robot">
+<section id="section_robot" class="section_robot">
     <div class="robot_text">
         <div id="dialogBox">
             >> 您好，我的朋友! 有心事嗎 ?<BR />
         </div>
-        <div>
+        <style>
+        .asjdadoasjdo{
+            transform: translateX(50%);
+            border-top: 10px solid transparent;
+            position: absolute;
+        }
+        </style>
+        <div class="robot_enter">
             請輸入問題：
             <input id="say" name="say" type="text" value="" size="70" onkeydown="keyin(event)" />
             <!-- 按 enter 時呼叫 keyin() 回答 -->
             <input type="submit" value="送出" onclick="say()" /> <!-- 當送出按鈕按下，就呼叫 say() 函數回答 -->
+            <div id="arrow_down"></div>
         </div>
     </div>
     <img class="robot_img" src="images/robot/robot.png" alt="">

@@ -26,11 +26,11 @@
             position: relative;
             padding: 10px;
             box-sizing: border-box;
-            .btn{
+            .btn {
                 position: absolute;
                 top: 50%;
                 left: 50%;
-                transform: translate(-50%,-50%);
+                transform: translate(-50%, -50%);
                 margin: auto;
                 display: flex;
                 justify-content: center;
@@ -49,19 +49,19 @@
     }
     @keyframes robotmove {
         0% {
-            transform: translateX(0%) translateY(0%) ;
+            transform: translateX(0%) translateY(0%);
         }
         25% {
             transform: translateX(-5%) translateY(-2%) rotate(-5deg);
         }
         50% {
-            transform: translateX(0%) translateY(5%) ;
+            transform: translateX(0%) translateY(5%);
         }
         75% {
             transform: translateX(5%) translateY(-2%) rotate(5deg);
         }
         100% {
-            transform: translateX(0%) translateY(0%) ;
+            transform: translateX(0%) translateY(0%);
         }
     }
 }
@@ -70,9 +70,10 @@
         width: 300px;
         bottom: -100px;
         right: -10px;
+        border-radius: 10px 10px 0 0;
         &:hover {
             background-color: #9dba65;
-            border-radius: 10px 10px 0 0;
+
             bottom: 0;
             .robot_text {
                 height: 200px;
@@ -94,6 +95,48 @@
         width: 150px;
         bottom: -50px;
         right: -60px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        img {
+            max-width: 200px;
+        }
+        #dialogBox {
+            margin: auto;
+        }
+        .robot_enter {
+            width: 95%;
+            margin: 5px auto;
+            > input {
+                width: 100%;
+                box-sizing: border-box;
+                margin: 5px 0;
+            }
+        }
+        .arrow_down {
+            border-top: 50px solid #f09000;
+            border-right: 50px solid transparent;
+            border-left: 50px solid transparent;
+            position: absolute;
+            top: -25px;
+            right: 15px;
+            width: 0;
+        }
+        &.robotPhone {
+            right: 50%;
+            bottom: 0;
+            transform: translateX(50%);
+            background-color: #9dba65;
+            width: 100%;
+            .robot_text {
+                height: 250px;
+                opacity: 1;
+                #dialogBox {
+                    height: 125px;
+                    opacity: 1;
+                }
+            }
+        }
     }
 }
 
@@ -120,14 +163,20 @@
         background-size: 100% 100%;
         box-sizing: border-box;
         padding: 30px;
+        @include rwd(phone) {
+            width: 95%;
+        }
         .problem_text {
-            #puzzle{
+            #puzzle {
                 position: relative;
                 top: -100%;
             }
             width: 100%;
             font-size: 60px;
             text-align: center;
+            @include rwd(phone) {
+                font-size: 30px;
+            }
         }
         .problem_answer {
             width: 33%;

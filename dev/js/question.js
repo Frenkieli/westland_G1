@@ -3,17 +3,24 @@
 
     let arr = [];
     getquestions();
-    console.log(arr);
+    // console.log(arr);
     function question_start() {
         setTimeout(() => {
             $('.robot_img').addClass('swiper');
-            console.log('開始搖擺');
+            // console.log('開始搖擺');
             $('#dialogBox').html('');
             let btn = document.createElement('div');
             btn.className = 'btn';
             btn.innerText = '立刻猜謎';
             let answer = Math.floor(Math.random() * arr.length);
-            btn.addEventListener('click', () => question(answer), false);
+            btn.addEventListener('click', () => {
+                document.getElementById('arrow_down').className = '';
+                document.getElementById('section_robot').className = 'section_robot';
+                question(answer);
+                setTimeout(() => {
+                    robot.addEventListener('click', robotPhone, false);
+                }, 50);
+            }, false);
             let ptext = document.createElement('p');
             ptext.innerText = '隨機問答！答對下次獎勵加倍！';
             $('#dialogBox').append(btn);

@@ -61,7 +61,7 @@ gulp.task('moveBackend', function () {
 gulp.task('default', function () {
     gulp.src(["dev/backend/*", "dev/backend/*/*", "dev/backend/*/*/*" ])
     .pipe(gulp.dest('dest/backend'));
-    gulp.src(["dev/images/*", "dev/images/*/*", "dev/images/*/*/*"])
+    gulp.src(["dev/images/*", "dev/images/*/*", "dev/images/*/*/*","dev/images/*/*/*/*"])
         .pipe(gulp.dest('dest/images'));
     gulp.src(["dev/plugin_css/*.css"])
         .pipe(gulp.dest('dest/css'));
