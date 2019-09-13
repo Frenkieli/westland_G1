@@ -107,7 +107,7 @@
             position: fixed;
             width: 40px;
             height: 40px;
-            z-index: 50;
+            z-index: 1;
             img {
                 width: 100%;
                 filter: drop-shadow(10px 15px 5px rgba(2, 2, 2, 0.685));
@@ -117,7 +117,7 @@
             top: 13%;
             left: 48%;
             p {
-                z-index: 55;
+                z-index: 1;
                 position: absolute;
                 font-size: 25px;
                 cursor: pointer;
@@ -170,7 +170,7 @@
             transform: rotate(-90deg);
             p {
                 margin-top: 20px;
-                z-index: 55;
+                z-index: 1;
                 position: absolute;
                 font-size: 25px;
                 transform: rotate(90deg);
@@ -198,7 +198,7 @@
             right: 5%;
             transform: rotate(90deg);
             p {
-                z-index: 55;
+                z-index: 1;
                 position: absolute;
                 font-size: 25px;
                 transform: rotate(-90deg);
@@ -226,7 +226,7 @@
             right: 49.5%;
             transform: rotate(180deg);
             p {
-                z-index: 55;
+                z-index: 1;
                 position: absolute;
                 font-size: 25px;
                 transform: rotate(-180deg);
@@ -292,7 +292,7 @@
             }
         }
         .direction_right {
-            z-index: 55;
+            z-index: 1;
             font-size: 35px;
             position: absolute;
             left: 0;
@@ -301,7 +301,7 @@
             color: rgba(36, 36, 36, 0.795);
         }
         .direction_bottom {
-            z-index: 55;
+            z-index: 1;
             font-size: 35px;
             position: absolute;
             right: 0;
@@ -314,7 +314,7 @@
             }
         }
         .direction_left {
-            z-index: 55;
+            z-index: 1;
             font-size: 35px;
             position: absolute;
             left: 0;
@@ -323,7 +323,7 @@
             color: rgba(36, 36, 36, 0.795);
         }
         .direction_top {
-            z-index: 55;
+            z-index: 1;
             font-size: 35px;
             position: absolute;
             left: 0;
@@ -539,5 +539,26 @@
         background-color: rgba(0, 0, 0, 0.5);
         display: none;
         align-items: center;
+    }
+}
+
+.section_pick{
+    position: fixed;
+    // display: none;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .pick_container{
+        background-color: #fff;
+        *{
+            margin: 20px;
+            font-size: 20px;
+        }
     }
 }
