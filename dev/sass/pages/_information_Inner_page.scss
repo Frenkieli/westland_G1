@@ -26,6 +26,7 @@
             border-radius: 20px;
             .who {
                 flex-grow: 1;
+                width: 50px;
             }
             #status {
                 display: none;
@@ -83,8 +84,12 @@
             border-radius: 25px;
             padding: 20px;
             margin-bottom: 50px;
+            #message_form{
+                margin: auto;
+            }
             .who {
-                flex-grow: 2;
+                padding: 20px;
+                width: 150px;
             }
             #status {
                 display: none;

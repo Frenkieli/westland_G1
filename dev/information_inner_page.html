@@ -111,7 +111,7 @@
                 <img src="images/information/background.svg" alt="">
             </div>
             <div class="font sp-layer sp-black sp-star" data-position="bottomright" data-vertical="0" data-width="30%" data-show-transition="up">
-                <img src="images/information/other/5star.svg" alt="">
+                <img id="pirateShipClass" src="images/information/other/5star.svg" alt="">
             </div>
         </div>
 
@@ -176,18 +176,34 @@
     <!-- 第二個section -->
     <section id="addMessage" class="section_messageBoard font">
         <div class="section_title">設施留言板</div>
-        <ul id="messages"></ul>
         <div class="message_container">
             <img class="who" src="images/information/who.svg" alt="頭像">
             <div id="status">Connecting...</div>
-            <form id="messagesBox" action="#" method="post">
+            <form id="message_form" method="POST">
+                <table id="message_table">
+                    <tr><td>留言編號:</td><td><input type="text" name="message_no:" id="message_no:"/></td></tr>  
+                    <tr><td>會員ID:</td><td><input type="text" name="member_no" id="member_no"/></td></tr>
+                    <tr>
+                    <tr><td>設施編號選擇:</td><td><input type="text" name="equ_no" id="equ_no"/></td></tr>
+                    <tr><td>留言內容:</td><td><input type="text" name="equ_message" id="equ_message"/></td></tr>
+                    <tr><td>檢舉狀態:</td><td><input type="text" name="report_status" id="report_status"/></td></tr>
+                    <tr><td>檢舉留言:</td><td><input type="text" name="report_message" id="report_message"/></td></tr>
+                    <tr>
+                        <td>
+                            <input type="button" name="save" class="btn btn-primary" value="送出"" id="butsave">
+                        </td>
+                    </tr>
+                </table>
+            </form>
+            <!-- <form id="message_form" action="#" method="post">
                 <textarea id="message" placeholder="請輸入留言..." required></textarea>
                 <div class="buttonControl">
                     <button type="submit">確認</button>
                     <button type="button" id="close">檢舉</button>
                 </div>
-            </form>
+            </form> -->
         </div>
+        <ul id="messages"></ul>
     </section>
     <!-- 第二個section -->
     @@include("template/robot.html")
@@ -198,7 +214,8 @@
     {"jslink" : "js/messageBoard.js"},
     {"jslink" : "js/jquery-1.11.0.min.js"},
     {"jslink" : "js/jquery.sliderPro.js"},
-    {"jslink" : "js/information_inner_pageGetScore.js"}
+    {"jslink" : "js/information_inner_pageGetScore.js"},
+    {"jslink" : "js/keyinMessage.js"}
     ])
 
     <script type="text/javascript">

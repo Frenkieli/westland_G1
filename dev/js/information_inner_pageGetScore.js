@@ -42,7 +42,7 @@ var rollerCoaster_avgPoint= roundDecimal(((star_data[5].equ_score_total)/(star_d
 starToChange4.style.clipPath = `inset(0px ${(5-rollerCoaster_avgPoint)*20}% 0px 0px)`;
 
 let starToChange5 =document.getElementById("pirateShipClass");
-var pirateShip_avgPoint= roundDecimal(((star_data[0].equ_score_total)/(star_data[2].score_num)),1);
+var pirateShip_avgPoint= roundDecimal(((star_data[2].equ_score_total)/(star_data[2].score_num)),1);
 starToChange5.style.clipPath = `inset(0px ${(5-pirateShip_avgPoint)*20}% 0px 0px)`;
     }
 }
