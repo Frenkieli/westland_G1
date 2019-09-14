@@ -7,8 +7,8 @@
 		$equ_message=$_POST['equ_message'];
 		$report_status=$_POST['report_status'];
 		$report_message=$_POST['report_message'];
-		$sql = "INSERT INTO `message_board`( `message_no`, `member_no`, `equ_no`, `equ_message`, `report_status`, `report_message`) 
-		VALUES ('10','1','1','$equ_message','1','1')";
+		$sql = "INSERT INTO `message_board`(`member_no`, `equ_no`, `equ_message`, `report_status`, `report_message`) 
+		VALUES ('1','1','$equ_message','1','1')";
 
 		$addMessage = $pdo->prepare($sql);
 		$addMessage->execute();

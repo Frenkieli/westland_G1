@@ -181,14 +181,28 @@
             <div id="status">Connecting...</div>
             <form id="message_form" method="POST">
                 <table id="message_table">
-                    <tr><td>留言編號:</td><td><input type="text" name="message_no:" id="message_no:"/></td></tr>  
-                    <tr><td>會員ID:</td><td><input type="text" name="member_no" id="member_no"/></td></tr>
-                    <tr>
-                    <tr><td>設施編號選擇:</td><td><input type="text" name="equ_no" id="equ_no"/></td></tr>
-                    <tr><td>留言內容:</td><td><input type="text" name="equ_message" id="equ_message"/></td></tr>
-                    <tr><td>檢舉狀態:</td><td><input type="text" name="report_status" id="report_status"/></td></tr>
-                    <tr><td>檢舉留言:</td><td><input type="text" name="report_message" id="report_message"/></td></tr>
-                    <tr>
+                    <!-- <tr><td>留言編號:</td><td><input type="text" name="message_no:" id="message_no:"/></td></tr>   -->
+                    <!-- <tr><td>會員ID:</td><td><input type="text" name="member_no" id="member_no"/></td></tr>
+                    <tr> -->
+                    <tr><td>設施編號選擇:</td><td>
+                    <select id="equ_no" class="equ_no">
+                        <option value="雲霄飛車">雲霄飛車</option>
+                        <option value="摩天輪" selected>摩天輪</option>
+                        <option value="滑水道">滑水道</option>
+                        <option value="旋轉木馬">旋轉木馬</option>
+                        <option value="海盜船">海盜船</option>
+                        <option value="旋轉椅">旋轉椅</option>
+                    </select>
+                        <!-- <input type="text" name="equ_no" id="equ_no"/> -->
+                    </td></tr>
+                    <tr><td></td><td>
+                        <!-- <input type="text" name="equ_message" id="equ_message"/>
+                         -->
+                         <textarea id="equ_message" placeholder="請輸入留言..." required></textarea>
+                    </td></tr>
+                    <!-- <tr><td>檢舉狀態:</td><td><input type="text" name="report_status" id="report_status"/></td></tr> -->
+                    <!-- <tr><td>檢舉留言:</td><td><input type="text" name="report_message" id="report_message"/></td></tr>
+                    <tr> -->
                         <td>
                             <input type="button" name="save" class="btn btn-primary" value="送出"" id="butsave">
                         </td>
