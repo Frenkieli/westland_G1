@@ -27,7 +27,7 @@
             <div class="ticket_name">
                 <p>匿名人士</p>
             </div>
-            <div class="ticket_img"><img src="https://picsum.photos/400/300/?random=1"></div>
+            <div class="ticket_img"><img src="https://picsum.photos/400/400/?random=1"></div>
             <div class="ticket_team">
                 <p> 某某隊</p>
             </div>
@@ -226,7 +226,7 @@
         <div class="progress_box_Complete">完成任務</div>
     </section>
 
-    <section id="section_pick" class="section_pick" v-if="!tickets[0][2]">
+    <section id="section_pick" class="section_pick app"  v-if="!tickets[0][2]">
         <div class="pick_container">
             <p>請選擇使用門票</p>
             <select @change="change" name="select_ticket" id="select_ticket">
@@ -237,7 +237,7 @@
         </div>
     </section>
 
-    @@include("template/robot.html")
+    
     @@include("template/footer.html")
 
 
@@ -254,6 +254,7 @@
     {"jslink" : "js/jquery-qrcode-0.17.0.min.js"},
     {"jslink" : "js/gameplayVue.js"}
     ])
+    @@include("template/robot.html")
 </body>
 
 </html>

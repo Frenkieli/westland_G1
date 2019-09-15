@@ -1,6 +1,6 @@
 // <!-- 產生QRcode -->
 $(document).ready(function () {
-    let array = ['e0000000001', 'f0000000001', 'f0000000002', 'f0000000003', 'e0000000002', 'f0000000004', 'f0000000005', 'f0000000006', 'e0000000003'];
+    let array = ['redeem_product_status', 'waterslide', 'swivel_chair', 'pirate_ship', 'entrance_status', 'roller_coaster', 'carousel', 'ferris_wheel', 'exit_status'];
     for (let i = 0; i < 9; i++) {
         theURL = array[i];
         // qrcodes[i].text(array[i]);
