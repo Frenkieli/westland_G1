@@ -39,9 +39,24 @@
 
 
 @include rwd(desktop){
+    //.shop-tab-inner{
+        // .next,.prev{
+        //     display: none;
+        // }
+    //}
     .shop-tab-inner{
+        position: relative;
         .next,.prev{
-            display: none;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+        .next{
+            right: 0;
+        }
+        .prev{
+            left: 0;
         }
     }
     .m-b{
@@ -72,6 +87,11 @@
         position: absolute;
         top: 16%;
         left:6%;
+        }
+        .addButton{
+            position: absolute;
+            bottom: 70px;
+            left: 45px;
         }
     }
     .card_bg1{
@@ -234,6 +254,9 @@
 
 
 @include rwd(phone){
+    .sort_same_item_img img{
+        width: 100%;
+    }
     .shop-tab-inner{
         position: relative;
         .next,.prev{

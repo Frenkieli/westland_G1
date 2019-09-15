@@ -52,20 +52,20 @@
                                 <span>吉祥物種類</span>
                                 <div class="category">
                                     <label class="filter_sort_item dis_ib">
-                                        <input class="select_checkbox pad_5_0_10" value="filterCactus_class"
-                                            type="checkbox" id="filterCactus" name="filterCactus" />
+                                        <input class="select_checkbox pad_5_0_10" value="仙人掌" type="checkbox"
+                                            id="filterCactus" name="filterCactus" />
                                         <span>仙人掌</span>
                                     </label>
                                     <br />
                                     <label class="filter_sort_item dis_ib">
-                                        <input class="select_checkbox pad_5_0_10" value="filterEagle_class"
-                                            type="checkbox" id="filterEagle" name="filterEagle" />
+                                        <input class="select_checkbox pad_5_0_10" value="老鷹" type="checkbox"
+                                            id="filterEagle" name="filterEagle" />
                                         <span>老鷹</span>
                                     </label>
                                     <br />
                                     <label class="filter_sort_item dis_ib">
-                                        <input class="select_checkbox pad_5_0_10" value="filter_Dinosaur_class"
-                                            type="checkbox" id="filter_Dinosaur" name="filter_Dinosaur" />
+                                        <input class="select_checkbox pad_5_0_10" value="恐龍" type="checkbox"
+                                            id="filterDinosaur" name="filter_Dinosaur" />
                                         <span>恐龍</span>
                                     </label>
                                 </div>
@@ -74,26 +74,26 @@
                                 <span>顏色</span>
                                 <div class="category">
                                     <label class="filter_sort_item dis_ib">
-                                        <input class="select_checkbox pad_5_0_10" value="filterRed_class"
-                                            type="checkbox" id="filterRed" name="filterRed" />
+                                        <input class="select_checkbox pad_5_0_10" value="紅色" type="checkbox"
+                                            id="filterRed" name="filterRed" />
                                         <span>紅色</span>
                                     </label>
                                     <br />
                                     <label class="filter_sort_item dis_ib">
-                                        <input class="select_checkbox pad_5_0_10" value="filterBlack_class"
-                                            type="checkbox" id="filterBlack" name="filterBlack" />
+                                        <input class="select_checkbox pad_5_0_10" value="黑色" type="checkbox"
+                                            id="filterBlack" name="filterBlack" />
                                         <span>黑色</span>
                                     </label>
                                     <br />
                                     <label class="filter_sort_item dis_ib">
-                                        <input class="select_checkbox pad_5_0_10" value="filterBlue_class"
-                                            type="checkbox" id="filterBlue" name="filterBlue" />
-                                        <span>藍綠色</span>
+                                        <input class="select_checkbox pad_5_0_10" value="藍色" type="checkbox"
+                                            id="filterBlue" name="filterBlue" />
+                                        <span>藍色</span>
                                     </label>
                                     <br />
                                     <label class="filter_sort_item dis_ib">
-                                        <input class="select_checkbox pad_5_0_10" value="fliterGreen_class"
-                                            type="checkbox" id="fliterGreen" name="fliterGreen" />
+                                        <input class="select_checkbox pad_5_0_10" value="白色" type="checkbox"
+                                            id="fliterWhite" name="fliterWhite" />
                                         <span>白色</span>
                                     </label>
                                 </div>
@@ -102,26 +102,26 @@
                                 <span>產品類別</span>
                                 <div class="category">
                                     <label class="filter_sort_item dis_ib">
-                                        <input class="select_checkbox pad_5_0_10" ｚvalue="filterBag_class"
-                                            type="checkbox" id="filterBag" name="filterBag" />
+                                        <input class="select_checkbox pad_5_0_10" value="包包" type="checkbox"
+                                            id="filterBag" name="filterBag" />
                                         <span>包包</span>
                                     </label>
                                     <br />
                                     <label class="filter_sort_item dis_ib">
-                                        <input class="select_checkbox pad_5_0_10" value="filterClothes_class"
-                                            type="checkbox" id="filterClothes" name="filterClothes" />
+                                        <input class="select_checkbox pad_5_0_10" value="衣服" type="checkbox"
+                                            id="filterClothes" name="filterClothes" />
                                         <span>衣服</span>
                                     </label>
                                     <br />
                                     <label class="filter_sort_item dis_ib">
-                                        <input class="select_checkbox pad_5_0_10" value="filterMugs_class"
-                                            type="checkbox" id="filterMugs" name="filterMugs" />
+                                        <input class="select_checkbox pad_5_0_10" value="馬克杯" type="checkbox"
+                                            id="filterMugs" name="filterMugs" />
                                         <span>馬克杯</span>
                                     </label>
                                     <br />
                                     <label class="filter_sort_item dis_ib">
-                                        <input class="select_checkbox pad_5_0_10" value="filterPillows_class"
-                                            type="checkbox" id="filterPillows" name="filterPillows" />
+                                        <input class="select_checkbox pad_5_0_10" value="枕頭" type="checkbox"
+                                            id="filterPillows" name="filterPillows" />
                                         <span>枕頭</span>
                                     </label>
                                 </div>
@@ -133,241 +133,112 @@
             <div class="all_sort_same">
                 <div class="order_by_search">
                     <button id="phone_select_button" class="btn phone_select_button dis_lg_n">篩選器</button>
-                    <!-- <div class="order_by"> -->
-                    <!-- <span>排列順序:</span> -->
-                    <!-- <select name="" class="select_dropdown">
-                                    <option value="最新商品">最新商品</option>
-                                    <option value="熱門排行">熱門排行</option>
-                                </select> -->
-                    <!-- </div> -->
-                    <!-- <div class="search">
-                                <input type="text" placeholder="輸入你想搜尋的商品" />
-                                <button><i class="fas fa-search"></i></button>
-                            </div> -->
+                </div>
+                <!-- 向左箭頭樣板 -->
+                <div id='arrowLeft' style="display:none">
+                    <div class="col-2 col-xl-1 ta-r v-xl-hide">
+                        <img src="images/products/arrow_left.png" alt="" class="prev po-r w-40 pointer">
+                    </div>
+                </div>
+                <!-- 向右箭頭樣板 -->
+                <div id='arrowRight' style="display:none">
+                    <div class="col-2 col-xl-1 v-xl-hide">
+                        <img src="images/products/arrow_right.png" alt="" class="next po-r w-40 pointer">
+                    </div>
+                </div>
+                <!-- 仙人掌樣板(包包商品) -->
+                <div id='objCactus' style="display:none">
+                    <div class=" card_bg card_bg1 fi_dr_sh hoverObj">
+                        <a href="item.html">
+                            <div class="hoverObj_img dis_n">
+                                <img src="images/products/hoverObj_cactus.png" alt="商品裝飾圖片">
+                            </div>
+                            <div class="gray_linear_gradient center">
+                                <div class="sort_same_item_img center">
+                                    <img src="images/products/product_list/pd_b-01.png" alt="商品圖片">
+                                </div>
+                                <p class="sort_same_item_title text_align_c">紅色仙人掌包包</p>
+                                <p class="sort_same_item_price text_align_c">NT.450</p>
+                            </div>
+                        </a>
+                        <span id="pd-1" class="btn m-b m-a addButton">加入購物車
+                            <input type="hidden" value="cactusRedPillow|pd_b-37.png|400">
+                        </span>
+                    </div>
+                </div>
+                <!-- 恐龍樣板(衣服商品) -->
+                <div id='objDinosaur' style="display:none">
+                    <div class=" card_bg card_bg2 fi_dr_sh hoverObj">
+                        <a href="a href=item.html">
+                            <div class="hoverObj_img dis_n">
+                                <img src="images/products/hoverObj_dinosaur.png" alt="商品裝飾圖片">
+                            </div>
+                            <div class="gray_linear_gradient center">
+                                <div class="sort_same_item_img center">
+                                    <img src="images/products/product_list/pd_b-13.png" alt="商品圖片">
+                                </div>
+                                <p class="sort_same_item_title text_align_c">紅色仙人掌衣服</p>
+                                <p class="sort_same_item_price text_align_c">NT.450</p>
+
+                            </div>
+                        </a>
+                        <span id="pd_b-01" class="btn m-b m-a addButton">加入購物車<input type="hidden"
+                                value="cactusRedPillow|pd_b-37.png|400"></span>
+
+
+                    </div>
+                </div>
+                <!-- 老鷹樣板(杯子商品) -->
+                <div id='objEagle' style="display:none">
+                    <div class=" card_bg card_bg3 fi_dr_sh hoverObj">
+                        <a href="a href=item.html">
+                            <div class="hoverObj_img dis_n">
+                                <img src="images/products/hoverObj_eagle.png" alt="商品裝飾圖片">
+                            </div>
+                            <div class="gray_linear_gradient center">
+                                <div class="sort_same_item_img center">
+                                    <img src="images/products/product_list/pd_b-33.png" alt="商品圖片">
+                                </div>
+                                <p class="sort_same_item_title text_align_c">紅色仙人掌馬克杯</p>
+                                <p class="sort_same_item_price text_align_c">NT.450</p>
+
+                            </div>
+                        </a>
+                        <span id="pd_b-01" class="btn m-b m-a addButton">加入購物車<input type="hidden"
+                                value="cactusRedPillow|pd_b-37.png|400"></span>
+
+
+                    </div>
+                </div>
+                <!-- 羊駝樣板(枕頭商品)) -->
+                <div id='objHorse' style="display:none">
+                    <div class=" card_bg card_bg4 fi_dr_sh hoverObj">
+                        <a href="item.html">
+                            <div class="hoverObj_img dis_n">
+                                <img src="images/products/hoverObj_horse.png" alt="商品裝飾圖片">
+                            </div>
+                            <div class="gray_linear_gradient center">
+                                <div class="sort_same_item_img center">
+                                    <img src="images/products/product_list/pd_b-37.png" alt="商品圖片">
+                                </div>
+                                <p class="sort_same_item_title text_align_c">紅色色仙人掌枕頭</p>
+                                <p class="sort_same_item_price text_align_c">NT.450</p>
+
+                            </div>
+                        </a>
+                        <span id="pd_b-01" class="btn m-b m-a addButton">加入購物車<input type="hidden"
+                                value="cactusRedPillow|pd_b-37.png|400"></span>
+
+                    </div>
                 </div>
                 <!-- <div class="sort_same owl-carousel owl-theme" style="padding-top: 350px;"> -->
                 <div class="shop-tab-inner">
-                    <div class="col-2 col-xl-1 ta-r v-xl-hide">
-                        <img src="images/products/arrow_left.png" alt="" class="prev po-r w-40 pointer">
-                    </div>
-                    <!-- <div class="sort_same pt350 owl-carousel owl-theme"> -->
-                    <div class="sort_same owl-carousel owl-theme">
-                        <div class=" card_bg card_bg1 fi_dr_sh hoverObj">
-                            <a href="item.html">
-                                <div class="hoverObj_img dis_n">
-                                    <img src="images/products/hoverObj_cactus.png" alt="商品裝飾圖片">
-                                </div>
-                                <div class="gray_linear_gradient center">
-                                    <div class="sort_same_item_img center">
-                                        <img src="images/products/product_list/pd_b-01.png" alt="商品圖片">
-                                    </div>
-                                    <p class="sort_same_item_title text_align_c">紅色仙人掌包包</p>
-                                    <p class="sort_same_item_price text_align_c">NT.450</p>
-                                    <div class="btn m-b m-a">加入購物車</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class=" card_bg card_bg1 fi_dr_sh hoverObj">
-                            <a href="href=item.html">
-                                <div class="hoverObj_img dis_n">
-                                    <img src="images/products/hoverObj_cactus.png" alt="商品裝飾圖片">
-                                </div>
-                                <div class="gray_linear_gradient center">
-                                    <div class="sort_same_item_img center">
-                                        <img src="images/products/product_list/pd_b-02.png" alt="商品圖片">
-                                    </div>
-                                    <p class="sort_same_item_title text_align_c">黑色仙人掌包包</p>
-                                    <p class="sort_same_item_price text_align_c">NT.450</p>
-                                    <div class="btn m-b m-a">加入購物車</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class=" card_bg card_bg1 fi_dr_sh hoverObj">
-                            <a href="href=item.html">
-                                <div class="hoverObj_img dis_n">
-                                    <img src="images/products/hoverObj_cactus.png" alt="商品裝飾圖片">
-                                </div>
-                                <div class="gray_linear_gradient center">
-                                    <div class="sort_same_item_img center">
-                                        <img src="images/products/product_list/pd_b-03.png" alt="商品圖片">
-                                    </div>
-                                    <p class="sort_same_item_title text_align_c">藍色仙人掌包包</p>
-                                    <p class="sort_same_item_price text_align_c">NT.450</p>
-                                    <div class="btn m-b m-a">加入購物車</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-2 col-xl-1 v-xl-hide">
-                        <img src="images/products/arrow_right.png" alt="" class="next po-r w-40 pointer">
-                    </div>
                 </div>
                 <div class="shop-tab-inner">
-                    <div class="col-2 col-xl-1 ta-r v-xl-hide">
-                        <img src="images/products/arrow_left.png" alt="" class="prev po-r w-40 pointer">
-                    </div>
-                    <div class="sort_same owl-carousel owl-theme owl-theme">
-                        <div class=" card_bg card_bg2 fi_dr_sh hoverObj">
-                            <a href="a href=item.html">
-                                <div class="hoverObj_img dis_n">
-                                    <img src="images/products/hoverObj_dinosaur.png" alt="商品裝飾圖片">
-                                </div>
-                                <div class="gray_linear_gradient center">
-                                    <div class="sort_same_item_img center">
-                                        <img src="images/products/product_list/pd_b-13.png" alt="商品圖片">
-                                    </div>
-                                    <p class="sort_same_item_title text_align_c">紅色仙人掌衣服</p>
-                                    <p class="sort_same_item_price text_align_c">NT.450</p>
-                                    <div class="btn m-b m-a">加入購物車</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class=" card_bg card_bg2 fi_dr_sh hoverObj">
-                            <a href="a href=item.html">
-                                <div class="hoverObj_img dis_n">
-                                    <img src="images/products/hoverObj_dinosaur.png" alt="商品裝飾圖片">
-                                </div>
-                                <div class="gray_linear_gradient center">
-                                    <div class="sort_same_item_img center">
-                                        <img src="images/products/product_list/pd_b-14.png" alt="商品圖片">
-                                    </div>
-                                    <p class="sort_same_item_title text_align_c">黑色仙人掌衣服</p>
-                                    <p class="sort_same_item_price text_align_c">NT.450</p>
-                                    <div class="btn m-b m-a">加入購物車</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class=" card_bg card_bg2 fi_dr_sh hoverObj">
-                            <a href="a href=item.html">
-                                <div class="hoverObj_img dis_n">
-                                    <img src="images/products/hoverObj_dinosaur.png" alt="商品裝飾圖片">
-                                </div>
-                                <div class="gray_linear_gradient center">
-                                    <div class="sort_same_item_img center">
-                                        <img src="images/products/product_list/pd_b-15.png" alt="商品圖片">
-                                    </div>
-                                    <p class="sort_same_item_title text_align_c">藍色仙人掌衣服</p>
-                                    <p class="sort_same_item_price text_align_c">NT.450</p>
-                                    <div class="btn m-b m-a">加入購物車</div>
-                                </div>
-                            </a>
-                        </div>
-
-                    </div>
-                    <div class="col-2 col-xl-1 v-xl-hide">
-                        <img src="images/products/arrow_right.png" alt="" class="next po-r w-40 pointer">
-                    </div>
                 </div>
                 <div class="shop-tab-inner">
-                    <div class="col-2 col-xl-1 ta-r v-xl-hide">
-                        <img src="images/products/arrow_left.png" alt="" class="prev po-r w-40 pointer">
-                    </div>
-                    <div class="sort_same owl-carousel owl-theme owl-theme">
-                        <div class=" card_bg card_bg3 fi_dr_sh hoverObj">
-                            <a href="a href=item.html">
-                                <div class="hoverObj_img dis_n">
-                                    <img src="images/products/hoverObj_eagle.png" alt="商品裝飾圖片">
-                                </div>
-                                <div class="gray_linear_gradient center">
-                                    <div class="sort_same_item_img center">
-                                        <img src="images/products/product_list/pd_b-33.png" alt="商品圖片">
-                                    </div>
-                                    <p class="sort_same_item_title text_align_c">紅色仙人掌馬克杯</p>
-                                    <p class="sort_same_item_price text_align_c">NT.450</p>
-                                    <div class="btn m-b m-a">加入購物車</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class=" card_bg card_bg3 fi_dr_sh hoverObj">
-                            <a href="a href=item.html">
-                                <div class="hoverObj_img dis_n">
-                                    <img src="images/products/hoverObj_eagle.png" alt="商品裝飾圖片">
-                                </div>
-                                <div class="gray_linear_gradient center">
-                                    <div class="sort_same_item_img center">
-                                        <img src="images/products/product_list/pd_b-34.png" alt="商品圖片">
-                                    </div>
-                                    <p class="sort_same_item_title text_align_c">黑色仙人掌馬克杯</p>
-                                    <p class="sort_same_item_price text_align_c">NT.450</p>
-                                    <div class="btn m-b m-a">加入購物車</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class=" card_bg card_bg3 fi_dr_sh hoverObj">
-                            <a href="a href=item.html">
-                                <div class="hoverObj_img dis_n">
-                                    <img src="images/products/hoverObj_eagle.png" alt="商品裝飾圖片">
-                                </div>
-                                <div class="gray_linear_gradient center">
-                                    <div class="sort_same_item_img center">
-                                        <img src="images/products/product_list/pd_b-35.png" alt="商品圖片">
-                                    </div>
-                                    <p class="sort_same_item_title text_align_c">藍色仙人掌馬克杯</p>
-                                    <p class="sort_same_item_price text_align_c">NT.450</p>
-                                    <div class="btn m-b m-a">加入購物車</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-2 col-xl-1 v-xl-hide">
-                        <img src="images/products/arrow_right.png" alt="" class="next po-r w-40 pointer">
-                    </div>
-
                 </div>
                 <div class="shop-tab-inner">
-                    <div class="col-2 col-xl-1 ta-r v-xl-hide">
-                        <img src="images/products/arrow_left.png" alt="" class="prev po-r w-40 pointer">
-                    </div>
-                    <div class="sort_same owl-carousel owl-theme owl-theme">
-                        <div class=" card_bg card_bg4 fi_dr_sh hoverObj">
-                            <a href="item.html">
-                                <div class="hoverObj_img dis_n">
-                                    <img src="images/products/hoverObj_horse.png" alt="商品裝飾圖片">
-                                </div>
-                                <div class="gray_linear_gradient center">
-                                    <div class="sort_same_item_img center">
-                                        <img src="images/products/product_list/pd_b-37.png" alt="商品圖片">
-                                    </div>
-                                    <p class="sort_same_item_title text_align_c">紅色色仙人掌枕頭</p>
-                                    <p class="sort_same_item_price text_align_c">NT.450</p>
-                                    <div class="btn m-b m-a">加入購物車</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class=" card_bg card_bg4 fi_dr_sh hoverObj">
-                            <a href="item.html">
-                                <div class="hoverObj_img dis_n">
-                                    <img src="images/products/hoverObj_horse.png" alt="商品裝飾圖片">
-                                </div>
-                                <div class="gray_linear_gradient center">
-                                    <div class="sort_same_item_img center">
-                                        <img src="images/products/product_list/pd_b-38.png" alt="商品圖片">
-                                    </div>
-                                    <p class="sort_same_item_title text_align_c">黑色色仙人掌枕頭</p>
-                                    <p class="sort_same_item_price text_align_c">NT.450</p>
-                                    <div class="btn m-b m-a">加入購物車</div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class=" card_bg card_bg4 fi_dr_sh hoverObj">
-                            <a href="item.html">
-                                <div class="hoverObj_img dis_n">
-                                    <img src="images/products/hoverObj_horse.png" alt="商品裝飾圖片">
-                                </div>
-                                <div class="gray_linear_gradient center">
-                                    <div class="sort_same_item_img center">
-                                        <img src="images/products/product_list/pd_b-39.png" alt="商品圖片">
-                                    </div>
-                                    <p class="sort_same_item_title text_align_c">藍色色仙人掌枕頭</p>
-                                    <p class="sort_same_item_price text_align_c">NT.450</p>
-                                    <div class="btn m-b m-a">加入購物車</div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-2 col-xl-1 v-xl-hide">
-                        <img src="images/products/arrow_right.png" alt="" class="next po-r w-40 pointer">
-                    </div>
                 </div>
 
             </div>
@@ -384,32 +255,423 @@
     {"jslink" : "js/owl.carousel.js"}
     ])
     <script>
-        $('.owl-carousel').each(function () {
-            $(this).owlCarousel({
-                loop: false,
-                margin: 0,
-                nav: false,
-                responsiveClass: true,
-                responsive: {
-                    0: {
-                        items: 1,
-                    },
-                    768: {
-                        items: 2
-                    },
-                    1200: {
-                        items: 3,
-                    }
-                },
-            });
-            $(this).siblings().find('.next').click(function () {
-                $(this).parent().siblings('.owl-carousel').trigger('next.owl.carousel');
-            });
-            $(this).siblings().find('.prev').click(function () {
-                $(this).parent().siblings('.owl-carousel').trigger('prev.owl.carousel');
-            });
-        });
+        let products;
+        let filterProducts = [];
+        let filterArray_style = [];
+        let filterArray_sort = [];
+        let filterArray_category = [];
 
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                products = JSON.parse(xhr.responseText);
+                // console.log( products);
+                document.getElementById('filterCactus').addEventListener('click', filter, false);
+                document.getElementById('filterEagle').addEventListener('click', filter, false);
+                document.getElementById('filterDinosaur').addEventListener('click', filter, false);
+                document.getElementById('filterRed').addEventListener('click', filter, false);
+                document.getElementById('filterBlack').addEventListener('click', filter, false);
+                document.getElementById('filterBlue').addEventListener('click', filter, false);
+                document.getElementById('fliterWhite').addEventListener('click', filter, false);
+                document.getElementById('filterBag').addEventListener('click', filter, false);
+                document.getElementById('filterClothes').addEventListener('click', filter, false);
+                document.getElementById('filterMugs').addEventListener('click', filter, false);
+                document.getElementById('filterPillows').addEventListener('click', filter, false);
+                showProduct(products);
+            } else {
+                alert(xhr.status);
+            }
+        };
+        let url = "php/getProduct_JSON.php";
+        xhr.open('get', url, true);
+        xhr.send(null);
+
+        function filter() {
+            if (this.checked) {
+                filterProducts = [];
+                if (this.value == '紅色' || this.value == '黑色' || this.value == '藍色' || this.value == '白色')
+                    filterArray_style.push(this.value);//新增選取顏色篩選條件
+                else if (this.value == '仙人掌' || this.value == '老鷹' || this.value == '恐龍')
+                    filterArray_sort.push(this.value);//新增選取吉祥物篩選條件
+                else if (this.value == '包包' || this.value == '衣服' || this.value == '馬克杯' || this.value == '枕頭')
+                    filterArray_category.push(this.value);//新增選取類別篩選條件
+
+                //只有顏色被篩選
+                if (filterArray_style.length != 0 && filterArray_sort.length == 0 && filterArray_category.length == 0) {
+                    filterArray_style.forEach(function (element) {
+                        for (let i = 0; i < products.length; i++) {
+                            if (products[i].product_style == element)
+                                filterProducts.push(products[i]);
+                        }
+                    });
+                }
+                //只有吉祥物被篩選
+                else if (filterArray_style.length == 0 && filterArray_sort.length != 0 && filterArray_category.length == 0) {
+                    filterArray_sort.forEach(function (element) {
+                        for (let i = 0; i < products.length; i++) {
+                            if (products[i].product_sort == element)
+                                filterProducts.push(products[i]);
+                        }
+                    });
+                }
+                //只有類別被篩選
+                else if (filterArray_style.length == 0 && filterArray_sort.length == 0 && filterArray_category.length != 0) {
+                    filterArray_category.forEach(function (element) {
+                        for (let i = 0; i < products.length; i++) {
+                            if (products[i].product_category == element)
+                                filterProducts.push(products[i]);
+                        }
+                    });
+                }
+                //只有顏色和吉祥物被篩選
+                else if (filterArray_style.length != 0 && filterArray_sort.length != 0 && filterArray_category.length == 0) {
+                    let select_arr = [];
+                    let filter_arr = [];
+                    for (let x = 0; x < filterArray_style.length; x++) {
+                        for (let y = 0; y < filterArray_sort.length; y++) {
+                            filter_arr = [];
+                            filter_arr.push(filterArray_style[x]);
+                            filter_arr.push(filterArray_sort[y]);
+                            select_arr.push(filter_arr);
+                        }
+                    }
+                    // console.log(filter_arr);
+                    // console.log(select_arr);
+                    select_arr.forEach(function (element, index) {
+                        for (let i = 0; i < products.length; i++) {
+                            if (products[i].product_style == element[0] && products[i].product_sort == element[1])
+                                filterProducts.push(products[i]);
+                        }
+                    });
+                    // console.log(filterProducts);
+                }
+                //只有顏色和類別被篩選
+                else if (filterArray_style.length != 0 && filterArray_sort.length == 0 && filterArray_category.length != 0) {
+                    let select_arr = [];
+                    let filter_arr = [];
+                    for (let x = 0; x < filterArray_style.length; x++) {
+                        for (let y = 0; y < filterArray_category.length; y++) {
+                            filter_arr = [];
+                            filter_arr.push(filterArray_style[x]);
+                            filter_arr.push(filterArray_category[y]);
+                            select_arr.push(filter_arr);
+                        }
+                    }
+                    // console.log(filter_arr);
+                    // console.log(select_arr);
+                    select_arr.forEach(function (element, index) {
+                        for (let i = 0; i < products.length; i++) {
+                            if (products[i].product_style == element[0] && products[i].product_category == element[1])
+                                filterProducts.push(products[i]);
+                        }
+                    });
+                    // console.log(filterProducts);
+                }
+                //只有吉祥物和類別被篩選
+                else if (filterArray_style.length == 0 && filterArray_sort.length != 0 && filterArray_category.length != 0) {
+                    let select_arr = [];
+                    let filter_arr = [];
+                    for (let x = 0; x < filterArray_sort.length; x++) {
+                        for (let y = 0; y < filterArray_category.length; y++) {
+                            filter_arr = [];
+                            filter_arr.push(filterArray_sort[x]);
+                            filter_arr.push(filterArray_category[y]);
+                            select_arr.push(filter_arr);
+                        }
+                    }
+                    // console.log(filter_arr);
+                    // console.log(select_arr);
+                    select_arr.forEach(function (element, index) {
+                        for (let i = 0; i < products.length; i++) {
+                            if (products[i].product_sort == element[0] && products[i].product_category == element[1])
+                                filterProducts.push(products[i]);
+                        }
+                    });
+                    // console.log(filterProducts);
+                }
+                // 3個篩選都有被選
+                else if (filterArray_style.length != 0 && filterArray_sort.length != 0 && filterArray_category.length != 0) {
+                    let select_arr = [];
+                    let filter_arr = [];
+                    for (let x = 0; x < filterArray_style.length; x++) {
+                        for (let y = 0; y < filterArray_sort.length; y++) {
+                            for (let z = 0; z < filterArray_category.length; z++) {
+                                filter_arr = [];
+                                filter_arr.push(filterArray_style[x]);
+                                filter_arr.push(filterArray_sort[y]);
+                                filter_arr.push(filterArray_category[z]);
+                                select_arr.push(filter_arr);
+                            }
+                        }
+                    }
+                    // console.log(filter_arr);
+                    // console.log(select_arr);
+                    select_arr.forEach(function (element, index) {
+                        for (let i = 0; i < products.length; i++) {
+                            if (products[i].product_style == element[0] && products[i].product_sort == element[1] && products[i].product_category == element[2])
+                                filterProducts.push(products[i]);
+                        }
+                    });
+                    // console.log(filterProducts);
+                }
+                showProduct(filterProducts);
+                // console.log(filterArray);
+            }
+            else {
+                filterProducts = [];
+                // console.log(filterArray.indexOf(this.value));
+                if (this.value == '紅色' || this.value == '黑色' || this.value == '藍色' || this.value == '白色')
+                    filterArray_style.splice(filterArray_style.indexOf(this.value), 1);//移除選取顏色篩選條件
+                else if (this.value == '仙人掌' || this.value == '老鷹' || this.value == '恐龍')
+                    filterArray_sort.splice(filterArray_sort.indexOf(this.value), 1);//移除選取吉祥物篩選條件
+                else if (this.value == '包包' || this.value == '衣服' || this.value == '馬克杯' || this.value == '枕頭')
+                    filterArray_category.splice(filterArray_category.indexOf(this.value), 1);//移除選取類別篩選條件
+
+                // console.log(filterArray_style);
+                // console.log(filterArray_sort);
+                // console.log(filterArray_category);
+                //都沒被選
+                // console.log(products);
+                if (filterArray_style.length == 0 && filterArray_sort.length == 0 && filterArray_category.length == 0) {
+                    for (let i = 0; i < products.length; i++) {
+                            if (products[i])
+                                filterProducts.push(products[i]);
+                    }
+                }
+                //只有顏色被篩選
+                else if (filterArray_style.length != 0 && filterArray_sort.length == 0 && filterArray_category.length == 0) {
+                    filterArray_style.forEach(function (element) {
+                        for (let i = 0; i < products.length; i++) {
+                            if (products[i].product_style == element)
+                                filterProducts.push(products[i]);
+                        }
+                    });
+                }
+                //只有吉祥物被篩選
+                else if (filterArray_style.length == 0 && filterArray_sort.length != 0 && filterArray_category.length == 0) {
+                    filterArray_sort.forEach(function (element) {
+                        for (let i = 0; i < products.length; i++) {
+                            if (products[i].product_sort == element)
+                                filterProducts.push(products[i]);
+                        }
+                    });
+                }
+                //只有類別被篩選
+                else if (filterArray_style.length == 0 && filterArray_sort.length == 0 && filterArray_category.length != 0) {
+                    filterArray_category.forEach(function (element) {
+                        for (let i = 0; i < products.length; i++) {
+                            if (products[i].product_category == element)
+                                filterProducts.push(products[i]);
+                        }
+                    });
+                }
+                //只有顏色和吉祥物被篩選
+                else if (filterArray_style.length != 0 && filterArray_sort.length != 0 && filterArray_category.length == 0) {
+                    let select_arr = [];
+                    let filter_arr = [];
+                    for (let x = 0; x < filterArray_style.length; x++) {
+                        for (let y = 0; y < filterArray_sort.length; y++) {
+                            filter_arr = [];
+                            filter_arr.push(filterArray_style[x]);
+                            filter_arr.push(filterArray_sort[y]);
+                            select_arr.push(filter_arr);
+                        }
+                    }
+                    // console.log(filter_arr);
+                    // console.log(select_arr);
+                    select_arr.forEach(function (element, index) {
+                        for (let i = 0; i < products.length; i++) {
+                            if (products[i].product_style == element[0] && products[i].product_sort == element[1])
+                                filterProducts.push(products[i]);
+                        }
+                    });
+                    // console.log(filterProducts);
+                }
+                //只有顏色和類別被篩選
+                else if (filterArray_style.length != 0 && filterArray_sort.length == 0 && filterArray_category.length != 0) {
+                    let select_arr = [];
+                    let filter_arr = [];
+                    for (let x = 0; x < filterArray_style.length; x++) {
+                        for (let y = 0; y < filterArray_category.length; y++) {
+                            filter_arr = [];
+                            filter_arr.push(filterArray_style[x]);
+                            filter_arr.push(filterArray_category[y]);
+                            select_arr.push(filter_arr);
+                        }
+                    }
+                    // console.log(filter_arr);
+                    // console.log(select_arr);
+                    select_arr.forEach(function (element, index) {
+                        for (let i = 0; i < products.length; i++) {
+                            if (products[i].product_style == element[0] && products[i].product_category == element[1])
+                                filterProducts.push(products[i]);
+                        }
+                    });
+                    // console.log(filterProducts);
+                }
+                //只有吉祥物和類別被篩選
+                else if (filterArray_style.length == 0 && filterArray_sort.length != 0 && filterArray_category.length != 0) {
+                    let select_arr = [];
+                    let filter_arr = [];
+                    for (let x = 0; x < filterArray_sort.length; x++) {
+                        for (let y = 0; y < filterArray_category.length; y++) {
+                            filter_arr = [];
+                            filter_arr.push(filterArray_sort[x]);
+                            filter_arr.push(filterArray_category[y]);
+                            select_arr.push(filter_arr);
+                        }
+                    }
+                    // console.log(filter_arr);
+                    // console.log(select_arr);
+                    select_arr.forEach(function (element, index) {
+                        for (let i = 0; i < products.length; i++) {
+                            if (products[i].product_sort == element[0] && products[i].product_category == element[1])
+                                filterProducts.push(products[i]);
+                        }
+                    });
+                    // console.log(filterProducts);
+                }
+                // 3個篩選都有被選
+                else if (filterArray_style.length != 0 && filterArray_sort.length != 0 && filterArray_category.length != 0) {
+                    let select_arr = [];
+                    let filter_arr = [];
+                    for (let x = 0; x < filterArray_style.length; x++) {
+                        for (let y = 0; y < filterArray_sort.length; y++) {
+                            for (let z = 0; z < filterArray_category.length; z++) {
+                                filter_arr = [];
+                                filter_arr.push(filterArray_style[x]);
+                                filter_arr.push(filterArray_sort[y]);
+                                filter_arr.push(filterArray_category[z]);
+                                select_arr.push(filter_arr);
+                            }
+                        }
+                    }
+                    // console.log(filter_arr);
+                    // console.log(select_arr);
+                    select_arr.forEach(function (element, index) {
+                        for (let i = 0; i < products.length; i++) {
+                            if (products[i].product_style == element[0] && products[i].product_sort == element[1] && products[i].product_category == element[2])
+                                filterProducts.push(products[i]);
+                        }
+                    });
+                    // console.log(filterProducts);
+                }
+                showProduct(filterProducts);
+                // console.log(filterArray);
+            }
+
+        }
+        function showProduct(products) {
+            // console.log(products);
+            for (let i = 0; i < 4; i++) {
+                document.querySelectorAll('.shop-tab-inner')[i].innerHTML = '';
+            }
+            let newDivBag = document.createElement('div');
+            let newDivClothes = document.createElement('div');
+            let newDivMug = document.createElement('div');
+            let newDivPillow = document.createElement('div');
+            newDivBag.classList.add('sort_same', 'owl-carousel', 'owl-theme');
+            newDivClothes.classList.add('sort_same', 'owl-carousel', 'owl-theme');
+            newDivMug.classList.add('sort_same', 'owl-carousel', 'owl-theme');
+            newDivPillow.classList.add('sort_same', 'owl-carousel', 'owl-theme');
+            let arrowLeft = document.getElementById('arrowLeft').children[0];
+            let arrowRight = document.getElementById('arrowRight').children[0];
+            let objCactus = document.getElementById('objCactus').children[0];
+            let objDinosaur = document.getElementById('objDinosaur').children[0];
+            let objEagle = document.getElementById('objEagle').children[0];
+            let objHorse = document.getElementById('objHorse').children[0];
+            let cloneArrowLeft = [];
+            let cloneArrowRight = [];
+            for (let i = 0; i < 4; i++) {
+                cloneArrowLeft[i] = arrowLeft.cloneNode(true);
+                cloneArrowRight[i] = arrowRight.cloneNode(true);
+            }
+            products.forEach(function (element, i) {
+                // console.log(element,i);
+
+                let category = products[i].product_category;
+                switch (category) {
+                    case "包包":
+                        let cloneobjCactus = objCactus.cloneNode(true);
+                        cloneobjCactus.firstElementChild.children[1].children[0].firstElementChild.src = products[i].product_image;
+                        cloneobjCactus.firstElementChild.children[1].children[1].innerText = products[i].product_name;
+                        cloneobjCactus.firstElementChild.children[1].children[2].innerText = "NT." + products[i].product_price;
+                        cloneobjCactus.lastElementChild.children[0].value = products[i].product_name + "|" + products[i].product_image + "|" + products[i].product_price;
+                        cloneobjCactus.lastElementChild.id = "pd-" + products[i].product_no;
+                        newDivBag.appendChild(cloneobjCactus);
+                        break;
+                    case "衣服":
+                        let cloneobjDinosaur = objDinosaur.cloneNode(true);
+                        cloneobjDinosaur.firstElementChild.children[1].children[0].firstElementChild.src = products[i].product_image;
+                        cloneobjDinosaur.firstElementChild.children[1].children[1].innerText = products[i].product_name;
+                        cloneobjDinosaur.firstElementChild.children[1].children[2].innerText = "NT." + products[i].product_price;
+                        newDivClothes.appendChild(cloneobjDinosaur);
+                        break;
+                    case "馬克杯":
+                        let cloneobjEagle = objEagle.cloneNode(true);
+                        cloneobjEagle.firstElementChild.children[1].children[0].firstElementChild.src = products[i].product_image;
+                        cloneobjEagle.firstElementChild.children[1].children[1].innerText = products[i].product_name;
+                        cloneobjEagle.firstElementChild.children[1].children[2].innerText = "NT." + products[i].product_price;
+                        newDivMug.appendChild(cloneobjEagle);
+                        break;
+                    case "枕頭":
+                        let cloneobjHorse = objHorse.cloneNode(true);
+                        cloneobjHorse.firstElementChild.children[1].children[0].firstElementChild.src = products[i].product_image;
+                        cloneobjHorse.firstElementChild.children[1].children[1].innerText = products[i].product_name;
+                        cloneobjHorse.firstElementChild.children[1].children[2].innerText = "NT." + products[i].product_price;
+                        newDivPillow.appendChild(cloneobjHorse);
+                        break;
+                    default:
+                        break;
+                }
+
+            });
+            document.querySelectorAll('.shop-tab-inner')[0].appendChild(cloneArrowLeft[0]);
+            document.querySelectorAll('.shop-tab-inner')[0].appendChild(newDivBag);
+            document.querySelectorAll('.shop-tab-inner')[0].appendChild(cloneArrowRight[0]);
+            document.querySelectorAll('.shop-tab-inner')[1].appendChild(cloneArrowLeft[1]);
+            document.querySelectorAll('.shop-tab-inner')[1].appendChild(newDivClothes);
+            document.querySelectorAll('.shop-tab-inner')[1].appendChild(cloneArrowRight[1]);
+            document.querySelectorAll('.shop-tab-inner')[2].appendChild(cloneArrowLeft[2]);
+            document.querySelectorAll('.shop-tab-inner')[2].appendChild(newDivMug);
+            document.querySelectorAll('.shop-tab-inner')[2].appendChild(cloneArrowRight[2]);
+            document.querySelectorAll('.shop-tab-inner')[3].appendChild(cloneArrowLeft[3]);
+            document.querySelectorAll('.shop-tab-inner')[3].appendChild(newDivPillow);
+            document.querySelectorAll('.shop-tab-inner')[3].appendChild(cloneArrowRight[3]);
+            for (let i = 0; i < 4; i++) {
+                // console.log(document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount);
+                if (document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount == 0)
+                    document.querySelectorAll('.shop-tab-inner')[i].innerHTML = '';
+            }
+            // document.querySelectorAll('.shop-tab-inner')[0].insertBefore(newDiv, document.querySelectorAll('.shop-tab-inner')[0].children[1]);
+            // document.querySelectorAll('.shop-tab-inner')[0].insertBefore(newDiv, document.querySelectorAll('.shop-tab-inner')[0].children[1]);
+            $('.owl-carousel').each(function () {
+                $(this).owlCarousel({
+                    loop: false,
+                    margin: 0,
+                    nav: false,
+                    responsiveClass: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                        },
+                        768: {
+                            items: 2
+                        },
+                        1200: {
+                            items: 3,
+                        }
+                    },
+                });
+                $(this).siblings().find('.next').click(function () {
+                    $(this).parent().siblings('.owl-carousel').trigger('next.owl.carousel');
+                });
+                $(this).siblings().find('.prev').click(function () {
+                    $(this).parent().siblings('.owl-carousel').trigger('prev.owl.carousel');
+                });
+            });
+        }
+        // console.log(123);
     </script>
 
     <!-- ====================================== -->
@@ -454,16 +716,73 @@
 
         });
     </script>
-    <!-- ====================================== -->
+    <!-- ===========零食購物車=================== -->
     <script>
-        
-        function filterColor() {
-            var filterRed = document.getElementsByClassName("filterRed");
-            var filterBlue = document.getElementsByClassName("filterBlue");
+        var storage = sessionStorage;
+        function doFirst() {
+            if (storage['addItemList'] == null) {
+                storage['addItemList'] = '';    //storage.setItem('addItemList','');
+            }
 
+            // 幫每個Add Cart建立事件聆聽功能
+            let list = document.querySelectorAll('.addButton');     //list是陣列
+            for (let i = 0; i < list.length; i++) {
+                list[i].addEventListener('click', function () {
+                    let productInfo = document.querySelector(`#${this.id} input`).value;
+                    addItem(this.id, productInfo);
+                });
+            }
         }
+        function addItem(itemId, itemValue) {
+            alert(`${itemId} : ${itemValue}`);
+            var image = document.createElement('img');
+            image.src = 'imgs/' + itemValue.split('|')[1];
 
+            var title = document.createElement('span');
+            title.innerText = itemValue.split('|')[0];
 
+            var price = document.createElement('span');
+            price.innerText = itemValue.split('|')[2];
+
+            let newItem = document.getElementById('newItem');
+
+            // 先判斷此處是否已有物件，如果有要先刪除
+            if (newItem.hasChildNodes()) {
+                while (newItem.childNodes.length >= 1) {
+                    newItem.removeChild(newItem.firstChild);
+                }
+            }
+
+            // 再顯示新物件
+            newItem.appendChild(image);
+            newItem.appendChild(title);
+            newItem.appendChild(price);
+
+            //存入storage
+            if (storage[itemId]) {
+                alert('You have checked.');
+            } else {
+                storage['addItemList'] += itemId + ', ';
+                storage[itemId] = itemValue;
+            }
+
+            //計算購買數量和小計
+            let itemString = storage['addItemList'];
+            let items = itemString.substr(0, itemString.length - 2).split(', ');
+            //console.log(items);   // ["A1001", "A1005", "A1002"]
+
+            subtotal = 0;
+            for (let key in items) {  //use items[key]
+                let itemInfo = storage.getItem(items[key]);
+                let itemPrice = parseInt(itemInfo.split('|')[2]);
+
+                subtotal += itemPrice;
+            }
+
+            document.getElementById('itemCount').innerText = items.length;
+            document.getElementById('subtotal').innerText = subtotal;
+        }
+        window.addEventListener('load', doFirst);
     </script>
 </body>
 

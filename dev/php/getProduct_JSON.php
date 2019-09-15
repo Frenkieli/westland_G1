@@ -13,7 +13,7 @@
             $productRow=$products->fetchAll(PDO::FETCH_ASSOC);
             //=====轉成json格式回傳=====
             echo json_encode($productRow);
-        }
+        }   
     }catch(PDOException $e){
         echo $e->getMessage();
     }
