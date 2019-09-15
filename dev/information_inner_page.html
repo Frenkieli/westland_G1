@@ -182,6 +182,21 @@
             <form id="message_form" method="POST">
                 <table id="message_table">
                     <tr>
+                        <div class="starbtn">
+                            <p>星星評比:</p><img id="starLevel" src="../dest/images/information/other/5star.svg" alt="星星評比按鈕">
+                            <input type="radio" checked class="1star sbtn" name="box" id="click1Star">
+                            <input type="radio" class="2star sbtn" name="box" id="click2Star">
+                            <input type="radio" class="3star sbtn" name="box" id="click3Star">
+                            <input type="radio" class="4star sbtn" name="box" id="click4Star">
+                            <input type="radio" class="5star sbtn" name="box" id="click5Star">
+                            <label class="oneStar" for="click1Star"></label>
+                            <label class="twoStar" for="click2Star"></label>
+                            <label class="threeStar" for="click3Star"></label>
+                            <label class="fourStar" for="click4Star"></label>
+                            <label class="fiveStar" for="click5Star"></label>
+                        </div>
+                    </tr>
+                    <tr>
                         <td>設施選擇:
                         <select id="equ_no" class="equ_no">
                             <option value="雲霄飛車" selected>請選擇項目</option>
@@ -220,7 +235,8 @@
     {"jslink" : "js/jquery-1.11.0.min.js"},
     {"jslink" : "js/jquery.sliderPro.js"},
     {"jslink" : "js/information_inner_pageGetScore.js"},
-    {"jslink" : "js/keyinMessage.js"}
+    {"jslink" : "js/keyinMessage.js"},
+    {"jslink" : "js/starBtnLevel.js"}
     ])
 
     <script type="text/javascript">

@@ -113,6 +113,38 @@
             #message_form {
                 flex-grow: 12;
                 border-radius: 20px;
+                position: relative;
+                #starLevel{
+                    width: 20%;
+                }
+                .sbtn{
+                    display: none;
+                }
+                .oneStar,.twoStar,.threeStar,.fourStar,.fiveStar{
+                    background-color: #fff;
+                    top:10%;
+                    width: 20px;
+                    height:20px;
+                    border-radius:20px;
+                    cursor: pointer;
+                    position: absolute;
+                    opacity: 0;
+                }
+                .oneStar{
+                    left: 0.5%;
+                }
+                .twoStar{
+                    left: 4.6%;
+                }
+                .threeStar{
+                    left: 8.7%;
+                }
+                .fourStar{
+                    left: 12.8%;
+                }
+                .fiveStar{
+                    left: 16.9%;
+                }
                 #message_table{
                     display: flex;
                     justify-content: center;
