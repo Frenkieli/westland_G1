@@ -16,13 +16,13 @@ window.addEventListener('load',function (){
     function howManyStar(jsonStr) {
         let displayMessage =JSON.parse(jsonStr);
         // console.log(displayMessage);
-        for (let i = 0; i < displayMessage.length; i++) {
+        for (let i = displayMessage.length -1; i >= 0; i--) {
             let AddMessages =displayMessage[i].equ_message;
             console.log(AddMessages);
 
             var messagesList = document.getElementById('messages');
             //從messages表單往後放
-            messagesList.innerHTML += '<div class="message_container"><img class="who" src="images/information/who.svg" alt="頭像"><div id="messagesBox"><div id="message" style="border-radius:10px;">' + AddMessages + '</div></div></div>';
+            messagesList.innerHTML += '<div class="message_container"><img class="who" src="images/information/who.svg" alt="頭像"><div id="message_box"><div id="message" style="border-radius:10px;">' + AddMessages + '</div></div></div>';
         };
     }
 }

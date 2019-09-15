@@ -19,8 +19,8 @@ $(document).on('click', '#butsave', function(){
 		success:function(){
 			console.log("寫入成功");
 			// 寫完立即增加到下方
-			var messagesList = document.getElementById('messages');
-			messagesList.innerHTML += '<div class="message_container"><img class="who" src="images/information/who.svg" alt="頭像"><div id="messagesBox"><div id="message" style="border-radius:10px;">' + equ_message + '</div></div></div>';
+			var messagesList = document.getElementById('messagesTop');
+            messagesList.innerHTML += '<div class="message_container"><img class="who" src="images/information/who.svg" alt="頭像"><div id="message_box"><div id="message" style="border-radius:10px;">' + equ_message + '</div></div></div>';
 			window.alert('已送出訊息!');
 		}
 	})
