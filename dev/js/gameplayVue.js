@@ -162,9 +162,16 @@ function setTicketmisiion(missionNum, mission_no) {
                 alert("帳密錯誤");
             } else {
                 let missinName = JSON.parse(xhr.responseText);
-                console.log(missinName);
+                let section_titleText = document.getElementsByClassName('section_title');
+
                 let missinDiv = document.querySelectorAll('.progress_box');
                 for (i = 0; i < missinName.length; i++) {
+                    console.log(section_titleText, '+++++');
+                    for(let j =0 ; j<section_titleText.length;j++){
+                        if(section_titleText[j].innerHTML ==missinName[i].equ_name){
+                            section_titleText[j].innerHTML += '(任務)';
+                        }
+                    }
                     console.log(missinName[i].equ_name);
                     missinDiv[i].innerHTML = missinName[i].equ_name;
                 }
@@ -195,43 +202,44 @@ for (let i = 0; i < demo_scaninner.length; i++) {
 
 function addPoints(e) {
     console.log($(this).prev().prev().text());
-    switch ($(this).prev().prev().text()) {
+    switch ($(this).prev().prev().text().replace('(任務)','').replace('(達成)','')) {
         case '商店':
             console.log('redeem_product_status');
             break;
         case '滑水道':
-                console.log('waterslide');
+            console.log('waterslide');
 
             break;
         case '旋轉椅':
-                console.log('swivel_chair');
+            console.log('swivel_chair');
 
             break;
         case '海盜船':
-                console.log('pirate_ship');
+            console.log('pirate_ship');
 
             break;
         case '入口':
-                console.log('entrance_status');
+            console.log('entrance_status');
 
             break;
         case '雲霄飛車':
-                console.log('roller_coaster');
+            console.log('roller_coaster');
 
             break;
         case '旋轉木馬':
-                console.log('carousel');
+            console.log('carousel');
 
             break;
         case '摩天輪':
-                console.log('ferris_wheel');
+            console.log('ferris_wheel');
 
             break;
         case '出口':
-                console.log('exit_status');
+            console.log('exit_status');
 
             break;
         default:
             break;
     }
+    $(this).prev().prev().text($(this).prev().prev().text().replace('(任務)','(達成)'));
 }
