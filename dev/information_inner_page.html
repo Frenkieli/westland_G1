@@ -45,7 +45,7 @@
                 <img src="images/information/background.svg" alt="">
             </div>
             <div class="font sp-layer sp-black sp-star" data-position="bottomright" data-vertical="0" data-width="30%" data-show-transition="up">
-                <img src="images/information/other/1star.svg" alt="">
+                <img id="ferrisWheelClass" src="images/information/other/5star.svg" alt="">
             </div>
         </div>
 
@@ -67,7 +67,7 @@
                 <img src="images/information/background.svg" alt="">
             </div>
             <div class="font sp-layer sp-black sp-star" data-position="bottomright" data-vertical="0" data-width="30%" data-show-transition="up">
-                <img src="images/information/other/1star.svg" alt="">
+                <img id="carouselslClass" src="images/information/other/5star.svg" alt="">
             </div>
         </div>
 
@@ -89,7 +89,7 @@
                 <img src="images/information/background.svg" alt="">
             </div>
             <div class="font sp-layer sp-black sp-star" data-position="bottomright" data-vertical="0" data-width="30%" data-show-transition="up">
-                <img src="images/information/other/1star.svg" alt="">
+                <img id="swivelChairClass" src="images/information/other/5star.svg" alt="">
             </div>
         </div>
 
@@ -111,7 +111,7 @@
                 <img src="images/information/background.svg" alt="">
             </div>
             <div class="font sp-layer sp-black sp-star" data-position="bottomright" data-vertical="0" data-width="30%" data-show-transition="up">
-                <img src="images/information/other/1star.svg" alt="">
+                <img id="pirateShipClass" src="images/information/other/5star.svg" alt="">
             </div>
         </div>
 
@@ -134,7 +134,7 @@
                 <img src="images/information/background.svg" alt="">
             </div>
             <div class="font sp-layer sp-black sp-star" data-position="bottomright" data-vertical="0" data-width="30%" data-show-transition="up">
-                <img src="images/information/other/1star.svg" alt="">
+                <img id="waterSlideClass" src="images/information/other/5star.svg" alt="">
             </div>
         </div>
 
@@ -156,7 +156,7 @@
                 <img src="images/information/background.svg" alt="">
             </div>
             <div class="font sp-layer sp-black sp-star" data-position="bottomright" data-vertical="0" data-width="30%" data-show-transition="up">
-                <img src="images/information/other/1star.svg" alt="">
+                <img id="rollerCoasterClass" src="images/information/other/5star.svg" alt="">
             </div>
         </div>
 
@@ -176,18 +176,54 @@
     <!-- 第二個section -->
     <section id="addMessage" class="section_messageBoard font">
         <div class="section_title">設施留言板</div>
-        <ul id="messages"></ul>
         <div class="message_container">
             <img class="who" src="images/information/who.svg" alt="頭像">
             <div id="status">Connecting...</div>
-            <form id="messagesBox" action="#" method="post">
-                <textarea id="message" placeholder="請輸入留言..." required></textarea>
-                <div class="buttonControl">
-                    <button type="submit">確認</button>
-                    <button type="button" id="close">檢舉</button>
-                </div>
+            <form id="message_form" method="POST">
+                <table id="message_table">
+                    <tr>
+                        <div class="starbtn">
+                            <p>星星評比:</p><img id="starLevel" src="../dest/images/information/other/5star.svg" alt="星星評比按鈕">
+                            <input type="radio" checked class="1star sbtn" name="box" id="click1Star">
+                            <input type="radio" class="2star sbtn" name="box" id="click2Star">
+                            <input type="radio" class="3star sbtn" name="box" id="click3Star">
+                            <input type="radio" class="4star sbtn" name="box" id="click4Star">
+                            <input type="radio" class="5star sbtn" name="box" id="click5Star">
+                            <label class="oneStar" for="click1Star"></label>
+                            <label class="twoStar" for="click2Star"></label>
+                            <label class="threeStar" for="click3Star"></label>
+                            <label class="fourStar" for="click4Star"></label>
+                            <label class="fiveStar" for="click5Star"></label>
+                        </div>
+                    </tr>
+                    <tr>
+                        <td>設施選擇:
+                        <select id="equ_no" class="equ_no">
+                            <option value="雲霄飛車" selected>請選擇項目</option>
+                            <option value="雲霄飛車">雲霄飛車</option>
+                            <option value="摩天輪">摩天輪</option>
+                            <option value="滑水道">滑水道</option>
+                            <option value="旋轉木馬">旋轉木馬</option>
+                            <option value="海盜船">海盜船</option>
+                            <option value="旋轉椅">旋轉椅</option>
+                        </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                         <textarea id="equ_message" placeholder="請輸入留言..." required></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" name="save" class="btn btn-primary" value="送出"" id="butsave">
+                        </td>
+                    </tr>
+                </table>
             </form>
         </div>
+        <ul id="messagesTop"></ul>
+        <ul id="messages"></ul>
     </section>
     <!-- 第二個section -->
     @@include("template/robot.html")
@@ -197,7 +233,10 @@
     @@loop('template/jslink.html',[
     {"jslink" : "js/messageBoard.js"},
     {"jslink" : "js/jquery-1.11.0.min.js"},
-    {"jslink" : "js/jquery.sliderPro.js"}
+    {"jslink" : "js/jquery.sliderPro.js"},
+    {"jslink" : "js/information_inner_pageGetScore.js"},
+    {"jslink" : "js/keyinMessage.js"},
+    {"jslink" : "js/starBtnLevel.js"}
     ])
 
     <script type="text/javascript">

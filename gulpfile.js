@@ -61,7 +61,7 @@ gulp.task('moveBackend', function () {
 gulp.task('default', function () {
     gulp.src(["dev/backend/*", "dev/backend/*/*", "dev/backend/*/*/*" ])
     .pipe(gulp.dest('dest/backend'));
-    gulp.src(["dev/images/*", "dev/images/*/*", "dev/images/*/*/*"])
+    gulp.src(["dev/images/*", "dev/images/*/*", "dev/images/*/*/*","dev/images/*/*/*/*"])
         .pipe(gulp.dest('dest/images'));
     gulp.src(["dev/plugin_css/*.css"])
         .pipe(gulp.dest('dest/css'));
@@ -86,14 +86,14 @@ gulp.task('default', function () {
         }))
         .pipe(gulp.dest('dest'));
 
-    browserSync.init({
-        server: {
-            //根目錄
-            baseDir: "./dest",
-            // 瀏覽器上的首頁
-            index: "index.html"
-        }
-    });
+    // browserSync.init({
+    //     server: {
+    //         //根目錄
+    //         baseDir: "./dest",
+    //         // 瀏覽器上的首頁
+    //         index: "index.html"
+    //     }
+    // });
 
     gulp.watch(["dev/*.html", "dev/template/*.html"], ['template']).on('change', reload);
     gulp.watch(["dev/sass/*.scss", "dev/sass/*/*"], ['sass']).on('change', reload);

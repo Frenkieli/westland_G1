@@ -98,6 +98,7 @@
         tableTitle.innerText = this.innerText;
         clearTable();
         getProduct();
+       
         function getProduct() {
             let xhr = new XMLHttpRequest();
             xhr.onload = function () {
@@ -113,9 +114,10 @@
             xhr.send(null);
         }
         function showProduct(jsonStr) {
-            let products = JSON.parse(jsonStr);
+            let products = JSON.parse(jsonStr); 
+            console.log(products);
             fakeDate = new Array(products.length);
-            for (let i = 0; i < products.length; i++) {
+            for (let i = 0; i < products.indexOf('link'); i++) {
                 fakeDate[i] = new Array(products[i].product_no, products[i].product_name, products[i].product_image, products[i].product_status, products[i].product_price, products[i].product_ifo, products[i].product_style, products[i].product_sort, products[i].product_category, products[i].product_count);
             }
             dataType = [1, 3, 5, 2, 3, 4, 3, 3, 3, 3];
@@ -153,6 +155,41 @@
             fakeDate = new Array(members.length);
             for (let i = 0; i < members.length; i++) {
                 // console.log(members);
+                fakeDate[i] = new Array(members[i].member_no, members[i].member_id, members[i].member_name, members[i].member_email, members[i].member_tel, members[i].member_birth, members[i].member_money, members[i].using_ticket_no, members[i].member_status);
+            }
+            dataType = [1, 1, 1, 1, 1, 1, 1, 1, 2];
+            inputarray = [];
+            buttonValue = ['停權', '正常'];
+            updataBtn = 0;
+            deleteBtn = 0;
+            let tableHeader = document.createElement('tr');
+            tableHeader.innerHTML = "<th>會員編號</th><th>會員帳號</th><th>會員姓名</th><th>E-mail</th><th>電話</th><th>生日</th><th>購物金</th><th>正在使用的票號</th><th>會員狀態</th>";
+            tableTh.appendChild(tableHeader);
+            makeTable();
+        }
+    }
+    //訂單管理
+    function order(e) {
+        tableTitle.innerText = this.innerText;
+        clearTable();
+        getOrder();
+        function getOrder() {
+            let xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    showOrder(xhr.responseText);
+                } else {
+                    alert(xhr.status);
+                }
+            }
+            let url = "../php/getMember_JSON.php";
+            xhr.open('get', url, true);
+            xhr.send(null);
+        }
+        function showOrder(jsonStr) {
+            let members = JSON.parse(jsonStr);
+            fakeDate = new Array(members.length);
+            for (let i = 0; i < members.length; i++) {
                 fakeDate[i] = new Array(members[i].member_no, members[i].member_id, members[i].member_name, members[i].member_email, members[i].member_tel, members[i].member_birth, members[i].member_money, members[i].using_ticket_no, members[i].member_status);
             }
             dataType = [1, 1, 1, 1, 1, 1, 1, 1, 2];

@@ -10,7 +10,7 @@
         let winnerPeoples = document.querySelectorAll('.Podium_winner img:first-child');
         for (let i = 0; i < winnerPeoples.length; i++) {
             winnerPeoples[i].className = 'winnermove';
-            console.log('開始');
+            // console.log('開始');
         }
 
     }, 1200);
@@ -20,12 +20,13 @@
         let check = -1;
         for (let index = 0,i = 0; index < arr.length; index++) {
             if(check != arr[index][0]){
-                console.log(i,'++',arr[index][0]);
+                // console.log(i,'++',arr[index][0]);
                 document.querySelectorAll('.slider_img>img')[i].src = arr[index][1];
                 document.querySelectorAll('.slider_title')[i].innerHTML = arr[index][2];
-                document.querySelectorAll('.slider_star')[i].innerHTML += arr[index][7];
+                document.querySelectorAll('.slider_star')[i].innerHTML += arr[index][3];
                 document.querySelectorAll('.slider_score')[i].style.clipPath = ` polygon(0% 0% ,${arr[index][4] / arr[index][5] * 2}0% 0%,${arr[index][4] / arr[index][5] * 2}0% 100%,0% 100%)`;
-                document.querySelectorAll('.slider_member p')[i].innerHTML = arr[index][10];
+                document.querySelectorAll('.slider_member p')[i].innerHTML = arr[index][6];
+                document.querySelectorAll('.slider_memberimg img')[i].src = arr[index][7];
                 check = arr[index][0];
                 i++;
             }
@@ -64,7 +65,7 @@
     let facility_slider = document.getElementsByClassName('facility_slider')[0];
 
     document.getElementsByClassName('slider_container')[0].style.perspective = sliderWidth * 5 + "px";
-    console.log(sliderWidth, "====", sliderHeight);
+    // console.log(sliderWidth, "====", sliderHeight);
     $('.slider_container').polygon({
 
         // width of the cube slider

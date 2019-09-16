@@ -1,4 +1,34 @@
 
+let robot = document.getElementById('section_robot');
+document.getElementById('arrow_down').addEventListener('click', robotDown, false);
+robot.addEventListener('click', robotPhone, false);
+getRobot_text();
+console.log($(window).width());
+function robotPhone() {
+    let robot = document.getElementById('section_robot');
+    robot.removeEventListener('click', robotPhone, false);
+    if ($(window).width() < 767) {
+        robot.classList.add('robotPhone');
+        document.getElementById('arrow_down').className = 'arrow_down';
+    }
+
+}
+function robotDown(e) {
+    document.getElementById('arrow_down').className = '';
+    document.getElementById('section_robot').className = 'section_robot';
+    setTimeout(() => {
+        robot.addEventListener('click', robotPhone, false);
+        document.getElementById('arrow_down').addEventListener('click', robotDown, false);
+    }, 50);
+}
+
+
+
+
+
+
+
+
 /* 以下為本程式回答問題時使用的 Q&A 規則，例如對於以下 Q&A 規則物件
  
  { Q:"想 | 希望", A:"為何想*呢?|真的想*?|那就去做阿?為何不呢?"},
@@ -76,14 +106,13 @@ function showRobot_text(jsonStr) {
 };
 
 
-getRobot_text();
 
 function random(n) { // 從 0 到 n-1 中選一個亂數
     return Math.floor(Math.random() * n);
 }
 
 function say() { // 當送出鍵按下時，會呼叫這個函數進行回答動作
-    console.log(qaList,'最後三');
+    console.log(qaList, '最後三');
     dialogBox.innerHTML = '';
     append(document.getElementById("say").value); // 先將使用者輸入的問句放到「對話區」顯示。
     answer(document.getElementById("say").value); // 然後回答使用者的問題。
@@ -128,4 +157,4 @@ function getAnswer(value) {
         } catch (err) { }
     }
     return "然後呢？"; // 如果發生任何錯誤，就回答「然後呢？」來混過去。
-}   
+}
