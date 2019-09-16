@@ -34,7 +34,7 @@
         .nav_space{
             height: 127px;
         }
-        .navbar_cloud,.forcomputerdemo{
+        .shoppingCart_popup,.shoppingCart_popup_count,.navbar_cloud,.forcomputerdemo{
             display: none;
         }
         .navbar_burger{
@@ -275,6 +275,25 @@
             div{
                 vertical-align: middle;
             }
+        }
+        .shoppingCart_popup_count{
+            line-height: 1;
+            top: -13px;
+            right: -13px;
+            position: absolute;
+            border-radius:50%;
+            background: #5a7529;
+            width: 25px;
+            height: 25px; 
+            // position: relative;
+        }
+        .shoppingCart_popup_count_number{ 
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -60%);
+            color: #fff;
+            
         }
     }
 }
