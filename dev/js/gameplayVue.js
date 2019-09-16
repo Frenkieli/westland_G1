@@ -1,11 +1,14 @@
-localStorage['member_id'] = 'rty321';
+// delete localStorage['member_id'];
 localStorage['member_useticket'] = null;
+localStorage['member_id'] = 'rty321';
 
 let memTicket = [];
 
 getTicket();
 function getTicket() {
     let ticketsPick = localStorage['member_id'];
+    console.log(ticketsPick);
+
     //使用Ajax回server端去做登入的工作
     var xhr = new XMLHttpRequest();
     xhr.onload = function () {
@@ -26,6 +29,63 @@ function getTicket() {
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     var data_info = `mem_id=${ticketsPick}`;
     xhr.send(data_info);
+
+    if (ticketsPick) {
+        window.addEventListener('load', () => {
+            new Vue({
+                el: '.app',
+                data: {
+                    tickets: memTicket,
+                    mainticket: [],
+                },
+                methods: {
+                    onload() {
+                        if (memTicket[0][2]) {
+                            getUseTicket();
+                        }
+                    },
+                    change(e) {
+                        let check = confirm('真的要選擇第' + e.target.value + '張票嗎？');
+                        if (check) {
+                            // this.tickets[0][2] = '有';
+                            // console.log(this.tickets[0][2]);
+                            var xhr = new XMLHttpRequest();
+                            xhr.onload = function () {
+                                if (xhr.status == 200) {
+                                    //..................取回server端回傳的使用者資料
+                                    if (xhr.responseText.indexOf("sysError") != -1) {
+                                        alert("系統異常,請通知系統維護人員");
+                                    } else if (xhr.responseText.indexOf("沒有票喔") != -1) {
+                                        alert("沒有票喔！快去買票！立刻幫您跳轉！");
+                                        window.location.href = 'ticket.html';
+                                    } else {
+                                        localStorage['member_useticket'] = e.target.value;
+                                        document.getElementById('section_pick').remove();
+                                        setTicket(xhr.responseText);
+                                    }
+                                } else {
+                                    alert(xhr.status);
+                                }
+                            }
+                            xhr.open("post", "php/updatepickticket.php", true);
+                            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                            var data_info = `pickticket=${e.target.value}&member_no=${this.tickets[0][3]}`;
+                            xhr.send(data_info);
+                        }
+                    },
+                },
+                beforeMount() {
+                    this.onload();
+                },
+            });
+        }, false);
+
+    } else {
+        alert('沒有登入喔！立刻幫您跳轉！');
+        window.location.href = 'ticket.html';
+        return;
+
+    }
 }
 function showTicket(jsonStr) {
     let ticket = JSON.parse(jsonStr);
@@ -49,54 +109,6 @@ function showTicket(jsonStr) {
     // pushticket();
 };
 
-window.addEventListener('load', () => {
-    new Vue({
-        el: '.app',
-        data: {
-            tickets: memTicket,
-            mainticket: [],
-        },
-        methods: {
-            onload() {
-                if (memTicket[0][2]) {
-                    getUseTicket();
-                }
-            },
-            change(e) {
-                let check = confirm('真的要選擇第' + e.target.value + '張票嗎？');
-                if (check) {
-                    // this.tickets[0][2] = '有';
-                    // console.log(this.tickets[0][2]);
-                    var xhr = new XMLHttpRequest();
-                    xhr.onload = function () {
-                        if (xhr.status == 200) {
-                            //..................取回server端回傳的使用者資料
-                            if (xhr.responseText.indexOf("sysError") != -1) {
-                                alert("系統異常,請通知系統維護人員");
-                            } else if (xhr.responseText.indexOf("沒有票喔") != -1) {
-                                alert("沒有票喔！快去買票！");
-                            } else {
-                                localStorage['member_useticket'] = e.target.value;
-                                document.getElementById('section_pick').remove();
-                                setTicket(xhr.responseText);
-                            }
-                        } else {
-                            alert(xhr.status);
-                        }
-                    }
-                    xhr.open("post", "php/updatepickticket.php", true);
-                    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-                    var data_info = `pickticket=${e.target.value}&member_no=${this.tickets[0][3]}`;
-                    xhr.send(data_info);
-                }
-            },
-        },
-        beforeMount() {
-            this.onload();
-        },
-    });
-}, false);
-
 // 設定使用的門票
 function getUseTicket() {
     // this.tickets[0][2] = '有';
@@ -111,6 +123,7 @@ function getUseTicket() {
                 alert("帳密錯誤");
             } else {
                 setTicket(xhr.responseText);
+                console.log(xhr.responseText);
             }
         } else {
             alert(xhr.status);
@@ -118,7 +131,7 @@ function getUseTicket() {
     }
     xhr.open("post", "php/getuseticket.php", true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    var data_info = `pickticket=${memTicket[0][2]}`;
+    var data_info = `pickticket=${localStorage['member_useticket']}`;
     xhr.send(data_info);
 }
 
@@ -126,7 +139,7 @@ function getUseTicket() {
 // 設定門票
 function setTicket(jsonStr) {
     let ticket = JSON.parse(jsonStr);
-    console.log(ticket);
+    console.log(ticket.mission_no, localStorage['member_useticket'], '0000');
     document.querySelector('.ticket_name p').innerHTML = ticket.member_name;
     document.querySelector('.ticket_img img').src = ticket.image_source;
     document.querySelector('.ticket_team p').innerHTML = ticket.team_name;
@@ -147,7 +160,7 @@ function setTicketmisiion(missionNum, mission_no) {
         if (xhr.status == 200) {
             //..................取回server端回傳的使用者資料
             if (xhr.responseText.indexOf("sysError") != -1) {
-                alert("系統異常,請通知系統維護人員");
+                alert("獲取任務異常,請通知系統維護人員");
             } else if (xhr.responseText.indexOf("loginError") != -1) {
                 alert("帳密錯誤");
             } else {
@@ -166,12 +179,62 @@ function setTicketmisiion(missionNum, mission_no) {
     xhr.open("post", "php/getusetitcketmission.php", true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     if (missionNum) {
-        var data_info = `mission_no=0&titket=${memTicket[0][2]}`;
-        // console.log('這邊嗎？');
+        var data_info = `mission_no=0&titket=${localStorage['member_useticket']}`;
+        console.log('這邊嗎？');
     } else {
-        var data_info = `mission_no=${mission_no}&titket=${memTicket[0][2]}`;
-        // console.log(mission_no, '這是什麼');
+        var data_info = `mission_no=${mission_no}&titket=${localStorage['member_useticket']}`;
+        console.log(mission_no, '這是什麼');
     }
     xhr.send(data_info);
+}
 
+
+//下方為處理登入後資料部分
+
+let demo_scaninner = document.querySelectorAll('.demo_scaninner .btn');
+for (let i = 0; i < demo_scaninner.length; i++) {
+    demo_scaninner[i].addEventListener('click', addPoints, false);
+}
+
+function addPoints(e) {
+    console.log($(this).prev().prev().text());
+    switch ($(this).prev().prev().text()) {
+        case '商店':
+            console.log('redeem_product_status');
+            break;
+        case '滑水道':
+                console.log('waterslide');
+
+            break;
+        case '旋轉椅':
+                console.log('swivel_chair');
+
+            break;
+        case '海盜船':
+                console.log('pirate_ship');
+
+            break;
+        case '入口':
+                console.log('entrance_status');
+
+            break;
+        case '雲霄飛車':
+                console.log('roller_coaster');
+
+            break;
+        case '旋轉木馬':
+                console.log('carousel');
+
+            break;
+        case '摩天輪':
+                console.log('ferris_wheel');
+
+            break;
+        case '出口':
+                console.log('exit_status');
+
+            break;
+        default:
+            break;
+    }
 }

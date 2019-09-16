@@ -1,6 +1,7 @@
 // <!-- 產生QRcode -->
 $(document).ready(function () {
-    let array = ['redeem_product_status', 'waterslide', 'swivel_chair', 'pirate_ship', 'entrance_status', 'roller_coaster', 'carousel', 'ferris_wheel', 'exit_status'];
+    let array = ['商店', '滑水道', '旋轉椅', '海盜船', '入口', '雲霄飛車', '旋轉木馬', '摩天輪', '出口'];
+    
     for (let i = 0; i < 9; i++) {
         theURL = array[i];
         // qrcodes[i].text(array[i]);
@@ -32,6 +33,7 @@ scanner.addListener('scan', function (content) {
     console.log(content);
     scanner.stop();
     document.querySelector(".section_camera").style.display = "none";
+    addPoints(content);
 });
 //開始偵聽掃描事件，若有偵聽到印出內容。
 
