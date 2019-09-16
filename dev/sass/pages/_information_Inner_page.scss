@@ -76,16 +76,6 @@
             left: 0;
             background: rgba(0, 0, 0, .5);
             z-index: 5;
-            textarea{
-                height: 50%;
-                width: 50%;
-                position: absolute;
-                top: 0;
-                right: 0;
-                bottom: 0;
-                left: 0;
-                margin: auto;
-            }
             .reportMessage{
                 width: 30%;
                 height: 45%;
@@ -98,14 +88,32 @@
                 background-color:rgba(207, 248, 198, 0.918);
                 border-radius: 15px;
                 font-family: 'Noto Sans TC', sans-serif;
+                textarea{
+                    height: 50%;
+                    width: 50%;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    margin: auto;
+                }
                 h3{
                     text-align: center;
                     padding: 20px;
                 }
+                .toReport{
+                    position: absolute;
+                    bottom: 10%;
+                    right: 0;
+                    left: 0;
+                    margin: auto;
+                    @include btn();
+                }
                 .fork{
                     z-index: 10;
                     top: 4%;
-                    right: 1.5%;
+                    right: 2%;
                     position: absolute;
                     width: 15px;
                     height: 5px;
