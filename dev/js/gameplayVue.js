@@ -1,12 +1,9 @@
-// delete localStorage['member_id'];
 localStorage['member_useticket'] = null;
-localStorage['member_id'] = 'rty321';
-
 let memTicket = [];
 
 getTicket();
 function getTicket() {
-    let ticketsPick = localStorage['member_id'];
+    let ticketsPick = sessionStorage['member_no'];
     console.log(ticketsPick);
 
     //使用Ajax回server端去做登入的工作
@@ -27,7 +24,7 @@ function getTicket() {
     }
     xhr.open("post", "php/getMemberticket_JSON.php", true);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    var data_info = `mem_id=${ticketsPick}`;
+    var data_info = `mem_no=${ticketsPick}`;
     xhr.send(data_info);
 
     if (ticketsPick) {

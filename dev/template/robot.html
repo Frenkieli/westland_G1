@@ -4,11 +4,11 @@
             >> 您好，我的朋友! 有心事嗎 ?<BR />
         </div>
         <style>
-        .asjdadoasjdo{
-            transform: translateX(50%);
-            border-top: 10px solid transparent;
-            position: absolute;
-        }
+            .asjdadoasjdo {
+                transform: translateX(50%);
+                border-top: 10px solid transparent;
+                position: absolute;
+            }
         </style>
         <div class="robot_enter">
             請輸入問題：
@@ -40,10 +40,14 @@
     </div>
 </section>
 
-    @@loop('jslink.html',[
-        {"jslink" : "js/robot.js"},
-        {"jslink" : "js/question.js"}
-    ])
+@@loop('jslink.html',[
+{"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"}
+])
+
+@@loop('jslink.html',[
+{"jslink" : "js/robot.js"},
+{"jslink" : "js/question.js"}
+])
 
 <script type="text/javascript">
 </script>
