@@ -55,43 +55,37 @@ function showopa(e){
 //放大樣式
 function plusitem(){
     let opabox = document.getElementById("customize_opabox");
-    let width = parseInt(window.getComputedStyle(opabox).width);
-    if(width >= 240){
-        width = 240;
+    itemscale+=0.15;
+    if(itemscale>=2.5){
+        itemscale=2.5;
     }else{
-        widthnow = width + 10 +"px";
-        opabox.style.width = widthnow;
+        opabox.style.transform = "scale(" + itemscale + ")rotate("+itemdeg+"deg)";
     }
-    console.log(widthnow); 
 };
 
 //縮小樣式
 function minusitem(){
     let opabox = document.getElementById("customize_opabox");
-    let width = parseInt(window.getComputedStyle(opabox).width);
-    // let width = parseInt(opabox.style.width);  //只能抓到寫在inline-style的
-    console.log(width);
-    if(width <= 50){
-        width = 50;
+    itemscale-=0.15;
+    if(itemscale<=0.5){
+        itemscale=0.5;
     }else{
-        widthnow = width - 10 +"px";
-        opabox.style.width = widthnow;
+        opabox.style.transform = "scale(" + itemscale + ")rotate("+itemdeg+"deg)";
     }
-    console.log(widthnow); 
 };
 
 // 樣式向右轉
 function rightitem(){
     let opabox = document.getElementById("customize_opabox");
     itemdeg+=10;
-    opabox.style.transform = "rotate("+itemdeg+"deg)";
+    opabox.style.transform = "scale(" + itemscale + ")rotate("+itemdeg+"deg)";
 }
 
 // 樣式向左轉
 function leftitem(){
     let opabox = document.getElementById("customize_opabox");
     itemdeg-=10;
-    opabox.style.transform = "rotate("+itemdeg+"deg)";
+    opabox.style.transform = "scale(" + itemscale + ")rotate("+itemdeg+"deg)";
 }
 
 //刪除樣式
@@ -99,6 +93,9 @@ function trashitem(){
     let opabox = document.getElementById("customize_opabox");
     let child = opabox.firstElementChild;
     opabox.removeChild(child);
+    itemdeg=0;
+    itemscale=1;
+    opabox.style.transform = "scale(" + itemscale + ")rotate("+itemdeg+"deg)";
 };
 
 //更換賞單圖片
@@ -114,8 +111,82 @@ function changepic(){
     });
 }
 
+//確認存圖
+function confirm(){
+    //宣告canvas
+    let canvasarea = document.getElementById("canvastopng").getContext("2d");
+
+    let img = new Image();
+    let img2 = new Image();
+
+    //抓box位置customize_mascot
+    let customizeHeight = document.getElementById("savetocanvas").offsetHeight;
+    let customizeWidth = document.getElementById("savetocanvas").offsetWidth;
+    console.log(customizeWidth,customizeHeight);
+
+    //抓opabox位置
+    let opaboxHeight = document.getElementById("customize_opabox").offsetHeight;
+    let opaboxWidth = document.getElementById("customize_opabox").offsetWidth;
+    let opaboxTop = document.getElementById("customize_opabox").offsetTop;
+    let opaboxLeft = document.getElementById("customize_opabox").offsetLeft;
+    console.log(opaboxWidth,opaboxHeight,opaboxTop,opaboxLeft);
+
+    //計算縮放比
+    let boxscale = itemscale;
+    let boxdeg = itemdeg;
+    let opaboxDeg = boxdeg * Math.PI / 180;
+
+    let Heightrule = opaboxHeight/customizeHeight*233*boxscale;
+    let Widthrule = opaboxWidth/customizeWidth*280*boxscale;
+    console.log(Heightrule,Widthrule);
+    
+    let Toprule = (opaboxTop+(opaboxHeight/2))*(233/customizeHeight)-(Heightrule/2);
+    let Leftrule = (opaboxLeft+(opaboxWidth/2))*(233/customizeWidth)-(Widthrule/2)+25;
+    console.log(Toprule,Leftrule);
+
+    canvasarea.clearRect(0,0,280,233);  //清除舊圖
+
+    img.src = document.getElementById("big").src;
+    img2.src = document.getElementById("customize_opabox").firstElementChild.src;
+    
+    let imgsrcStr = "";
+    imgsrcStr+=img.src;
+
+    if(img.src.indexOf("role4")!=-1 || img.src.indexOf("role5")!=-1){
+        canvasarea.drawImage(img,80,13,130,197);
+        canvasarea.translate((Leftrule+Widthrule/2),(Toprule+Heightrule/2));
+        canvasarea.rotate(opaboxDeg);
+        canvasarea.drawImage(img2,-Widthrule/2+5,-Heightrule/2-18,Widthrule,Heightrule);
+        canvasarea.rotate(-opaboxDeg);
+        canvasarea.translate(-(Leftrule+Widthrule/2),-(Toprule+Heightrule/2));
+    }else if(img.src.indexOf("role2")!=-1){
+        // alert("AA");
+        canvasarea.drawImage(img,20,33,220,147);
+        canvasarea.translate((Leftrule+Widthrule/2),(Toprule+Heightrule/2));
+        canvasarea.rotate(opaboxDeg);
+        canvasarea.drawImage(img2,-Widthrule/2-15,-Heightrule/2-15,Widthrule,Heightrule);
+        canvasarea.rotate(-opaboxDeg);
+        canvasarea.translate(-(Leftrule+Widthrule/2),-(Toprule+Heightrule/2));
+    }else{
+        canvasarea.drawImage(img,40,33,200,167);
+        canvasarea.translate((Leftrule+Widthrule/2),(Toprule+Heightrule/2));
+        canvasarea.rotate(opaboxDeg);
+        canvasarea.drawImage(img2,-Widthrule/2,-Heightrule/2,Widthrule,Heightrule);
+        canvasarea.rotate(-opaboxDeg);
+        canvasarea.translate(-(Leftrule+Widthrule/2),-(Toprule+Heightrule/2));
+    }
+}
+
+
+
+
+
 
 function init(){
+    //樣式角度
+    itemdeg=0;
+    itemscale=1;
+
     //客製化樣式撈資料
     let xhr = new XMLHttpRequest();
     xhr.onload = function () {
@@ -202,8 +273,6 @@ function init(){
     // 縮小樣式鈕
     let minus = document.getElementById("opabox_minus");
     minus.addEventListener("click",minusitem);
-    //原始角度0
-    itemdeg = 0;
     // 選轉向右式鈕
     let turnright = document.getElementById("opabox_right");
     turnright.addEventListener("click",rightitem);
@@ -217,6 +286,11 @@ function init(){
     //更換賞單圖片
     let uploadpic = document.getElementById("uploadpic");
     uploadpic.addEventListener("change",changepic);
+
+    // 確認客製化
+    let customize_confirm = document.getElementById("customize_confirm");
+    customize_confirm.addEventListener("click",confirm);
+
 }
 
 //拖拉樣式位置
