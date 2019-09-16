@@ -2,7 +2,6 @@
     <div class="navbar_cloud">
         <img src="images/navBar/cloud_2.png" alt="雲朵">
     </div>
-<<<<<<< HEAD
 
     <div class="navbar_container">
         <input type="checkbox" name="navbar_buttom-check" id="navbar_buttom-check">
@@ -27,70 +26,13 @@
                         class="navbar_shoppingCart_popup navbar_memicon" src="images/navBar/shopcar_0.png"
                         alt="購物車icon"></a>
                 <div id="itemlist" class="shoppingCart_popup" style="display: none">
-                    <!-- <div class="popup_item_title">
-                            <div class="col-4 pt-10 pb-10">圖片</div>
-                            <div class="col-8 pt-10 pb-10">名稱</div>
-                        </div> -->
-                    <!-- <div class="cart_popup_item">
-                            <div class="col-4 pt-10 pb-10">
-                                <p>
-                                    <img src="images/products/product_list/pd_b-13.png" alt="商品圖">
-                                </p>
-                            </div>
-                            <div class="col-8 pt-10 pb-10">
-                                <p>紅色仙人掌包包</p>
-                            </div>
-                        </div> -->
                 </div>
                 <div id="shoppingCart_popup_count" class="shoppingCart_popup_count" style="display:none">
                     <span id="shoppingCart_popup_count_number" class="shoppingCart_popup_count_number"></span>
                 </div>
             </div>
             <!-- -----------------購物車彈跳品項end----------------- -->
-            <a href="#"><img class="navbar_memicon" src="images/navBar/member.png" alt="會員"></a>
-=======
-
-    <div class="navbar_container">
-        <input type="checkbox" name="navbar_buttom-check" id="navbar_buttom-check">
-        <label class="navbar_burger" for="navbar_buttom-check"><span></span></label>
-        <a href="index.html"><img id="logo" src="images/navBar/logo.svg" alt="logo"></a>
-        <nav class="navbar_container_list">
-            <ul>
-                <li><a class="gameplay_nav" href="gameplay.html">遊玩設施</a></li>
-                <li><a class="team_nav" href="team.html">做伙揪團</a></li>
-                <li><a class="ticket_nav" href="ticket.html">線上購票</a></li>
-                <li><a class="items_nav" href="items.html">周邊商品</a></li>
-                <li><a class="activity_nav" href="activity.html">活動專區</a></li>
-                <li><a class="information_nav" href="information.html">園區資訊</a></li>
-            </ul>
-            <img class="phone_cloud" src="images/navBar/phonecloud.png" alt="雲朵">
-        </nav>
-
-        <div class="navbar_icons navbar_icons-table">
-            <!-- ---------------購物車彈跳品項start--------------- -->
-            <div id="navbar_shoppingCart_popup_wrap" class="navbar_shoppingCart_popup_wrap">
-                <a href="shoppingCart.html"><img class="navbar_shoppingCart_popup navbar_memicon"
-                        src="images/navBar/shopcar.png" alt="購物車"></a>
-                <div class="shoppingCart_popup">
-                    <div class="popup_item_title">
-                        <div class="col-4 pt-10 pb-10">圖片</div>
-                        <div class="col-8 pt-10 pb-10">名稱</div>
-                    </div>
-                    <div class="cart_popup_item">
-                        <div class="col-4 pt-10 pb-10">
-                            <p>
-                                <img src="images/products/product_list/pd_b-13.png" alt="商品圖">
-                            </p>
-                        </div>
-                        <div class="col-8 pt-10 pb-10">
-                            <p>紅色仙人掌包包</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- -----------------購物車彈跳品項end----------------- -->
             <a href="#"><img class="navbar_memicon" id="navbar_loginicon" src="images/navBar/member.png" alt="會員"></a>
->>>>>>> c4669528fa5e3ca0811f6c7d5e04059034f5177b
         </div>
     </div>
 </div>
@@ -120,11 +62,7 @@
             <a href="#" class="login_forget" id="login_forget">忘記密碼</a>
             <br>
             <!-- 登入按鈕 -->
-<<<<<<< HEAD
-            <a href="memberLocation.html" class="btn" id="login_button">登入</a>
-=======
             <a href="#" class="btn" id="login_button">登入</a>
->>>>>>> c4669528fa5e3ca0811f6c7d5e04059034f5177b
             <!-- 立即註冊 -->
             <div class="smalltext">
                 <span>還不是會員?</span>
@@ -139,8 +77,6 @@
         </div>
 
     </div>
-<<<<<<< HEAD
-=======
 
 </section>
 
@@ -223,37 +159,7 @@
             }
         });
     }
-
->>>>>>> c4669528fa5e3ca0811f6c7d5e04059034f5177b
-
-</section>
-
-
-<!-- ---------------------------------------- -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script>
-    $(document).ready(function () {
-        //按了會員登入icon
-        $('.navbar_memicon').click(function () {
-            $('#lightBox').css('display', 'block');
-        });
-        //按了取消按鈕
-        $('.login_cancel img').click(function () {
-            $('#lightBox').css('display', 'none');
-        });
-    });    
 </script>
-<!-- ---------------------------------------- -->
-<!-- -----------加入購物車click事件後，動態新增數量start-------- -->
-<script>
-
-
-        // function init(){
-        //     document.getElementsByClassName("addButton").onclick=changCartIcon;
-        // }
-        // window.addEventListener("load",init,false);
-</script>
-<!-- -----------加入購物車click事件後，動態新增數量end-------- -->
 <!-- -----------購物車動態新增start-------- -->
 <script>
     var storage = sessionStorage;
@@ -314,7 +220,6 @@
             newPCh2 = document.createElement('p');
             newPCh2.innerText = itemInfo.split('|')[0];
 
-<<<<<<< HEAD
             // 將table放進section，再將section放進cartList裡
             newPCh1.appendChild(newImg1);
             newDivCh1.appendChild(newPCh1);
@@ -324,20 +229,20 @@
             document.getElementById("itemlist").appendChild(newDivfa);
         }
         changCartIcon();
-        (function(){
-        console.log(123);
-        var tds = document.getElementById("navbar_shoppingCart_popup");
-        //tds.length  記錄元素的個素
+        (function () {
+            console.log(123);
+            var tds = document.getElementById("navbar_shoppingCart_popup");
+            //tds.length  記錄元素的個素
             tds.onmouseover = showCartPop;
             tds.onmouseout = normal;
-    })();
+        })();
     }
-    function showCartPop() { 
-        obj=document.getElementById('itemlist');
+    function showCartPop() {
+        obj = document.getElementById('itemlist');
         obj.style.display = "";
     }
     function normal() {
-        obj=document.getElementById('itemlist');
+        obj = document.getElementById('itemlist');
         obj.style.display = "none";
     }
     // window.addEventListener("load",function(){
@@ -349,6 +254,3 @@
     // },false)	
 </script>
 <!-- -----------購物車動態新增end-------- -->
-=======
-</script>
->>>>>>> c4669528fa5e3ca0811f6c7d5e04059034f5177b
