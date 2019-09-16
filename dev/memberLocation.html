@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    
+
 
     <!-- css -->
     @@loop('template/csslink.html',[
@@ -21,42 +21,42 @@
     <header class="header_navbar">
         @@include("template/header.html")
     </header>
-   <!-- ------會員中心部分------ -->
-   <section class="account">
-    <div class="infowrap">
-        <!-- ----------------選單部分--------------- -->
-        <div class="menulist tab-demo">
-            <!-- 選單部分 -->
-            <ul class="mymenu tab-title">
-                <li>
-                    <a href="#tab01"id="default_open" >我的資料</a>
-                </li>
-                <li>
-                    <a href="#tab02"id="default_open" >訂單紀錄</a>
-                </li>
-                <li>
-                    <a href="#tab03"id="default_open" >組隊紀錄</a>
-                </li>
-                <li>
-                    <a href="#tab04"id="default_open" >購票紀錄</a>
-                </li>
-                <li>
-                    <a href="#tab05"id="default_open" >評分與留言紀錄</a>
-                </li>
-                <li>
-                    <a href="javascript:void(0)"id="default_open" class="tablink">登出</a>
-                </li>   
-            </ul>   
-        </div>
-        <!-- -------------個人資訊部分--------------- -->
-        <div class="info_content tab-inner" id="tab01">
+    <!-- ------會員中心部分------ -->
+    <section class="account">
+        <div class="infowrap">
+            <!-- ----------------選單部分--------------- -->
+            <div class="menulist tab-demo">
+                <!-- 選單部分 -->
+                <ul class="mymenu tab-title">
+                    <li>
+                        <a href="#tab01" id="default_open">我的資料</a>
+                    </li>
+                    <li>
+                        <a href="#tab02" id="default_open">訂單紀錄</a>
+                    </li>
+                    <li>
+                        <a href="#tab03" id="default_open">組隊紀錄</a>
+                    </li>
+                    <li>
+                        <a href="#tab04" id="default_open">購票紀錄</a>
+                    </li>
+                    <li>
+                        <a href="#tab05" id="default_open">評分與留言紀錄</a>
+                    </li>
+                    <li>
+                        <a href="javascript:void(0)" id="default_open" class="tablink">登出</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- -------------個人資訊部分--------------- -->
+            <div class="info_content tab-inner" id="tab01">
                 <!-- 文字檔案部分 -->
-            <form id="content_form ">
-                <!-- 個人資料區 -->
-                <h3>我的資料</h3>
+                <form id="content_form ">
+                    <!-- 個人資料區 -->
+                    <h3>我的資料</h3>
                     <!-- 帳號 -->
                     <div class="content_item">
-                        <span>帳號</span>
+                        <span><帳號></span>
                         <span class="memid">56789</span>
                     </div>
                     <!-- 姓名 -->
@@ -95,54 +95,54 @@
                     <div class="content_item but_item">
                         <a class="btn dit_button" id="dit_button">修改資料</a>
                     </div>
-            </form>
-        </div>
-        <!-- -----------------訂單部分 ----------------->
-        <div id="tab02"class="order_content tab-inner" style="display: none" >
-            <div class="order_list" id="order_list">
-                <h3>我的訂單</h3>
-                <div class="order_item">
-                    <table>
-                        <tr>
-                            <td>訂單日期</td>
-                            <td>訂單編號</td>
-                            <td>訂單狀況</td>
-                            <td>訂單金額</td>
-                        </tr>
-                        <tr>
-                            <td>2019/08/23</td>
-                            <td>no123</td>
-                            <td>出貨中</td>
-                            <td>$2100</td>
-                        </tr>
-                    </table>
-                </div>
-             </div>
-        </div>
-            <!-- ---------購票部分 -------------------->
-        <div id="tab04"class="ticket_content tab-inner"style="display: none" >
-            <div class="ticket_list" id="ticket_list">
-                <h3>我的門票</h3>
-                <div class="ticket_item">
-                    <table>
-                        <tr>
-                            <td>購票日期</td>
-                            <td>門票編號</td>
-                            <td>門票狀況</td>
-                            <td>門票金額</td>
-                        </tr>
-                        <tr>
-                            <td>2019/08/23</td>
-                            <td>no123</td>
-                            <td>已使用</td>
-                            <td>$600</td>
-                        </tr>
-                    </table>
+                </form>
+            </div>
+            <!-- -----------------訂單部分 ----------------->
+            <div id="tab02" class="order_content tab-inner" style="display: none">
+                <div class="order_list" id="order_list">
+                    <h3>我的訂單</h3>
+                    <div class="order_item">
+                        <table>
+                            <tr>
+                                <td>訂單日期</td>
+                                <td>訂單編號</td>
+                                <td>訂單狀況</td>
+                                <td>訂單金額</td>
+                            </tr>
+                            <tr>
+                                <td>2019/08/23</td>
+                                <td>no123</td>
+                                <td>出貨中</td>
+                                <td>$2100</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- ---------組隊部分 ----(暫定)---------------->
-        <div id="tab03"class="team_content tab-inner" style="display: none">
+            <!-- ---------購票部分 -------------------->
+            <div id="tab04" class="ticket_content tab-inner" style="display: none">
+                <div class="ticket_list" id="ticket_list">
+                    <h3>我的門票</h3>
+                    <div class="ticket_item">
+                        <table>
+                            <tr>
+                                <td>購票日期</td>
+                                <td>門票編號</td>
+                                <td>門票狀況</td>
+                                <td>門票金額</td>
+                            </tr>
+                            <tr>
+                                <td>2019/08/23</td>
+                                <td>no123</td>
+                                <td>已使用</td>
+                                <td>$600</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- ---------組隊部分 ----(暫定)---------------->
+            <div id="tab03" class="team_content tab-inner" style="display: none">
                 <div class="team_list" id="team_list">
                     <h3>歷史紀錄</h3>
                     <div class="team_item">
@@ -163,30 +163,30 @@
                     </div>
                 </div>
             </div>
-        <!-- -------------評分/留言部分 ----------------->
-        <div id="tab05"class="evaluation_content tab-inner" style="display: none">
-            <div class="evaluation_list" id="evaluation_list">
-                <h3>我的評分</h3>
-                <div class="score_box">
+            <!-- -------------評分/留言部分 ----------------->
+            <div id="tab05" class="evaluation_content tab-inner" style="display: none">
+                <div class="evaluation_list" id="evaluation_list">
+                    <h3>我的評分</h3>
+                    <div class="score_box">
                         <!-- 第一則評分 -->
-                    <div class="score_item">
-                        <div class="equ_historypic">
-                            <span>海盜船</span>
-                            <!-- <img src="pic/member/equ01.png" alt="設施照片"> -->
-                        </div>
-                        <div class="equ_score">
-                            <span>評分</span>
-                            <span>3</span>
+                        <div class="score_item">
+                            <div class="equ_historypic">
+                                <span>海盜船</span>
+                                <!-- <img src="pic/member/equ01.png" alt="設施照片"> -->
+                            </div>
+                            <div class="equ_score">
+                                <span>評分</span>
+                                <span>3</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <h3>我的留言</h3>
-                <div class="message_box">
+                    <h3>我的留言</h3>
+                    <div class="message_box">
                         <!-- 第ㄧ則留言 -->
                         <div class="message_item">
                             <div class="message_pot">
                                 <div class="equ_historypic">
-                                        <!-- <img src="" alt="設施照片"> -->
+                                    <!-- <img src="" alt="設施照片"> -->
                                     <span>設施</span>
                                     <span>雲霄飛車</span>
                                 </div>
@@ -195,31 +195,35 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
                 </div>
             </div>
-         </div>
-    </div> 
-</section>
+        </div>
+    </section>
     <!-- <script src="js/memberTab.js"></script> -->
     @@include("template/footer.html")
 
     <!-- js -->
-     <script src="js/jquery-1.11.0.min.js"></script>  
-     <script>
-     // <!------ tab open page ----->
+    <script src="js/jquery-1.11.0.min.js"></script>
+    <script>
+        // <!------ tab open page ----->
 
-    $(function(){
-        var $li = $('ul.tab-title li');
-            $($li. eq(0) .addClass('active').find('a').attr('href')).siblings('.tab-inner').hide();
-        
-            $li.click(function(){
-                $($(this).find('a'). attr ('href')).show().siblings ('.tab-inner').hide();
-                $(this).addClass('active'). siblings ('.active').removeClass('active');
+        $(function () {
+            var $li = $('ul.tab-title li');
+            $($li.eq(0).addClass('active').find('a').attr('href')).siblings('.tab-inner').hide();
+
+            $li.click(function () {
+                $($(this).find('a').attr('href')).show().siblings('.tab-inner').hide();
+                $(this).addClass('active').siblings('.active').removeClass('active');
             });
+
+            $('#mem_name').val(sessionStorage.member_name);
+
+
         });
 // <!------ tab open page ----->
-     
-     </script>
+
+    </script>
     @@loop('template/jslink.html',[
     ])
 </body>

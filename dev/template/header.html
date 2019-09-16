@@ -1,106 +1,175 @@
-    <div class="navbar_fixed">
-        <div class="navbar_cloud">
-            <img src="images/navBar/cloud_2.png" alt="雲朵">
-        </div>
-    
-        <div class="navbar_container">
-            <input type="checkbox" name="navbar_buttom-check" id="navbar_buttom-check">
-            <label class="navbar_burger" for="navbar_buttom-check"><span></span></label>
-            <a href="index.html"><img id="logo" src="images/navBar/logo.svg" alt="logo"></a>
-            <nav class="navbar_container_list">
-                <ul>
-                    <li><a class="gameplay_nav" href="gameplay.html">遊玩設施</a></li>
-                    <li><a class="team_nav" href="team.html">做伙揪團</a></li>
-                    <li><a class="ticket_nav" href="ticket.html">線上購票</a></li>
-                    <li><a class="items_nav" href="items.html">周邊商品</a></li>
-                    <li><a class="activity_nav" href="activity.html">活動專區</a></li>
-                    <li><a class="information_nav" href="information.html">園區資訊</a></li>
-                </ul>
-                <img class="phone_cloud" src="images/navBar/phonecloud.png" alt="雲朵">
-            </nav>
+<div class="navbar_fixed">
+    <div class="navbar_cloud">
+        <img src="images/navBar/cloud_2.png" alt="雲朵">
+    </div>
 
-            <div class="navbar_icons navbar_icons-table">
-                <!-- ---------------購物車彈跳品項start--------------- -->
-                <div id="navbar_shoppingCart_popup_wrap" class="navbar_shoppingCart_popup_wrap">
-                    <a href="shoppingCart.html"><img class="navbar_shoppingCart_popup navbar_memicon" src="images/navBar/shopcar.png" alt="購物車"></a>
-                    <div class="shoppingCart_popup">
-                        <div class="popup_item_title">
-                            <div class="col-4 pt-10 pb-10">圖片</div>
-                            <div class="col-8 pt-10 pb-10">名稱</div>
+    <div class="navbar_container">
+        <input type="checkbox" name="navbar_buttom-check" id="navbar_buttom-check">
+        <label class="navbar_burger" for="navbar_buttom-check"><span></span></label>
+        <a href="index.html"><img id="logo" src="images/navBar/logo.svg" alt="logo"></a>
+        <nav class="navbar_container_list">
+            <ul>
+                <li><a class="gameplay_nav" href="gameplay.html">遊玩設施</a></li>
+                <li><a class="team_nav" href="team.html">做伙揪團</a></li>
+                <li><a class="ticket_nav" href="ticket.html">線上購票</a></li>
+                <li><a class="items_nav" href="items.html">周邊商品</a></li>
+                <li><a class="activity_nav" href="activity.html">活動專區</a></li>
+                <li><a class="information_nav" href="information.html">園區資訊</a></li>
+            </ul>
+            <img class="phone_cloud" src="images/navBar/phonecloud.png" alt="雲朵">
+        </nav>
+
+        <div class="navbar_icons navbar_icons-table">
+            <!-- ---------------購物車彈跳品項start--------------- -->
+            <div id="navbar_shoppingCart_popup_wrap" class="navbar_shoppingCart_popup_wrap">
+                <a href="shoppingCart.html"><img class="navbar_shoppingCart_popup navbar_memicon"
+                        src="images/navBar/shopcar.png" alt="購物車"></a>
+                <div class="shoppingCart_popup">
+                    <div class="popup_item_title">
+                        <div class="col-4 pt-10 pb-10">圖片</div>
+                        <div class="col-8 pt-10 pb-10">名稱</div>
+                    </div>
+                    <div class="cart_popup_item">
+                        <div class="col-4 pt-10 pb-10">
+                            <p>
+                                <img src="images/products/product_list/pd_b-13.png" alt="商品圖">
+                            </p>
                         </div>
-                        <div class="cart_popup_item">
-                            <div class="col-4 pt-10 pb-10">
-                                <p>
-                                    <img src="images/products/product_list/pd_b-13.png" alt="商品圖">
-                                </p></div>
-                            <div class="col-8 pt-10 pb-10">
-                                <p>紅色仙人掌包包</p></div>
+                        <div class="col-8 pt-10 pb-10">
+                            <p>紅色仙人掌包包</p>
                         </div>
                     </div>
                 </div>
-                <!-- -----------------購物車彈跳品項end----------------- -->
-                <a href="#"><img class="navbar_memicon" src="images/navBar/member.png" alt="會員"></a>
             </div>
+            <!-- -----------------購物車彈跳品項end----------------- -->
+            <a href="#"><img class="navbar_memicon" id="navbar_loginicon" src="images/navBar/member.png" alt="會員"></a>
         </div>
     </div>
-    <div class="nav_space"></div>
-      <!-- 1.貼了會員登入 -->
-       
-        <!-- -----------------會員登入------------------------ -->
-    <section id="lightBox">
-        <div id="loginTable">
-            <!-- 背景 -->
-            <!-- <img class="login_bg" src="pic/navBar/phonecloud.png" alt="登入的背景"> -->
-            <!-- 會員登入文字區域 -->
-            <div class="login_box">
-                <!-- 刪除按鈕 -->
-                <a href="#" class="login_cancel">
-                 <img src="images/member/login_camcel.png" alt="刪除鈕小icon">
-                </a>
-                <!-- 文字區     -->
-                <h3>會員登入</h3>
-                <!-- 帳號: -->
-                <input type="text" name="mem_id" id="mem_id" placeholder="帳號">
-                <br>
-                <!-- 密碼 -->
-                <input type="password" name="mem_psw" id="mem_psw" placeholder="密碼">
-                <br>
-                <!-- 忘記密碼 -->
-                <a href="#" class="login_forget" id="login_forget">忘記密碼</a>
-                <br>
-                <!-- 登入按鈕 -->
-                <a href="memberLocation.html" class="btn" id="login_button">登入</a>
-                <!-- 立即註冊 -->
-                <div class="smalltext">
-                    <span>還不是會員?</span>
-                    <a href="#" id="register">立即註冊</a>
-                    <br>
-                </div>
-                <!-- 快速註冊 -->
-                <div class="fasttext">
-                    <a href="#" id="register_fast">快速註冊</a>
-                    <br>
-                </div>
-            </div>
+</div>
+<div class="nav_space"></div>
+<!-- 1.貼了會員登入 -->
 
+<!-- -----------------會員登入------------------------ -->
+<section id="lightBox">
+    <div id="loginTable">
+        <!-- 背景 -->
+        <!-- <img class="login_bg" src="pic/navBar/phonecloud.png" alt="登入的背景"> -->
+        <!-- 會員登入文字區域 -->
+        <div class="login_box">
+            <!-- 刪除按鈕 -->
+            <a href="#" class="login_cancel">
+                <img src="images/member/login_camcel.png" alt="刪除鈕小icon">
+            </a>
+            <!-- 文字區     -->
+            <h3>會員登入</h3>
+            <!-- 帳號: -->
+            <input type="text" name="mem_id" id="mem_id" placeholder="帳號">
+            <br>
+            <!-- 密碼 -->
+            <input type="password" name="mem_psw" id="mem_psw" placeholder="密碼">
+            <br>
+            <!-- 忘記密碼 -->
+            <a href="#" class="login_forget" id="login_forget">忘記密碼</a>
+            <br>
+            <!-- 登入按鈕 -->
+            <a href="#" class="btn" id="login_button">登入</a>
+            <!-- 立即註冊 -->
+            <div class="smalltext">
+                <span>還不是會員?</span>
+                <a href="#" id="register">立即註冊</a>
+                <br>
+            </div>
+            <!-- 快速註冊 -->
+            <div class="fasttext">
+                <a href="#" id="register_fast">快速註冊</a>
+                <br>
+            </div>
         </div>
 
-    </section>
+    </div>
+
+</section>
 
 
-        <!-- ---------------------------------------- -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-        <script>
-        $(document).ready(function(){
-            //按了會員登入icon
-            $('.navbar_memicon').click(function(){
-                $('#lightBox').css('display','block');
-            });
-            //按了取消按鈕
-            $('.login_cancel img').click(function(){
-                $('#lightBox').css('display','none');
-            });
-        });    
-        </script>
-         <!-- ---------------------------------------- -->
-         
+<!-- ///////////////會員//////////////// -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script>  //使用jquery-Ajax//
+    $(document).ready(function () {
+        //====按會員登入icon====//..假使sessionStorage有member_name，就跳轉去會員中心頁面，否則就跳出登入燈箱
+        $('#navbar_loginicon').click(function () {
+            if (sessionStorage.member_name) {
+                window.location.href = "memberLocation.html";
+            } else {
+                $('#lightBox').css('display', 'block');
+            }
+        });
+        //====按取消按鈕====//  登入燈箱會消失
+        $('.login_cancel img').click(function () {
+            $('#lightBox').css('display', 'none');
+        });
+
+        ////////////////////////////////////////////////////////////////
+
+        $("#mem_id").change(function () {
+            checkId();
+        });
+        $("#mem_psw").change(function () {
+            checkPsw();
+        });
+        $("#login_button").click(function () {
+            loginmem2();
+        });
+    });
+
+    var nnn = /^[a-zA-Z0-9_-]{3,16}$/; //使用正規表達式
+    function checkId() { //檢查帳號 
+        if ($("#mem_id").val().search(nnn)) {
+            console.log('不可');
+        } else {
+            console.log('可');
+        }
+    }
+    function checkPsw() { //檢查密碼
+        if ($("#mem_psw").val().search(nnn)) {
+            console.log('不可');
+        } else {
+            console.log('可');
+        }
+    }
+    $("#mem_id").val();
+    $("#mem_psw").val();
+    //////////////////////////////////////////////////////////////
+    
+    //////////////////////////////////////////////////////////////
+    function loginmem2() {
+        $.ajax({
+            type: 'post',               //post/get 傳送方式
+            url: "php/getLogin.php",    //url位置
+            data: { member_id: $("#mem_id").val(), member_psw: $("#mem_psw").val() }, //輸入的資料
+            success: function (data2) { //成功之後要執行的函數------> data2:從後端撈起的資料
+                console.log(data2) 
+                let userData = JSON.parse(data2);
+                console.log(userData)
+                $.each(userData[0], function (index, value) {
+                    
+                    if(index == 'member_id' || index == 'member_psw'){
+                        return;
+                    }else{
+                        sessionStorage.setItem(index, value); // 將資料存在sessionStorage
+                    }
+                    console.log(value)
+                });
+                $('#lightBox').css('display', 'none'); //成功之後...>燈箱關掉
+                console.log('sessionStorage: ' + sessionStorage.member_id)
+            }, error: function (XMLHttpRequest, textStatus) { //錯誤的話要執行的函數
+                console.log(XMLHttpRequest);  //XMLHttpRequest.responseText    XMLHttpRequest.status   XMLHttpRequest.readyState
+                console.log(textStatus);
+            }
+        });
+    }
+
+
+
+</script>
