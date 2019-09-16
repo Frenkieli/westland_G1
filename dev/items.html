@@ -155,14 +155,14 @@
                             </div>
                             <div class="gray_linear_gradient center">
                                 <div class="sort_same_item_img center">
-                                    <img src="images/products/product_list/pd_b-01.png" alt="商品圖片">
+                                    <img src="" alt="商品圖片">
                                 </div>
-                                <p class="sort_same_item_title text_align_c">紅色仙人掌包包</p>
-                                <p class="sort_same_item_price text_align_c">NT.450</p>
+                                <p class="sort_same_item_title text_align_c"></p>
+                                <p class="sort_same_item_price text_align_c"></p>
                             </div>
                         </a>
-                        <span id="pd-1" class="btn m-b m-a addButton">加入購物車
-                            <input type="hidden" value="cactusRedPillow|pd_b-37.png|400">
+                        <span id="" class="btn m-b m-a addButton">加入購物車
+                            <input type="hidden" value="">
                         </span>
                     </div>
                 </div>
@@ -175,15 +175,14 @@
                             </div>
                             <div class="gray_linear_gradient center">
                                 <div class="sort_same_item_img center">
-                                    <img src="images/products/product_list/pd_b-13.png" alt="商品圖片">
+                                    <img src="" alt="商品圖片">
                                 </div>
-                                <p class="sort_same_item_title text_align_c">紅色仙人掌衣服</p>
-                                <p class="sort_same_item_price text_align_c">NT.450</p>
+                                <p class="sort_same_item_title text_align_c"></p>
+                                <p class="sort_same_item_price text_align_c"></p>
 
                             </div>
                         </a>
-                        <span id="pd_b-01" class="btn m-b m-a addButton">加入購物車<input type="hidden"
-                                value="cactusRedPillow|pd_b-37.png|400"></span>
+                        <span id="" class="btn m-b m-a addButton">加入購物車<input type="hidden" value=""></span>
 
 
                     </div>
@@ -197,15 +196,14 @@
                             </div>
                             <div class="gray_linear_gradient center">
                                 <div class="sort_same_item_img center">
-                                    <img src="images/products/product_list/pd_b-33.png" alt="商品圖片">
+                                    <img src="" alt="商品圖片">
                                 </div>
-                                <p class="sort_same_item_title text_align_c">紅色仙人掌馬克杯</p>
-                                <p class="sort_same_item_price text_align_c">NT.450</p>
+                                <p class="sort_same_item_title text_align_c"></p>
+                                <p class="sort_same_item_price text_align_c"></p>
 
                             </div>
                         </a>
-                        <span id="pd_b-01" class="btn m-b m-a addButton">加入購物車<input type="hidden"
-                                value="cactusRedPillow|pd_b-37.png|400"></span>
+                        <span id="" class="btn m-b m-a addButton">加入購物車<input type="hidden" value=""></span>
 
 
                     </div>
@@ -219,25 +217,28 @@
                             </div>
                             <div class="gray_linear_gradient center">
                                 <div class="sort_same_item_img center">
-                                    <img src="images/products/product_list/pd_b-37.png" alt="商品圖片">
+                                    <img src="" alt="商品圖片">
                                 </div>
-                                <p class="sort_same_item_title text_align_c">紅色色仙人掌枕頭</p>
-                                <p class="sort_same_item_price text_align_c">NT.450</p>
+                                <p class="sort_same_item_title text_align_c"></p>
+                                <p class="sort_same_item_price text_align_c"></p>
 
                             </div>
                         </a>
-                        <span id="pd_b-01" class="btn m-b m-a addButton">加入購物車<input type="hidden"
-                                value="cactusRedPillow|pd_b-37.png|400"></span>
+                        <span id="" class="btn m-b m-a addButton">加入購物車<input type="hidden" value=""></span>
 
                     </div>
                 </div>
                 <!-- <div class="sort_same owl-carousel owl-theme" style="padding-top: 350px;"> -->
+                <!--包包商品區塊-->
                 <div class="shop-tab-inner">
                 </div>
+                <!--衣服商品區塊-->
                 <div class="shop-tab-inner">
                 </div>
+                <!--馬克杯商品區塊-->
                 <div class="shop-tab-inner">
                 </div>
+                <!--枕頭商品區塊-->
                 <div class="shop-tab-inner">
                 </div>
 
@@ -434,8 +435,8 @@
                 // console.log(products);
                 if (filterArray_style.length == 0 && filterArray_sort.length == 0 && filterArray_category.length == 0) {
                     for (let i = 0; i < products.length; i++) {
-                            if (products[i])
-                                filterProducts.push(products[i]);
+                        if (products[i])
+                            filterProducts.push(products[i]);
                     }
                 }
                 //只有顏色被篩選
@@ -563,33 +564,40 @@
         }
         function showProduct(products) {
             // console.log(products);
+            //清空4個slider區塊
             for (let i = 0; i < 4; i++) {
                 document.querySelectorAll('.shop-tab-inner')[i].innerHTML = '';
             }
+            //產生包包、衣服、馬克杯、枕頭的slider<DIV>
             let newDivBag = document.createElement('div');
             let newDivClothes = document.createElement('div');
             let newDivMug = document.createElement('div');
             let newDivPillow = document.createElement('div');
+            //slider<DIV>加入貓頭鷹的class
             newDivBag.classList.add('sort_same', 'owl-carousel', 'owl-theme');
             newDivClothes.classList.add('sort_same', 'owl-carousel', 'owl-theme');
             newDivMug.classList.add('sort_same', 'owl-carousel', 'owl-theme');
             newDivPillow.classList.add('sort_same', 'owl-carousel', 'owl-theme');
+            //抓到所有樣板的參考
             let arrowLeft = document.getElementById('arrowLeft').children[0];
             let arrowRight = document.getElementById('arrowRight').children[0];
             let objCactus = document.getElementById('objCactus').children[0];
             let objDinosaur = document.getElementById('objDinosaur').children[0];
             let objEagle = document.getElementById('objEagle').children[0];
             let objHorse = document.getElementById('objHorse').children[0];
+            //宣告clone箭頭的存放的陣列
             let cloneArrowLeft = [];
             let cloneArrowRight = [];
+            //把clone的箭頭存放到陣列中
             for (let i = 0; i < 4; i++) {
                 cloneArrowLeft[i] = arrowLeft.cloneNode(true);
                 cloneArrowRight[i] = arrowRight.cloneNode(true);
             }
-            products.forEach(function (element, i) {
-                // console.log(element,i);
 
-                let category = products[i].product_category;
+            products.forEach(function (element, i) {
+                //判斷商品種類
+                let category = element.product_category;
+                // let category = products[i].product_category;
                 switch (category) {
                     case "包包":
                         let cloneobjCactus = objCactus.cloneNode(true);
@@ -605,6 +613,8 @@
                         cloneobjDinosaur.firstElementChild.children[1].children[0].firstElementChild.src = products[i].product_image;
                         cloneobjDinosaur.firstElementChild.children[1].children[1].innerText = products[i].product_name;
                         cloneobjDinosaur.firstElementChild.children[1].children[2].innerText = "NT." + products[i].product_price;
+                        cloneobjDinosaur.lastElementChild.children[0].value = products[i].product_name + "|" + products[i].product_image + "|" + products[i].product_price;
+                        cloneobjDinosaur.lastElementChild.id = "pd-" + products[i].product_no;
                         newDivClothes.appendChild(cloneobjDinosaur);
                         break;
                     case "馬克杯":
@@ -612,6 +622,8 @@
                         cloneobjEagle.firstElementChild.children[1].children[0].firstElementChild.src = products[i].product_image;
                         cloneobjEagle.firstElementChild.children[1].children[1].innerText = products[i].product_name;
                         cloneobjEagle.firstElementChild.children[1].children[2].innerText = "NT." + products[i].product_price;
+                        cloneobjEagle.lastElementChild.children[0].value = products[i].product_name + "|" + products[i].product_image + "|" + products[i].product_price;
+                        cloneobjEagle.lastElementChild.id = "pd-" + products[i].product_no;
                         newDivMug.appendChild(cloneobjEagle);
                         break;
                     case "枕頭":
@@ -619,6 +631,8 @@
                         cloneobjHorse.firstElementChild.children[1].children[0].firstElementChild.src = products[i].product_image;
                         cloneobjHorse.firstElementChild.children[1].children[1].innerText = products[i].product_name;
                         cloneobjHorse.firstElementChild.children[1].children[2].innerText = "NT." + products[i].product_price;
+                        cloneobjHorse.lastElementChild.children[0].value = products[i].product_name + "|" + products[i].product_image + "|" + products[i].product_price;
+                        cloneobjHorse.lastElementChild.id = "pd-" + products[i].product_no;
                         newDivPillow.appendChild(cloneobjHorse);
                         break;
                     default:
@@ -642,6 +656,72 @@
                 // console.log(document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount);
                 if (document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount == 0)
                     document.querySelectorAll('.shop-tab-inner')[i].innerHTML = '';
+            }
+
+            let resizeTimer = true;
+            //箭頭 出現/消失 控制 resize
+            window.addEventListener('resize', function () {
+                if (resizeTimer) {
+                    clearTimeout(resizeTimer);
+                    resizeTimer = setTimeout(function () {
+                        // console.log("視窗發生改變了喲！",document.body.clientWidth);
+                        //手機大小
+                        if (document.body.clientWidth <= 767) {
+                            // console.log(document.body.clientWidth);
+                            for (let i = 0; i < 4; i++) {
+                                if (document.querySelectorAll('.shop-tab-inner')[i].childElementCount != 0 && document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount == 1) {
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "none";
+                                }
+                                else if (document.querySelectorAll('.shop-tab-inner')[i].childElementCount != 0 && document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount > 1) {
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "";
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "";
+                                }
+                            }
+                        }
+                        //桌機大小
+                        else {
+                            // console.log(document.body.clientWidth);
+                            for (let i = 0; i < 4; i++) {
+                                if (document.querySelectorAll('.shop-tab-inner')[i].childElementCount != 0 && document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount <= 3) {
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "none";
+                                }
+                                else if (document.querySelectorAll('.shop-tab-inner')[i].childElementCount != 0 && document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount > 3) {
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "";
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "";
+                                }
+                            }
+                        }
+                    }, 500);
+                }
+            }
+                , false);
+            //手機大小
+            if (document.body.clientWidth <= 767) {
+                for (let i = 0; i < 4; i++) {
+                    if (document.querySelectorAll('.shop-tab-inner')[i].childElementCount != 0 && document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount == 1) {
+                        document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
+                        document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "none";
+                    }
+                    else if (document.querySelectorAll('.shop-tab-inner')[i].childElementCount != 0 && document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount > 1) {
+                        document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "";
+                        document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "";
+                    }
+                }
+            }
+            //桌機大小
+            else {
+                for (let i = 0; i < 4; i++) {
+                    if (document.querySelectorAll('.shop-tab-inner')[i].childElementCount != 0 && document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount <= 3) {
+                        document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
+                        document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "none";
+                    }
+                    else if (document.querySelectorAll('.shop-tab-inner')[i].childElementCount != 0 && document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount > 3) {
+                        document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "";
+                        document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "";
+                    }
+                }
             }
             // document.querySelectorAll('.shop-tab-inner')[0].insertBefore(newDiv, document.querySelectorAll('.shop-tab-inner')[0].children[1]);
             // document.querySelectorAll('.shop-tab-inner')[0].insertBefore(newDiv, document.querySelectorAll('.shop-tab-inner')[0].children[1]);
@@ -670,8 +750,10 @@
                     $(this).parent().siblings('.owl-carousel').trigger('prev.owl.carousel');
                 });
             });
+            doFirst();
         }
         // console.log(123);
+
     </script>
 
     <!-- ====================================== -->
@@ -716,49 +798,32 @@
 
         });
     </script>
-    <!-- ===========零食購物車=================== -->
+    <!-- ===========臨時購物車=================== -->
     <script>
         var storage = sessionStorage;
         function doFirst() {
+
             if (storage['addItemList'] == null) {
                 storage['addItemList'] = '';    //storage.setItem('addItemList','');
             }
 
             // 幫每個Add Cart建立事件聆聽功能
             let list = document.querySelectorAll('.addButton');     //list是陣列
+            // console.log(list.length);
+            for (let i = 0; i < list.length; i++) {
+                // console.log( list[i]);
+            }
             for (let i = 0; i < list.length; i++) {
                 list[i].addEventListener('click', function () {
                     let productInfo = document.querySelector(`#${this.id} input`).value;
                     addItem(this.id, productInfo);
+                    First();
                 });
             }
         }
         function addItem(itemId, itemValue) {
             alert(`${itemId} : ${itemValue}`);
-            var image = document.createElement('img');
-            image.src = 'imgs/' + itemValue.split('|')[1];
-
-            var title = document.createElement('span');
-            title.innerText = itemValue.split('|')[0];
-
-            var price = document.createElement('span');
-            price.innerText = itemValue.split('|')[2];
-
-            let newItem = document.getElementById('newItem');
-
-            // 先判斷此處是否已有物件，如果有要先刪除
-            if (newItem.hasChildNodes()) {
-                while (newItem.childNodes.length >= 1) {
-                    newItem.removeChild(newItem.firstChild);
-                }
-            }
-
-            // 再顯示新物件
-            newItem.appendChild(image);
-            newItem.appendChild(title);
-            newItem.appendChild(price);
-
-            //存入storage
+            //存入storage,判斷是否為重複商品，如果重複就不增加
             if (storage[itemId]) {
                 alert('You have checked.');
             } else {
@@ -779,10 +844,13 @@
                 subtotal += itemPrice;
             }
 
-            document.getElementById('itemCount').innerText = items.length;
-            document.getElementById('subtotal').innerText = subtotal;
+            // document.getElementById('itemCount').innerText = items.length;
+            // document.getElementById('subtotal').innerText = subtotal;
         }
-        window.addEventListener('load', doFirst);
+        // console.log(document.getElementById("itemlist").children[1]);
+        // let clone=document.getElementById("itemlist").children[1].cloneNode(true);
+        // document.getElementById("itemlist").appendChild(clone);
+        // window.addEventListener('load', doFirst);
     </script>
 </body>
 

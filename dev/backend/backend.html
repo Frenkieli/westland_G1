@@ -16,6 +16,43 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css">
     <!-- Main styles for this application-->
     <link href="css/style.css" rel="stylesheet">
+    <style>
+        button{
+            width: 70px;
+            height: 35px;
+            background: #fff;
+            color:hsl(0, 97%, 74%);
+            float: right;
+            border: 1px solid hsl(0, 97%, 74%);
+            border-radius: 3px;
+            transition: all 0.5s;
+            font-weight: 450;
+        }
+        .update{
+            }
+
+        /* input{
+            width: 70px;
+            height: 35px;
+            background: #fff;
+            color:green;
+            border: 1px solid green;
+            border-radius: 3px;
+            transition: all 0.5s;
+            font-weight: 450;
+        }
+        input:hover{
+            background: green;
+            color:#fff;
+        } */
+        button:hover{
+            background: hsl(0, 97%, 74%);
+            color:#fff;
+        }
+        .nav-item{
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
@@ -62,12 +99,12 @@
                             <!-- <span class="badge badge-primary">NEWs</span> -->
                         </p>
                     </li>
-                    <li id="ticket_order" class="nav-item">
+                    <!-- <li id="ticket_order" class="nav-item">
                         <p class="nav-link">
                             <i class="nav-icon icon-game-controller"></i> 門票管理
-                            <!-- <span class="badge badge-primary">NEWs</span> -->
+                            <span class="badge badge-primary">NEWs</span>
                         </p>
-                    </li>
+                    </li> -->
                     <li id="activity" class="nav-item">
                         <p class="nav-link">
                             <i class="nav-icon icon-game-controller"></i> 活動管理
@@ -153,7 +190,9 @@
                                             </tr>
                                         </thead>
                                         <tbody id="table_td">
+                                            <!-- <tr id="administrator_add" style="display: none"></tr> -->
 
+                                            <!-- <tr><input type="button" value="編輯"></tr> -->
                                         </tbody>
                                     </table>
                                 </div>
@@ -163,6 +202,90 @@
                 </div>
             </div>
         </main>
+    </div>
+    <div id="all_Update_Form">
+        <form id="administrator_update">
+            <input type="hidden" name="currentID" value="0">
+            <input type="hidden" name="admin_no">
+            <input type="hidden" name="admin_name">
+            <input type="hidden" name="admin_id">
+        </form>
+        <form id="product_update">
+            <input type="hidden" name="currentID" value="1">
+            <input type="hidden" name="product_no">
+            <input type="hidden" name="product_name">
+            <input type="hidden" name="product_price">
+            <input type="hidden" name="product_ifo">
+            <input type="hidden" name="product_style">
+            <input type="hidden" name="product_sort">
+            <input type="hidden" name="product_category">
+            <input type="hidden" name="product_count">
+        </form>
+        <form id="member_update">
+            <input type="hidden" name="currentID" value="2">
+            <input type="hidden" name="">
+            <input type="hidden" name="">
+        </form>
+        <form id="order_update">
+            <input type="hidden" name="currentID" value="3">
+            <input type="hidden" name="">
+            <input type="hidden" name="">
+        </form>
+        <form id="ticket_order_update">
+            <input type="hidden" name="currentID" value="4">
+            <input type="hidden" name="">
+            <input type="hidden" name="">
+        </form>
+        <form id="activity_update">
+            <input type="hidden" name="currentID" value="5">
+            <input type="hidden" name="">
+            <input type="hidden" name="">
+        </form>
+        <form id="message_board_update">
+            <input type="hidden" name="currentID" value="6">
+            <input type="hidden" name="">
+            <input type="hidden" name="">
+        </form>
+        <form id="robot_text_update">
+            <input type="hidden" name="currentID" value="7">
+            <input type="hidden" name="">
+            <input type="hidden" name="">
+        </form>
+        <form id="mission_update">
+            <input type="hidden" name="currentID" value="8">
+            <input type="hidden" name="">
+            <input type="hidden" name="">
+        </form>
+        <form id="ticket_update">
+            <input type="hidden" name="currentID" value="9">
+            <input type="hidden" name="">
+            <input type="hidden" name="">
+        </form>
+        <form id="amusement_equipments_update">
+            <input type="hidden" name="currentID" value="10">
+            <input type="hidden" name="">
+            <input type="hidden" name="">
+        </form>
+        <form id="question_no_update">
+            <input type="hidden" name="currentID" value="11">
+            <input type="hidden" name="">
+            <input type="hidden" name="">
+        </form>
+        <form id="accomplish_fraction_update">
+            <input type="hidden" name="currentID" value="12">
+            <input type="hidden" name="">
+            <input type="hidden" name="">
+        </form>
+        <form id="ticket_customized_update">
+            <input type="hidden" name="currentID" value="13">
+            <input type="hidden" name="">
+            <input type="hidden" name="">
+        </form>
+        <form id="reset_update">
+            <input type="hidden" name="currentID" value="14">
+            <input type="hidden" name="">
+            <input type="hidden" name="">
+        </form>
     </div>
     <footer class="app-footer">
         <div>
