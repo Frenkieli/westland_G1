@@ -15,10 +15,10 @@ window.addEventListener('load',function (){
 
     function howManyStar(jsonStr) {
         let displayMessage =JSON.parse(jsonStr);
-        console.log(displayMessage);
+        // console.log(displayMessage);
         for (let i = displayMessage.length -1; i >= 0; i--) {
             let AddMessages =displayMessage[i].equ_message;
-            console.log(AddMessages);
+            // console.log(AddMessages);
 
             var messagesList = document.getElementById('messages');
             //從messages表單往後放

@@ -16,7 +16,6 @@
     ])
 
 </head>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.esm.browser.min.js'></script>
 <body class="information_inner_page">
     <header class="header_navbar">
         @@include("template/header.html")
@@ -232,6 +231,7 @@
 
     <!-- js -->
     @@loop('template/jslink.html',[
+    {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"},
     {"jslink" : "js/messageBoard.js"},
     {"jslink" : "js/jquery-1.11.0.min.js"},
     {"jslink" : "js/jquery.sliderPro.js"},

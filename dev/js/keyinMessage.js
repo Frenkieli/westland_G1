@@ -2,31 +2,17 @@ localStorage['member_useTicket']=null;
 let member_useTicket=[];
 $(document).on('click', '#butsave', function(){
 	var ticketKeep =sessionStorage['member_no'];
-    console.log(ticketKeep);
-    let xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-        if (xhr.status == 200) {
-            toCheckMember(xhr.responseText);
-        }
-        else {
-            alert(xhr.status);
-        }
-    } 
-    let url="php/getMemberToInfoPage.php";
-    xhr.open('post', url, true);
-    let ticket_info = `mem_no:${ticketKeep}`;
-	xhr.send(ticket_info);
-	
-		function toCheckMember(jsonStr) {
-			let displayMessage =JSON.parse(jsonStr);
-			console.log(displayMessage);
-		if (ticketKeep) {
+    // console.log(ticketKeep);
+    // let ticket_info = `mem_no:${ticketKeep}`;
+	$().ready(function(){
+		if(ticketKeep){
 			var message_no = $('#message_no').val();
 			var member_no = $('#member_no').val();
 			var equ_no = $('#equ_no').val();
 			var equ_message = $('#equ_message').val();
 			// var report_status = $('#report_status').val();
 			// var report_message = $('#report_message').val();
+			console.log(message_no);
 			$.ajax({
 				url:"php/keyinMessage.php",
 				method:'POST',
@@ -49,7 +35,6 @@ $(document).on('click', '#butsave', function(){
 		}else{
 			alert('尚未登入會員，請您先登入會員！');
 			$('#lightBox').css('display', 'block');
-			if (condition) {
 				$("#mem_id").change(function () {
 					if ($("#mem_id").val().search(nnn)) {
 						console.log('不可');
@@ -92,11 +77,9 @@ $(document).on('click', '#butsave', function(){
 						}
 					});
 				});
-			} else {
 				$('.login_cancel img').click(function () {
 					$('#lightBox').css('display', 'none');
 				});
-			}
 		}
-	}
+	})			
 })
