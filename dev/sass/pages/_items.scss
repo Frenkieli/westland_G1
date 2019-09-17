@@ -365,8 +365,15 @@
         height: 75%
         ;box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.4);
         position: absolute;
+        // position: relative;
         top: 55%;
         left:6%;
+        }
+        
+        .addButton{
+            position: absolute;
+            bottom: 50px;
+            left: 65px;
         }
     }
     .gray_linear_gradient{
