@@ -24,7 +24,7 @@
     </header>
 
     <section class="container ">
-        <div class="m_jg_0_50 m0_35">
+        <div id="cartUpdateFormWrap" class="m_jg_0_50 m0_35">
             <div class="shopping_cart_title dis_n">
                 <div class="col-lg-3 dis_f_jc_c shopping_cart_title_text">
                     <h5 class="m-0">商品圖片</h5>
@@ -45,43 +45,41 @@
                     <h5 class="m-0">刪除</h5>
                 </div>
             </div>
-
-            <form action="cartUpdate.php" method="get">
-
-
+            <form action="cartUpdate.php" method="get" class="bt" style="display: none">
                 <div class="bg_fdfff3">
                     <div class="shopping_cart  m40_0_0  dis_f_jc_c">
-                        <div class="col48 m-a col-lg-3 dis_f_jc_c shopping_cart_item">
+                        <div class="col48 m-a col-lg-3 dis_f_jc_c shopping_cart_item bl">
                             <div class="po-r w-50p m-a">
-                                <img src="https://picsum.photos/100/100?random=1">
+                                <img class="shoppingCartContentImg" src="">
                                 <input type="hidden" name="pImage" value="towel4.png">
                             </div>
                         </div>
-                        <div class="col48 col-lg-3 dis_f_jc_c shopping_cart_item">
-                            <p>仙人掌-紅色</p>
+                        <div class="col48 col-lg-3 dis_f_jc_c shopping_cart_item bl">
+                            <p class="shoppingCartContentPdName"></p>
                             <input type="hidden" name="pName" value="仙人掌-紅色">
-                            <p class="dis-lg-n">單價：$450</p>
+                            <p class="dis-lg-n">單價：$<span class="thePrice dis-lg-n"></span></p>
+                            <!-- <p class="thePrice dis-lg-n">單價：$450</p> -->
                         </div>
-                        <div class="dis_n col-lg-2 dis_f_jc_c shopping_cart_item">
+                        <div class="dis_n col-lg-2 dis_f_jc_c shopping_cart_item bl">
                             <p>$<span class="thePrice">450</span></p>
                             <input type="hidden" name="pPrice" value="299">
                         </div>
-                        <div class="col48 col-lg-2 dis_f_jc_c shopping_cart_item">
+                        <div class="col48 col-lg-2 dis_f_jc_c shopping_cart_item bl">
                             <div class="dis_f_jc_c ai-fs">
                                 <button type="button" class="btnLess">
                                     <i class="fas fa-minus"></i>
-                                </button><span id="subtotal"></span>
+                                </button>
                                 <input type="text" value="1" name="pQuantity" class="quantity">
                                 <button type="button" class="btnPlus">
                                     <i class="fas fa-plus"></i>
                                 </button>
                             </div>
                         </div>
-                        <div class="col48 col-lg-2 dis_f_jc_c shopping_cart_item">
-                            <p>NT.<span class="thePrice">450</span></p>
+                        <div class="col48 col-lg-2 dis_f_jc_c shopping_cart_item bl">
+                            <p>NT.<span class="thePrice subtotal">0</span></p>
                             <input type="hidden" name="pPrice" value="299">
                         </div>
-                        <div class="dis_n col-lg-2 dis_f_jc_c shopping_cart_item">
+                        <div class="dis_n col-lg-2 dis_f_jc_c shopping_cart_item bl">
                             <div class="trash_btn">
                                 <input type="hidden" name="pNo" value="9">
                                 <button type="submit" class="btn--active btn_bor">刪除</button>
@@ -94,8 +92,6 @@
                         </div>
                     </div>
                 </div>
-
-
             </form>
             <div class="bg_fdfff3 bg_fdfff3_d ta-r p10 bt">
                 <p class="ta-r dis-lg-ib mb-0 mt-15 mt-lg-0">總計：<span id="sumTotalPrice"></span>元</p>
@@ -104,61 +100,62 @@
                 <a class="btn dis_ib mlr" href="shop.php">繼續購物</a>
                 <button type="submit" class="btn mlr" id="check">進行結帳</button>
             </div>
+        </div>
     </section>
     <section class="item_recom_section container">
-            <h3 class="section_title">推薦商品</h3>
-            <div class="shop-tab-inner">
-                <div class="col-2 col-xl-1 ta-r v-xl-hide">
-                    <img src="images/product/arrow_left.png" alt="" class="prev po-r w-40 pointer">
-                </div>
-                <!-- <div class="sort_same pt350 owl-carousel owl-theme"> -->
-                <div class="sort_same owl-carousel owl-theme">
-                    <div class="hoverObj card_bg card_bg1">
-                        <div class="gray_linear_gradient center">
-                            <div class="sort_same_item_img center">
-                                <a href="item.html"><img src="images/product/product_small/pd_s-01.jpg"></a>
-                            </div>
-                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
-                            <p class="sort_same_item_price text_align_c">NT.450</p>
-                            <div class="btn m-b m-a">加入購物車</div>
+        <h3 class="section_title">推薦商品</h3>
+        <div class="shop-tab-inner">
+            <div class="col-2 col-xl-1 ta-r v-xl-hide">
+                <img src="images/product/arrow_left.png" alt="" class="prev po-r w-40 pointer">
+            </div>
+            <!-- <div class="sort_same pt350 owl-carousel owl-theme"> -->
+            <div class="sort_same owl-carousel owl-theme">
+                <div class="hoverObj card_bg card_bg1">
+                    <div class="gray_linear_gradient center">
+                        <div class="sort_same_item_img center">
+                            <a href="item.html"><img src="images/product/product_small/pd_s-01.jpg"></a>
                         </div>
-                    </div>
-                    <div class="hoverObj card_bg card_bg1">
-                        <div class="gray_linear_gradient center">
-                            <div class="sort_same_item_img center">
-                                <img src="images/product/product_small/pd_s-02.jpg">
-                            </div>
-                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
-                            <p class="sort_same_item_price text_align_c">NT.450</p>
-                            <div class="btn m-b m-a">加入購物車</div>
-                        </div>
-                    </div>
-                    <div class="hoverObj card_bg card_bg1">
-                        <div class="gray_linear_gradient center">
-                            <div class="sort_same_item_img center">
-                                <img src="images/product/product_small/pd_s-03.jpg">
-                            </div>
-                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
-                            <p class="sort_same_item_price text_align_c">NT.450</p>
-                            <div class="btn m-b m-a">加入購物車</div>
-                        </div>
-                    </div>
-                    <div class="hoverObj card_bg card_bg1">
-                        <div class="gray_linear_gradient center">
-                            <div class="sort_same_item_img center">
-                                <img src="images/product/product_small/pd_s-03.jpg">
-                            </div>
-                            <p class="sort_same_item_title text_align_c">仙人掌包包</p>
-                            <p class="sort_same_item_price text_align_c">NT.450</p>
-                            <div class="btn m-b m-a">加入購物車</div>
-                        </div>
+                        <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                        <p class="sort_same_item_price text_align_c">NT.450</p>
+                        <div class="btn m-b m-a">加入購物車</div>
                     </div>
                 </div>
-                <div class="col-2 col-xl-1 v-xl-hide">
-                    <img src="images/product/arrow_right.png" alt="" class="next po-r w-40 pointer">
+                <div class="hoverObj card_bg card_bg1">
+                    <div class="gray_linear_gradient center">
+                        <div class="sort_same_item_img center">
+                            <img src="images/product/product_small/pd_s-02.jpg">
+                        </div>
+                        <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                        <p class="sort_same_item_price text_align_c">NT.450</p>
+                        <div class="btn m-b m-a">加入購物車</div>
+                    </div>
+                </div>
+                <div class="hoverObj card_bg card_bg1">
+                    <div class="gray_linear_gradient center">
+                        <div class="sort_same_item_img center">
+                            <img src="images/product/product_small/pd_s-03.jpg">
+                        </div>
+                        <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                        <p class="sort_same_item_price text_align_c">NT.450</p>
+                        <div class="btn m-b m-a">加入購物車</div>
+                    </div>
+                </div>
+                <div class="hoverObj card_bg card_bg1">
+                    <div class="gray_linear_gradient center">
+                        <div class="sort_same_item_img center">
+                            <img src="images/product/product_small/pd_s-03.jpg">
+                        </div>
+                        <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                        <p class="sort_same_item_price text_align_c">NT.450</p>
+                        <div class="btn m-b m-a">加入購物車</div>
+                    </div>
                 </div>
             </div>
-        </section>
+            <div class="col-2 col-xl-1 v-xl-hide">
+                <img src="images/product/arrow_right.png" alt="" class="next po-r w-40 pointer">
+            </div>
+        </div>
+    </section>
     @@include("template/footer.html")
 
     <!-- js -->
@@ -196,6 +193,80 @@
         });
 
     </script>
+    <!-- -----------購物車內頁商品動態新增start-------- -->
+    <script>
+        function shopingCartFirst() {
+
+            let itemString = storage['addItemList'];
+            // console.log(itemString);
+            let items = itemString.substr(0, itemString.length - 2).split(', ');
+            // console.log(items);   // ["A1001", "A1005", "A1002"] //
+            for (let key in items) {  //use items[key]
+                let itemInfo = storage.getItem(items[key]);// itemInfo="formas|formas.png|$3000"
+                // console.log(itemInfo);
+                createCartContentList(itemInfo,items[key]);//items[key]="A1001"
+            }
+            function createCartContentList(itemInfo,key) {
+                console.log(key);
+                let cartUpdateFormClone = document.getElementById("cartUpdateFormWrap").children[1].cloneNode(true);
+                cartUpdateFormClone.id=key;
+                // console.log(cartUpdateFormClone);
+                cartUpdateFormClone.style.display = '';
+                // document.getElementById("cartUpdateFormWrap").appendChild(cartUpdateFormClone);
+
+                document.getElementById("cartUpdateFormWrap").insertBefore(cartUpdateFormClone, document.getElementById("cartUpdateFormWrap").lastElementChild.previousElementSibling);
+                //lastElementChild最後一個小孩
+                //previousElementSibling我的上一個兄弟
+
+
+                //console.log(cartUpdateFormClone.children[0].children[0].children[4].children[0].children[0]);test
+
+                cartUpdateFormClone.children[0].children[0].children[0].children[0].children[0].src = itemInfo.split('|')[1];
+                cartUpdateFormClone.children[0].children[0].children[0].children[0].children[0].src = itemInfo.split('|')[1];
+
+                cartUpdateFormClone.children[0].children[0].children[1].children[0].innerText = itemInfo.split('|')[0];
+
+                cartUpdateFormClone.children[0].children[0].children[2].children[0].children[0].innerText = itemInfo.split('|')[2];
+                cartUpdateFormClone.children[0].children[0].children[4].children[0].children[0].innerText = itemInfo.split('|')[2];
+                cartUpdateFormClone.children[0].children[0].children[1].children[2].children[0].innerText = itemInfo.split('|')[2];//手機版單價
+    
+
+            }
+        }
+        shopingCartFirst()
+    </script>
+    <!-- -----------購物車動態新增end-------- -->
+    
+    <!-- -----------購物車數量及小計end-------- -->
+    <script>
+            (function () {
+                let btnLess = document.querySelectorAll(".btnLess");
+                let btnPlus = document.querySelectorAll(".btnPlus");
+                let total = 0;
+                let eachSubTotal = document.querySelectorAll('.subtotal');
+                for (let i = 0; i < eachSubTotal.length; i++) {
+                    total += parseInt(eachSubTotal[i].innerText);
+                }
+                let sumTotalPrice = document.getElementById('sumTotalPrice');
+                sumTotalPrice.innerText = total;
+                for (let i = 0; i < btnLess.length; i++) {
+                    btnLess[i].style.cursor = "pointer";
+                    btnPlus[i].style.cursor = "pointer";
+                    btnLess[i].addEventListener('click', function () {
+                        if (this.nextElementSibling.value > 1) {
+                            this.nextElementSibling.value -= 1;
+                            this.parentNode.parentNode.nextElementSibling.children[0].children[0].innerText = this.nextElementSibling.value * this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText;
+                            sumTotalPrice.innerText = parseInt(sumTotalPrice.innerText) - parseInt(this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText);
+                        }
+                    }, false);
+                    btnPlus[i].addEventListener('click', function () {
+                        this.previousElementSibling.value = parseInt(this.previousElementSibling.value) + 1;
+                        this.parentNode.parentNode.nextElementSibling.children[0].children[0].innerText = this.previousElementSibling.value * this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText;
+                        sumTotalPrice.innerText = parseInt(sumTotalPrice.innerText) + parseInt(this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText);
+                    }, false);
+                }
+            })();</script>
+    <!-- -----------購物車數量及小計end-------- -->
 </body>
 
 </html>
