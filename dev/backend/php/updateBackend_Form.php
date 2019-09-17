@@ -1,16 +1,20 @@
 <?php
     try{
         require_once("connectWestland.php");
-        $targetID=$_POST['currentID'];
+        $targetID=0;
+        // $targetID=$_POST['currentID'];
         // echo $targetID;
         // exit();
         switch($targetID){
             case "0":
-                $sql="update administrator set admin_name=:admin_name where admin_no=:admin_no";
-                $input=$pdo->prepare($sql);
-                $input->bindValue(":admin_name",$_POST['admin_name']);
-                $input->bindValue(":admin_no",$_POST['admin_no']);
-                $input->execute();
+                // $sql="update administrator set admin_name=:admin_name where admin_no=:admin_no";
+                // echo $_POST['admin_name'],$_POST['admin_no'];
+                // exit();
+            $sql="update administrator set admin_name=1 where admin_no=1";
+            // $input->bindValue(":admin_name",1);
+            // $input->bindValue(":admin_no",1);
+            $input=$pdo->prepare($sql);
+            $input->execute();
                 echo "管理員資訊異動成功";
                 break;
             case "1":
@@ -30,43 +34,43 @@
                 echo "商品資訊異動成功";
                 break;
             case "2":
-
+                echo "商品資訊異動成功";
                 break;
             case "3":
-
+                echo "商品資訊異動成功";
                 break;
             case "4":
-
+                echo "商品資訊異動成功";
                 break;
             case "5":
-
+                echo "商品資訊異動成功";
                 break;
             case "6":
-
+                echo "商品資訊異動成功";
                 break;
             case "7":
-
+                echo "商品資訊異動成功";
                 break;
             case "8":
-
+                echo "商品資訊異動成功";
                 break;
             case "9":
-
+                echo "商品資訊異動成功";
                 break;
             case "10":
-
+                echo "商品資訊異動成功";
                 break;
             case "11":
-
+                echo "商品資訊異動成功";
                 break;
             case "12":
-
+                echo "商品資訊異動成功";
                 break;
             case "13":
-
+                echo "商品資訊異動成功";
                 break;
             case "14":
-
+                echo "商品資訊異動成功";
                 break;
             default:
                 break;

@@ -45,6 +45,12 @@
         tdimg() {
             let intd = document.createElement('img');
             return intd;
+        },
+        tdDate() {
+            let intd = document.createElement('input');
+            intd.type = 'date';
+            intd.disabled = true;
+            return intd;
         }
     };
     let dataType = '';
@@ -54,6 +60,7 @@
     let inputarray;
     let updateArrayId = ['administrator_update', 'product_update', 'member_update', 'order_update', 'ticket_order_update', 'activity_update', 'message_board_update', 'robot_text_update', 'mission_update', 'ticket_update', 'amusement_equipments_update', 'question_no_update', 'accomplish_fraction_update', 'ticket_customized_update', 'reset_update'];
     let currentID;//目前選到的表單ID
+    let status;
     //清空資料表
     function clearTable(e) {
         tableTh.innerHTML = '';
@@ -90,6 +97,7 @@
             buttonValue = ['停權', '正常'];
             updateBtn = 1;
             deleteBtn = 0;
+            status=1;
             let tableHeader = document.createElement('tr');
             tableHeader.innerHTML = "<th>管理者編號</th><th>管理者名稱</th><th>帳號</th><th>帳號狀態</th><th>修改</th>";
             tableTh.appendChild(tableHeader);
@@ -118,7 +126,7 @@
         }
         function showProduct(jsonStr) {
             let products = JSON.parse(jsonStr);
-            console.log(products);
+            // console.log(products);
             fakeDate = new Array(products.length);
             for (let i = 0; i < products.length; i++) {
                 fakeDate[i] = new Array(products[i].product_no, products[i].product_name, products[i].product_image, products[i].product_status, products[i].product_price, products[i].product_ifo, products[i].product_style, products[i].product_sort, products[i].product_category, products[i].product_count);
@@ -128,6 +136,7 @@
             buttonValue = ['下架', '上架'];
             updateBtn = 1;
             deleteBtn = 1;
+            status=1;
             let tableHeader = document.createElement('tr');
             tableHeader.innerHTML = "<th>商品編號</th><th>商品名稱</th><th>商品照片</th><th>商品上下架</th><th>價格</th><th>簡介</th><th>商品樣式</th><th>種類</th><th>類別</th><th>數量</th><th>編輯</th><th>刪除</th>";
             tableTh.appendChild(tableHeader);
@@ -199,7 +208,8 @@
             }
             dataType = [1, 1, 1, 1, 2, 1, 1, 1, 1, 1];
             inputarray = [];
-            buttonValue = ['停權', '正常'];
+            buttonValue = ['下單', '處理中', '取消', '出貨', '結案'];
+            status=0;
             updateBtn = 0;
             deleteBtn = 0;
             let tableHeader = document.createElement('tr');
@@ -269,7 +279,7 @@
             for (let i = 0; i < activitys.length; i++) {
                 fakeDate[i] = new Array(activitys[i].activity_no, activitys[i].activity_name, activitys[i].activity_date_start, activitys[i].activity_date_end, activitys[i].activity_content);
             }
-            dataType = [1, 3, 3, 3, 4];
+            dataType = [1, 3, 6, 6, 4];
             inputarray = [1, 2, 3, 4];
             buttonValue = ['停權', '正常'];
             updateBtn = 1;
@@ -307,7 +317,8 @@
             }
             dataType = [1, 1, 1, 2];
             inputarray = [];
-            buttonValue = ['停權', '正常'];
+            buttonValue = ['正常', '被檢舉'];
+            status=0;
             updateBtn = 0;
             deleteBtn = 0;
             let tableHeader = document.createElement('tr');
@@ -451,8 +462,9 @@
                 fakeDate[i] = new Array(amusement_equipmentss[i].equ_no, amusement_equipmentss[i].equ_image, amusement_equipmentss[i].equ_name, amusement_equipmentss[i].equ_desc, amusement_equipmentss[i].equ_score_total, amusement_equipmentss[i].score_num, amusement_equipmentss[i].equ_status, amusement_equipmentss[i].equ_bonus);
             }
             dataType = [1, 5, 3, 4, 1, 1, 2, 3];
-            inputarray = [2,3,7];
-            buttonValue = ['停權', '正常'];
+            inputarray = [2, 3, 7];
+            buttonValue = ['維護', '正常'];
+            status=1;
             updateBtn = 1;
             deleteBtn = 0;
             let tableHeader = document.createElement('tr');
@@ -487,7 +499,7 @@
                 fakeDate[i] = new Array(question_nos[i].question_no, question_nos[i].question_content, question_nos[i].question_optionA, question_nos[i].question_optionB, question_nos[i].question_optionC, question_nos[i].right_multiple, question_nos[i].correct_option);
             }
             dataType = [1, 4, 5, 5, 5, 3, 3];
-            inputarray = [1,5,6];
+            inputarray = [1, 5, 6];
             buttonValue = ['停權', '正常'];
             updateBtn = 1;
             deleteBtn = 1;
@@ -625,12 +637,14 @@
                         break;
                     case 2:
                         inDate = tdBulid.tdSelect();
-                        buttonValue.forEach((value,index)=>{
-                            let opt=document.createElement('option');
-                            opt.innerText=value;
-                            opt.value=value;
-                            if(index==1)
-                                opt.selected=true;
+                        inDate.classList.add('status_update');
+                        let status= value[i];
+                        buttonValue.forEach((value, index) => {
+                            let opt = document.createElement('option');
+                            opt.innerText = value;
+                            opt.value = index;
+                            if (index == status)
+                                opt.selected = true;
                             inDate.appendChild(opt);
                         })
                         break;
@@ -646,6 +660,11 @@
                         inDate = tdBulid.tdimg();
                         inDate.style.width = "150px";
                         inDate.src = "../" + value[i];
+                        break;
+                    case 6:
+                        inDate = tdBulid.tdDate();
+                        inDate.value = value[i];
+                        break;
                     default:
                         break;
                 }
@@ -672,6 +691,28 @@
             }
             tableTd.appendChild(inTr);
         });
+        //下拉式選單事件+Ajax
+        let all_status_update = document.querySelectorAll('.status_update');
+        for(let i=0;i<all_status_update.length;i++){
+            all_status_update[i].addEventListener('change',(e)=>{
+                // console.log(e.target.value);
+                // console.log(e.target.parentNode.parentNode.children[0].children[0].innerText);
+                let targetID=e.target.parentNode.parentNode.children[0].children[0].innerText;
+                let xhr=new XMLHttpRequest();
+                xhr.onload=function(){
+                    if(xhr.status==200){
+                        alert(xhr.responseText);
+                    }
+                    else{
+                        alert(xhr.status);
+                    }
+                }
+                let url = `../php/updateBackend_Form.php?status=${e.target.value}&currentID=${currentID}&targetID=${targetID}`;
+                xhr.open('get', url, true);
+                xhr.send(null);
+            })
+        }
+        //內容修改事件+Ajax
         let all_update = document.querySelectorAll('.update');
         for (let i = 0; i < all_update.length; i++) {
             all_update[i].addEventListener('click', (e) => {
@@ -688,8 +729,6 @@
                     e.target.value = '編輯';
                     e.target.style.backgroundColor = "#DDEDB7";
                     let updateForm = document.getElementById(updateArrayId[currentID]);
-                    // updateForm.children[0].value=currentID;
-                    // console.log(updateForm.children[0].value);
                     updateForm.children[1].value = inp[0].lastChild.innerText;
                     console.log(updateForm.children[1].value);
                     for (let u = 0; u < inputarray.length; u++) {
@@ -700,14 +739,15 @@
                     let xhr = new XMLHttpRequest();
                     xhr.onload = function () {
                         if (xhr.status == 200) {
-                            console.log(xhr.responseText);
+                            // console.log(xhr.responseText);
+                            alert(xhr.responseText);
                         } else {
                             alert(xhr.status);
                         }
                     }
                     let thisForm = new FormData(updateForm);
                     console.log(thisForm);
-                    let url = 'php/updateBackend_Form.php';
+                    let url = '../php/updateBackend_Form.php';
                     xhr.open('post', url, true);
                     xhr.send(thisForm);
                     for (let j = 0; j < inputarray.length; j++) {
