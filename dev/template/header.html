@@ -163,9 +163,10 @@
 <!-- -----------購物車動態新增start-------- -->
 <script>
     var storage = sessionStorage;
-
-    First();
-    //把storage的商品以畫面呈現
+    if(storage['addItemList']!=""){
+         First();
+    }
+    //把storage的商品以畫面呈現 (重寫)
     function changCartIcon() {
         console.log(document.getElementById('itemlist').childElementCount - 1);
         let shoppingCartPopClone = document.getElementById("navbar_shoppingCart_popup_wrap").children[2].cloneNode(true);
