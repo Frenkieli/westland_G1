@@ -1,15 +1,19 @@
 localStorage['member_useTicket']=null;
 let member_useTicket=[];
 $(document).on('click', '#butsave', function(){
-	var ticketKeep =sessionStorage['member_no'];
+	let message=$('#equ_message').val();
+	if (message.replace(/[\s　]+/g, "") == "") {
+		window.alert('輸入文字不得為空白!');
+	} else {
+		var ticketKeep =sessionStorage['member_no'];
     // console.log(ticketKeep);
     // let ticket_info = `mem_no:${ticketKeep}`;
 	$().ready(function(){
 		if(ticketKeep){
-			var message_no = $('#message_no').val();
-			var member_no = $('#member_no').val();
-			var equ_no = $('#equ_no').val();
-			var equ_message = $('#equ_message').val();
+			let message_no = $('#message_no').val();
+			let member_no = $('#member_no').val();
+			let equ_no = $('#equ_no').val();
+			let equ_message = $('#equ_message').val();
 			// var report_status = $('#report_status').val();
 			// var report_message = $('#report_message').val();
 			console.log(message_no);
@@ -82,4 +86,5 @@ $(document).on('click', '#butsave', function(){
 				});
 		}
 	})			
+	}
 })
