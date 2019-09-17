@@ -197,26 +197,27 @@ function setTicketmisiion(missionNum, mission_no) {
 
 let demo_scaninner = document.querySelectorAll('.demo_scaninner .btn');
 for (let i = 0; i < demo_scaninner.length; i++) {
-    demo_scaninner[i].addEventListener('click', addPoints, false);
+    demo_scaninner[i].addEventListener('click', addPointsCheck, false);
 }
 
-function addPoints(e) {
+function addPointsCheck(e) {
     console.log($(this).prev().prev().text());
     switch ($(this).prev().prev().text().replace('(任務)','').replace('(達成)','')) {
         case '商店':
             console.log('redeem_product_status');
+            
             break;
         case '滑水道':
             console.log('waterslide');
-
+            addPoint($(this).prev().prev().text().replace('(任務)','').replace('(達成)',''),'waterslide');
             break;
         case '旋轉椅':
             console.log('swivel_chair');
-
+            addPoint($(this).prev().prev().text().replace('(任務)','').replace('(達成)',''),'swivel_chair');
             break;
         case '海盜船':
             console.log('pirate_ship');
-
+            addPoint($(this).prev().prev().text().replace('(任務)','').replace('(達成)',''),'pirate_ship');
             break;
         case '入口':
             console.log('entrance_status');
@@ -224,15 +225,15 @@ function addPoints(e) {
             break;
         case '雲霄飛車':
             console.log('roller_coaster');
-
+            addPoint($(this).prev().prev().text().replace('(任務)','').replace('(達成)',''),'roller_coaster');
             break;
         case '旋轉木馬':
             console.log('carousel');
-
+            addPoint($(this).prev().prev().text().replace('(任務)','').replace('(達成)',''),'carousel');
             break;
         case '摩天輪':
             console.log('ferris_wheel');
-
+            addPoint($(this).prev().prev().text().replace('(任務)','').replace('(達成)',''),'ferris_wheel');
             break;
         case '出口':
             console.log('exit_status');
@@ -242,4 +243,27 @@ function addPoints(e) {
             break;
     }
     $(this).prev().prev().text($(this).prev().prev().text().replace('(任務)','(達成)'));
+}
+
+function addPoint(str,eStr){
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            //..................取回server端回傳的使用者資料
+            if (xhr.responseText.indexOf("sysError") != -1) {
+                alert("系統異常,請通知系統維護人員");
+            } else if (xhr.responseText.indexOf("loginError") != -1) {
+                alert("帳密錯誤");
+            } else {
+                console.log(xhr.responseText);
+                document.querySelector('.ticket_reward p').innerHTML = '$' + document.querySelector('.ticket_reward p').innerHTML.replace('$' ,'') * 1 + xhr.responseText.split('|')[0];
+            }
+        } else {
+            alert(xhr.status);
+        }
+    }
+    xhr.open("post", "php/gameplayaddPoints.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    var data_info = `str=${str}&eStr=${eStr}&ticket=${localStorage['member_useticket']}`;
+    xhr.send(data_info);
 }
