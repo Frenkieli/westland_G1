@@ -210,7 +210,13 @@
                     </tr>
                     <tr>
                         <td>
-                         <textarea id="equ_message" placeholder="請輸入留言..." required></textarea>
+                         <textarea id="equ_message" onkeyup="value=value.replace(/^ | $/g,'')"
+                         onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))" placeholder="請輸入留言..." required></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <p style="color:rgb(94, 94, 94); font-size:12px;">只能輸入中文、英文、數字、@符號和.符號且不能為空白</p>
                         </td>
                     </tr>
                     <tr>
