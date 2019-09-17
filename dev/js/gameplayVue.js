@@ -14,8 +14,9 @@ function getTicket() {
             //..................取回server端回傳的使用者資料
             if (xhr.responseText.indexOf("sysError") != -1) {
                 alert("系統異常,請通知系統維護人員");
-            } else if (xhr.responseText.indexOf("loginError") != -1) {
-                alert("帳密錯誤");
+            } else if (xhr.responseText.indexOf("沒有票喔") != -1) {
+                alert("沒有可用的票囉！立刻幫您跳轉至買票頁面！");
+                window.location.href = 'ticket.html';
             } else {
                 showTicket(xhr.responseText);
             }
@@ -94,7 +95,7 @@ function showTicket(jsonStr) {
         let index = 0;
         for (let j in ticket[i]) {
             // console.log(ticket[i][j]);
-            if(j =='team_name' & !ticket[i][j]){
+            if (j == 'team_name' & !ticket[i][j]) {
                 ticket[i][j] = '無隊伍';
                 // console.log(ticket[i][j],'這是什麼');
             }
@@ -216,7 +217,7 @@ function addPointsCheck(value) {
                 facilityPoint('商店', 'redeem_product_status');
                 if (facilityPointsCheck * 1) {
                     facilityPointsCheck = 0;
-                }else{
+                } else {
                     alert('要超過６００分才能換商品喔！');
                 }
                 break;
@@ -250,7 +251,7 @@ function addPointsCheck(value) {
                 break;
             case 'exit_status':
                 console.log('exit_status');
-                facilityPoint('出口', 'exit_status');
+                outLand('出口', 'exit_status');
                 break;
             default:
                 break;
@@ -265,7 +266,7 @@ function addPointsCheck(value) {
                 if (facilityPointsCheck * 1) {
                     $(this).prev().prev().text($(this).prev().prev().text() + '(完成)');
                     facilityPointsCheck = 0;
-                }else{
+                } else {
                     alert('要超過６００分才能換商品喔！');
                 }
                 break;
@@ -300,19 +301,18 @@ function addPointsCheck(value) {
                 break;
             case '出口':
                 console.log('exit_status');
-                facilityPoint($(this).prev().prev().text(), 'exit_status');
-                outLand();
+                outLand($(this).prev().prev().text(), 'exit_status');
                 break;
             default:
                 break;
         }
-        if($(this).prev().prev().text().indexOf('(任務)') != -1){
+        if ($(this).prev().prev().text().indexOf('(任務)') != -1) {
             $(this).prev().prev().text($(this).prev().prev().text().replace('(任務)', '(達成)'));
-        }else if($(this).prev().prev().text().indexOf('(達成)') != -1){
-        }else if($(this).prev().prev().text().indexOf('入口') != -1){
-        }else if($(this).prev().prev().text().indexOf('商店') != -1){
-        }else if($(this).prev().prev().text().indexOf('出口') != -1){
-        }else{
+        } else if ($(this).prev().prev().text().indexOf('(達成)') != -1) {
+        } else if ($(this).prev().prev().text().indexOf('入口') != -1) {
+        } else if ($(this).prev().prev().text().indexOf('商店') != -1) {
+        } else if ($(this).prev().prev().text().indexOf('出口') != -1) {
+        } else {
             $(this).prev().prev().text($(this).prev().prev().text() + '(玩過囉)');
         }
     }
@@ -366,25 +366,28 @@ function facilityPoint(str, eStr) {
     xhr.send(data_info);
 }
 
-function outLand(){
+function outLand(str, eStr) {
     var xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-        if (xhr.status == 200) {
-            //..................取回server端回傳的使用者資料
-            if (xhr.responseText.indexOf("sysError") != -1) {
-                alert("系統異常,請通知系統維護人員");
-            } else if (xhr.responseText.indexOf("還沒進場喔！") != -1) {
-                alert("還沒進場喔！");
+
+    if (confirm('確定要出園了嗎？出園後這張票就不能入園了喔！')) {
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                //..................取回server端回傳的使用者資料
+                if (xhr.responseText.indexOf("sysError") != -1) {
+                    alert("系統異常,請通知系統維護人員");
+                } else if (xhr.responseText.indexOf("還沒進場喔！") != -1) {
+                    alert("還沒進場喔！");
+                } else {
+                    alert('正在為您重新整理！');
+                    window.location.reload();
+                }
             } else {
-                console.log(xhr.responseText);
-                facilityPointsCheck = xhr.responseText * 1;
+                alert(xhr.status);
             }
-        } else {
-            alert(xhr.status);
         }
+        xhr.open("post", "php/outLand.php", false);
+        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+        var data_info = `str=${str}&eStr=${eStr}&ticket=${localStorage['member_useticket']}&ticketScore=${ticketScore}`;
+        xhr.send(data_info);
     }
-    xhr.open("post", "php/getfacilityPoint.php", false);
-    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    var data_info = `str=${str}&eStr=${eStr}&ticket=${localStorage['member_useticket']}&ticketScore=${ticketScore}`;
-    xhr.send(data_info);
 }

@@ -42,6 +42,16 @@ try {
     // $tickitAddPoint->bindValue(":memid", 'me');
     $tickitAddPoint->execute();
 
+    // 幫會員加錢
+
+    $sql10 = "update members set member_money = member_money + :bounty where using_ticket_no = :ticket_no";
+    $memmoneyPoint = $pdo->prepare($sql10);
+    $memmoneyPoint->bindValue(":bounty", $total);
+    $memmoneyPoint->bindValue(":ticket_no", $ticket);
+    // $memmoneyPoint->bindValue(":memid", 'me');
+    $memmoneyPoint->execute();
+    
+
     // 給團隊加分
 
 
@@ -76,11 +86,6 @@ try {
     } else {
         echo $total;
     }
-
-    // 回傳加給分
-
-
-
 
 } catch (PDOException $e) {
     echo "sysError";

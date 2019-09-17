@@ -2,7 +2,7 @@
 try {
     require_once("connectWestland.php");
     
-    $sql = "select b.ticket_no , c.team_name ,a.using_ticket_no , a.member_no from members a left OUTER JOIN ticket b ON a.member_no=b.member_no left OUTER JOIN team c ON b.team_no=c.team_no where a.member_no = :mem_no";
+    $sql = "select b.ticket_no , c.team_name ,a.using_ticket_no , a.member_no from members a left OUTER JOIN ticket b ON a.member_no=b.member_no left OUTER JOIN team c ON b.team_no=c.team_no where a.member_no = :mem_no and b.entrance_status = 0";
     $memberTickit = $pdo->prepare($sql);
     $memberTickit->bindValue(":mem_no", $_POST['mem_no']);
     // $memberTickit->bindValue(":memid", 'me');
