@@ -210,8 +210,8 @@
                     </tr>
                     <tr>
                         <td>
-                         <textarea id="equ_message" onkeydown="value=value.replace(/^ | $/g,'')"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))"
-                         onkeyup="value=value.replace(/^ | $/g,'')"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))"
+                         <textarea id="equ_message" onkeydown="value=value.replace(/[\s　]+/g,'')"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))"
+                         onkeyup="value=value.replace(/[\s　]+/g,'')"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))"
                          placeholder="請輸入留言..." required></textarea>
                         </td>
                     </tr>
