@@ -16,7 +16,7 @@
     ])
 
 </head>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.common.dev.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.esm.browser.min.js'></script>
 <body class="information_inner_page">
     <header class="header_navbar">
         @@include("template/header.html")
@@ -225,19 +225,7 @@
         <ul id="messagesTop"></ul>
         <ul id="messages"></ul>
     </section>
-    <section id="section_pick" class="section_pick comfirm" v-if="!tickets[0][2]">
-        <!-- <div class="pick_container">
-            <p>請選擇使用門票</p>
-            <select @change="change" name="select_ticket" id="select_ticket">
-                <option value="" disabled selected>請選擇</option>
-                <option v-for="value in tickets" :value=value[0]>門票號碼：{{value[0]+value[1]}}</option>
-            </select>
-        </div> -->
-        <div id="app-5">
-            <p>{{ message }}</p>
-            <button v-on:click="reverseMessage">Reverse Message</button>
-          </div>
-    </section>
+
     <!-- 第二個section -->
     @@include("template/robot.html")
     @@include("template/footer.html")
@@ -250,8 +238,7 @@
     {"jslink" : "js/information_inner_pageGetScore.js"},
     {"jslink" : "js/keyinMessage.js"},
     {"jslink" : "js/starBtnLevel.js"},
-    {"jslink" : "js/reportNGmessage.js"},
-    {"jslink" : "js/information_innerMemberInfo.js"}
+    {"jslink" : "js/reportNGmessage.js"}
     ])
     <script type="text/javascript">
         $(document).ready(function($) {
