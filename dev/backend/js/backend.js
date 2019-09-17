@@ -9,12 +9,12 @@
     document.getElementById('message_board').addEventListener('click', message_board, false);
     document.getElementById('robot_text').addEventListener('click', robot_text, false);
     document.getElementById('mission').addEventListener('click', mission, false);
-    document.getElementById('ticket').addEventListener('click', ticket, false);
+    // document.getElementById('ticket').addEventListener('click', ticket, false);
     document.getElementById('amusement_equipments').addEventListener('click', amusement_equipments, false);
     document.getElementById('question_no').addEventListener('click', question_no, false);
-    document.getElementById('accomplish_fraction').addEventListener('click', accomplish_fraction, false);
+    // document.getElementById('accomplish_fraction').addEventListener('click', accomplish_fraction, false);        //還沒
     document.getElementById('ticket_customized').addEventListener('click', ticket_customized, false);
-    document.getElementById('reset').addEventListener('click', reset, false);
+    // document.getElementById('reset').addEventListener('click', reset, false);                                    //還沒
     let tableTh = document.getElementById('table_th');
     let tableTd = document.getElementById('table_td');
     let tableTitle = document.getElementById('table_title');
@@ -23,22 +23,22 @@
             let intd = document.createElement('p');
             return intd;
         },
-        tdButton() {
-            let intd = document.createElement('input');
+        tdSelect() {
+            let intd = document.createElement('select');
             intd.type = 'button';
             return intd;
         },
         tdText() {
             let intd = document.createElement('input');
             intd.type = 'text';
-            intd.style.width = "120px";
+            intd.style.width = "100px";
             intd.disabled = true;
             return intd;
         },
-        tdLongText() {
-            let intd = document.createElement('input');
+        tdTextarea() {
+            let intd = document.createElement('textarea');
             intd.type = 'text';
-            intd.style.width = "200px";
+            intd.style.width = "250px";
             intd.disabled = true;
             return intd;
         },
@@ -295,7 +295,7 @@
                     alert(xhr.status);
                 }
             }
-            let url = "php/getMessage_board_JSON.php";
+            let url = "php/getMessage_board_JOSN.php";
             xhr.open('get', url, true);
             xhr.send(null);
         }
@@ -331,7 +331,7 @@
                     alert(xhr.status);
                 }
             }
-            let url = "php/getRobot_text_JSON.php";
+            let url = "php/getRobot_text_JOSN.php";
             xhr.open('get', url, true);
             xhr.send(null);
         }
@@ -339,15 +339,15 @@
             let robot_texts = JSON.parse(jsonStr);
             fakeDate = new Array(robot_texts.length);
             for (let i = 0; i < robot_texts.length; i++) {
-                // fakeDate[i] = new Array(members[i].member_no, members[i].member_id, members[i].member_name, members[i].member_email, members[i].member_tel, members[i].member_birth, members[i].member_money, members[i].using_ticket_no, members[i].member_status);
+                fakeDate[i] = new Array(robot_texts[i].text_no, robot_texts[i].Q, robot_texts[i].A);
             }
-            dataType = [1, 1, 1, 1, 1, 1, 1, 1, 2];
-            inputarray = [];
+            dataType = [1, 3, 4];
+            inputarray = [1, 2];
             buttonValue = ['停權', '正常'];
-            updateBtn = 0;
-            deleteBtn = 0;
+            updateBtn = 1;
+            deleteBtn = 1;
             let tableHeader = document.createElement('tr');
-            tableHeader.innerHTML = "<th>會員編號</th><th>會員帳號</th><th>會員姓名</th><th>E-mail</th><th>電話</th><th>生日</th><th>購物金</th><th>正在使用的票號</th><th>會員狀態</th>";
+            tableHeader.innerHTML = "<th>文本編號</th><th>關鍵字</th><th>回覆文本</th><th>編輯</th><th>刪除</th>";
             tableTh.appendChild(tableHeader);
             makeTable();
         }
@@ -375,55 +375,56 @@
             let missions = JSON.parse(jsonStr);
             fakeDate = new Array(missions.length);
             for (let i = 0; i < missions.length; i++) {
-                // fakeDate[i] = new Array(members[i].member_no, members[i].member_id, members[i].member_name, members[i].member_email, members[i].member_tel, members[i].member_birth, members[i].member_money, members[i].using_ticket_no, members[i].member_status);
+                fakeDate[i] = new Array(missions[i].mission_no, missions[i].mission_name, missions[i].mission_bonus);
             }
-            dataType = [1, 1, 1, 1, 1, 1, 1, 1, 2];
-            inputarray = [];
+            dataType = [1, 3, 3];
+            inputarray = [1, 2];
             buttonValue = ['停權', '正常'];
-            updateBtn = 0;
-            deleteBtn = 0;
+            updateBtn = 1;
+            deleteBtn = 1;
             let tableHeader = document.createElement('tr');
-            tableHeader.innerHTML = "<th>會員編號</th><th>會員帳號</th><th>會員姓名</th><th>E-mail</th><th>電話</th><th>生日</th><th>購物金</th><th>正在使用的票號</th><th>會員狀態</th>";
+            tableHeader.innerHTML = "<th>經典任務編號</th><th>任務名稱</th><th>任務完成加分</th><th>修改</th><th>刪除</th>";
             tableTh.appendChild(tableHeader);
             makeTable();
         }
     }
     //票價管理
-    function ticket(e) {
-        tableTitle.innerText = this.innerText;
-        currentID = 9;
-        clearTable();
-        getTicket();
-        function getTicket() {
-            let xhr = new XMLHttpRequest();
-            xhr.onload = function () {
-                if (xhr.status == 200) {
-                    showTicket(xhr.responseText);
-                } else {
-                    alert(xhr.status);
-                }
-            }
-            let url = "php/getTicket_JSON.php";
-            xhr.open('get', url, true);
-            xhr.send(null);
-        }
-        function showTicket(jsonStr) {
-            let tickets = JSON.parse(jsonStr);
-            fakeDate = new Array(tickets.length);
-            for (let i = 0; i < tickets.length; i++) {
-                // fakeDate[i] = new Array(members[i].member_no, members[i].member_id, members[i].member_name, members[i].member_email, members[i].member_tel, members[i].member_birth, members[i].member_money, members[i].using_ticket_no, members[i].member_status);
-            }
-            dataType = [1, 1, 1, 1, 1, 1, 1, 1, 2];
-            inputarray = [];
-            buttonValue = ['停權', '正常'];
-            updateBtn = 0;
-            deleteBtn = 0;
-            let tableHeader = document.createElement('tr');
-            tableHeader.innerHTML = "<th>會員編號</th><th>會員帳號</th><th>會員姓名</th><th>E-mail</th><th>電話</th><th>生日</th><th>購物金</th><th>正在使用的票號</th><th>會員狀態</th>";
-            tableTh.appendChild(tableHeader);
-            makeTable();
-        }
-    }
+    // function ticket(e) {
+    //     tableTitle.innerText = this.innerText;
+    //     currentID = 9;
+    //     clearTable();
+    //     getTicket();
+    //     function getTicket() {
+    //         let xhr = new XMLHttpRequest();
+    //         xhr.onload = function () {
+    //             if (xhr.status == 200) {
+    //                 showTicket(xhr.responseText);
+    //             } else {
+    //                 alert(xhr.status);
+    //             }
+    //         }
+    //         let url = "php/getTicket_customized_JSON.php";
+    //         xhr.open('get', url, true);
+    //         xhr.send(null);
+    //     }
+    //     function showTicket(jsonStr) {
+    //         let tickets = JSON.parse(jsonStr);
+    //         fakeDate = new Array(tickets.length);
+    //         for (let i = 0; i < tickets.length; i++) {
+    //             // fakeDate[i] = new Array(members[i].member_no, members[i].member_id, members[i].member_name, members[i].member_email, members[i].member_tel, members[i].member_birth, members[i].member_money, members[i].using_ticket_no, members[i].member_status);
+    //         }
+    //         dataType = [1, 1, 1, 1, 1, 1, 1, 1, 2];
+    //         inputarray = [];
+    //         buttonValue = ['停權', '正常'];
+    //         updateBtn = 0;
+    //         deleteBtn = 0;
+    //         let tableHeader = document.createElement('tr');
+    //         tableHeader.innerHTML = "<th>會員編號</th><th>會員帳號</th><th>會員姓名</th><th>E-mail</th><th>電話</th><th>生日</th><th>購物金</th><th>正在使用的票號</th><th>會員狀態</th>";
+    //         tableTh.appendChild(tableHeader);
+    //         makeTable();
+    //     }
+    // }
+
     //設施管理
     function amusement_equipments(e) {
         tableTitle.innerText = this.innerText;
@@ -439,7 +440,7 @@
                     alert(xhr.status);
                 }
             }
-            let url = "php/getAmusement_equipments_JSON.php";
+            let url = "php/getAmusement_equipments_JOSN.php";
             xhr.open('get', url, true);
             xhr.send(null);
         }
@@ -447,15 +448,15 @@
             let amusement_equipmentss = JSON.parse(jsonStr);
             fakeDate = new Array(amusement_equipmentss.length);
             for (let i = 0; i < amusement_equipmentss.length; i++) {
-                // fakeDate[i] = new Array(members[i].member_no, members[i].member_id, members[i].member_name, members[i].member_email, members[i].member_tel, members[i].member_birth, members[i].member_money, members[i].using_ticket_no, members[i].member_status);
+                fakeDate[i] = new Array(amusement_equipmentss[i].equ_no, amusement_equipmentss[i].equ_image, amusement_equipmentss[i].equ_name, amusement_equipmentss[i].equ_desc, amusement_equipmentss[i].equ_score_total, amusement_equipmentss[i].score_num, amusement_equipmentss[i].equ_status, amusement_equipmentss[i].equ_bonus);
             }
-            dataType = [1, 1, 1, 1, 1, 1, 1, 1, 2];
-            inputarray = [];
+            dataType = [1, 5, 3, 4, 1, 1, 2, 3];
+            inputarray = [2,3,7];
             buttonValue = ['停權', '正常'];
-            updateBtn = 0;
+            updateBtn = 1;
             deleteBtn = 0;
             let tableHeader = document.createElement('tr');
-            tableHeader.innerHTML = "<th>會員編號</th><th>會員帳號</th><th>會員姓名</th><th>E-mail</th><th>電話</th><th>生日</th><th>購物金</th><th>正在使用的票號</th><th>會員狀態</th>";
+            tableHeader.innerHTML = "<th>設施編號</th><th>設施圖片</th><th>設施名稱</th><th>設施描述</th><th>設施總評分</th><th>評分人數</th><th>設施狀態</th><th>完成設施加分</th><th>修改</th>";
             tableTh.appendChild(tableHeader);
             makeTable();
         }
@@ -475,7 +476,7 @@
                     alert(xhr.status);
                 }
             }
-            let url = "php/getQuestion_JSON.php";
+            let url = "php/getQuestion_JOSN.php";
             xhr.open('get', url, true);
             xhr.send(null);
         }
@@ -483,15 +484,15 @@
             let question_nos = JSON.parse(jsonStr);
             fakeDate = new Array(question_nos.length);
             for (let i = 0; i < question_nos.length; i++) {
-                // fakeDate[i] = new Array(members[i].member_no, members[i].member_id, members[i].member_name, members[i].member_email, members[i].member_tel, members[i].member_birth, members[i].member_money, members[i].using_ticket_no, members[i].member_status);
+                fakeDate[i] = new Array(question_nos[i].question_no, question_nos[i].question_content, question_nos[i].question_optionA, question_nos[i].question_optionB, question_nos[i].question_optionC, question_nos[i].right_multiple, question_nos[i].correct_option);
             }
-            dataType = [1, 1, 1, 1, 1, 1, 1, 1, 2];
-            inputarray = [];
+            dataType = [1, 4, 5, 5, 5, 3, 3];
+            inputarray = [1,5,6];
             buttonValue = ['停權', '正常'];
-            updateBtn = 0;
-            deleteBtn = 0;
+            updateBtn = 1;
+            deleteBtn = 1;
             let tableHeader = document.createElement('tr');
-            tableHeader.innerHTML = "<th>會員編號</th><th>會員帳號</th><th>會員姓名</th><th>E-mail</th><th>電話</th><th>生日</th><th>購物金</th><th>正在使用的票號</th><th>會員狀態</th>";
+            tableHeader.innerHTML = "<th>隨機問答編號</th><th>問題內容</th><th>問題回答選項1</th><th>問題回答選項2</th><th>問題回答選項3</th><th>回答正確懸賞金加倍倍數</th><th>正確答案選項(1 or 2 or 3)</th><th>修改</th><th>刪除</th>";
             tableTh.appendChild(tableHeader);
             makeTable();
         }
@@ -547,7 +548,7 @@
                     alert(xhr.status);
                 }
             }
-            let url = "php/getTicket_customized_JSON.php";
+            let url = "php/getMascot_customize_JSON.php";
             xhr.open('get', url, true);
             xhr.send(null);
         }
@@ -555,15 +556,15 @@
             let ticket_customizeds = JSON.parse(jsonStr);
             fakeDate = new Array(ticket_customizeds.length);
             for (let i = 0; i < ticket_customizeds.length; i++) {
-                fakeDate[i] = new Array(members[i].member_no, members[i].member_id, members[i].member_name, members[i].member_email, members[i].member_tel, members[i].member_birth, members[i].member_money, members[i].using_ticket_no, members[i].member_status);
+                fakeDate[i] = new Array(ticket_customizeds[i].mascot_customize_no, ticket_customizeds[i].mascot_customize_image);
             }
-            dataType = [1, 1, 1, 1, 1, 1, 1, 1, 2];
+            dataType = [1, 5];
             inputarray = [];
             buttonValue = ['停權', '正常'];
             updateBtn = 0;
-            deleteBtn = 0;
+            deleteBtn = 1;
             let tableHeader = document.createElement('tr');
-            tableHeader.innerHTML = "<th>會員編號</th><th>會員帳號</th><th>會員姓名</th><th>E-mail</th><th>電話</th><th>生日</th><th>購物金</th><th>正在使用的票號</th><th>會員狀態</th>";
+            tableHeader.innerHTML = "<th>樣式編號</th><th>圖片樣式</th><th>刪除</th>";
             tableTh.appendChild(tableHeader);
             makeTable();
         }
@@ -596,10 +597,10 @@
             dataType = [1, 1, 1, 1, 1, 1, 1, 1, 2];
             inputarray = [];
             buttonValue = ['停權', '正常'];
-            updataBtn = 0;
+            updataBtn = 1;
             deleteBtn = 0;
             let tableHeader = document.createElement('tr');
-            tableHeader.innerHTML = "<th>會員編號</th><th>會員帳號</th><th>會員姓名</th><th>E-mail</th><th>電話</th><th>生日</th><th>購物金</th><th>正在使用的票號</th><th>會員狀態</th>";
+            tableHeader.innerHTML = "<th>文本編號</th><th>關鍵字</th><th>回覆文本</th><th>編輯</th><th>刪除</th>";
             tableTh.appendChild(tableHeader);
             makeTable();
         }
@@ -623,19 +624,22 @@
                         inDate.innerText = value[i];
                         break;
                     case 2:
-                        inDate = tdBulid.tdButton();
-                        if (value[i]) {
-                            inDate.value = buttonValue[1];
-                        } else {
-                            inDate.value = buttonValue[0];
-                        }
+                        inDate = tdBulid.tdSelect();
+                        buttonValue.forEach((value,index)=>{
+                            let opt=document.createElement('option');
+                            opt.innerText=value;
+                            opt.value=value;
+                            if(index==1)
+                                opt.selected=true;
+                            inDate.appendChild(opt);
+                        })
                         break;
                     case 3:
                         inDate = tdBulid.tdText();
                         inDate.value = value[i];
                         break;
                     case 4:
-                        inDate = tdBulid.tdLongText();
+                        inDate = tdBulid.tdTextarea();
                         inDate.value = value[i];
                         break;
                     case 5:

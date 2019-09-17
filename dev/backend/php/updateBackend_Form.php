@@ -2,13 +2,13 @@
     try{
         require_once("connectWestland.php");
         $targetID=$_POST['currentID'];
-        // $targetID="0";
+        // echo $targetID;
+        // exit();
         switch($targetID){
             case "0":
-                $sql="update administrator set admin_name=:admin_name, admin_id=:admin_id where admin_no=:admin_no";
+                $sql="update administrator set admin_name=:admin_name where admin_no=:admin_no";
                 $input=$pdo->prepare($sql);
                 $input->bindValue(":admin_name",$_POST['admin_name']);
-                $input->bindValue(":admin_id",$_POST['admin_id']);
                 $input->bindValue(":admin_no",$_POST['admin_no']);
                 $input->execute();
                 echo "管理員資訊異動成功";
