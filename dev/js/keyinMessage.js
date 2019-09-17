@@ -3,8 +3,8 @@ $(document).on('click', '#butsave', function(){
 	var member_no = $('#member_no').val();
 	var equ_no = $('#equ_no').val();
 	var equ_message = $('#equ_message').val();
-	var report_status = $('#report_status').val();
-	var report_message = $('#report_message').val();
+	// var report_status = $('#report_status').val();
+	// var report_message = $('#report_message').val();
 	$.ajax({
 		url:"php/keyinMessage.php",
 		method:'POST',
@@ -13,8 +13,8 @@ $(document).on('click', '#butsave', function(){
 			member_no: member_no,
 			equ_no: equ_no,
 			equ_message: equ_message,
-			report_status: report_status,
-			report_message: report_message		
+			// report_status: report_status,
+			// report_message: report_message		
 		},
 		success:function(){
 			console.log("寫入成功");

@@ -516,6 +516,12 @@
                 display: block;
                 .ticket_customize_wrap{
                     width: 100%;
+                    .customize_items_set_box{
+                        width: 50%;
+                    }
+                    .indexticket_buy{
+                        margin-left: 230px;
+                    }
                     .customize_mascots_boxs{
                         width: 50%;
                         float: right;
@@ -540,8 +546,11 @@
     }
     @include rwd(phone) {
         background-image: url("../images/index/homeM_bg_2.png");
-        .center{
-            margin: 10px auto;
+        .customize_items_set_box{
+            width: 100%;
+        }
+        .indexticket_buy{
+            margin: 0 auto;
         }
     }
     //===

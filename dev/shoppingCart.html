@@ -45,19 +45,20 @@
                     <h5 class="m-0">刪除</h5>
                 </div>
             </div>
-            <form action="cartUpdate.php" method="get" id="cartUpdateForm" class="bt" style="display: none">
+            <form action="cartUpdate.php" method="get" class="bt" style="display: none">
                 <div class="bg_fdfff3">
                     <div class="shopping_cart  m40_0_0  dis_f_jc_c">
                         <div class="col48 m-a col-lg-3 dis_f_jc_c shopping_cart_item bl">
                             <div class="po-r w-50p m-a">
-                                <img src="https://picsum.photos/100/100?random=1">
+                                <img class="shoppingCartContentImg" src="">
                                 <input type="hidden" name="pImage" value="towel4.png">
                             </div>
                         </div>
                         <div class="col48 col-lg-3 dis_f_jc_c shopping_cart_item bl">
-                            <p>仙人掌-紅色</p>
+                            <p class="shoppingCartContentPdName"></p>
                             <input type="hidden" name="pName" value="仙人掌-紅色">
-                            <p class="dis-lg-n">單價：$450</p>
+                            <p class="dis-lg-n">單價：$<span class="thePrice dis-lg-n"></span></p>
+                            <!-- <p class="thePrice dis-lg-n">單價：$450</p> -->
                         </div>
                         <div class="dis_n col-lg-2 dis_f_jc_c shopping_cart_item bl">
                             <p>$<span class="thePrice">450</span></p>
@@ -201,12 +202,14 @@
             let items = itemString.substr(0, itemString.length - 2).split(', ');
             // console.log(items);   // ["A1001", "A1005", "A1002"] //
             for (let key in items) {  //use items[key]
-                let itemInfo = storage.getItem(items[key]);
+                let itemInfo = storage.getItem(items[key]);// itemInfo="formas|formas.png|$3000"
                 // console.log(itemInfo);
-                createCartContentList(itemInfo);
+                createCartContentList(itemInfo,items[key]);//items[key]="A1001"
             }
-            function createCartContentList(itemInfo) {
+            function createCartContentList(itemInfo,key) {
+                console.log(key);
                 let cartUpdateFormClone = document.getElementById("cartUpdateFormWrap").children[1].cloneNode(true);
+                cartUpdateFormClone.id=key;
                 // console.log(cartUpdateFormClone);
                 cartUpdateFormClone.style.display = '';
                 // document.getElementById("cartUpdateFormWrap").appendChild(cartUpdateFormClone);
@@ -214,11 +217,26 @@
                 document.getElementById("cartUpdateFormWrap").insertBefore(cartUpdateFormClone, document.getElementById("cartUpdateFormWrap").lastElementChild.previousElementSibling);
                 //lastElementChild最後一個小孩
                 //previousElementSibling我的上一個兄弟
+
+
+                //console.log(cartUpdateFormClone.children[0].children[0].children[4].children[0].children[0]);test
+
+                cartUpdateFormClone.children[0].children[0].children[0].children[0].children[0].src = itemInfo.split('|')[1];
+                cartUpdateFormClone.children[0].children[0].children[0].children[0].children[0].src = itemInfo.split('|')[1];
+
+                cartUpdateFormClone.children[0].children[0].children[1].children[0].innerText = itemInfo.split('|')[0];
+
+                cartUpdateFormClone.children[0].children[0].children[2].children[0].children[0].innerText = itemInfo.split('|')[2];
+                cartUpdateFormClone.children[0].children[0].children[4].children[0].children[0].innerText = itemInfo.split('|')[2];
+                cartUpdateFormClone.children[0].children[0].children[1].children[2].children[0].innerText = itemInfo.split('|')[2];//手機版單價
+    
+
             }
         }
         shopingCartFirst()
     </script>
     <!-- -----------購物車動態新增end-------- -->
+    
     <!-- -----------購物車數量及小計end-------- -->
     <script>
             (function () {

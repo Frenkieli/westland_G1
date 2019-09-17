@@ -66,7 +66,83 @@
         margin: auto;
         margin-bottom: 200px;
         .section_title {
-            margin: 150px;
+        margin: 150px;
+        }
+        .coverBlock{
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, .5);
+            z-index: 5;
+            .reportMessage{
+                width: 30%;
+                height: 45%;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                margin: auto;
+                background-color:rgba(207, 248, 198, 0.918);
+                border-radius: 15px;
+                font-family: 'Noto Sans TC', sans-serif;
+                textarea{
+                    height: 50%;
+                    width: 50%;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    margin: auto;
+                }
+                h3{
+                    text-align: center;
+                    padding: 20px;
+                }
+                .toReport{
+                    position: absolute;
+                    bottom: 10%;
+                    right: 0;
+                    left: 0;
+                    margin: auto;
+                    @include btn();
+                }
+                .fork{
+                    z-index: 10;
+                    top: 4%;
+                    right: 2%;
+                    position: absolute;
+                    width: 15px;
+                    height: 5px;
+                    border-radius: 15px;
+                    background-color: rgb(109, 109, 109);
+                    cursor: pointer;
+                }
+                .left{
+                    transform: rotate(45deg);
+                }
+                .right{
+                    transform: rotate(-45deg);
+                }
+                .btn-close{
+                    position: absolute;
+                    display: block;
+                    width: 30px;
+                    height: 30px;
+                    line-height: 30px;
+                    text-decoration: none;
+                    background-color: rgba(163, 255, 145, 0.842);
+                    color: #fff;
+                    top: 0;
+                    right: 0;
+                    text-align: center;
+                    border-radius: 25px;
+                    cursor: pointer;
+                }
+            }
         }
         #example3{
             transform: scale(1.25);
@@ -102,6 +178,10 @@
                 justify-content: center;
                 align-items: center;
                 border-radius: 20px;
+                #report{
+                    @include btn();
+                    height: 10%;
+                }
                 #message {
                     background-color: #fff;
                     height: 25vh;
