@@ -35,7 +35,7 @@ function plusitem() {
         widthnow = width + 10 + "px";
         opabox.style.width = widthnow;
     }
-    console.log(widthnow);
+    // console.log(widthnow);
 };
 
 //縮小樣式
@@ -43,14 +43,14 @@ function minusitem() {
     let opabox = document.getElementById("customize_opabox");
     let width = parseInt(window.getComputedStyle(opabox).width);
     // let width = parseInt(opabox.style.width);  //只能抓到寫在inline-style的
-    console.log(width);
+    // console.log(width);
     if (width <= 50) {
         width = 50;
     } else {
         widthnow = width - 10 + "px";
         opabox.style.width = widthnow;
     }
-    console.log(widthnow);
+    // console.log(widthnow);
 };
 
 // 樣式向右轉
@@ -74,22 +74,47 @@ function trashitem() {
     opabox.removeChild(child);
 };
 
-//更換賞單圖片
-// function changepic(){
-//     let pic = document.getElementById("uploadpic").files[0];
-//     let readpic = new FileReader();
-//     readpic.readAsDataURL(pic);
-//     readpic.addEventListener("load",function(){
-//         let preinstallpic = document.getElementById("preinstallpic");
-//         preinstallpic.src = this.result;
-//         preinstallpic.style.width = "300px";
-//         preinstallpic.style.height = "300px";
-//     });
-// }
+// 存購票樣式、座標及吉祥物資訊進stroage
+function saveticketinfo(){
+    let storage = sessionStorage;
+    //每次存暫存時清除暫存
+    if(storage.getItem("bigsrc")!=null || storage.getItem("opasrc")!=null || storage.getItem("itemaxis")!=null){
+        storage.removeItem("bigsrc"); 
+        storage.removeItem("opasrc");
+        storage.removeItem("itemaxis");
+    }
+    
+    //抓opabox位置
+    let opaboxHeight = document.getElementById("customize_opabox").offsetHeight;
+    let opaboxWidth = document.getElementById("customize_opabox").offsetWidth;
+    let opaboxTop = document.getElementById("customize_opabox").offsetTop;
+    let opaboxLeft = document.getElementById("customize_opabox").offsetLeft;
+    //計算縮放比
+    let boxscale = itemscale;
+    let boxdeg = itemdeg;
+    let opaboxDeg = boxdeg * Math.PI / 180;
+    
+    //抓吉祥物圖檔
+    let big = document.getElementById("big").src;
+    storage['bigsrc']= big;
+
+    //抓樣式圖檔
+    let opa = document.getElementById("customize_opabox").firstElementChild.src;
+    storage['opasrc']= opa;
+    
+    //抓樣式座標
+    let axisarr=[opaboxHeight,opaboxWidth,opaboxTop,opaboxLeft,boxscale,boxdeg];
+    storage['itemaxis']= axisarr;
+
+}
 
 
 
 function init() {
+    //樣式角度預設
+    itemdeg=0;
+    itemscale=1;
+
     //客製化樣式撈資料
     let xhr = new XMLHttpRequest();
     xhr.onload = function () {
@@ -106,7 +131,7 @@ function init() {
     xhr.send(null);
     function customizedimg(jsonStr){
         let ticket_custom = JSON.parse(jsonStr);
-        console.log(ticket_custom);
+        // console.log(ticket_custom);
         let breakpoint = ticket_custom.indexOf("break");
 
         let items = document.getElementById("ticket_items");
@@ -119,7 +144,7 @@ function init() {
             img.src = ticket_custom[i].mascot_customize_image;
             items.children[i].appendChild(img);
         }
-        console.log(breakpoint);
+        // console.log(breakpoint);
         for(i=breakpoint+1;i<ticket_custom.length;i++){
             let img = document.createElement("img");
             img.className="mascots";
@@ -148,8 +173,6 @@ function init() {
     // 縮小樣式鈕
     let minus = document.getElementById("opabox_minus");
     minus.addEventListener("click", minusitem);
-    //原始角度0
-    itemdeg = 0;
     // 選轉向右式鈕
     let turnright = document.getElementById("opabox_right");
     turnright.addEventListener("click", rightitem);
@@ -160,11 +183,9 @@ function init() {
     let trash = document.getElementById("opabox_del");
     trash.addEventListener("click", trashitem);
 
-    //更換賞單圖片
-    // let uploadpic = document.getElementById("uploadpic");
-    // uploadpic.addEventListener("change",changepic);
-
-    
+    //點選進入購買存座標
+    let buyticket = document.querySelector(".indexticket_buy");
+    buyticket.addEventListener("click", saveticketinfo);
     
 }
 
