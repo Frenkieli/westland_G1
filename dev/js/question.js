@@ -42,7 +42,8 @@
         document.querySelector('#problem_answer2 img').src = arr[answer][3];
         document.querySelector('#problem_answer3 img').src = arr[answer][4];
 
-        console.log(arr[answer][6], ',成功了嗎?');
+        console.log(arr[answer], ',成功了嗎?');
+
         $(`#problem_answer${arr[answer][6]}`).click(() => {
             $('.problem_reply').css('display', 'block');
             let i = 0;
@@ -61,6 +62,25 @@
                     }, 200);
                 }
             }, 5);
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    //..................取回server端回傳的使用者資料
+                    if (xhr.responseText.indexOf("sysError") != -1) {
+                        alert("系統異常,請通知系統維護人員");
+                    } else if (xhr.responseText.indexOf("還沒進場喔！") != -1) {
+                        alert("還沒進場喔！");
+                    } else {
+                        alert('正在為您重新整理！');
+                        window.location.reload();
+                    }
+                } else {
+                    alert(xhr.status);
+                }
+            }
+            xhr.open("post", "php/updateticketbounty_JSON.php", false);
+            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            var data_info = `right_multiple=${arr[answer]}`;
+            xhr.send(data_info);
         });
     }
     question_start();
@@ -76,7 +96,7 @@
                 alert(xhr.status);
             }
         }
-        var url = "php/getQuestion_JOSN.php";
+        var url = "php/getQuestion_JSON.php";
         xhr.open('get', url, true);
         xhr.send(null);
     }
