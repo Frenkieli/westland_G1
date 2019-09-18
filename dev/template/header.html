@@ -58,7 +58,7 @@
         <div class="login_box">
             <!-- 刪除按鈕 -->
             <a href="#" class="login_cancel">
-                <img src="images/member/login_camcel.png" alt="刪除鈕小icon">
+                <img src="images/member/login_del.png" alt="刪除鈕小icon">
             </a>
             <!-- 文字區     -->
             <h3>會員登入</h3>
@@ -89,17 +89,105 @@
     </div>
 
 </section>
+<!---------------- ---會員註冊------------------------- -->
+
+<section id="register_lightbox">
+    <div class="registerTable">
+        <!-- 背景 -->
+        <!-- <img class="login_bg" src="" alt="註冊的背景"> -->
+        <!-- 會員註冊文字區 -->
+        <div class="register_box">
+            <!-- 刪除按鈕 -->
+            <a href="#" class="login_cancel">
+                <img src="images/member/login_del.png" alt="刪除鈕小icon">
+            </a>
+            <!-- 文字區 -->
+            <h3>會員註冊</h3>
+            <!-- 帳號 -->
+            <span>帳號</span>
+            <input type="text" name="mem_id" id="register_memid" placeholder="請輸入帳號">
+            <br>
+            <!-- 暱稱 -->
+            <span>暱稱</span>
+            <input type="text" name="mem_name" id="member_name" placeholder="請輸入帳號">
+            <br>
+            <!-- Email -->
+            <span>信箱</span>
+            <input type="email" name="mem_email" id="register_mememail" placeholder="輸入E-mail">
+            <br>
+            <!-- 密碼 -->
+            <span>密碼</span>
+            <input type="password" name="mem_psw" id="register_mempsw">
+            <br>
+            <!-- 確認密碼 -->
+            <span>確認密碼</span>
+            <input type="password" name="mem_psw" id="con_register_mempsw">
+            <br>
+            <!-- 提示密碼 -->
+            <span>提示問題</span>
+            <select name="optionarea" id="password_question">
+                　<option value="1">您最喜歡的遊樂設施</option>
+                　<option value="2">您最喜歡的水果</option>
+            </select>
+            <br>
+            <!-- 回答問題 -->
+            <span>回答問題</span>
+            <input type="text" name="password_answer" id="password_answer">
+            <br>
+            <!-- 註冊按鈕 -->
+            <a href="#" class="btn" id="register_button">註冊</a> 　
+
+        </div>
+    </div>
+</section>
+<!-- ------------- ---------重設密碼------------------------ -->
+<section id="password_lightbox">
+    <div class="passwordTable">
+        <!-- 背景 -->
+        <!-- <img class="login_bg" src="" alt="密碼的背景"> -->
+        <!-- 重設密碼文字區 -->
+        <div class="password_box">
+            <!-- 刪除按鈕 -->
+            <a href="#" class="login_cancel">
+                <img src="images/member/login_del.png" alt="刪除鈕小icon">
+            </a>
+            <!-- 文字區 -->
+            <h3>重設密碼</h3>
+            <!-- 提示密碼 -->
+            <span>提示問題</span>
+            <select name="optionarea" id="password_question">
+                　<option value="1">您最喜歡的遊樂設施</option>
+                　<option value="2">您最喜歡的水果</option>
+            </select>
+            <br>
+            <!-- 回答問題 -->
+            <span>回答問題</span>
+            <input type="text" name="password_answer" id="repassword_answer">
+            <br>
+            <!-- 新密碼 -->
+            <span>密碼</span>
+            <input type="password" name="new_mempsw" id="new_mempsw" placeholder="請輸入新密碼">
+            <br>
+            <!-- 確認密碼 -->
+            <span>確認密碼</span>
+            <input type="password" name="mem_psw" id="re_mempsw" placeholder="再次確認">
+            <br>
+            <!-- 重新設定密碼按鈕 -->
+            <a href="#" class="btn" id="password_button">確認</a> 　
+        </div>
+    </div>
+</section>
 
 
 <!-- ///////////////會員//////////////// -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-
 <script>  //使用jquery-Ajax//
+//----------------------------登入start---------------------------------------//
     $(document).ready(function () {
-        //====按會員登入icon====//..假使sessionStorage有member_name，就跳轉去會員中心頁面，否則就跳出登入燈箱
+        //====按會員登入icon====//..假使sessionStorage有member_no，就跳轉去會員中心頁面，否則就跳出登入燈箱
         $('#navbar_loginicon').click(function () {
-            if (sessionStorage.member_name) {
+            if (sessionStorage.member_no) {
                 window.location.href = "memberLocation.html";
             } else {
                 $('#lightBox').css('display', 'block');
@@ -110,53 +198,42 @@
             $('#lightBox').css('display', 'none');
         });
 
-        ////////////////////////////////////////////////////////////////
-
-        $("#mem_id").change(function () {
-            checkId();
-        });
-        $("#mem_psw").change(function () {
-            checkPsw();
-        });
+        //====點擊登入按鈕====//
         $("#login_button").click(function () {
-            loginmem2();
+            if (checkVal($("#mem_id").val())) { //檢查帳號 
+                alert("帳號不符合規則")
+            } else if (checkVal($("#mem_psw").val())) {   //檢查密碼
+                alert("密碼不符合規則")
+            } else {    // 登入成功
+                loginmem2();
+            }
         });
     });
 
-    var nnn = /^[a-zA-Z0-9_-]{3,16}$/; //使用正規表達式
-    function checkId() { //檢查帳號 
-        if ($("#mem_id").val().search(nnn)) {
-            console.log('不可');
+//====檢查====
+    function checkVal(value) {
+        var reg = /^[a-zA-Z0-9_-]{3,16}$/; //使用正規表達式
+        if (value.search(reg)) {
+            return true
         } else {
-            console.log('可');
+            return false
         }
     }
-    function checkPsw() { //檢查密碼
-        if ($("#mem_psw").val().search(nnn)) {
-            console.log('不可');
-        } else {
-            console.log('可');
-        }
-    }
-    $("#mem_id").val();
-    $("#mem_psw").val();
-    //////////////////////////////////////////////////////////////
-    
-    //////////////////////////////////////////////////////////////
+
+//====登入Ajax====
     function loginmem2() {
         $.ajax({
             type: 'post',               //post/get 傳送方式
             url: "php/getLogin.php",    //url位置
             data: { member_id: $("#mem_id").val(), member_psw: $("#mem_psw").val() }, //輸入的資料
             success: function (data2) { //成功之後要執行的函數------> data2:從後端撈起的資料
-                console.log(data2) 
+                console.log(data2)
                 let userData = JSON.parse(data2);
                 console.log(userData)
                 $.each(userData[0], function (index, value) {
-                    
-                    if(index == 'member_id' || index == 'member_psw'){
+                    if (index == 'member_id' || index == 'member_psw') {
                         return;
-                    }else{
+                    } else {
                         sessionStorage.setItem(index, value); // 將資料存在sessionStorage
                     }
                     console.log(value)
@@ -169,7 +246,79 @@
             }
         });
     }
+    //---------------------------註冊start--------------------------------//
+    //====點擊立即註冊按鈕====//
+    $('#register').click(function () {
+        //顯示註冊燈箱
+        $('#register_lightbox').css('display', 'block');
 
+        //隱藏登入燈箱
+        $('#lightBox').css('display', 'none');
 
+        //====按取消按鈕====//  註冊燈箱會消失
+        $('.login_cancel img').click(function () {
+            $('#register_lightbox').css('display', 'none');
+        });
+    })
 
+    //====點擊註冊按鈕====//
+    $('#register_button').click(function () {
+        ///////////////ajax///////////////////////
+        var userid = $('#register_memid').val(); //帳號
+        var member_name = $('#member_name').val(); //暱稱
+        var password = $("#register_mempsw").val();//密碼
+        var chk_password = $("#con_register_mempsw").val();//確認密碼
+        var memmail = $("#register_mememail").val();//信箱
+        var question = $("#password_question").val();//提示問題
+        var answer = $("#password_answer").val();//回答問題
+
+        if (checkVal(userid)) { //檢查帳號 
+            alert("帳號不符合規則")
+        } else if (checkVal(password)) {   //檢查密碼
+            alert("密碼不符合規則")
+        }  else if (password != chk_password ) { 
+            alert("密碼不一致")
+        }
+        else {    // 註冊
+            $.ajax({
+                type: "POST",
+                url: "php/addMember.php",
+                dataType: "JSON",
+                data: {  //輸入的資料
+                    "member_id": userid,
+                    "member_psw": password,
+                    "member_email": memmail,
+                    "forget_hint": question,
+                    "forget_answer": answer,
+                    "member_name": member_name,
+                },
+                success: function (data) {
+                    switch (data) {
+                        case 1://用戶已存在
+                            alert("該用戶已存在。")
+                            break;
+                        case 2://註冊成功
+                            alert("註冊成功！");
+                            window.location.href = "index.html";
+                            $('#register_lightbox').css('display', 'none');
+                            break;
+                    }
+                }
+            })
+        }
+    })
+    //----------------------重設密碼-------------------------------//
+    //====點擊忘記密碼按鈕====//
+    $('#login_forget').click(function () {
+        //顯示密碼燈箱
+        $('#password_lightbox').css('display', 'block');
+
+        //隱藏登入燈箱
+        $('#lightBox').css('display', 'none');
+
+        //====按取消按鈕====//  密碼燈箱會消失
+        $('.login_cancel img').click(function () {
+            $('#password_lightbox').css('display', 'none');
+        });
+    })
 </script>

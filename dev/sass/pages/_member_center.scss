@@ -1,5 +1,5 @@
-/////////////////////// ///////////////////////
-//              會員中心選單                //
+
+//////////////會員中心選單 ///////////////////      
 // //////////////////////////////////////////
 
 .account {
@@ -18,7 +18,7 @@
             width: 100%;
             padding: 0 1px;
             margin: auto;
-            background-color: #9dba65;
+            // background-color: #9dba65;
             border-top-left-radius: 10px;
             border-top-right-radius: 10px;
             .mymenu {
@@ -28,27 +28,47 @@
                 width: 100%;
                 display: flex;
                 flex-wrap: wrap;
-                border-color: #fff8e4;
+                // border-color: #fff8e4;
                 border-top-style: dashed;
                 border-bottom-style: dashed;
+                
                 li {
-                    width: 46%;
+                    width: 25%;
                     text-align: center;
                     list-style: none;
-                    padding: 5px 0;
+                    padding: 5px 2px;
+                    position: relative;
                 }
                 a {
-                    cursor: pointer;
+                    cursor: pointer;                
                     text-decoration: none;
                     align-items: center;
                     box-sizing: border-box;
-                    color: #fff8e4;
-                    font-size: 14px;
-                    line-height: 1.5rem;
+                    // color: #fff8e4;
+                    color: #9dba65;
+                    // background-image: url("../images/member/col.png");
+                    font-size: 20px;
+                    line-height: 2rem;
                     font-family: "Noto Sans TC", sans-serif;
+                    &::after{
+                        content:"";
+                        width:60%;
+                        background-image: url("../images/member/papa.png");
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        position: absolute;
+                        top:0px;
+                        left: 0%;
+                        bottom: 0%;
+                        right: 120px;
+                        display: none;
+                    }
                     &:hover {
                         text-decoration: underline;
                         // transition:all 5s;
+                        &::after{
+                            display: block;
+                        }
                     }
                 }
             }
@@ -76,14 +96,14 @@
 //////////////////////////
 .info_content {
     // 個人資訊部分
-    background-image: url("../../images/member/p0029_m.png");
-    background-size:cover;
-    background-repeat: no-repeat;
+    // background-image: url("../images/member/p0029_m.png");
+    // background-size:cover;
+    // background-repeat: no-repeat;
     // background-position: right;
-    width: 100%;
+    width: 100%;  
     display: block;
-    // background-color: #fff;
-    border: 1px solid #9dba65;
+    background-color: #fff;
+    border: 5px solid #9dba65;
     text-align: left;
     h3 {
         background-color: #9dba65;
@@ -93,7 +113,7 @@
         padding: 5px 0;
         font-family: "Noto Sans TC", sans-serif;
         border-radius: 10px;
-        font-size: 14px;
+        font-size: 18px;
         margin-top: 20px;
     }
     .content_item {
@@ -160,17 +180,18 @@
 ///////////////////////////////
 
 .order_content {
-    background-image: url("../../images/member/p0029_m.png");
-    background-size:cover;
-    background-repeat: no-repeat;
+    // background-image: url("../images/member/p0029_m.png");
+    // background-size:cover;
+    // background-repeat: no-repeat;
     width: 100%;
     display: block;
-    // background-color: #fff;
-    padding-bottom: 10px;
+    padding-bottom: 63%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    border: 1px solid #9dba65;
-    height: 50%;
+    // border: 1px solid #9dba65;
+    background-color: #fff;
+    border: 5px solid #9dba65;
+    // height: 70%;
     h3 {
         padding: 20px 0;
     }
@@ -197,14 +218,14 @@
 .ticket_content {
     width: 100%;
     display: block;  
-    // background-color: #fff;
-    background-image: url("../../images/member/p0029_m.png");
-    background-size:cover;
-    background-repeat: no-repeat;
-    padding-bottom: 10px;
+    background-color: #fff;
+    // background-image: url("../images/member/p0029_m.png");
+    // background-size:cover;
+    // background-repeat: no-repeat;
+    padding-bottom: 68%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    border: 1px solid #9dba65;
+    border: 5px solid #9dba65;
     h3 {
         padding: 20px 0;
     }
@@ -231,15 +252,15 @@
 .team_content{
     width: 100%;
     display: block;
-    // background-color: #fff;
-    background-image: url("../../images/member/p0029_m.png");
-    background-size:cover;
-    background-repeat: no-repeat;
-    padding-bottom: 10px;
+    background-color: #fff;
+    // background-image: url("../images/member/p0029_m.png");
+    // background-size:cover;
+    // background-repeat: no-repeat;
+    padding-bottom: 60%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     margin-bottom: 10px;
-    border: 1px solid #9dba65;
+    border: 5px solid #9dba65;
     .team_list{
         h3 {
             padding: 20px 0;
@@ -269,12 +290,12 @@
 .evaluation_content {
     width: 100%;
     display: block;
-    // background-color: #fff;
-    background-image: url("../../images/member/p0029_m.png");
-    background-size:cover;
-    background-repeat: no-repeat;
-    padding-bottom: 10px;
-    border: 1px solid #9dba65;      
+    background-color: #fff;
+    // background-image: url("../images/member/p0029_m.png");
+    // background-size:cover;
+    // background-repeat: no-repeat;
+    padding-bottom: 40%;
+    border: 5px solid #9dba65;      
     h3{
         padding-top:20px; 
     }

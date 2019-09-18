@@ -2,41 +2,41 @@
 ///////////////////
 //  會員登錄     //
 //////////////////
-// section {
-//     margin: auto;
-// }
 
+//////////////////////////////////////////////////
 #lightBox {
     //燈箱
-    // display: none;
+    display: none;
     width: 100%;
     height: 100vh;
     position: fixed;
-
-    // background: rgba(66, 66, 66, 0.6);
+    bottom: 0px;
+    top:0px;
+    z-index: 3;
+    background: rgba(66, 66, 66, 0.6);
     #loginTable {
         //登入區
-        background-image: url("../../images/member/logincus.png");
+        background-image: url("../images/member/logincus.png");
         background-size: cover;
         background-position: top 5px right 0px;
         background-repeat: no-repeat;
         position: relative;
         top: 25%;
-        max-width: 300px;
+        max-width: 350px;
         width: 60%;
+        height: 400px;
         margin: 0 auto;
         border-radius: 10px;
         border: 2px solid #5a7529;
         text-align: center;
-        // .login_bg{ //背景
-
-        // }
+        background-color: rgba(255, 195, 83, 0.966);
         .login_box {
             //文字大區
-
             .login_cancel {
                 //刪除鈕
-                width: 25px;
+                width: 30px;
+                border-radius:50%;
+                background-color:#fff;
                 position: absolute;
                 top: 0;
                 right: 0;
@@ -59,18 +59,24 @@
             }
             .login_forget {
                 // 忘記密碼
-                color: #999;
                 font-size: 12px;
                 display: block;
-                text-align: right;
-                margin-right: 20%;
+                margin-left:106px;
+                // text-align: right;
             }
-            // .btn{ //按鈕
-            //     margin-bottom:20px ;
-            // }
-            h3 {
+          
+            h3 { //會員登入字體
                 line-height: 40px;
+                margin: 5% 0;
+                font-size:36px;
                 padding: 4%;
+                color: rgb(255, 255, 255);
+                font-size: 36px;
+                text-shadow: rgb(204, 204, 204) 0px 1px 0px, rgb(201, 201, 201) 0px 2px 0px, rgb(187, 187, 187) 0px 3px 0px, rgb(185, 185, 185) 0px 4px 0px, rgb(170, 170, 170) 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 6px 1px, rgba(0, 0, 0, 0.1) 0px 0px 5px, rgba(0, 0, 0, 0.3) 0px 1px 3px, rgba(0, 0, 0, 0.15) 0px 3px 5px, rgba(0, 0, 0, 0.2) 0px 5px 10px, rgba(0, 0, 0, 0.2) 0px 10px 10px, rgba(0, 0, 0, 0.1) 0px 20px 20px;
+
+            }
+            .btn{
+                padding: 0 5%;
             }
             //  立即註冊區
             .smalltext {
@@ -86,6 +92,9 @@
                     color: #999;
                     font-size: 12px;
                     text-decoration-line: underline;
+                    &:hover{
+                        color:rgba(255, 195, 83, 0.966); 
+                    }
                 }
             }
             //快速註冊
@@ -94,48 +103,66 @@
                 #register_fast {
                     color: #fff;
                     font-size: 12px;
-                    text-decoration-line: underline;
+                    text-decoration-line: none;
                     background-color: #5a7529;
                     display: inline-block;
                     width: 60px;
                     line-height: 20px;
+                    &:hover{
+                        background-color:rgba(255, 195, 83, 0.966);                        
+                    }
                 }
             }
         }
     }
 }
-
-///////////////////////
-//      會員註冊     //
-//////////////////////
+//====會員註冊====//
 #register_lightbox {
     display: none;
     position: fixed;
     width: 100%;
     height: 100vh;
+    background: rgba(66, 66, 66, 0.6);
+    top: 0;
+    bottom: 0;
+    z-index: 3;
     // background-image: url("")
     .registerTable {
         //註冊區
         position: relative;
-        top: 20%;
-        max-width: 300px;
-        width: 60%;
+        top: 15%;
+        max-width: 350px;
+        width: 75%;
+        height: 480px;
         border-radius: 10px;
-        border: 2px solid sienna;
         text-align: center;
         margin: 0 auto;
+        background-image: url("../images/member/logincus.png");
+        background-size: cover;
+        // background-position: top 10px right 0px;
+        background-position: top  center;
+        background-repeat: no-repeat;
+        background-color: rgba(255, 195, 83, 0.966);
         .login_cancel {
             //刪除鈕
             width: 25px;
             position: absolute;
             top: 0;
             right: 0;
+            border-radius: 50%;
+            background-color: #fff;
         }
         h3 {
             line-height: 40px;
-            padding: 4% 0;
+            font-size:36px;
+            padding: 4%;
+            color: rgb(255, 255, 255);
+            margin: 5% 0 ;
+            font-size: 36px;
+            text-shadow: rgb(204, 204, 204) 0px 1px 0px, rgb(201, 201, 201) 0px 2px 0px, rgb(187, 187, 187) 0px 3px 0px, rgb(185, 185, 185) 0px 4px 0px, rgb(170, 170, 170) 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 6px 1px, rgba(0, 0, 0, 0.1) 0px 0px 5px, rgba(0, 0, 0, 0.3) 0px 1px 3px, rgba(0, 0, 0, 0.15) 0px 3px 5px, rgba(0, 0, 0, 0.2) 0px 5px 10px, rgba(0, 0, 0, 0.2) 0px 10px 10px, rgba(0, 0, 0, 0.1) 0px 20px 20px;
+
         }
-        span {
+        span { //文字標題
             display: inline-block;
             width: 35%;
             margin-top: 8px;
@@ -146,12 +173,13 @@
             margin: 3% 0;
             line-height: 24px;
         }
-        #password_question {
-            padding: 2%;
+        #password_question { //提示問題
+            padding:1.9% 5.5%;
         }
         .btn {
             //按鈕
-            margin: auto;
+            margin-left:25px; 
+            padding:0 5% 2% 5%; 
         }
     }
 }
@@ -164,32 +192,48 @@
     width: 100%;
     height: 100vh;
     position: fixed;
+    top: 0%;
+    bottom: 0%;
+    background: rgba(66, 66, 66, 0.6);
+    z-index: 3;
     //隱藏
     display: none;
 
     .passwordTable {
         //重設密碼區
+        background-image: url("../images/member/logincus.png");
+        background-color: rgba(255, 195, 83, 0.966);
+        background-size: cover;
+        background-position: top 5px right 0px;
+        background-repeat: no-repeat;
         position: relative;
         top: 25%;
         width: 60%;
         max-width: 300px;
+        height: 350px;
         margin: 0 auto;
         border-radius: 10px;
-        border: 2px solid sienna;
         text-align: center;
         .password_box {
             margin: auto;
 
             .login_cancel {
                 //刪除鈕
-                width: 25px;
+                width: 30px;
                 position: absolute;
                 top: 0;
                 right: 0;
+                border-radius:50%;
+                background-color:#fff; 
             }
             h3 {
                 line-height: 40px;
+                font-size:36px;
                 padding: 4%;
+                color: rgb(255, 255, 255);
+                margin: 10% 0 ;
+                font-size: 36px;
+                text-shadow: rgb(204, 204, 204) 0px 1px 0px, rgb(201, 201, 201) 0px 2px 0px, rgb(187, 187, 187) 0px 3px 0px, rgb(185, 185, 185) 0px 4px 0px, rgb(170, 170, 170) 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 6px 1px, rgba(0, 0, 0, 0.1) 0px 0px 5px, rgba(0, 0, 0, 0.3) 0px 1px 3px, rgba(0, 0, 0, 0.15) 0px 3px 5px, rgba(0, 0, 0, 0.2) 0px 5px 10px, rgba(0, 0, 0, 0.2) 0px 10px 10px, rgba(0, 0, 0, 0.1) 0px 20px 20px;
             }
             span {
                 display: inline-block;
@@ -208,7 +252,10 @@
             }
             .btn {
                 //按鈕
-                margin: auto;
+                margin-top: 15px;
+                margin-left:25px; 
+                padding:0% 5% 2% 5%; 
+
             }
         }
     }
