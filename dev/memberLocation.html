@@ -41,7 +41,7 @@
                         <a href="#tab04" id="default_open">購票紀錄</a>
                     </li>
                     <li>
-                        <a href="#tab05" id="default_open">評分與留言紀錄</a>
+                        <a href="#tab05" id="default_open">評分留言</a>
                     </li>
                     <li>
                         <a href="javascript:void(0)" id="default_open" class="tablink">登出</a>
@@ -56,8 +56,8 @@
                     <h3>我的資料</h3>
                     <!-- 帳號 -->
                     <div class="content_item">
-                        <span><帳號></span>
-                        <span class="memid">56789</span>
+                        <span>帳號</span>
+                        <span class="memid" id="memid"></span>
                     </div>
                     <!-- 姓名 -->
                     <div class="content_item">
@@ -89,7 +89,7 @@
                     <h3>我的購物金</h3>
                     <div class="content_item">
                         <span>購物金</span>
-                        <span class="memdoller">600</span>
+                        <span class="memdoller" id="member_money"></span>
                     </div>
                     <!-- 修改資料按鈕 -->
                     <div class="content_item but_item">
@@ -124,7 +124,7 @@
                 <div class="ticket_list" id="ticket_list">
                     <h3>我的門票</h3>
                     <div class="ticket_item">
-                        <table>
+                        <!-- <table>
                             <tr>
                                 <td>購票日期</td>
                                 <td>門票編號</td>
@@ -137,11 +137,11 @@
                                 <td>已使用</td>
                                 <td>$600</td>
                             </tr>
-                        </table>
+                        </table> -->
                     </div>
                 </div>
             </div>
-            <!-- ---------組隊部分 ----(暫定)---------------->
+            <!-- ---------組隊部分 ------------------->
             <div id="tab03" class="team_content tab-inner" style="display: none">
                 <div class="team_list" id="team_list">
                     <h3>歷史紀錄</h3>
@@ -154,10 +154,10 @@
                                 <td>隊伍懸賞金</td>
                             </tr>
                             <tr>
-                                <td>125555</td>
-                                <td>小虎隊</td>
-                                <td>5</td>
-                                <td>$60000</td>
+                                <td id="team_no">125555</td>
+                                <td id="team_name">小虎隊</td>
+                                <td id="team_num">5</td>
+                                <td id="team_bounty">$60000</td>
                             </tr>
                         </table>
                     </div>
@@ -204,7 +204,9 @@
     @@include("template/footer.html")
 
     <!-- js -->
-    <script src="js/jquery-1.11.0.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
     <script>
         // <!------ tab open page ----->
 
@@ -216,12 +218,109 @@
                 $($(this).find('a').attr('href')).show().siblings('.tab-inner').hide();
                 $(this).addClass('active').siblings('.active').removeClass('active');
             });
+        // <!------ tab open page ----->
+        //====================我的資料==================================//
+            // $('#mem_name').val(sessionStorage.member_name);           
+            if (sessionStorage.member_no) {
+                $.ajax({
+                    url: "php/getMember.php",
+                    type: 'post',
+                    dataTyoe: 'json',
+                    data: {  //輸入的資料
+                        "member_no": sessionStorage.member_no,
+                    },
+                    success: function (data) {
+                        let userData = JSON.parse(data);
+                        console.log(userData)
+                        $.each(userData[0], function (index, value) {
+                            switch (index) {
+                                case 'member_id'://帳號
+                                    $('#memid').text(value);
+                                    break;
+                                case 'member_name'://暱稱
+                                    $('#mem_name').val(value);
+                                    break;
+                                case 'member_email'://E-mail
+                                    $('#mem_email').val(value);                             
+                                    break;
+                                case 'member_tel'://電話
+                                    $('#mem_phone').val(value);                             
+                                    break;                               
+                                case 'member_birth'://生日
+                                    $('#mem_birth').val(value);                             
+                                    break;
+                                case 'member_card_no'://信用卡
+                                    $('#mem_credit').val(value);                             
+                                    break;
+                                case 'member_money'://購物金
+                                    // console.log(member_money);
+                                    $('#member_money').text(value);                             
+                                    break;
+                                                                
+                            }                 
+                            console.log(index)
+                        });
+                        // console.logo(data);
+                    }
+                })
+            }
+        })
 
-            $('#mem_name').val(sessionStorage.member_name);
-
-
+        //===============組隊紀錄===================//
+        $(function(){
+            $.ajax({
+                    url: "php/getmemberteam.php",
+                    type: 'post',
+                    dataTyoe: 'json',
+                    // data: {  //輸入的資料
+                    //     "member_no": sessionStorage.member_no,
+                    // },
+                    success: function (data) {
+                        // let userData = JSON.parse(data);
+                        // console.log(userData)
+                        $.each(userData[0], function (index, value) {
+                            switch (index) {
+                                case 'member_no'://隊伍編號
+                                    $('#member_no').text(value);
+                                    break;
+                                case 'team_name'://隊伍名稱
+                                    $('#team_name').val(value);
+                                    break;
+                                case 'team_num'://隊伍人數
+                                    $('#team_num').val(value);                             
+                                    break;
+                                case 'team_bounty'://隊伍懸賞金
+                                    $('#team_bounty').val(value);                             
+                                    break;                               
+                                           
+                            }                 
+                            console.log(index)
+                        });
+                        // console.logo(data);
+                    }
+                })
         });
-// <!------ tab open page ----->
+        // ---------修改資料----------
+        $('#dit_button').click(function(){
+           var member_name= $('#mem_name').val();
+           var member_name= $('#mem_email').val();
+           var member_name= $('#mem_phone').val();
+           var member_name= $('#mem_name').val();
+           $.ajax({
+                    url: "php/updateMember.php",
+                    type: 'post',
+                    dataTyoe: 'json',
+                    data: {  //輸入的資料
+                        "member_name": member_name,
+                    },
+        }); 
+    });     
+       
+        //按了登出按鈕後 會清空 和 跳出頁面
+        $('.tablink').click(function () {
+            sessionStorage.removeItem('member_no');
+            window.location.href = "index.html";
+        })
 
     </script>
     @@loop('template/jslink.html',[

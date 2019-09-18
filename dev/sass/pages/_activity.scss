@@ -21,11 +21,13 @@
 
 .newswrap {
     width: 100%;
+    
     //篩選器
     .selectpart {
         margin: auto;
         width: 100%;
         display: block;
+        
         .select_group {
             width: 100%;
             max-width: 600px;
@@ -63,6 +65,7 @@
                         box-shadow: 0px 3px 0px #5a7528;
                         color: #111;
                         font: 16px;
+                        
                     }
                 }
             }
@@ -96,6 +99,20 @@
     display: block;
     height: auto;
     margin: 50px auto;
+    position: relative;
+    &::after{
+        z-index: 2;
+        position: absolute;
+        top: -15%;
+        left: -3%;
+        bottom:0;
+        right: 0;
+        content:"";
+        background:url("../images/member/bullon.png");
+        width: 100%;
+        background-repeat:no-repeat;
+        display: none;
+    }
     // animation: Updown 1s infinite alternate;
     @keyframes Updown {
         from {
@@ -103,6 +120,12 @@
         }
         to {
           margin-top: 10px;
+        }
+      }
+      &:hover{
+        background-color: #f09100;
+        &::after{
+            display: block;   
         }
       }
     .activity_part {
@@ -237,7 +260,7 @@
         background-size: contain;
         position: relative;
         .eye_left {
-            z-index: 9;
+            z-index: 2;
             width: 70px;
             height: 70px;
             background: #fff;
