@@ -7,28 +7,6 @@ function getTicket() {
     let ticketsPick = sessionStorage['member_no'];
     console.log(ticketsPick);
 
-    //使用Ajax回server端去做登入的工作
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-        if (xhr.status == 200) {
-            //..................取回server端回傳的使用者資料
-            if (xhr.responseText.indexOf("sysError") != -1) {
-                alert("系統異常,請通知系統維護人員");
-            } else if (xhr.responseText.indexOf("沒有票喔") != -1) {
-                alert("沒有可用的票囉！立刻幫您跳轉至買票頁面！");
-                window.location.href = 'ticket.html';
-            } else {
-                showTicket(xhr.responseText);
-            }
-        } else {
-            alert(xhr.status);
-        }
-    }
-    xhr.open("post", "php/getMemberticket_JSON.php", true);
-    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-    var data_info = `mem_no=${ticketsPick}`;
-    xhr.send(data_info);
-
     if (ticketsPick) {
         window.addEventListener('load', () => {
             new Vue({
@@ -44,33 +22,36 @@ function getTicket() {
                         }
                     },
                     change(e) {
-                        let check = confirm('真的要選擇第' + e.target.value + '張票嗎？');
-                        if (check) {
-                            // this.tickets[0][2] = '有';
-                            // console.log(this.tickets[0][2]);
-                            var xhr = new XMLHttpRequest();
-                            xhr.onload = function () {
-                                if (xhr.status == 200) {
-                                    //..................取回server端回傳的使用者資料
-                                    if (xhr.responseText.indexOf("sysError") != -1) {
-                                        alert("系統異常,請通知系統維護人員");
-                                    } else if (xhr.responseText.indexOf("沒有票喔") != -1) {
-                                        alert("沒有票喔！快去買票！立刻幫您跳轉！");
-                                        window.location.href = 'ticket.html';
+                        alertify.confirm('真的要選擇第' + e.target.value + '張票嗎？',
+                            function () {
+                                // this.tickets[0][2] = '有';
+                                // console.log(this.tickets[0][2]);
+                                var xhr = new XMLHttpRequest();
+                                xhr.onload = function () {
+                                    if (xhr.status == 200) {
+                                        //..................取回server端回傳的使用者資料
+                                        if (xhr.responseText.indexOf("sysError") != -1) {
+                                            alertify.alert("系統異常,請通知系統維護人員");
+                                        } else if (xhr.responseText.indexOf("沒有票喔") != -1) {
+                                            alertify.alert("沒有票喔！快去買票！立刻幫您跳轉！", function () { window.location.href = 'ticket.html'; });
+                                        } else {
+                                            localStorage['member_useticket'] = e.target.value;
+                                            document.getElementById('section_pick').remove();
+                                            setTicket(xhr.responseText);
+                                        }
                                     } else {
-                                        localStorage['member_useticket'] = e.target.value;
-                                        document.getElementById('section_pick').remove();
-                                        setTicket(xhr.responseText);
+                                        alertify.alert(xhr.status);
                                     }
-                                } else {
-                                    alert(xhr.status);
                                 }
-                            }
-                            xhr.open("post", "php/updatepickticket.php", true);
-                            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-                            var data_info = `pickticket=${e.target.value}&member_no=${this.tickets[0][3]}`;
-                            xhr.send(data_info);
-                        }
+                                xhr.open("post", "php/updatepickticket.php", true);
+                                xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                                var data_info = `pickticket=${e.target.value}&member_no=${memTicket[0][3]}`;
+                                xhr.send(data_info);
+                                alertify.success('選擇第' + e.target.value + '張票');
+                            },
+                            function () {
+
+                            });
                     },
                 },
                 beforeMount() {
@@ -80,11 +61,32 @@ function getTicket() {
         }, false);
 
     } else {
-        alert('沒有登入喔！立刻幫您跳轉！');
-        window.location.href = 'ticket.html';
+        alertify.alert('沒有登入喔！立刻幫您跳轉！', function () { window.location.href = 'ticket.html'; });
         return;
-
     }
+
+    //使用Ajax回server端去做登入的工作
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            //..................取回server端回傳的使用者資料
+            if (xhr.responseText.indexOf("sysError") != -1) {
+                alertify.alert("系統異常,請通知系統維護人員");
+            } else if (xhr.responseText.indexOf("沒有票喔") != -1) {
+                alertify.alert("沒有可用的票囉！立刻幫您跳轉至買票頁面！", function () { window.location.href = 'ticket.html'; });
+
+            } else {
+                showTicket(xhr.responseText);
+            }
+        } else {
+            alertify.alert(xhr.status);
+        }
+    }
+    xhr.open("post", "php/getMemberticket_JSON.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    var data_info = `mem_no=${ticketsPick}`;
+    xhr.send(data_info);
+
 }
 function showTicket(jsonStr) {
     let ticket = JSON.parse(jsonStr);
@@ -122,15 +124,15 @@ function getUseTicket() {
         if (xhr.status == 200) {
             //..................取回server端回傳的使用者資料
             if (xhr.responseText.indexOf("sysError") != -1) {
-                alert("系統異常,請通知系統維護人員");
+                alertify.alert("系統異常,請通知系統維護人員");
             } else if (xhr.responseText.indexOf("loginError") != -1) {
-                alert("帳密錯誤");
+                alertify.alert("帳密錯誤");
             } else {
                 setTicket(xhr.responseText);
                 console.log(xhr.responseText);
             }
         } else {
-            alert(xhr.status);
+            alertify.alert(xhr.status);
         }
     }
     xhr.open("post", "php/getuseticket.php", true);
@@ -165,9 +167,9 @@ function setTicketmisiion(missionNum, mission_no) {
         if (xhr.status == 200) {
             //..................取回server端回傳的使用者資料
             if (xhr.responseText.indexOf("sysError") != -1) {
-                alert("獲取任務異常,請通知系統維護人員");
+                alertify.alert("獲取任務異常,請通知系統維護人員");
             } else if (xhr.responseText.indexOf("loginError") != -1) {
-                alert("帳密錯誤");
+                alertify.alert("帳密錯誤");
             } else {
                 let missinName = JSON.parse(xhr.responseText);
                 let section_titleText = document.getElementsByClassName('section_title');
@@ -185,7 +187,7 @@ function setTicketmisiion(missionNum, mission_no) {
                 }
             }
         } else {
-            alert(xhr.status);
+            alertify.alert(xhr.status);
         }
     }
     xhr.open("post", "php/getusetitcketmission.php", true);
@@ -218,7 +220,7 @@ function addPointsCheck(value) {
                 if (facilityPointsCheck * 1) {
                     facilityPointsCheck = 0;
                 } else {
-                    alert('要超過６００分才能換商品喔！');
+                    alertify.alert('要超過６００分才能換商品喔！');
                 }
                 break;
             case 'waterslide':
@@ -267,7 +269,7 @@ function addPointsCheck(value) {
                     $(this).prev().prev().text($(this).prev().prev().text() + '(完成)');
                     facilityPointsCheck = 0;
                 } else {
-                    alert('要超過６００分才能換商品喔！');
+                    alertify.alert('要超過６００分才能換商品喔！');
                 }
                 break;
             case '滑水道':
@@ -324,9 +326,9 @@ function addPoint(str, eStr) {
         if (xhr.status == 200) {
             //..................取回server端回傳的使用者資料
             if (xhr.responseText.indexOf("sysError") != -1) {
-                alert("系統異常,請通知系統維護人員");
+                alertify.alert("系統異常,請通知系統維護人員");
             } else if (xhr.responseText.indexOf("還沒進場喔！") != -1) {
-                alert("還沒進場喔！");
+                alertify.alert("還沒進場喔！");
             } else {
                 // console.log(xhr.responseText);
                 let ticketPointBack = (xhr.responseText).split('|');
@@ -336,7 +338,7 @@ function addPoint(str, eStr) {
                 document.querySelector('.ticket_reward p').innerHTML = '$' + ticketScore;
             }
         } else {
-            alert(xhr.status);
+            alertify.alert(xhr.status);
         }
     }
     xhr.open("post", "php/gameplayaddPoints.php", true);
@@ -351,15 +353,15 @@ function facilityPoint(str, eStr) {
         if (xhr.status == 200) {
             //..................取回server端回傳的使用者資料
             if (xhr.responseText.indexOf("sysError") != -1) {
-                alert("系統異常,請通知系統維護人員");
+                alertify.alert("系統異常,請通知系統維護人員");
             } else if (xhr.responseText.indexOf("還沒進場喔！") != -1) {
-                alert("還沒進場喔！");
+                alertify.alert("還沒進場喔！");
             } else {
                 console.log(xhr.responseText);
                 facilityPointsCheck = xhr.responseText * 1;
             }
         } else {
-            alert(xhr.status);
+            alertify.alert(xhr.status);
         }
     }
     xhr.open("post", "php/getfacilityPoint.php", false);
@@ -371,25 +373,28 @@ function facilityPoint(str, eStr) {
 function outLand(str, eStr) {
     var xhr = new XMLHttpRequest();
 
-    if (confirm('確定要出園了嗎？出園後這張票就不能入園了喔！')) {
-        xhr.onload = function () {
-            if (xhr.status == 200) {
-                //..................取回server端回傳的使用者資料
-                if (xhr.responseText.indexOf("sysError") != -1) {
-                    alert("系統異常,請通知系統維護人員");
-                } else if (xhr.responseText.indexOf("還沒進場喔！") != -1) {
-                    alert("還沒進場喔！");
+    alertify.confirm('確定要出園了嗎？出園後這張票就不能入園了喔！',
+        function () {
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    //..................取回server端回傳的使用者資料
+                    if (xhr.responseText.indexOf("sysError") != -1) {
+                        alertify.alert("系統異常,請通知系統維護人員");
+                    } else if (xhr.responseText.indexOf("還沒進場喔！") != -1) {
+                        alertify.alert("還沒進場喔！");
+                    } else {
+                        alertify.alert('正在為您重新整理！', function () { window.location.reload(); });
+                    }
                 } else {
-                    alert('正在為您重新整理！');
-                    window.location.reload();
+                    alertify.alert(xhr.status);
                 }
-            } else {
-                alert(xhr.status);
             }
-        }
-        xhr.open("post", "php/outLand.php", false);
-        xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-        var data_info = `str=${str}&eStr=${eStr}&ticket=${localStorage['member_useticket']}&ticketScore=${ticketScore}`;
-        xhr.send(data_info);
-    }
+            xhr.open("post", "php/outLand.php", false);
+            xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+            var data_info = `str=${str}&eStr=${eStr}&ticket=${localStorage['member_useticket']}&ticketScore=${ticketScore}`;
+            xhr.send(data_info);
+        },
+        function () {
+
+        });
 }

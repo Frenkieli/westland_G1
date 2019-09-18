@@ -209,3 +209,9 @@ h1,h2,h3,h4,h5,h6,p,a,span,div,ul,li,ol{
         @include page_titleM;
     }
 }
+
+// 給跳窗套件用的
+
+.ajs-no-overflow{
+    overflow: auto !important;
+}
