@@ -237,7 +237,7 @@ function init(){
         itemdeg = axis[5];
         let axisbox = document.getElementById("customize_opabox");
         axisbox.style.width = axis[1]+"px";
-        axisbox.style.height = axis[0]+"px";
+        // axisbox.style.height = axis[0]+"px";
         axisbox.style.left = axis[3]+"px";
         axisbox.style.top = (axis[2]-350)+"px";
         axisbox.style.transform = "rotate("+ axis[5] +"deg)";
