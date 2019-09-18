@@ -37,6 +37,9 @@
 
         pushProduct();
     };
+
+    //生成購物車
+
     function pushProduct() {
         let productIn;
         for (let i = 0; i < 12; i++) {
@@ -57,6 +60,22 @@
                 document.querySelectorAll('.swiper-slide.gray_linear_gradient.center')[i].classList.add('card_bg2');
                 // console.log('有聘來');
             }
+            document.querySelectorAll('.btn.m-b.m-a')[i].id=productIn[1]+'|'+productIn[2]+'|'+productIn[4]+'|'+'pd-'+productIn[0];
+            document.querySelectorAll('.btn.m-b.m-a')[i].addEventListener('click',function(){
+                // console.log(this.id,'確認id');
+                let theId = this.id;
+                // console.log(theId.split('|')[3],'確認id');
+                if (storage[theId.split('|')[3]]) {
+                    alert('You have checked.');
+                } else {
+                    if(!storage['addItemList']){
+                        storage['addItemList'] = '';
+                    }
+                    storage['addItemList'] += theId.split('|')[3] + ', ';
+                    storage[theId.split('|')[3]] = theId.replace('|'+theId.split('|')[3],'');
+                    First(); //先這樣...之後再改
+                }
+            });
         }
     }
 })();

@@ -42,7 +42,7 @@
         document.querySelector('#problem_answer2 img').src = arr[answer][3];
         document.querySelector('#problem_answer3 img').src = arr[answer][4];
 
-        console.log(arr[answer], ',成功了嗎?');
+        // console.log(arr[answer], ',成功了嗎?');
 
         $(`#problem_answer${arr[answer][6]}`).click(() => {
             $('.problem_reply').css('display', 'block');
@@ -62,6 +62,8 @@
                     }, 200);
                 }
             }, 5);
+
+            var xhr = new XMLHttpRequest();
             xhr.onload = function () {
                 if (xhr.status == 200) {
                     //..................取回server端回傳的使用者資料
@@ -70,8 +72,6 @@
                     } else if (xhr.responseText.indexOf("還沒進場喔！") != -1) {
                         alert("還沒進場喔！");
                     } else {
-                        alert('正在為您重新整理！');
-                        window.location.reload();
                     }
                 } else {
                     alert(xhr.status);
@@ -79,7 +79,7 @@
             }
             xhr.open("post", "php/updateticketbounty_JSON.php", false);
             xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-            var data_info = `right_multiple=${arr[answer]}`;
+            var data_info = `right_multiple=${arr[answer][0]}&ticket=${localStorage['member_useticket']}`;
             xhr.send(data_info);
         });
     }

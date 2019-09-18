@@ -82,7 +82,7 @@ try {
         $resetTicBonus->bindValue(":ticket_no", $ticket);
         // $resetTicBonus->bindValue(":memid", 'me');
         $resetTicBonus->execute();
-        echo $total, $equBonusRow['equ_bonus'], '|', $ticBonusRow['bonus_multiple'], '|';
+        echo $total, '|', $equBonusRow['equ_bonus'], '|', $ticBonusRow['bonus_multiple'];
     } else {
         echo $total;
     }

@@ -328,7 +328,9 @@ function addPoint(str, eStr) {
             } else if (xhr.responseText.indexOf("還沒進場喔！") != -1) {
                 alert("還沒進場喔！");
             } else {
-                console.log(xhr.responseText);
+                // console.log(xhr.responseText);
+                let ticketPointBack = (xhr.responseText).split('|');
+                // console.log(ticketPointBack,'切成什麼樣子?')
                 ticketScore = parseInt(ticketScore);
                 ticketScore += parseInt(xhr.responseText);
                 document.querySelector('.ticket_reward p').innerHTML = '$' + ticketScore;

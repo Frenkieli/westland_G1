@@ -3,7 +3,7 @@ let robot = document.getElementById('section_robot');
 document.getElementById('arrow_down').addEventListener('click', robotDown, false);
 robot.addEventListener('click', robotPhone, false);
 getRobot_text();
-console.log($(window).width());
+// console.log($(window).width());
 function robotPhone() {
     let robot = document.getElementById('section_robot');
     robot.removeEventListener('click', robotPhone, false);

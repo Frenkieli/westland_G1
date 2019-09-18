@@ -158,9 +158,6 @@
             width: 100%;
             flex-wrap: wrap;
             justify-content: center;
-            .teammate_post {
-                width: 29%;
-            }
         }
         .teammate_post {
             font-size: 18px;
@@ -169,12 +166,14 @@
             align-items: center;
             margin: 1%;
             padding: 1%;
+            width: 20%;            
             background-image: url("../images/index/wanted.png");
             background-size: 100% 100%;
             background-position: center;
             position: relative;
             @include rwd(phone) {
                 font-size: 16px;
+                    width: 29%;
             }
             .ticket_name {
                 margin-bottom: 10px;
