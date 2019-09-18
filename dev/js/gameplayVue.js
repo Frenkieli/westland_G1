@@ -314,6 +314,7 @@ function addPointsCheck(value) {
         } else if ($(this).prev().prev().text().indexOf('入口') != -1) {
         } else if ($(this).prev().prev().text().indexOf('商店') != -1) {
         } else if ($(this).prev().prev().text().indexOf('出口') != -1) {
+        } else if ($(this).prev().prev().text().indexOf('玩過囉') != -1) {
         } else {
             $(this).prev().prev().text($(this).prev().prev().text() + '(玩過囉)');
         }
