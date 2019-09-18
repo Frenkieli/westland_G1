@@ -66,9 +66,8 @@
                 let theId = this.id;
                 // console.log(theId.split('|')[3],'確認id');
                 if (storage[theId.split('|')[3]]) {
-                    alertify.alert('You have checked.');
+                    alertify.alert('You have checked.',function (){});
                 } else {
-
                     alertify.alert("購買" + theId.split('|')[0],
                         function () {
                             alertify.success('成功加入購物車');
