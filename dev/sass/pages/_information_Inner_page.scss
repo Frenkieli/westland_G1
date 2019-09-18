@@ -181,6 +181,7 @@
                 #report{
                     @include btn();
                     height: 10%;
+                    margin-top: 20px;
                 }
                 #message {
                     background-color: #fff;
@@ -240,7 +241,8 @@
                         border-radius: 15px;
                     }
                     #butsave{
-                        margin: auto;
+                        margin-top: 20px;
+                        margin-left: 30%;
                         @include btn();
                         font-family: 'Noto Sans TC', sans-serif;
                     }

@@ -61,7 +61,7 @@
                             <!-- <p class="thePrice dis-lg-n">單價：$450</p> -->
                         </div>
                         <div class="dis_n col-lg-2 dis_f_jc_c shopping_cart_item bl">
-                            <p>$<span class="thePrice">450</span></p>
+                            <p>$<span class="thePrice"></span></p>
                             <input type="hidden" name="pPrice" value="299">
                         </div>
                         <div class="col48 col-lg-2 dis_f_jc_c shopping_cart_item bl">
@@ -82,10 +82,10 @@
                         <div class="dis_n col-lg-2 dis_f_jc_c shopping_cart_item bl">
                             <div class="trash_btn">
                                 <input type="hidden" name="pNo" value="9">
-                                <button type="submit" class="btn--active btn_bor">刪除</button>
+                                <button type="submit" class="deleteBtn btn--active btn_bor">刪除</button>
                             </div>
                         </div>
-                        <div class="trash_icon">
+                        <div class="trash_icon deleteBtn">
                             <button type="submit" class="trash">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
@@ -196,7 +196,7 @@
     <!-- -----------購物車內頁商品動態新增start-------- -->
     <script>
         function shopingCartFirst() {
-
+            sumTotalPrice = 0
             let itemString = storage['addItemList'];
             // console.log(itemString);
             let items = itemString.substr(0, itemString.length - 2).split(', ');
@@ -204,12 +204,12 @@
             for (let key in items) {  //use items[key]
                 let itemInfo = storage.getItem(items[key]);// itemInfo="formas|formas.png|$3000"
                 // console.log(itemInfo);
-                createCartContentList(itemInfo,items[key]);//items[key]="A1001"
+                createCartContentList(itemInfo, items[key]);//items[key]="A1001"
             }
-            function createCartContentList(itemInfo,key) {
-                console.log(key);
+            function createCartContentList(itemInfo, key) {
+                // console.log(key);
                 let cartUpdateFormClone = document.getElementById("cartUpdateFormWrap").children[1].cloneNode(true);
-                cartUpdateFormClone.id=key;
+                cartUpdateFormClone.id = key;
                 // console.log(cartUpdateFormClone);
                 cartUpdateFormClone.style.display = '';
                 // document.getElementById("cartUpdateFormWrap").appendChild(cartUpdateFormClone);
@@ -219,7 +219,7 @@
                 //previousElementSibling我的上一個兄弟
 
 
-                //console.log(cartUpdateFormClone.children[0].children[0].children[4].children[0].children[0]);test
+                //console.log(cartUpdateFormClone.children[0].children[0].children[4].children[0].children[0]);//test
 
                 cartUpdateFormClone.children[0].children[0].children[0].children[0].children[0].src = itemInfo.split('|')[1];
                 cartUpdateFormClone.children[0].children[0].children[0].children[0].children[0].src = itemInfo.split('|')[1];
@@ -229,43 +229,74 @@
                 cartUpdateFormClone.children[0].children[0].children[2].children[0].children[0].innerText = itemInfo.split('|')[2];
                 cartUpdateFormClone.children[0].children[0].children[4].children[0].children[0].innerText = itemInfo.split('|')[2];
                 cartUpdateFormClone.children[0].children[0].children[1].children[2].children[0].innerText = itemInfo.split('|')[2];//手機版單價
-    
+            }
 
+
+            let delButton = document.getElementsByClassName('deleteBtn');
+            // console.log(delButton)
+
+            for (let i = 0; i < delButton.length; i++) {
+                delButton[i].style.cursor = "pointer";
+                delButton[i].addEventListener('click', deleteItem);
+            }
+            function deleteItem(e) {
+                e.preventDefault()
+                // let itemId = this.parentNode.getAttribute('id');
+                let key=this.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+                alert(key);
+                //1.先扣除總金額
+                // sumTotalPrice -= parseInt(itemValue.split('|')[2]);//parseInt:字串轉數字
+                // document.getElementById('sumTotalPrice').innerText = sumTotalPrice;
+                let sumTotalPrice = document.getElementById('sumTotalPrice').innerText;
+                // let itemValue = storage.getItem(key);
+                sumTotalPrice -= parseInt(this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText);
+                //this是我的btn,的爸爸
+                document.getElementById('sumTotalPrice').innerText = sumTotalPrice;
+
+                //2.清除storage的資料
+                storage.removeItem(key);
+                storage['addItemList'] = storage['addItemList'].replace(key + ', ', '');
+
+                //3.刪除該筆form
+                // this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+                this.parentNode.parentNode.parentNode.parentNode.parentNode.remove();
+                //console.log(this.parentNode.parentNode.parentNode.parentNode.parentNode);
             }
         }
-        shopingCartFirst()
+        shopingCartFirst();
+
     </script>
     <!-- -----------購物車動態新增end-------- -->
-    
+
     <!-- -----------購物車數量及小計end-------- -->
     <script>
-            (function () {
-                let btnLess = document.querySelectorAll(".btnLess");
-                let btnPlus = document.querySelectorAll(".btnPlus");
-                let total = 0;
-                let eachSubTotal = document.querySelectorAll('.subtotal');
-                for (let i = 0; i < eachSubTotal.length; i++) {
-                    total += parseInt(eachSubTotal[i].innerText);
-                }
-                let sumTotalPrice = document.getElementById('sumTotalPrice');
-                sumTotalPrice.innerText = total;
-                for (let i = 0; i < btnLess.length; i++) {
-                    btnLess[i].style.cursor = "pointer";
-                    btnPlus[i].style.cursor = "pointer";
-                    btnLess[i].addEventListener('click', function () {
-                        if (this.nextElementSibling.value > 1) {
-                            this.nextElementSibling.value -= 1;
-                            this.parentNode.parentNode.nextElementSibling.children[0].children[0].innerText = this.nextElementSibling.value * this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText;
-                            sumTotalPrice.innerText = parseInt(sumTotalPrice.innerText) - parseInt(this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText);
-                        }
-                    }, false);
-                    btnPlus[i].addEventListener('click', function () {
-                        this.previousElementSibling.value = parseInt(this.previousElementSibling.value) + 1;
-                        this.parentNode.parentNode.nextElementSibling.children[0].children[0].innerText = this.previousElementSibling.value * this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText;
-                        sumTotalPrice.innerText = parseInt(sumTotalPrice.innerText) + parseInt(this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText);
-                    }, false);
-                }
-            })();</script>
+        (function () {
+            let btnLess = document.querySelectorAll(".btnLess");
+            let btnPlus = document.querySelectorAll(".btnPlus");
+            let total = 0;
+            let eachSubTotal = document.querySelectorAll('.subtotal');
+            for (let i = 0; i < eachSubTotal.length; i++) {
+                total += parseInt(eachSubTotal[i].innerText);
+            }
+            let sumTotalPrice = document.getElementById('sumTotalPrice');
+            sumTotalPrice.innerText = total;
+            for (let i = 0; i < btnLess.length; i++) {
+                btnLess[i].style.cursor = "pointer";
+                btnPlus[i].style.cursor = "pointer";
+                btnLess[i].addEventListener('click', function () {
+                    if (this.nextElementSibling.value > 1) {
+                        this.nextElementSibling.value -= 1;
+                        this.parentNode.parentNode.nextElementSibling.children[0].children[0].innerText = this.nextElementSibling.value * this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText;
+                        sumTotalPrice.innerText = parseInt(sumTotalPrice.innerText) - parseInt(this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText);
+                    }
+                }, false);
+                btnPlus[i].addEventListener('click', function () {
+                    this.previousElementSibling.value = parseInt(this.previousElementSibling.value) + 1;
+                    this.parentNode.parentNode.nextElementSibling.children[0].children[0].innerText = this.previousElementSibling.value * this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText;
+                    sumTotalPrice.innerText = parseInt(sumTotalPrice.innerText) + parseInt(this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText);
+                }, false);
+            }
+        })();</script>
     <!-- -----------購物車數量及小計end-------- -->
 </body>
 
