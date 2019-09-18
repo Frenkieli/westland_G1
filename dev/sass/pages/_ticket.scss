@@ -75,7 +75,7 @@
                 }
             }
             > img{
-                padding: 50px 60px;
+                // padding: 50px 60px;
                 height: 250px;
                 width: 300px;
                 display: block;
@@ -271,26 +271,20 @@
             }
         }
         .customize_mascot_role{
-            // outline: solid 1px #f00;
             @at-root
-            // .customize_mascot{
-            //     outline: solid 1px #f00;
-            //     img{
-            //         height: 272px;
-            //     }
-            // }
-            // @at-root
-            .customize_items_set_box{
-                // outline: solid 1px #f00;
-                padding-bottom: 25px;
+            .customize_mascot{
+                > img{
+                    padding: 50px 60px;
+                }
             }
+        }
+        .customize_items_set_box{
+            padding-bottom: 25px;
         }
         .customize_mascots_box{
             margin-bottom: 20px;
             padding: 15px 10px;
-            // outline: solid 1px #f00;
             .customize_mascots{
-                // outline: solid 1px #f00;
                 width: 100px;
                 margin: 0 5px;
             }
@@ -375,8 +369,9 @@
         .customize_mascot_role{
             @at-root
             .customize_mascot{
-                img{
+                > img{
                     height: 200px;
+                    padding: 50px 30px;
                 }
             }
             @at-root
@@ -414,11 +409,17 @@
             height: 200px;
             margin-bottom: 10px;
         }
-        // .ticket_customize_sub{
-        //     width: 140px;
-        //     height: 117px;
-        //     right: -20px;
-        // }
+        .ticket_customize_sub{
+            transform: scale(0.5);
+            // width: 140px;
+            // height: 117px;
+            right: -90px;
+            bottom: -20px;
+        }
+        > .btn{
+            position: relative;
+            z-index: 3;
+        }
     }
 
 //==============

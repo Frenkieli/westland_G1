@@ -50,14 +50,14 @@ function minusitem(){
 // 樣式向右轉
 function rightitem(){
     let opabox = document.getElementById("customize_opabox");
-    itemdeg+=10;
+    itemdeg= parseInt(itemdeg)+10;
     opabox.style.transform = "scale(" + itemscale + ")rotate("+itemdeg+"deg)";
 }
 
 // 樣式向左轉
 function leftitem(){
     let opabox = document.getElementById("customize_opabox");
-    itemdeg-=10;
+    itemdeg= parseInt(itemdeg)-10;
     opabox.style.transform = "scale(" + itemscale + ")rotate("+itemdeg+"deg)";
 }
 

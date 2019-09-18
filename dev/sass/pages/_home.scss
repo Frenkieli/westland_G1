@@ -555,7 +555,11 @@
     }
     //===
 }
-
+@include rwd(phone) {
+    .ticket_customize_scetion{
+        overflow: hidden;
+    }
+}
 
 
 .section_store {
