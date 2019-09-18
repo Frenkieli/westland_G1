@@ -10,7 +10,7 @@ window.addEventListener('load',function (){
         }
     } 
     let url="php/getScore.php";
-        xhr.open('get', url, true);
+        xhr.open('post', url, true);
         xhr.send(null);
 
     function howManyStar(jsonStr) {

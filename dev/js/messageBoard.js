@@ -22,7 +22,7 @@ window.addEventListener('load',function (){
 
             var messagesList = document.getElementById('messages');
             //從messages表單往後放
-            messagesList.innerHTML += `<div class="message_container" id="messageNo_${displayMessage[i].message_no}"><img class="who" src="images/information/who.svg" alt="頭像"><div id="message_box"><div id="message" style="border-radius:10px;">${AddMessages}</div><input type="button" class="btn-report" value="檢舉" id="report" name="${displayMessage[i].message_no}"></div></div>`;
+            messagesList.innerHTML += `<div class="message_container equ_no${displayMessage[i].equ_no}" id="messageNo_${displayMessage[i].message_no}"><img class="who" src="images/information/who.svg" alt="頭像"><div id="message_box"><div id="message" style="border-radius:10px;">${AddMessages}</div><input type="button" class="btn-report" value="檢舉" id="report" name="${displayMessage[i].message_no}"></div></div>`;
         };
     }
 }
