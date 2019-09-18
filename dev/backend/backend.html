@@ -17,19 +17,74 @@
     <!-- Main styles for this application-->
     <link href="css/style.css" rel="stylesheet">
     <style>
-        button{
+        #all_Insert_Form {
+            position: fixed;
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .insert_style {
+            box-sizing: border-box;
+            border-radius: 7%;
+            border: solid 10px #aaa;
+            padding: 5%;
+            position: absolute;
+            background: #eee;
+            width: 30%;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            text-align: center;
+        }
+
+        .ins {
+            margin-left: 5px;
+            margin-bottom: 20px;
+            width: 200px;
+        }
+
+        #administrator_insert {
+            height: 30%;
+        }
+
+        #product_insert {
+            height: 77%;
+        }
+
+        #activity_insert {
+            height: 62%;
+        }
+
+        #robot_text_insert {
+            height: 22%;
+        }
+
+        #question_no_insert {
+            height: 45%;
+        }
+
+        #ticket_customized_insert {
+            height: 10%;
+        }
+
+        button {
             width: 70px;
             height: 35px;
             background: #fff;
-            color:hsl(0, 97%, 74%);
+            color: hsl(0, 97%, 74%);
             float: right;
             border: 1px solid hsl(0, 97%, 74%);
             border-radius: 3px;
             transition: all 0.5s;
             font-weight: 450;
         }
-        .update{
-            }
+
+        .update {}
 
         /* input{
             width: 70px;
@@ -45,11 +100,12 @@
             background: green;
             color:#fff;
         } */
-        button:hover{
+        button:hover {
             background: hsl(0, 97%, 74%);
-            color:#fff;
+            color: #fff;
         }
-        .nav-item{
+
+        .nav-item {
             cursor: pointer;
         }
     </style>
@@ -308,6 +364,71 @@
             <input type="hidden" name="currentID" value="14">
             <input type="hidden" name="">
             <input type="hidden" name="">
+        </form>
+    </div>
+    <div id="all_Insert_Form" style="display: none">
+        <form id="administrator_insert" class="insert_style" style="display: none">
+            <h3 style="margin-bottom: 20px;margin-top:-80px;">新增管理員</h3>
+            <input type="hidden" name="currentID" value="0">
+            管理者名稱 : <input class="ins" type="text" name="admin_name" ><br>
+            請輸入帳號 : <input class="ins" type="text" name="admin_id" ><br>
+            請輸入密碼 : <input class="ins" type="password" name="admin_psw" ><br>
+            <input class="insert_confirm" type="button" value="確認" style="margin-right:5px"><input class="insert_cancel"
+                type="button" value="取消" style="margin-left:5px">
+        </form>
+        <form id="product_insert" class="insert_style" style="display: none">
+            <h3 style="margin-bottom: 20px;margin-top:-80px;">新增商品</h3>
+            <input type="hidden" name="currentID" value="1">
+            商品名稱 : <input class="ins" type="text" name="product_name" ><br>
+            商品圖片 : <input class="ins" type="text" name="product_image" ><br>
+            商品價格 : <input class="ins" type="text" name="product_price" ><br>
+            商品樣式 : <input class="ins" type="text" name="product_style" ><br>
+            商品種類 : <input class="ins" type="text" name="product_sort" ><br>
+            商品類別 : <input class="ins" type="text" name="product_category" ><br>
+            商品數量 : <input class="ins" type="text" name="product_count" ><br>
+            <span style="vertical-align: top">商品簡介 :</span>
+            <textarea class="ins" name="product_ifo"  cols="30" rows="10" style="width:200px"></textarea><br>
+            <input class="insert_confirm" type="button" value="確認" style="margin-right:5px">
+            <input class="insert_cancel" type="button" value="取消" style="margin-left:5px">
+        </form>
+        <form id="activity_insert" class="insert_style" style="display: none">
+            <h3 style="margin-bottom: 20px;margin-top:-80px;">新增活動</h3>
+            <input type="hidden" name="currentID" value="5">
+            活動名稱 : <input class="ins" type="text" name="activity_name" ><br>
+            活動圖片 : <input class="ins" type="text" name="activity_image" ><br>
+            開始日期 : <input class="ins" type="date" name="activity_date_start" ><br>
+            結束日期 : <input class="ins" type="date" name="activity_date_end" ><br>
+            <span style="vertical-align: top">活動內容 :</span>
+            <textarea class="ins" name="activity_content"  cols="30" rows="10" style="width:200px"></textarea><br>
+            <input class="insert_confirm" type="button" value="確認" style="margin-right:5px"><input class="insert_cancel"
+                type="button" value="取消" style="margin-left:5px">
+        </form>
+        <form id="robot_text_insert" class="insert_style" style="display: none">
+            <h3 style="margin-bottom: 20px;margin-top:-80px;">新增機器人文本</h3>
+            <input type="hidden" name="currentID" value="7">
+            使用者輸入 : <input class="ins" type="text" name="Q" ><br>
+            機器人回應 : <input class="ins" type="text" name="A" ><br>
+            <input class="insert_confirm" type="button" value="確認" style="margin-right:5px"><input class="insert_cancel"
+                type="button" value="取消" style="margin-left:5px">
+        </form>
+        <form id="question_no_insert" class="insert_style" style="display: none">
+            <h3 style="margin-bottom: 20px;margin-top:-80px;">新增隨機問答</h3>
+            <input type="hidden" name="currentID" value="11">
+            問答題目 : <input class="ins" type="text" name="question_content" ><br>
+            問答圖片 : <input class="ins" type="text" name="question_optionA" ><br>
+            問答圖片 : <input class="ins" type="text" name="question_optionB" ><br>
+            問答圖片 : <input class="ins" type="text" name="question_optionC" ><br>
+            獎賞倍率 : <input class="ins" type="text" name="right_multiple" ><br>
+            正確選項 : <input class="ins" type="text" name="correct_option" ><br>
+            <input class="insert_confirm" type="button" value="確認" style="margin-right:5px"><input class="insert_cancel"
+                type="button" value="取消" style="margin-left:5px">
+        </form>
+        <form id="ticket_customized_insert" class="insert_style" style="display: none">
+            <h3 style="margin-bottom: 20px;margin-top:-80px;">新增吉祥物配件</h3>
+            <input type="hidden" name="currentID" value="13">
+            配件圖片 : <input class="ins" type="text" name="mascot_customize_image" ><br>
+            <input class="insert_confirm" type="button" value="確認" style="margin-right:5px"><input class="insert_cancel"
+                type="button" value="取消" style="margin-left:5px">
         </form>
     </div>
     <footer class="app-footer">
