@@ -59,6 +59,7 @@
     let deleteBtn;
     let inputarray;
     let updateArrayId = ['administrator_update', 'product_update', 'member_update', 'order_update', 'ticket_order_update', 'activity_update', 'message_board_update', 'robot_text_update', 'mission_update', 'ticket_update', 'amusement_equipments_update', 'question_no_update', 'accomplish_fraction_update', 'ticket_customized_update', 'reset_update'];
+
     let currentID;//目前選到的表單ID
     let status;
     //清空資料表
@@ -68,7 +69,7 @@
     }
     //管理員管理
     function administrator(e) {
-        tableTitle.innerText = this.innerText;
+        document.getElementById("news_button").style.display = "";
         currentID = 0;
         clearTable();
         getAdministrator();
@@ -97,7 +98,6 @@
             buttonValue = ['停權', '正常'];
             updateBtn = 1;
             deleteBtn = 0;
-            status=1;
             let tableHeader = document.createElement('tr');
             tableHeader.innerHTML = "<th>管理者編號</th><th>管理者名稱</th><th>帳號</th><th>帳號狀態</th><th>修改</th>";
             tableTh.appendChild(tableHeader);
@@ -106,6 +106,7 @@
     }
     //商品管理
     function product(e) {
+        document.getElementById("news_button").style.display = "";
         tableTitle.innerText = this.innerText;
         currentID = 1;
         clearTable();
@@ -135,10 +136,9 @@
             inputarray = [1, 4, 5, 6, 7, 8, 9];
             buttonValue = ['下架', '上架'];
             updateBtn = 1;
-            deleteBtn = 1;
-            status=1;
+            deleteBtn = 0;
             let tableHeader = document.createElement('tr');
-            tableHeader.innerHTML = "<th>商品編號</th><th>商品名稱</th><th>商品照片</th><th>商品上下架</th><th>價格</th><th>簡介</th><th>商品樣式</th><th>種類</th><th>類別</th><th>數量</th><th>編輯</th><th>刪除</th>";
+            tableHeader.innerHTML = "<th>商品編號</th><th>商品名稱</th><th>商品照片</th><th>商品上下架</th><th>價格</th><th>簡介</th><th>商品樣式</th><th>種類</th><th>類別</th><th>數量</th><th>編輯</th>";
             tableTh.appendChild(tableHeader);
             makeTable();
             // window.print();
@@ -146,6 +146,7 @@
     }
     //會員查詢
     function member(e) {
+        document.getElementById("news_button").style.display = "none";
         tableTitle.innerText = this.innerText;
         currentID = 2;
         clearTable();
@@ -183,6 +184,7 @@
     }
     //訂單管理
     function order(e) {
+        document.getElementById("news_button").style.display = "none";
         tableTitle.innerText = this.innerText;
         currentID = 3;
         clearTable();
@@ -209,7 +211,6 @@
             dataType = [1, 1, 1, 1, 2, 1, 1, 1, 1, 1];
             inputarray = [];
             buttonValue = ['下單', '處理中', '取消', '出貨', '結案'];
-            status=0;
             updateBtn = 0;
             deleteBtn = 0;
             let tableHeader = document.createElement('tr');
@@ -256,6 +257,7 @@
     // }
     //活動管理
     function activity(e) {
+        document.getElementById("news_button").style.display = "";
         tableTitle.innerText = this.innerText;
         currentID = 5;
         clearTable();
@@ -283,15 +285,16 @@
             inputarray = [1, 2, 3, 4];
             buttonValue = ['停權', '正常'];
             updateBtn = 1;
-            deleteBtn = 1;
+            deleteBtn = 0;
             let tableHeader = document.createElement('tr');
-            tableHeader.innerHTML = "<th>活動編號</th><th>活動名稱</th><th>活動開始日期</th><th>活動結束日期</th><th>活動內容</th><th>修改</th><th>刪除</th>";
+            tableHeader.innerHTML = "<th>活動編號</th><th>活動名稱</th><th>活動開始日期</th><th>活動結束日期</th><th>活動內容</th><th>修改</th>";
             tableTh.appendChild(tableHeader);
             makeTable();
         }
     }
     //檢舉留言管理
     function message_board(e) {
+        document.getElementById("news_button").style.display = "none";
         tableTitle.innerText = this.innerText;
         currentID = 6;
         clearTable();
@@ -318,7 +321,6 @@
             dataType = [1, 1, 1, 2];
             inputarray = [];
             buttonValue = ['正常', '被檢舉'];
-            status=0;
             updateBtn = 0;
             deleteBtn = 0;
             let tableHeader = document.createElement('tr');
@@ -329,6 +331,7 @@
     }
     //機器人文本管理
     function robot_text(e) {
+        document.getElementById("news_button").style.display = "";
         tableTitle.innerText = this.innerText;
         currentID = 7;
         clearTable();
@@ -356,15 +359,16 @@
             inputarray = [1, 2];
             buttonValue = ['停權', '正常'];
             updateBtn = 1;
-            deleteBtn = 1;
+            deleteBtn = 0;
             let tableHeader = document.createElement('tr');
-            tableHeader.innerHTML = "<th>文本編號</th><th>關鍵字</th><th>回覆文本</th><th>編輯</th><th>刪除</th>";
+            tableHeader.innerHTML = "<th>文本編號</th><th>關鍵字</th><th>回覆文本</th><th>編輯</th>";
             tableTh.appendChild(tableHeader);
             makeTable();
         }
     }
     //經典任務管理
     function mission(e) {
+        document.getElementById("news_button").style.display = "none";
         tableTitle.innerText = this.innerText;
         currentID = 8;
         clearTable();
@@ -392,9 +396,9 @@
             inputarray = [1, 2];
             buttonValue = ['停權', '正常'];
             updateBtn = 1;
-            deleteBtn = 1;
+            deleteBtn = 0;
             let tableHeader = document.createElement('tr');
-            tableHeader.innerHTML = "<th>經典任務編號</th><th>任務名稱</th><th>任務完成加分</th><th>修改</th><th>刪除</th>";
+            tableHeader.innerHTML = "<th>經典任務編號</th><th>任務名稱</th><th>任務完成加分</th><th>修改</th>";
             tableTh.appendChild(tableHeader);
             makeTable();
         }
@@ -438,6 +442,7 @@
 
     //設施管理
     function amusement_equipments(e) {
+        document.getElementById("news_button").style.display = "none";
         tableTitle.innerText = this.innerText;
         currentID = 10;
         clearTable();
@@ -464,7 +469,6 @@
             dataType = [1, 5, 3, 4, 1, 1, 2, 3];
             inputarray = [2, 3, 7];
             buttonValue = ['維護', '正常'];
-            status=1;
             updateBtn = 1;
             deleteBtn = 0;
             let tableHeader = document.createElement('tr');
@@ -475,6 +479,7 @@
     }
     //隨機問答管理
     function question_no(e) {
+        document.getElementById("news_button").style.display = "";
         tableTitle.innerText = this.innerText;
         currentID = 11;
         clearTable();
@@ -502,15 +507,16 @@
             inputarray = [1, 5, 6];
             buttonValue = ['停權', '正常'];
             updateBtn = 1;
-            deleteBtn = 1;
+            deleteBtn = 0;
             let tableHeader = document.createElement('tr');
-            tableHeader.innerHTML = "<th>隨機問答編號</th><th>問題內容</th><th>問題回答選項1</th><th>問題回答選項2</th><th>問題回答選項3</th><th>回答正確懸賞金加倍倍數</th><th>正確答案選項(1 or 2 or 3)</th><th>修改</th><th>刪除</th>";
+            tableHeader.innerHTML = "<th>隨機問答編號</th><th>問題內容</th><th>問題回答選項1</th><th>問題回答選項2</th><th>問題回答選項3</th><th>回答正確懸賞金加倍倍數</th><th>正確答案選項(1 or 2 or 3)</th><th>修改</th>";
             tableTh.appendChild(tableHeader);
             makeTable();
         }
     }
     //兌換獎品管理
     function accomplish_fraction(e) {
+        document.getElementById("news_button").style.display = "none";
         tableTitle.innerText = this.innerText;
         currentID = 12;
         clearTable();
@@ -547,6 +553,7 @@
     }
     //客製吉祥物配件管理
     function ticket_customized(e) {
+        document.getElementById("news_button").style.display = "";
         tableTitle.innerText = this.innerText;
         currentID = 13;
         clearTable();
@@ -574,9 +581,9 @@
             inputarray = [];
             buttonValue = ['停權', '正常'];
             updateBtn = 0;
-            deleteBtn = 1;
+            deleteBtn = 0;
             let tableHeader = document.createElement('tr');
-            tableHeader.innerHTML = "<th>樣式編號</th><th>圖片樣式</th><th>刪除</th>";
+            tableHeader.innerHTML = "<th>樣式編號</th><th>圖片樣式</th>";
             tableTh.appendChild(tableHeader);
             makeTable();
         }
@@ -617,7 +624,6 @@
             makeTable();
         }
     }
-
     //產生資料表
     function makeTable(e) {
         let inTr;
@@ -638,7 +644,7 @@
                     case 2:
                         inDate = tdBulid.tdSelect();
                         inDate.classList.add('status_update');
-                        let status= value[i];
+                        let status = value[i];
                         buttonValue.forEach((value, index) => {
                             let opt = document.createElement('option');
                             opt.innerText = value;
@@ -693,17 +699,17 @@
         });
         //下拉式選單事件+Ajax
         let all_status_update = document.querySelectorAll('.status_update');
-        for(let i=0;i<all_status_update.length;i++){
-            all_status_update[i].addEventListener('change',(e)=>{
+        for (let i = 0; i < all_status_update.length; i++) {
+            all_status_update[i].addEventListener('change', (e) => {
                 // console.log(e.target.value);
                 // console.log(e.target.parentNode.parentNode.children[0].children[0].innerText);
-                let targetID=e.target.parentNode.parentNode.children[0].children[0].innerText;
-                let xhr=new XMLHttpRequest();
-                xhr.onload=function(){
-                    if(xhr.status==200){
+                let targetID = e.target.parentNode.parentNode.children[0].children[0].innerText;
+                let xhr = new XMLHttpRequest();
+                xhr.onload = function () {
+                    if (xhr.status == 200) {
                         alert(xhr.responseText);
                     }
-                    else{
+                    else {
                         alert(xhr.status);
                     }
                 }
@@ -759,4 +765,108 @@
     }
     administrator();
     tableTitle.innerText = '管理員管理';
+    //新增按鈕事件
+    document.getElementById("news_button").addEventListener("click", function () {
+        document.getElementById("all_Insert_Form").style.display = "";
+        switch (currentID) {
+            case 0:
+                document.getElementById("administrator_insert").style.display = "";
+                break;
+            case 1:
+                document.getElementById("product_insert").style.display = "";
+                break;
+            case 5:
+                document.getElementById("activity_insert").style.display = "";
+                break;
+            case 7:
+                document.getElementById("robot_text_insert").style.display = "";
+                break;
+            case 11:
+                document.getElementById("question_no_insert").style.display = "";
+                break;
+            case 13:
+                document.getElementById("ticket_customized_insert").style.display = "";
+                break;
+            default:
+                break;
+        }
+    }, false);
+    //新增取消事件
+    let insert_cancel = document.querySelectorAll(".insert_cancel");
+    for (let i = 0; i < insert_cancel.length; i++) {
+        insert_cancel[i].addEventListener('click', (e) => {
+            let select_id = e.target.parentNode.id;
+            let select_input = document.querySelectorAll(`#${select_id} .ins`);
+            for (let i = 0; i < select_input.length; i++) {
+                select_input[i].value = "";
+            }
+            document.getElementById("all_Insert_Form").style.display = "none";
+            e.target.parentNode.style.display = "none";
+        }, false);
+    }
+    //新增確認事件
+    let insert_confirm = document.querySelectorAll(".insert_confirm");
+    for (let i = 0; i < insert_confirm.length; i++) {
+        insert_confirm[i].addEventListener('click', (e) => {
+            let select_id = e.target.parentNode.id;
+            let select_input = document.querySelectorAll(`#${select_id} .ins`);
+            // console.log(select_id);
+            // console.log(select_input);
+            let canInsert = 1;
+            for (let i = 0; i < select_input.length; i++) {
+                // console.log(select_input[i].value);
+                if (select_input[i].value == "") {
+                    canInsert = 0;
+                }
+            }
+            if (canInsert == 0) {
+                alert("有東西沒輸入喔~");
+            }
+            else if (canInsert == 1) {
+                let insertForm = e.target.parentNode;
+                // console.log(insertForm);
+                let xhr = new XMLHttpRequest();
+                xhr.onload = function () {
+                    if (xhr.status == 200) {
+                        let select_id = e.target.parentNode.id;
+                        let select_input = document.querySelectorAll(`#${select_id} .ins`);
+                        for (let i = 0; i < select_input.length; i++) {
+                            select_input[i].value = "";
+                        }
+                        switch (currentID) {
+                            case 0:
+                                administrator();
+                                break;
+                            case 1:
+                                product();
+                                break;
+                            case 5:
+                                activity();
+                                break;
+                            case 7:
+                                robot_text();
+                                break;
+                            case 11:
+                                question_no();
+                                break;
+                            case 13:
+                                ticket_customized();
+                                break;
+                            default:
+                                break;
+                        }
+                        alert(xhr.responseText);
+                    } else {
+                        alert(xhr.status);
+                    }
+                }
+                let thisForm = new FormData(insertForm);
+                let url = "../php/insertBackend_Form.php";
+                xhr.open("post", url, true);
+                xhr.send(thisForm);
+                document.getElementById("all_Insert_Form").style.display = "none";
+                e.target.parentNode.style.display = "none";
+            }
+        }, false);
+    }
 }());
