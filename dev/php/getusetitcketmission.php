@@ -13,7 +13,7 @@ try {
         $mission2->bindValue(":titket",$titket);
         $mission2->execute();
     }
-    $sql ="select c.equ_name from mission a left outer join mission_list b on a.mission_no=b.mission_no left outer join amusement_equipments c on b.equ_no=c.equ_no where a.mission_no = :mission_no";
+    $sql ="select c.equ_name , a.mission_bonus from mission a left outer join mission_list b on a.mission_no=b.mission_no left outer join amusement_equipments c on b.equ_no=c.equ_no where a.mission_no = :mission_no";
     $mission = $pdo->prepare($sql);
     $mission->bindValue(":mission_no",$mission_no);
     $mission->execute();
