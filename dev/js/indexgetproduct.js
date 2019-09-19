@@ -50,6 +50,7 @@
             document.querySelectorAll('.sort_same_item_title')[i].innerHTML = productIn[1];
             document.querySelectorAll('.sort_same_item_price')[i].innerHTML = 'NT.' + productIn[4];
             // console.log(productIn[7]);
+            document.querySelectorAll('.sort_same_item_img a')[i].href += '?product_no=' + productIn[0];
             if (productIn[7] == '仙人掌') {
                 document.querySelectorAll('.swiper-slide.gray_linear_gradient.center')[i].classList.add('card_bg1');
                 // console.log('有聘來');

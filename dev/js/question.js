@@ -26,7 +26,8 @@
             $('#dialogBox').append(btn);
             $('#dialogBox').append(ptext);
             $('.problem_answer').off();
-        }, 2000);
+        // }, 2000);
+        }, Math.floor(Math.random() * 28000) + 2000);
     }
     // question_start();
     function question(answer) {
@@ -42,7 +43,44 @@
         document.querySelector('#problem_answer2 img').src = arr[answer][3];
         document.querySelector('#problem_answer3 img').src = arr[answer][4];
 
-        // console.log(arr[answer], ',成功了嗎?');
+        console.log(arr[answer][6], ',成功了嗎?');
+        switch (parseInt(arr[answer][6])) {
+            case 1:
+                $('.problem_reply').css('left', '20%');
+                $(`#problem_answer2`).click(() => {
+                    alertify.alert('答錯啦!');
+                    $(this).animate({ opacity: 0 }, 500);
+                });
+                $(`#problem_answer3`).click(() => {
+                    alertify.alert('答錯啦!');
+                    $(this).animate({ opacity: 0 }, 500);
+                });
+                break;
+            case 2:
+                $('.problem_reply').css('left', '50%');
+                $(`#problem_answer1`).click(() => {
+                    alertify.alert('答錯啦!');
+                    $(this).animate({ opacity: 0 }, 500);
+                });
+                $(`#problem_answer3`).click(() => {
+                    alertify.alert('答錯啦!');
+                    $(this).animate({ opacity: 0 }, 500);
+                });
+                break;
+            case 3:
+                $('.problem_reply').css('left', '80%');
+                $(`#problem_answer2`).click(() => {
+                    alertify.alert('答錯啦!');
+                    $(this).animate({ opacity: 0 }, 500);
+                });
+                $(`#problem_answer1`).click(() => {
+                    alertify.alert('答錯啦!');
+                    $(this).animate({ opacity: 0 }, 500);
+                });
+                break;
+            default:
+                break;
+        }
 
         $(`#problem_answer${arr[answer][6]}`).click(() => {
             $('.problem_reply').css('display', 'block');
@@ -60,6 +98,7 @@
                         $('.problem_reply').css('display', 'none');
                         question_start();
                     }, 200);
+                    alertify.alert('答對拉！下次遊玩設施賞金加' + arr[answer][5] + '倍喔！');
                 }
             }, 5);
 

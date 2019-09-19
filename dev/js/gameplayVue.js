@@ -74,7 +74,6 @@ function getTicket() {
                 alertify.alert("系統異常,請通知系統維護人員");
             } else if (xhr.responseText.indexOf("沒有票喔") != -1) {
                 alertify.alert("沒有可用的票囉！立刻幫您跳轉至買票頁面！", function () { window.location.href = 'ticket.html'; });
-
             } else {
                 showTicket(xhr.responseText);
             }
@@ -86,7 +85,6 @@ function getTicket() {
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     var data_info = `mem_no=${ticketsPick}`;
     xhr.send(data_info);
-
 }
 function showTicket(jsonStr) {
     let ticket = JSON.parse(jsonStr);
@@ -330,6 +328,12 @@ function addPointsCheck(value) {
                     alertify.alert('要超過６００分才能換商品喔！');
                 }
                 break;
+            case '商店(已兌換)':
+                $(this).animate({ opacity: 0 }, 500);
+                alertify.alert('換過囉！');
+                $(this).css('cursor', 'default');
+                $(this).prev().prev().text($(this).prev().prev().text() + ' ');
+                break;
             case '滑水道':
                 // console.log('waterslide');
                 addPoint($(this).prev().prev().text().replace('(任務)', '').replace('(達成)', ''), 'waterslide');
@@ -346,6 +350,12 @@ function addPointsCheck(value) {
                 // console.log('entrance_status');
                 facilityPoint($(this).prev().prev().text(), 'entrance_status');
                 $(this).prev().prev().text($(this).prev().prev().text() + '(進場)');
+                break;
+            case '入口(進場)':
+                alertify.alert('已經在場內囉！');
+                $(this).animate({ opacity: 0 }, 500);
+                $(this).css('cursor', 'default');
+                $(this).prev().prev().text($(this).prev().prev().text() + ' ');
                 break;
             case '雲霄飛車':
                 // console.log('roller_coaster');
@@ -436,6 +446,11 @@ function addPoint(str, eStr) {
                 ticketScore = parseInt(ticketScore);
                 ticketScore += parseInt(xhr.responseText);
                 document.querySelector('.ticket_reward p').innerHTML = '$' + ticketScore;
+                if (ticketPointBack[1]) {
+                    alertify.alert('成功遊玩設施：' + str + '，隨機問答獎勵' + ticketPointBack[2] + '倍！總共加了' + ticketPointBack[0] + '分！');
+                } else {
+                    alertify.alert('成功遊玩設施：' + str + '，加了' + ticketPointBack[0] + '分！');
+                }
             }
         } else {
             alertify.alert(xhr.status);
@@ -459,6 +474,7 @@ function facilityPoint(str, eStr) {
             } else {
                 console.log(xhr.responseText);
                 facilityPointsCheck = xhr.responseText * 1;
+                alertify.alert("掃描" + str + "成功！");
             }
         } else {
             alertify.alert(xhr.status);
