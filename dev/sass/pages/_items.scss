@@ -9,6 +9,11 @@
     padding-bottom: 15px;
     font-size: 18px;
 }
+.gray_linear_gradient{
+    p{
+        @include fontcolor( font_base );
+    }
+}
 // .sort_same{
 //     .owl-nav{
 //         z-index: -1;
