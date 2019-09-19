@@ -52,7 +52,7 @@ function showwinner(jsonStr) {
     let teammascot = document.querySelectorAll('.winner_people img:first-child');
     for (let i = 0; i < teammascot.length; i++) {
         console.log(teammascot[i], '<-物件', teamAll[i + 1][0].team_mascot_image);
-        teammascot[i].src = teamAll[ 5 - (i + 1)][0].team_mascot_image;
+        teammascot[i].src = teamAll[5 - (i + 1)][0].team_mascot_image;
     }
     let teamPostName = document.querySelectorAll('.teammate_post .ticket_name p');
     let teamPostImg = document.querySelectorAll('.teammate_post .ticket_img img');
@@ -76,8 +76,21 @@ function showwinner(jsonStr) {
     }
     let Podium_winner = document.querySelectorAll('.Podium_winner .winner_people');
     let postCount = 3;
+    // let team_slogan = document.createElement('p');
+    // team_slogan.style.cssText = 'display: block;background-color: rgba(0, 0, 0, 0.7);width: 100px;color: #eee;position: static;padding: 10px;border: 3px double rgba(255, 255, 255, 0.7);word-break:break-all;z-index: 1;transform:';
+    // team_slogan.id = 'winner_team_slogan';
+    // team_slogan.innerText = '隊伍呼喊！';
+    // document.getElementsByClassName('index')[0].appendChild(team_slogan);
+    // document.getElementsByClassName('Podium_winner')[0].addEventListener('mousemove', function (e) {
+    //     $('#winner_team_slogan').stop().fadeIn().css('position', 'fixed').css('top', e.clientY + 10).css('left', e.clientX + 10);
+    // }, false)
+    // document.getElementsByClassName('Podium_winner')[0].addEventListener('mouseout', function (e) {
+    //     $('#winner_team_slogan').stop().fadeOut();
+    // }, false)
+    console.log(teamAll);
     for (let j = 0; j < Podium_winner.length; j++) {
-        Podium_winner[postCount].addEventListener('mouseover', () => {
+        Podium_winner[postCount].addEventListener('mouseover', (e) => {
+            // $('#winner_team_slogan').text(teamAll[j + 1][0].team_slogan);
             $('.winner_teammate').stop(true, false).fadeOut(function () {
                 for (let i = 0; i < teamPostName.length; i++) {
                     if (teamAll[j + 1][i]) {
