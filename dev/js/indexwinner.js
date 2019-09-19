@@ -51,8 +51,8 @@ function showwinner(jsonStr) {
 
     let teammascot = document.querySelectorAll('.winner_people img:first-child');
     for (let i = 0; i < teammascot.length; i++) {
-        // console.log(teammascot[i], '<-物件', teamAll[i + 1][0].team_mascot_image);
-        teammascot[i].src = teamAll[i + 1][0].team_mascot_image;
+        console.log(teammascot[i], '<-物件', teamAll[i + 1][0].team_mascot_image);
+        teammascot[i].src = teamAll[ 5 - (i + 1)][0].team_mascot_image;
     }
     let teamPostName = document.querySelectorAll('.teammate_post .ticket_name p');
     let teamPostImg = document.querySelectorAll('.teammate_post .ticket_img img');
@@ -80,12 +80,12 @@ function showwinner(jsonStr) {
         Podium_winner[postCount].addEventListener('mouseover', () => {
             $('.winner_teammate').stop(true, false).fadeOut(function () {
                 for (let i = 0; i < teamPostName.length; i++) {
-                    if (teamAll[j+1][i]) {
-                        teamPostName[i].innerHTML = teamAll[j+1][i].member_name;
-                        teamPostImg[i].src = teamAll[j+1][i].image_source;
-                        teamPostTeam[i].innerHTML = teamAll[j+1][i].team_name;
-                        teamPostReward[i].innerHTML = '$' + teamAll[j+1][i].bounty;
-                        teamPostMascot[i].src = teamAll[j+1][i].mascot_image;
+                    if (teamAll[j + 1][i]) {
+                        teamPostName[i].innerHTML = teamAll[j + 1][i].member_name;
+                        teamPostImg[i].src = teamAll[j + 1][i].image_source;
+                        teamPostTeam[i].innerHTML = teamAll[j + 1][i].team_name;
+                        teamPostReward[i].innerHTML = '$' + teamAll[j + 1][i].bounty;
+                        teamPostMascot[i].src = teamAll[j + 1][i].mascot_image;
                     } else {
                         teamPostName[i].innerHTML = '等你';
                         teamPostImg[i].src = 'images/ticket/wewantyou.gif';
