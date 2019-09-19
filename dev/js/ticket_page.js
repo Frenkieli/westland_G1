@@ -71,20 +71,41 @@ function trashitem(){
     opabox.style.transform = "scale(" + itemscale + ")rotate("+itemdeg+"deg)";
 };
 
-//更換賞單圖片
-function changepic(){
-    let pic = document.getElementById("uploadpic").files[0];
-    let readpic = new FileReader();
-    readpic.readAsDataURL(pic);
-    readpic.addEventListener("load",function(){
-        let preinstallpic = document.getElementById("preinstallpic");
-        preinstallpic.src = this.result;
-        preinstallpic.style.width = "300px";
-        preinstallpic.style.height = "300px";
-    });
+//抓賞單圖檔檔名，副檔名
+function getFileInfo(fileStr){
+    //回傳一個陣列，索引0放的是主檔名, 索引1放的是副檔名
+	let dotPos = fileStr.lastIndexOf(".");
+	let fileName = fileStr.substring(0, dotPos);
+	let fileExt = fileStr.substr( dotPos+1);
+
+	let file = { 
+		name : fileName,
+		ext : fileExt
+	};
+	return file;
 }
 
-//確認存圖
+//更換賞單圖片
+function changepic(e){
+    let fileAccepts = ["png","jpg","jpeg","gif",""];
+    let fileInfo = getFileInfo(e.target.value);
+    if( fileAccepts.indexOf(fileInfo.ext.toLowerCase()) == -1){
+        alert("檔案格式不對");
+        e.target.value = "";
+    }else{
+        let pic = document.getElementById("uploadpic").files[0];
+        let readpic = new FileReader();
+        readpic.readAsDataURL(pic);
+        readpic.addEventListener("load",function(){
+            let preinstallpic = document.getElementById("preinstallpic");
+            preinstallpic.src = this.result;
+            // preinstallpic.style.width = "300px";
+            // preinstallpic.style.height = "300px";
+        });
+    }
+}
+
+//確認後將圖抓進canvas
 function confirm(){
     //宣告canvas
     let canvasarea = document.getElementById("canvastopng").getContext("2d");
@@ -102,21 +123,17 @@ function confirm(){
     let opaboxWidth = document.getElementById("customize_opabox").offsetWidth;
     let opaboxTop = document.getElementById("customize_opabox").offsetTop;
     let opaboxLeft = document.getElementById("customize_opabox").offsetLeft;
-    // console.log(opaboxWidth,opaboxHeight,opaboxTop,opaboxLeft);
 
     //計算縮放比
     let boxscale = itemscale;
     let boxdeg = itemdeg;
     let opaboxDeg = boxdeg * Math.PI / 180;
-    // console.log("what is going on",opaboxDeg);
 
     let Heightrule = opaboxHeight/customizeHeight*233*boxscale;
     let Widthrule = opaboxWidth/customizeWidth*280*boxscale;
-    // console.log(Heightrule,Widthrule);
     
     let Toprule = (opaboxTop+(opaboxHeight/2))*(233/customizeHeight)-(Heightrule/2);
     let Leftrule = (opaboxLeft+(opaboxWidth/2))*(233/customizeWidth)-(Widthrule/2)+25;
-    // console.log(Toprule,Leftrule);
 
     canvasarea.clearRect(0,0,280,233);  //清除舊圖
 
@@ -126,6 +143,7 @@ function confirm(){
     let imgsrcStr = "";
     imgsrcStr+=img.src;
 
+    //因圖案大小不一致，故個別設定
     if(img.src.indexOf("role4")!=-1 || img.src.indexOf("role5")!=-1){
         canvasarea.drawImage(img,80,13,130,197);
         canvasarea.translate((Leftrule+Widthrule/2),(Toprule+Heightrule/2));
@@ -154,7 +172,6 @@ function confirm(){
 
 function init(){
     //樣式角度
-
     itemdeg=0;
     itemscale=1;
 

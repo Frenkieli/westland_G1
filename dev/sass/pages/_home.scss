@@ -520,6 +520,9 @@
                     }
                     .indexticket_buy{
                         margin-left: 230px;
+                        > a{
+                            color: white;
+                        }
                     }
                     .customize_mascots_boxs{
                         width: 50%;
@@ -551,6 +554,9 @@
         }
         .indexticket_buy{
             margin: 0 auto;
+            > a{
+                color: white;
+            }
         }
     }
     //===
