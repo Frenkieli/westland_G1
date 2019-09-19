@@ -79,7 +79,7 @@ function joinInvitation() {
         $id("team_join_window").style.clipPath = "polygon(0 50% , 100% 50% , 100% 50%,0 50%)";
         $id("team_join_window").style.opacity = 0;
         $id("ok").removeEventListener("click", move, false);
-        this.style.cursor="pointer";;
+        this.style.cursor="pointer";
     }, false);
     $id("ok").addEventListener("click", move, false);
     function move() {
