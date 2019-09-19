@@ -21,6 +21,7 @@
 @import 'pages/item';
 @import 'pages/items';
 @import 'pages/shoppingCart';
+@import 'pages/check_order';
 @import 'pages/member';
 @import 'pages/member_center';
 @import 'pages/gameplay';
@@ -157,7 +158,7 @@ h1,h2,h3,h4,h5,h6,p,a,span,div,ul,li,ol{
 
 
 @include rwd(desktop){
-    .shoppingCart_page,.activity_page,.gameplay_page,.information_inner_page,.information_page,.item_page,.items_page,.member_page,.memberLocation_page,.shoppingCart_page,.team_page,.ticket_page{
+    .check_order_page,.shoppingCart_page,.activity_page,.gameplay_page,.information_inner_page,.information_page,.item_page,.items_page,.member_page,.memberLocation_page,.shoppingCart_page,.team_page,.ticket_page{
         background-image: url("../images/background/home_bgi_1.png");
         background-size: cover;
     }

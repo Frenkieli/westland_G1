@@ -36,13 +36,15 @@
         display: flex;
         .intro_box_title{    
             padding: 10px;
-        }
-        .intro_box_text,.item_price,.item_lave{
-            padding: 12px;
-        }
-        .intro_box_text{
             line-height: map-get( $line_height_map , p );
         }
+        .intro_box_text,.item_price,.item_lave{
+            padding: 10px;
+            line-height: map-get( $line_height_map , p );
+        }
+        // .intro_box_text{
+        //     line-height: map-get( $line_height_map , p );
+        // }
     }
     .item_intro_totalprice{
         text-align: right;
@@ -62,7 +64,9 @@
         display: inline-block;
     }
 }
-
+.h26{
+    height: 26px;
+  }
 // 下半部推薦商品
 // .item_recom_section{
 //     .item_recom_wrap{
@@ -102,7 +106,23 @@
     //         }
     //     }
     // }
+    .item_bg_img{
+        z-index: -1;
+        position: absolute;
+        top: -20px;
+        width: 1200px;
+        height: 650px;
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+    .wheel{
+        padding-top: 200px;
+    }
     .item_intro_section{
+        // border: 1px solid #f00;
+        // background: rgba(255, 255, 255, 0.6);
+        position: relative;
+        padding:20px 0 ;
         justify-content: center;
         display: flex;
     }
@@ -114,8 +134,7 @@
             width: 80%;
             margin: 0 auto;
             border-radius: 30px;
-            // border: 1px solid #000;
-            background: #000;
+            
 
             img{
                 width: 100%;
@@ -135,7 +154,7 @@
                 font-size: 20px;    
             }
             .intro_box_text,.item_price,.item_lave{
-                font-size: 18px;
+                font-size: 20px;
                 width: 90%;
             }
         }
