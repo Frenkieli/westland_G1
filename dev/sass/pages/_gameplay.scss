@@ -404,6 +404,9 @@
 }
 
 @include rwd(phone) {
+    .missindown{
+        filter:  contrast(60%);
+    }
     .section_demo {
         display: none;
     }
@@ -533,6 +536,7 @@
     }
     .section_camera {
         position: fixed;
+        z-index: 1;
         top: 0;
         right: 0;
         left: 0;

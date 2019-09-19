@@ -152,6 +152,7 @@ function setTicket(jsonStr) {
     ticketScore = ticket.bounty;
     document.querySelector('.ticket_reward p').innerHTML = '$' + ticket.bounty;
     document.querySelector('.ticket_mascot').src = ticket.mascot_image;
+    localStorage['missionDone'] = ticket.missionDone;
     if (ticket.mission_no) {
         setTicketmisiion(false, ticket.mission_no);
     } else {
@@ -176,15 +177,19 @@ function setTicketmisiion(missionNum, mission_no) {
 
                 let missinDiv = document.querySelectorAll('.progress_box');
                 for (i = 0; i < missinName.length; i++) {
-                    console.log(section_titleText, '+++++');
+                    // console.log(section_titleText, '+++++');
                     for (let j = 0; j < section_titleText.length; j++) {
                         if (section_titleText[j].innerHTML == missinName[i].equ_name) {
                             section_titleText[j].innerHTML += '(任務)';
                         }
                     }
-                    console.log(missinName[i].equ_name);
+                    // console.log(missinName[i].equ_name);
                     missinDiv[i].innerHTML = missinName[i].equ_name;
                 }
+                // console.log('設定賞金金額');
+                localStorage['mission_bonus'] = missinName[0].mission_bonus;
+
+                playedCheck();
             }
         } else {
             alertify.alert(xhr.status);
@@ -194,10 +199,10 @@ function setTicketmisiion(missionNum, mission_no) {
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     if (missionNum) {
         var data_info = `mission_no=0&titket=${localStorage['member_useticket']}`;
-        console.log('這邊嗎？');
+        // console.log('這邊嗎？');
     } else {
         var data_info = `mission_no=${mission_no}&titket=${localStorage['member_useticket']}`;
-        console.log(mission_no, '這是什麼');
+        // console.log(mission_no, '這是什麼');
     }
     xhr.send(data_info);
 }
@@ -213,9 +218,18 @@ var facilityPointsCheck = 0;
 function addPointsCheck(value) {
     // console.log(value.length);
     if (value.length > 2) {
+        function changePhoneMission(mission) {
+            let missinDiv = document.querySelectorAll('.progress_box');
+            for (let i = 0; i < missinDiv.length; i++) {
+                if (missinDiv[i].innerHTML == mission) {
+                    missinDiv[i].classList.add('missindown');
+                    missinDiv[i].innerHTML = '(完成)';
+                }
+            }
+        }
         switch (value) {
             case 'redeem_product_status':
-                console.log('redeem_product_status');
+                // console.log('redeem_product_status');
                 facilityPoint('商店', 'redeem_product_status');
                 if (facilityPointsCheck * 1) {
                     facilityPointsCheck = 0;
@@ -224,85 +238,129 @@ function addPointsCheck(value) {
                 }
                 break;
             case 'waterslide':
-                console.log('waterslide');
+                // console.log('waterslide');
                 addPoint('滑水道', 'waterslide');
+                changePhoneMission('滑水道');
                 break;
             case 'swivel_chair':
-                console.log('swivel_chair');
+                // console.log('swivel_chair');
                 addPoint('旋轉椅', 'swivel_chair');
+                changePhoneMission('旋轉椅');
                 break;
             case 'pirate_ship':
-                console.log('pirate_ship');
+                // console.log('pirate_ship');
                 addPoint('海盜船', 'pirate_ship');
+                changePhoneMission('海盜船');
                 break;
             case 'entrance_status':
-                console.log('entrance_status');
+                // console.log('entrance_status');
                 facilityPoint('入口', 'entrance_status');
                 break;
             case 'roller_coaster':
-                console.log('roller_coaster');
+                // console.log('roller_coaster');
                 addPoint('雲霄飛車', 'roller_coaster');
+                changePhoneMission('雲霄飛車');
                 break;
             case 'carousel':
-                console.log('carousel');
+                // console.log('carousel');
                 addPoint('旋轉木馬', 'carousel');
+                changePhoneMission('旋轉木馬');
                 break;
             case 'ferris_wheel':
-                console.log('ferris_wheel');
+                // console.log('ferris_wheel');
                 addPoint('摩天輪', 'ferris_wheel');
+                changePhoneMission('摩天輪');
                 break;
             case 'exit_status':
-                console.log('exit_status');
+                // console.log('exit_status');
                 outLand('出口', 'exit_status');
                 break;
             default:
                 break;
         }
+        let missinDiv = document.querySelectorAll('.progress_box');
+        let missionCheck = 0;
+        if (!parseInt(localStorage['missionDone'])) {
+            // console.log('任務完成?');
+
+            for (let i = 0; i < missinDiv.length; i++) {
+                if (missinDiv[i].innerHTML.indexOf('完成') != -1) {
+                    missionCheck++;
+                }
+                // console.log('任務完成???');
+            }
+            if (missionCheck == 4) {
+
+                localStorage['missionDone'] = 1;
+                var xhr = new XMLHttpRequest();
+                xhr.onload = function () {
+                    if (xhr.status == 200) {
+                        //..................取回server端回傳的使用者資料
+                        if (xhr.responseText.indexOf("sysError") != -1) {
+                            alertify.alert("系統異常,請通知系統維護人員");
+                        } else if (xhr.responseText.indexOf("還沒進場喔！") != -1) {
+                        } else {
+                            // console.log('任務完成!');
+                        }
+                    } else {
+                        alertify.alert(xhr.status);
+                    }
+                }
+                xhr.open("post", "php/updaticketmission.php", true);
+                xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                var data_info = `ticket=${localStorage['member_useticket']}&mission_bonus=${localStorage['mission_bonus']}`;
+                xhr.send(data_info);
+                ticketScore = ticketScore;
+                ticketScore += parseInt(localStorage['mission_bonus']);
+                document.querySelector('.ticket_reward p').innerHTML = '$' + ticketScore;
+                alertify.alert('任務完成！');
+            }
+        }
     } else {
 
-        console.log($(this).prev().prev().text());
-        switch ($(this).prev().prev().text().replace('(任務)', '').replace('(達成)', '').replace('(玩過囉))', '')) {
+        // console.log($(this).prev().prev().text());
+        switch ($(this).prev().prev().text().replace('(任務)', '').replace('(達成)', '')) {
             case '商店':
-                console.log('redeem_product_status');
+                // console.log('redeem_product_status');
                 facilityPoint($(this).prev().prev().text(), 'redeem_product_status');
                 if (facilityPointsCheck * 1) {
-                    $(this).prev().prev().text($(this).prev().prev().text() + '(完成)');
+                    $(this).prev().prev().text($(this).prev().prev().text() + '(已兌換)');
                     facilityPointsCheck = 0;
                 } else {
                     alertify.alert('要超過６００分才能換商品喔！');
                 }
                 break;
             case '滑水道':
-                console.log('waterslide');
+                // console.log('waterslide');
                 addPoint($(this).prev().prev().text().replace('(任務)', '').replace('(達成)', ''), 'waterslide');
                 break;
             case '旋轉椅':
-                console.log('swivel_chair');
+                // console.log('swivel_chair');
                 addPoint($(this).prev().prev().text().replace('(任務)', '').replace('(達成)', ''), 'swivel_chair');
                 break;
             case '海盜船':
-                console.log('pirate_ship');
+                // console.log('pirate_ship');
                 addPoint($(this).prev().prev().text().replace('(任務)', '').replace('(達成)', ''), 'pirate_ship');
                 break;
             case '入口':
-                console.log('entrance_status');
+                // console.log('entrance_status');
                 facilityPoint($(this).prev().prev().text(), 'entrance_status');
                 $(this).prev().prev().text($(this).prev().prev().text() + '(進場)');
                 break;
             case '雲霄飛車':
-                console.log('roller_coaster');
+                // console.log('roller_coaster');
                 addPoint($(this).prev().prev().text().replace('(任務)', '').replace('(達成)', ''), 'roller_coaster');
                 break;
             case '旋轉木馬':
-                console.log('carousel');
+                // console.log('carousel');
                 addPoint($(this).prev().prev().text().replace('(任務)', '').replace('(達成)', ''), 'carousel');
                 break;
             case '摩天輪':
-                console.log('ferris_wheel');
+                // console.log('ferris_wheel');
                 addPoint($(this).prev().prev().text().replace('(任務)', '').replace('(達成)', ''), 'ferris_wheel');
                 break;
             case '出口':
-                console.log('exit_status');
+                // console.log('exit_status');
                 outLand($(this).prev().prev().text(), 'exit_status');
                 break;
             default:
@@ -314,10 +372,51 @@ function addPointsCheck(value) {
         } else if ($(this).prev().prev().text().indexOf('入口') != -1) {
         } else if ($(this).prev().prev().text().indexOf('商店') != -1) {
         } else if ($(this).prev().prev().text().indexOf('出口') != -1) {
-        } else if ($(this).prev().prev().text().indexOf('玩過囉') != -1) {
-        } else {
-            $(this).prev().prev().text($(this).prev().prev().text() + '(玩過囉)');
         }
+
+
+        let section_titleText = document.getElementsByClassName('section_title');
+        // let missinDiv = document.querySelectorAll('.progress_box');
+        let missionCheck = 0;
+        if (!parseInt(localStorage['missionDone'])) {
+            // console.log('任務完成?');
+
+            for (let i = 0; i < section_titleText.length; i++) {
+                if (section_titleText[i].innerHTML.indexOf('達成') != -1) {
+                    missionCheck++;
+                }
+                // console.log('任務完成???');
+            }
+            if (missionCheck == 4) {
+
+                localStorage['missionDone'] = 1;
+                var xhr = new XMLHttpRequest();
+                xhr.onload = function () {
+                    if (xhr.status == 200) {
+                        //..................取回server端回傳的使用者資料
+                        if (xhr.responseText.indexOf("sysError") != -1) {
+                            alertify.alert("系統異常,請通知系統維護人員");
+                        } else if (xhr.responseText.indexOf("還沒進場喔！") != -1) {
+                        } else {
+                            // console.log('任務完成!');
+                        }
+                    } else {
+                        alertify.alert(xhr.status);
+                    }
+                }
+                xhr.open("post", "php/updaticketmission.php", true);
+                xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                var data_info = `ticket=${localStorage['member_useticket']}&mission_bonus=${localStorage['mission_bonus']}`;
+                xhr.send(data_info);
+                ticketScore = ticketScore;
+                ticketScore += parseInt(localStorage['mission_bonus']);
+                document.querySelector('.ticket_reward p').innerHTML = '$' + ticketScore;
+                alertify.alert('任務完成！');
+            }
+        }
+
+
+
     }
 }
 
@@ -396,6 +495,92 @@ function outLand(str, eStr) {
             xhr.send(data_info);
         },
         function () {
-
         });
+}
+
+function playedCheck() {
+    var xhr = new XMLHttpRequest();
+    xhr.onload = function () {
+        if (xhr.status == 200) {
+            //..................取回server端回傳的使用者資料
+            if (xhr.responseText.indexOf("sysError") != -1) {
+                alertify.alert("系統異常,請通知系統維護人員");
+            } else if (xhr.responseText.indexOf("還沒進場喔！") != -1) {
+                alertify.alert("還沒進場喔！");
+            } else {
+                let checkPoint = JSON.parse(xhr.responseText);
+                let section_titleText = document.getElementsByClassName('section_title');
+
+                let missinDiv = document.querySelectorAll('.progress_box');
+
+                for (let i = 0; i < missinDiv.length; i++) {
+                    switch (missinDiv[i].innerHTML) {
+                        case '滑水道':
+                            if (parseInt(checkPoint[1])) {
+                                missinDiv[i].classList.add('missindown');
+                                missinDiv[i].innerHTML = '(完成)';
+                            }
+                            break;
+                        case '旋轉椅':
+                            if (parseInt(checkPoint[2])) {
+                                missinDiv[i].classList.add('missindown');
+                                missinDiv[i].innerHTML = '(完成)';
+                            }
+                            break;
+                        case '海盜船':
+                            if (parseInt(checkPoint[3])) {
+                                missinDiv[i].classList.add('missindown');
+                                missinDiv[i].innerHTML = '(完成)';
+                            }
+                            break;
+                        case '雲霄飛車':
+                            if (parseInt(checkPoint[5])) {
+                                missinDiv[i].classList.add('missindown');
+                                missinDiv[i].innerHTML = '(完成)';
+                            }
+                            break;
+                        case '旋轉木馬':
+                            if (parseInt(checkPoint[6])) {
+                                missinDiv[i].classList.add('missindown');
+                                missinDiv[i].innerHTML = '(完成)';
+                            }
+                            break;
+                        case '摩天輪':
+                            if (parseInt(checkPoint[7])) {
+                                missinDiv[i].classList.add('missindown');
+                                missinDiv[i].innerHTML = '(完成)';
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+
+                for (i in checkPoint) {
+                    if (parseInt(checkPoint[i])) {
+                        // console.log(checkPoint[i], '+++' ,i);
+                        if (section_titleText[i].innerHTML.indexOf('任務') != -1) {
+                            section_titleText[i].innerHTML = section_titleText[i].innerHTML.replace('(任務)', '(達成)');
+                        } else if (section_titleText[i].innerHTML.indexOf('入口') != -1) {
+                            section_titleText[i].innerHTML += '(進場)';
+                        } else if (section_titleText[i].innerHTML.indexOf('商店') != -1) {
+                            section_titleText[i].innerHTML += '(已兌換)';
+                        }
+                    }
+                    // for (let j = 0; j < section_titleText.length; j++) {
+                    //     if (section_titleText[j].innerHTML == missinName[i].equ_name) {
+                    //         section_titleText[j].innerHTML += '(任務)';
+                    //     }
+                    // };
+                }
+            }
+        } else {
+            alertify.alert(xhr.status);
+        }
+    }
+    xhr.open("post", "php/getplayedcheck.php", true);
+    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+    var data_info = `ticket=${localStorage['member_useticket']}`;
+    xhr.send(data_info);
 }
