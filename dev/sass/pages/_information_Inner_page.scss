@@ -61,6 +61,7 @@
 }
 
 @include rwd(desktop) {
+    
     .section_rides_DetailedIntroduction {
         padding-top: 200px;
         margin: auto;
@@ -160,13 +161,64 @@
             border-radius: 25px;
             padding: 20px;
             margin-bottom: 50px;
+            position: relative;
+                .mascot{
+                    position: absolute;
+                    bottom: 0;
+                    right: -5%;
+                    transform: scale(0.5,0.5);
+                }
             #message_form{
                 margin: auto;
             }
             .who {
+                background-image: url(../images/index/wanted.png);
+                background-size: 80% 90%;
+                background-position: center;
+                background-repeat: no-repeat;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
                 flex-grow: 1;
                 padding: 20px;
                 width: 150px;
+                position: relative;
+                .name{
+                    font-size: 20px;
+                    font-family: 'Noto Sans TC', sans-serif;
+                    text-align: center;
+                    width: 100%;
+                }
+                .pic{
+                    padding: 8%;
+                    width: 80%;
+                }
+                .frame{
+                    position: absolute;
+                    z-index: 5;
+                    top:75%;
+                    height: 10%;
+                    width: 80%;
+                    background-image: url(../images/ticket/ticket_board.png);
+                    background-size: 100% 100%;
+                    background-position: center;
+                    .teamName{
+                        right: 0;
+                        left: 0;
+                        position: absolute;
+                        padding: 2%;
+                        font-size: 20px;
+                        font-family: 'Noto Sans TC', sans-serif;
+                        text-align: center;
+                    }
+                }
+                .bounty{
+                    font-size: 20px;
+                    font-family: 'Noto Sans TC', sans-serif;
+                    text-align: center;
+                    width: 100%;
+                }
             }
             #status {
                 display: none;

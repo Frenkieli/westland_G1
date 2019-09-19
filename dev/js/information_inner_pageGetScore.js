@@ -19,7 +19,7 @@ window.addEventListener('load',function (){
             return Math.round(Math.round(val * Math.pow(10, (precision || 0) + 1)) / 10) / Math.pow(10, (precision || 0));
           }
 
-        console.log(star_data);
+        // console.log(star_data);
 
 let starToChange =document.getElementById("ferrisWheelClass");
 var FerrisWheel_avgPoint= roundDecimal(((star_data[0].equ_score_total)/(star_data[0].score_num)),1);
