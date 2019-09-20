@@ -26,32 +26,26 @@
                 <div class="ticket_title">客製您的門票</div>
                 <div class="ticket_subtitle">DEAD OR ALIVE</div>
                 <!-- 送回賞單圖片及吉祥物表單 -->
-                <form method="post" id="ticket_mascot_upload" enctype="multipart/form-data">
-                    <input class="uploadpic" type="file" id="uploadpic">
+                <div style="display: inline-block" class="customize_items_title paragraph_title">第三步 - 上傳自己的門票圖片 :</div>
+                <canvas hidden width="300px" height="300px" class="ticket_pic" id="canvastopic"></canvas>
+                <form id="ticket_mascot_upload" enctype="multipart/form-data">
+                    <input class="uploadpic" name="uploadpic" id="uploadpic" type="file">
+                    <input name="uploadticketpic" id="uploadticketpic" type="hidden">
                     <input name="uploadmascot" id="uploadmascot" type="hidden">
                     <input name="uploadmemberno" id="uploadmemberno" type="hidden">
-                    <input name="uploadbounty" id="uploadbounty" type="hidden">
+                    <input name="uploadmoney" id="uploadmoney" type="hidden">
+                    <input name="uploadticketno" id="uploadticketno" type="hidden">
+                </form>
+                <form id="member_moneycheck" enctype="multipart/form-data">
+                    <input name="membernocheck" id="membernocheck" type="hidden">
                 </form>
                 <div class="ticket_picture">
                     <img id="preinstallpic" src="images/cusitems/ticket_bgi.svg" alt="預設圖">
                 </div>
-                <div class="btn center">立即購買</div>
-                <!-- <div class="ticket_amount">
-                    <span class="ticket_amount_title">數量 :</span>
-                    <div class="ticket_amount_box">
-                        <span class="plus count">
-                            <i class="fas fa-plus"></i>
-                        </span>
-                        <input class="ticket_amounts" type="text" id="ticket_amount" value="1">
-                        <span class="less count">
-                            <i class="fas fa-minus"></i>
-                        </span>
-                    </div>
-                </div> -->
+                <div id="buy_ticket" class="btn center">立即購買</div>
                 <span class="opcatity_box"></span>
                 <canvas width="280px" height="233px" class="ticket_customize_sub" id="canvastopng"></canvas>
             </div>
-            <!-- <div class="btn--active center">立即購買</div> -->
         </div>
     </div>
     </section>
@@ -97,6 +91,7 @@
     {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"},
     {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"},
     {"jslink" : "https://html2canvas.hertzen.com/dist/html2canvas.min.js"},
+    {"jslink" : "js/checkmember.js"},
     {"jslink" : "js/ticket_page.js"}
     ])
 

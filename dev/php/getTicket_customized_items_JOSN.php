@@ -1,4 +1,5 @@
 <?php
+//撈吉祥物，樣式及活動資訊
 try {
     // //=====建立資料庫連線=====
     require_once("connectWestland.php");
@@ -34,6 +35,7 @@ try {
     while($ticket_activityRow=$ticket_activity->fetch(PDO::FETCH_ASSOC)){
         $array[]=$ticket_activityRow;
     }
+
     echo json_encode($array);
 
 } catch (PDOException $e) {
