@@ -28,8 +28,8 @@ $errMsg="";
     $mem_ticketdata = base64_decode($mem_ticket); //編碼
 
     //money扣款後
-    $uploadmoney = $_POST["uploadmoney"]-600;
-    echo $uploadmoney;
+    // $uploadmoney = $_POST["uploadmoney"]-600;
+    // echo $uploadmoney;
     //會員id
     $uploadmember = $_POST["uploadmemberno"];
     //門票流水編號(+1)
@@ -73,18 +73,22 @@ $errMsg="";
     $picturefile_src = "images/ticket/member/picture". "/" . $ticket_no . ".png";
 
 try{
+    //上傳
     require_once("connectWestland.php");
-    $sqlmember="";
-    $sqlticket="insert into ticket(`member_no`, `image_source`, `mascot_image`) values (:member_no, :picture_src , :mascot_src)";
+    $sqlticket="insert into ticket(`member_no`,`image_source`,`mascot_image`)values(:member_no,:picture_src,:mascot_src)";
     $uploadtotal = $pdo->prepare($sqlticket);
-    $member->bindValue(":member_no",$uploadmember);
-    $member->bindValue(":picture_src",$picturefile_src);
-    $member->bindValue(":mascot_src",$mascotfile_src);
-    $member->execute();
-    echo "上傳成功";
-//     // $memberRow= $member->fetch(PDO::FETCH_ASSOC);
-//     // $array[]=$memberRow;
-//     // echo json_encode($array);
+    $uploadtotal->bindValue(":member_no",$uploadmember);
+    $uploadtotal->bindValue(":picture_src",$picturefile_src);
+    $uploadtotal->bindValue(":mascot_src",$mascotfile_src);
+    $uploadtotal->execute();
+
+    $sqlmember="update `members` SET `member_money`=`member_money`-600 WHERE `member_no`=:member_no";
+    $uploadmoney = $pdo->prepare($sqlmember);
+    $uploadmoney->bindValue(":member_no",$uploadmember);
+    $uploadmoney->execute();
+
+    echo "已成功購票";
+
 }catch(PDOException $e){
     $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
 	$errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";
