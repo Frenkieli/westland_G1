@@ -97,16 +97,23 @@ function changepic(e){
         let readpic = new FileReader();
         readpic.readAsDataURL(pic);
         readpic.addEventListener("load",function(){
-            let preinstallpic = document.getElementById("preinstallpic");
+            preinstallpic = document.getElementById("preinstallpic");
             preinstallpic.src = this.result;
-            // preinstallpic.style.width = "300px";
-            // preinstallpic.style.height = "300px";
+
+            setTimeout(() => {
+                let canvastopic = document.getElementById("canvastopic").getContext("2d");
+                canvastopic.clearRect(0,0,300,300);
+                canvastopic.drawImage(preinstallpic,0,0,300,300);
+            }, 100);
+            
         });
     }
 }
 
 //確認後將圖抓進canvas
 function confirm(){
+    checkclick = 1;
+
     //宣告canvas
     let canvasarea = document.getElementById("canvastopng").getContext("2d");
 
@@ -169,8 +176,11 @@ function confirm(){
 }
 
 
-
 function init(){
+    //小秘密變數
+    checkclick = 0;
+    buyclick = 0;
+
     //樣式角度
     itemdeg=0;
     itemscale=1;
@@ -193,7 +203,7 @@ function init(){
         let ticket_custom = JSON.parse(jsonStr);
         let breakpoint = ticket_custom.indexOf("break");
         let point = ticket_custom.indexOf("point");
-
+        console.log(ticket_custom);
         let items = document.getElementById("ticket_items");
         let mascots = document.getElementById("ticket_mascots");
         let activity = document.getElementById("ticket_activity");
@@ -260,6 +270,11 @@ function init(){
         axisbox.style.transform = "rotate("+ axis[5] +"deg)";
     }
 
+    // 門票圖片載入時先為預設圖
+    let canvastopic = document.getElementById("canvastopic").getContext("2d");
+    canvastopic.clearRect(0,0,300,300);
+    canvastopic.drawImage(preinstallpic,0,0,300,300);
+
     // 小圖換大圖
     let img = document.getElementsByClassName("mascots");
     for( let i=0 ; i<img.length ; i++ ){
@@ -291,7 +306,7 @@ function init(){
     let trash = document.getElementById("opabox_del");
     trash.addEventListener("click",trashitem);
 
-    //更換賞單圖片
+    //更換賞單圖片，上傳
     let uploadpic = document.getElementById("uploadpic");
     uploadpic.addEventListener("change",changepic);
 
@@ -299,11 +314,20 @@ function init(){
     let customize_confirm = document.getElementById("customize_confirm");
     customize_confirm.addEventListener("click",confirm);
 
-    //抓暫存
+    //抓首頁樣式暫存
     document.getElementById("big").src = bigsrc;
     let opaitem = document.createElement("img");
     opaitem.src = opasrc;
     document.getElementById("customize_opabox").appendChild(opaitem);
+
+
+    //上傳樣式圖片
+    // document.getElementById("uploadpic").onchange = drawtocanvas;
+    // let uploadpic = document.getElementById("uploadpic");
+    // uploadpic.addEventListener("load",drawtocanvas);
+
+
+    
 }
 
 
