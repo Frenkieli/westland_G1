@@ -14,7 +14,7 @@ window.addEventListener('load',function (){
 
     function getMember(jsonStr) {
         let display_MEM_MSG =JSON.parse(jsonStr);
-        console.log(display_MEM_MSG);
+        // console.log(display_MEM_MSG);
         for (let i = display_MEM_MSG.length -1; i >= 0; i--) {
             var display_MSG = document.getElementById('messages');
             display_MSG.innerHTML += `

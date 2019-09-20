@@ -61,7 +61,10 @@
 }
 
 @include rwd(desktop) {
-    
+    body.information_inner_page{
+            background-position: top;
+            background-size: 100%;
+    }
     .section_rides_DetailedIntroduction {
         padding-top: 200px;
         margin: auto;
@@ -172,7 +175,7 @@
                 margin: auto;
             }
             .who {
-                background-image: url(../images/index/wanted.png);
+                background-image: url(../images/team/wanted.svg);
                 background-size: 80% 90%;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -185,6 +188,8 @@
                 width: 150px;
                 position: relative;
                 .name{
+                    top: -3%;
+                    position: absolute;
                     font-size: 20px;
                     font-family: 'Noto Sans TC', sans-serif;
                     text-align: center;
@@ -192,12 +197,12 @@
                 }
                 .pic{
                     padding: 8%;
-                    width: 80%;
+                    width: 50%;
                 }
                 .frame{
                     position: absolute;
                     z-index: 5;
-                    top:75%;
+                    top:65%;
                     height: 10%;
                     width: 80%;
                     background-image: url(../images/ticket/ticket_board.png);
