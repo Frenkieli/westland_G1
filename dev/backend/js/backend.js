@@ -1,3 +1,19 @@
+// 登出登入功能
+(function () {
+    let loginName = document.getElementById('loginName');
+    let loginButton = document.querySelector('#loginBox button');
+
+    if (localStorage['admin_name']) {
+        loginName.innerText = localStorage['admin_name'];
+        loginButton.addEventListener('click', function () {
+            window.location.href = '../start.html';
+            delete localStorage['admin_name'];
+        }, false)
+    } else {
+        window.location.href = '../start.html';
+    }
+}());
+
 (function () {
     // my special code
     document.getElementById('administrator').addEventListener('click', administrator, false);

@@ -101,6 +101,6 @@ gulp.task('default', function () {
     gulp.watch(["dev/images/*/*"], ["moveImg"]).on('change', reload);
     gulp.watch(["dev/php/*/*","dev/php/*"], ["movePhp"]).on('change', reload);
     gulp.watch(["dev/plugin_css/*.css"], ["movePlugin_css"]).on('change', reload);
-    gulp.watch(["dev/backend/js/*"], ["moveBackend"]).on('change', reload);
+    gulp.watch(["dev/backend/*/*","dev/backend/*"], ["moveBackend"]).on('change', reload);
 
 });
