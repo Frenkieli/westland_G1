@@ -3,6 +3,8 @@
     require_once("connectWestland.php");
     $sql="SELECT`message_board`.`message_no`
                 ,`message_board`.`member_no`
+                ,`message_board`.`equ_message`
+                ,`message_board`.`equ_no`
                 ,`members`.`member_name`
                 ,`ticket`.`image_source` 
                 ,`team`.`team_no`
