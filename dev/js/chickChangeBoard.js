@@ -3,7 +3,7 @@ function init() {
 }
 function choose() {
     let GetScreenWidth=document.querySelector('.sp-slide').offsetWidth;
-    console.log(`${GetScreenWidth}`);
+    // console.log(`${GetScreenWidth}`);
     let s1 =$('.equ_no1');
     let s2 =$('.equ_no2');
     let s3 =$('.equ_no3');
