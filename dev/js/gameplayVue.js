@@ -1,4 +1,5 @@
 localStorage['member_useticket'] = null;
+localStorage['inoutCheck'] = 0;
 let memTicket = [];
 var ticketScore;
 
@@ -213,6 +214,7 @@ for (let i = 0; i < demo_scaninner.length; i++) {
     demo_scaninner[i].addEventListener('click', addPointsCheck, false);
 }
 var facilityPointsCheck = 0;
+
 function addPointsCheck(value) {
     // console.log(value.length);
     if (value.length > 2) {
@@ -377,7 +379,9 @@ function addPointsCheck(value) {
                 break;
         }
         if ($(this).prev().prev().text().indexOf('(任務)') != -1) {
-            $(this).prev().prev().text($(this).prev().prev().text().replace('(任務)', '(達成)'));
+            if (parseInt(localStorage['inoutCheck'])) {
+                $(this).prev().prev().text($(this).prev().prev().text().replace('(任務)', '(達成)'));
+            }
         } else if ($(this).prev().prev().text().indexOf('(達成)') != -1) {
         } else if ($(this).prev().prev().text().indexOf('入口') != -1) {
         } else if ($(this).prev().prev().text().indexOf('商店') != -1) {
@@ -439,24 +443,28 @@ function addPoint(str, eStr) {
                 alertify.alert("系統異常,請通知系統維護人員");
             } else if (xhr.responseText.indexOf("還沒進場喔！") != -1) {
                 alertify.alert("還沒進場喔！");
+                localStorage['inoutCheck'] = 0;
             } else {
                 // console.log(xhr.responseText);
+                localStorage['inoutCheck'] = 1;
                 let ticketPointBack = (xhr.responseText).split('|');
                 // console.log(ticketPointBack,'切成什麼樣子?')
                 ticketScore = parseInt(ticketScore);
                 ticketScore += parseInt(xhr.responseText);
+
                 document.querySelector('.ticket_reward p').innerHTML = '$' + ticketScore;
                 if (ticketPointBack[1]) {
                     alertify.alert('成功遊玩設施：' + str + '，隨機問答獎勵' + ticketPointBack[2] + '倍！總共加了' + ticketPointBack[0] + '分！');
                 } else {
                     alertify.alert('成功遊玩設施：' + str + '，加了' + ticketPointBack[0] + '分！');
                 }
+                
             }
         } else {
             alertify.alert(xhr.status);
         }
     }
-    xhr.open("post", "php/gameplayaddPoints.php", true);
+    xhr.open("post", "php/gameplayaddPoints.php", false);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     var data_info = `str=${str}&eStr=${eStr}&ticket=${localStorage['member_useticket']}`;
     xhr.send(data_info);
