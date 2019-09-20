@@ -26,7 +26,6 @@ function init() {
             $(`.pic_login`).attr('src', `${display_MEM_MSG[loginIsTure].image_source}`);
             $(`.teamName_login`).html(`${display_MEM_MSG[loginIsTure].team_name}`);
             $(`.bounty_login`).html(`$${display_MEM_MSG[loginIsTure].bounty}`);
-            $(`.mascot_login`).html(`<img class="mascot_image" src="../dest/${display_MEM_MSG[loginIsTure].mascot_image}" alt="客製化吉祥物">`);
             }
         }else{
             return;
