@@ -2,6 +2,7 @@ localStorage['member_useticket'] = null;
 localStorage['inoutCheck'] = 0;
 let memTicket = [];
 var ticketScore;
+var team_num;
 
 getTicket();
 function getTicket() {
@@ -144,7 +145,11 @@ function getUseTicket() {
 // 設定門票
 function setTicket(jsonStr) {
     let ticket = JSON.parse(jsonStr);
-    console.log(ticket.mission_no, localStorage['member_useticket'], '0000');
+    console.log(ticket, localStorage['member_useticket'], '0000');
+    setTimeout(() => {
+        team_num = ticket.team_no;
+        console.log(team_num);
+    }, 100);
     document.querySelector('.ticket_name p').innerHTML = ticket.member_name;
     document.querySelector('.ticket_img img').src = ticket.image_source;
     if(ticket.team_name){
@@ -312,7 +317,7 @@ function addPointsCheck(value) {
                 }
                 xhr.open("post", "php/updaticketmission.php", true);
                 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-                var data_info = `ticket=${localStorage['member_useticket']}&mission_bonus=${localStorage['mission_bonus']}`;
+                var data_info = `ticket=${localStorage['member_useticket']}&mission_bonus=${localStorage['mission_bonus']}&team_no=${team_num}`;
                 xhr.send(data_info);
                 ticketScore = ticketScore;
                 ticketScore += parseInt(localStorage['mission_bonus']);
@@ -424,12 +429,13 @@ function addPointsCheck(value) {
                 }
                 xhr.open("post", "php/updaticketmission.php", true);
                 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-                var data_info = `ticket=${localStorage['member_useticket']}&mission_bonus=${localStorage['mission_bonus']}`;
+                var data_info = `ticket=${localStorage['member_useticket']}&mission_bonus=${localStorage['mission_bonus']}&team_no=${team_num}`;
                 xhr.send(data_info);
                 ticketScore = ticketScore;
                 ticketScore += parseInt(localStorage['mission_bonus']);
                 document.querySelector('.ticket_reward p').innerHTML = '$' + ticketScore;
                 alertify.alert('任務完成！');
+                console.log(team_num);
             }
         }
 
