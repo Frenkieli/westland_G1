@@ -54,7 +54,8 @@ loginBoard.addEventListener('click',function(){
                 data:{
                     member_no: member_no,
                     equ_no: equ_no,
-                    equ_message: equ_message,                                 starLevel:starLevelVal,     		
+                    equ_message: equ_message,
+                    starLevel:starLevelVal,     		
                 },
                 error:function() {
                     window.alert("連線失敗!")

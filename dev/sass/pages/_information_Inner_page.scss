@@ -62,11 +62,12 @@
 
 @include rwd(desktop) {
     body.information_inner_page{
-            background-position: top;
-            background-size: 100%;
+        background-position: top;
+        background-size: 100%;
+        background-image: url(../images/information/inner_bgi.png);
     }
     .section_rides_DetailedIntroduction {
-        padding-top: 200px;
+        padding-top: 100px;
         margin: auto;
         margin-bottom: 200px;
         .section_title {
