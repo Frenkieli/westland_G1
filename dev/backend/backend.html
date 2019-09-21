@@ -33,13 +33,13 @@
             padding: 5%;
             position: absolute;
             background: #eee;
-            width: 30%;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            margin: auto;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
             text-align: center;
+        }
+        .new_title{
+            margin-bottom: 20px;
         }
 
         .ins {
@@ -47,7 +47,7 @@
             margin-bottom: 20px;
             width: 200px;
         }
-
+/* 
         #administrator_insert {
             height: 30%;
         }
@@ -70,7 +70,7 @@
 
         #ticket_customized_insert {
             height: 10%;
-        }
+        } */
 
         button {
             width: 70px;
@@ -385,7 +385,7 @@
     </div>
     <div id="all_Insert_Form" style="display: none">
         <form id="administrator_insert" class="insert_style" style="display: none">
-            <h3 style="margin-bottom: 20px;margin-top:-80px;">新增管理員</h3>
+            <h3 class="new_title">新增管理員</h3>
             <input type="hidden" name="currentID" value="0">
             管理者名稱 : <input class="ins" type="text" name="admin_name"><br>
             請輸入帳號 : <input class="ins" type="text" name="admin_id"><br>
@@ -394,7 +394,7 @@
                 type="button" value="取消" style="margin-left:5px">
         </form>
         <form id="product_insert" class="insert_style" style="display: none">
-            <h3 style="margin-bottom: 20px;margin-top:-80px;">新增商品</h3>
+            <h3 class="new_title">新增商品</h3>
             <input type="hidden" name="currentID" value="1">
             商品名稱 : <input class="ins" type="text" name="product_name"><br>
             商品圖片 : <input class="ins" type="text" name="product_image"><br>
@@ -409,7 +409,7 @@
             <input class="insert_cancel" type="button" value="取消" style="margin-left:5px">
         </form>
         <form id="activity_insert" class="insert_style" style="display: none">
-            <h3 style="margin-bottom: 20px;margin-top:-80px;">新增活動</h3>
+            <h3 class="new_title">新增活動</h3>
             <input type="hidden" name="currentID" value="5">
             活動名稱 : <input class="ins" type="text" name="activity_name"><br>
             活動圖片 : <input class="ins" type="text" name="activity_image"><br>
@@ -421,7 +421,7 @@
                 type="button" value="取消" style="margin-left:5px">
         </form>
         <form id="robot_text_insert" class="insert_style" style="display: none">
-            <h3 style="margin-bottom: 20px;margin-top:-80px;">新增機器人文本</h3>
+            <h3 class="new_title">新增機器人文本</h3>
             <input type="hidden" name="currentID" value="7">
             使用者輸入 : <input class="ins" type="text" name="Q"><br>
             機器人回應 : <input class="ins" type="text" name="A"><br>
@@ -429,7 +429,7 @@
                 type="button" value="取消" style="margin-left:5px">
         </form>
         <form id="question_no_insert" class="insert_style" style="display: none">
-            <h3 style="margin-bottom: 20px;margin-top:-80px;">新增隨機問答</h3>
+            <h3 class="new_title">新增隨機問答</h3>
             <input type="hidden" name="currentID" value="11">
             問答題目 : <input class="ins" type="text" name="question_content"><br>
             問答圖片 : <input class="ins" type="text" name="question_optionA"><br>
@@ -441,7 +441,7 @@
                 type="button" value="取消" style="margin-left:5px">
         </form>
         <form id="ticket_customized_insert" class="insert_style" style="display: none">
-            <h3 style="margin-bottom: 20px;margin-top:-80px;">新增吉祥物配件</h3>
+            <h3 class="new_title">新增吉祥物配件</h3>
             <input type="hidden" name="currentID" value="13">
             配件圖片 : <input class="ins" type="text" name="mascot_customize_image"><br>
             <input class="insert_confirm" type="button" value="確認" style="margin-right:5px"><input class="insert_cancel"
