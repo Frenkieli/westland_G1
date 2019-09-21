@@ -21,6 +21,16 @@
     <header class="header_navbar">
         @@include("template/header.html")
     </header>
+    <div style="display: none">
+        <form id="creatTeamForm">
+            <input type="hidden" name="member_no">
+            <input type="hidden" name="ticket_no">
+            <input type="hidden" name="team_name">
+            <input type="hidden" name="team_bounty">
+            <input type="hidden" name="team_slogan">
+            <input type="hidden" name="mascot_image">
+        </form>
+    </div>
     <div id="team_join_window">
         <div class="team_join_container">
             <div class="select_ticket">
@@ -32,7 +42,8 @@
                     <option value="">321</option> -->
                 </select>
                 <span id="use_ticket"></span>
-
+                &nbsp;
+                <span id="leader_status"></span>
             </div>
             <div id="select_team">
 
@@ -61,47 +72,6 @@
                     <div id="joined" class="team_joined_list">
                     </div>
                     <div id="create" class="team_create_form">
-                        <!-- <h4>" step1 選擇您創建隊伍的門票 "</h4>
-                        <div class="owl-carousel owl-theme slider"> -->
-                            <!-- 
-                            <div class="team_list_box">
-                                <div class="list_box_img">
-                                    <p class="wanted_name">小帥帥</p>
-                                    <div class="wanted_playerphoto">
-                                        <img src="images/team/FB_IMG_1566404286898.jpg">
-                                    </div>
-                                    <p class="wanted_teamname">帥帥隊驢子</p>
-                                    <p class="wanted_bounty">$77777</p>
-                                    <div class="create_wanted_mascot">
-                                        <img src="images/team/alpaca.svg">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="team_list_box">
-                                <div class="list_box_img">
-                                    <p class="wanted_name">小帥帥</p>
-                                    <div class="wanted_playerphoto">
-                                        <img src="images/team/FB_IMG_1566404286898.jpg">
-                                    </div>
-                                    <p class="wanted_teamname">帥帥隊驢子</p>
-                                    <p class="wanted_bounty">$77777</p>
-                                    <div class="create_wanted_mascot">
-                                        <img src="images/team/alpaca.svg">
-                                    </div>
-                                </div>
-                            </div> -->
-                        <!-- </div> -->
-                        <!-- <h4>" step2 輸入隊伍資訊 "</h4>
-                        <form action="">
-                            <p>隊伍名稱</p>
-                            <input maxlength="6" type="text" class="create_team_name">
-                            <p class="text_count">剩餘字數 : <span class="team_name_remainder">6</span></p>
-                            <p>精神隊呼</p>
-                            <textarea maxlength="40" name="" id="" cols="30" rows="5"
-                                class="create_team_slogan"></textarea>
-                            <p class="text_count">剩餘字數 : <span class="team_slogan_remainder">40</span></p>
-                            <input type="submit" value="出發冒險" class="btn">
-                        </form> -->
                     </div>
                 </div>
             </div>
