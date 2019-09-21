@@ -12,13 +12,14 @@
                 ,`ticket`.`bounty`
                 ,`team`.`mascot_image` 
 
-          FROM `message_board` 
+          FROM `message_board`
                         LEFT OUTER JOIN `members`
                         ON `message_board`.`member_no` =`members`.`member_no`
                         LEFT OUTER JOIN `ticket` 
                         ON `members`.`member_no`=`ticket`.`member_no`
                         LEFT OUTER JOIN `team` 
                         ON `ticket`.`team_no`=`team`.`team_no`
+          WHERE `message_board`.`report_status`=0
           GROUP BY `message_board`.`message_no`
         --   ORDER BY `message_board`.`message_no`
                         ";

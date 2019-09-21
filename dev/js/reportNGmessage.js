@@ -27,9 +27,17 @@ $(document).on('click', '.toReport', function(){
 			report_message: report_message		
 		},
 		success:function(){
+			$('.coverBlock').css('display', 'none');
+			$(`#messageNo_${message_no}`).remove();
+			console.log(`#messageNo_${message_no}`)
 			console.log("回報成功");
 			// 寫完立即增加到下方
 			window.alert('回報成功!');
+			deletBoard();
+			window.location.reload();
 		}
 	})
+	function deletBoard() {
+		window.alert("可以刪除資料了喔")
+	}
 })

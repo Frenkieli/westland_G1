@@ -62,7 +62,7 @@ loginBoard.addEventListener('click',function(){
                 success:function(){
                     console.log(starLevelVal)
                     window.alert("感謝您留言，訊息已發送!!")
-                    // window.location.reload();
+                    window.location.reload();
                 }
             })
         }
