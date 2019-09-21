@@ -168,8 +168,8 @@ function showTeam(teamlist, ticketlist) {
                             <div class="wanted_playerphoto">
                                 <img src="${element.image_source}">
                             </div>
-                            <p class="wanted_teamname">隊伍</p>
-                            <p class="wanted_bounty">${element.bounty}</p>
+                            <p class="wanted_teamname">這裡是隊名</p>
+                            <p class="wanted_bounty">$${element.bounty}</p>
                             <div class="create_wanted_mascot">
                                 <img src="${element.mascot_image}">
                             </div>
@@ -193,6 +193,10 @@ function showTeam(teamlist, ticketlist) {
             document.querySelector('.create_team_name').addEventListener("input", () => {
                 let select = document.querySelector('.create_team_name').value;
                 document.querySelector('.team_name_remainder').innerText = 6 - select.length;
+                if (document.querySelector('.create_team_name').value.trim() == '')
+                    document.querySelector('.active').children[0].children[1].children[2].innerHTML = '這裡是隊名';
+                else
+                    document.querySelector('.active').children[0].children[1].children[2].innerHTML = document.querySelector('.create_team_name').value;
             }, false);
             document.querySelector('.create_team_slogan').addEventListener("input", () => {
                 let select = document.querySelector('.create_team_slogan').value;
@@ -223,29 +227,29 @@ function showTeam(teamlist, ticketlist) {
                     // alert(document.querySelector('.create_team_name').value.trim());
                     alert('隊伍隊呼還沒輸入喔');
                 } else {
-                    let selectTeamTicket=document.querySelector('.active').children[0];
+                    let selectTeamTicket = document.querySelector('.active').children[0];
                     console.log(selectTeamTicket);
                     selectTeamTicket.children[0].value
-                    let creatTeamForm=$id('creatTeamForm');
+                    let creatTeamForm = $id('creatTeamForm');
                     console.log(creatTeamForm);
-                    creatTeamForm.children[0].value=member_no;
-                    creatTeamForm.children[1].value=selectTeamTicket.children[0].value;
-                    creatTeamForm.children[2].value=document.querySelector('.create_team_name').value.trim();
-                    creatTeamForm.children[3].value=selectTeamTicket.children[1].children[3].innerText;
-                    creatTeamForm.children[4].value=document.querySelector('.create_team_slogan').value.trim();
-                    creatTeamForm.children[5].value=selectTeamTicket.children[1].children[4].children[0].src.substr(selectTeamTicket.children[1].children[4].children[0].src.indexOf('images'));
+                    creatTeamForm.children[0].value = member_no;
+                    creatTeamForm.children[1].value = selectTeamTicket.children[0].value;
+                    creatTeamForm.children[2].value = document.querySelector('.create_team_name').value.trim();
+                    creatTeamForm.children[3].value = selectTeamTicket.children[1].children[3].innerText.replace('$', "");
+                    creatTeamForm.children[4].value = document.querySelector('.create_team_slogan').value.trim();
+                    creatTeamForm.children[5].value = selectTeamTicket.children[1].children[4].children[0].src.substr(selectTeamTicket.children[1].children[4].children[0].src.indexOf('images'));
                     let xhr = new XMLHttpRequest();
                     xhr.onload = function () {
                         if (xhr.status == 200) {
                             alert(xhr.responseText);
                             create();
-                        }else{
+                        } else {
                             alert('創建隊伍失敗QQ');
                         }
                     }
-                    let sendForm=new FormData(creatTeamForm);
-                    let url='php/createTeam.php';
-                    xhr.open('post',url,true);
+                    let sendForm = new FormData(creatTeamForm);
+                    let url = 'php/createTeam.php';
+                    xhr.open('post', url, true);
                     xhr.send(sendForm);
                 }
             }, false);
@@ -301,7 +305,7 @@ function join() {
     document.querySelector('#chose_ticket').style.display = "";
     document.querySelector('#use_ticket').style.display = "none";
     document.querySelector('#leader_status').style.display = "none";
-    document.querySelector('.select_ticket_content').innerText = "請選擇加入隊伍使用的門票編號 :";
+    document.querySelector('.select_ticket_content').innerText = "請選擇使用的門票 :";
 
     //切換頁籤
     $id("joined").style.display = 'none';
@@ -419,6 +423,7 @@ function joined() {
     console.log("joined");
 
     //切換頁籤
+    
     $id("join").style.display = 'none';
     $id("create").style.display = 'none';
     $id("joined").style.display = '';
@@ -432,7 +437,7 @@ function joined() {
         document.querySelector('#chose_ticket').style.display = "none";
         document.querySelector('#use_ticket').style.display = "";
         document.querySelector('#leader_status').style.display = "";
-        document.querySelector('.select_ticket_content').innerText = "加入此隊伍使用的門票編號 : ";
+        document.querySelector('.select_ticket_content').innerText = "使用的門票 : ";
     } else {
         alert('你沒登入喔');
     }
