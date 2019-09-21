@@ -3,6 +3,7 @@ function showLarge(e){
     let now = e.target;
     let change = now.src;
     document.getElementById("big").src = change;
+    confirm();
 }
 
 //選擇樣式
@@ -16,12 +17,14 @@ function showopa(e){
         let opaimg = document.createElement("img");
         opaimg.src = change;
         opabox.appendChild(opaimg);
+        confirm();
     }else{
         let now = e.target;
         let change = now.src;
         let opaimg = document.createElement("img");
         opaimg.src = change;
         opabox.appendChild(opaimg);
+        confirm();
     }
 };
 
@@ -93,6 +96,9 @@ function changepic(e){
         alert("檔案格式不對");
         e.target.value = "";
     }else{
+        
+
+
         let pic = document.getElementById("uploadpic").files[0];
         let readpic = new FileReader();
         readpic.readAsDataURL(pic);
@@ -105,7 +111,6 @@ function changepic(e){
                 canvastopic.clearRect(0,0,300,300);
                 canvastopic.drawImage(preinstallpic,0,0,300,300);
             }, 100);
-            
         });
     }
 }
@@ -310,9 +315,10 @@ function init(){
     let uploadpic = document.getElementById("uploadpic");
     uploadpic.addEventListener("change",changepic);
 
-    // 確認客製化
-    let customize_confirm = document.getElementById("customize_confirm");
-    customize_confirm.addEventListener("click",confirm);
+    // 客製化吉祥物事件註冊
+    let customize_mascot_role = document.getElementById("customize_mascot_role");
+    customize_mascot_role.addEventListener("mouseup",confirm);
+    customize_mascot_role.addEventListener("touchend",confirm);
 
     //抓首頁樣式暫存
     document.getElementById("big").src = bigsrc;
@@ -320,11 +326,9 @@ function init(){
     opaitem.src = opasrc;
     document.getElementById("customize_opabox").appendChild(opaitem);
 
-
-    //上傳樣式圖片
-    // document.getElementById("uploadpic").onchange = drawtocanvas;
-    // let uploadpic = document.getElementById("uploadpic");
-    // uploadpic.addEventListener("load",drawtocanvas);
+    if(storage.getItem("bigsrc")!=null){
+        confirm();
+    }
 
 
     
