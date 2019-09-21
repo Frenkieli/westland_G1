@@ -397,7 +397,7 @@
     }
     .customize_backimage{
         width: 100%;
-        background-image: url(../images/background/ticket_backimage1.svg);
+        background-image: url("../images/background/ticket_backimage1.svg");
         height: 545px;
         .ticket_title{
             font-size: 32px;  
@@ -433,15 +433,27 @@
 
 //==============
     .ticket_news_wrap{
-        height: 240px;  
+        background-image: url("../images/background/ticket_news1.svg");
+        height: 330px;  
         .ticket_news_box{
             width: 85%;
             padding: 20px;
             @at-root
             .ticket_news_box_list{
+                flex-wrap: wrap;
                 font-size: 16px;
                 line-height: 22px;
                 padding: 5px 0;
+                .triangle{
+                    transform: translateY(13px);
+                }
+                .ticket_startdate{
+                    width: 34%;
+                }
+                .ticket_activity_title{
+                    width: 100%;
+                    text-align: center;
+                }
             }
         }
     }
