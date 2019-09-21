@@ -327,11 +327,8 @@ function init(){
     document.getElementById("customize_opabox").appendChild(opaitem);
 
     if(storage.getItem("bigsrc")!=null){
-        confirm();
+        setTimeout(confirm(),500);
     }
-
-
-    
 }
 
 
