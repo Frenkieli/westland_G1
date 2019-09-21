@@ -2,10 +2,12 @@
 //====會員中心的組隊紀錄 撈取====//
     try{
         require_once('connectWestland.php');
-        // $leader_member_no = $_POST['leader_member_no'];
-        $sql = "SELECT * FROM `team` WHERE `member_no` = 'leader_member_no' ";
+        $member_no = $_POST['member_no'];
+        // echo $member_no;
+        $sql = "SELECT * FROM `team` WHERE `leader_member_no` = '$member_no' ";
         $teams=$pdo->prepare($sql);
         $teams->execute();
+        // echo $sql;
         if($teams->rowCount()==0){
             echo "{}";
         }else{

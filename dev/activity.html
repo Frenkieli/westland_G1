@@ -23,11 +23,11 @@
 
 
     <section class="activity_section">
-    <!-- 天空 -->
-     <div class="sun_content">
+        <!-- 天空 -->
+        <div class="sun_content">
             <!-- <div class="circle"></div> -->
             <!-- <img src="images/member/cloud01.png"class="skycloud" id="skycloud_a"> -->
-            <img src="images/member/wind.png" class="skycloud" id="skycloud_b">   
+            <img src="images/member/wind.png" class="skycloud" id="skycloud_b">
         </div>
         <!-- --------月曆的------ -->
         <!-- 標題:木板 -->
@@ -42,21 +42,21 @@
         <div class="body_content">
             <div class="arm_right"></div>
             <div class="arm_left"></div>
-        <div class="wrapper">
-            <div class="content">
-                <div class="eye_left">
-                    <div id="pL" class="pupil"></div>   
+            <div class="wrapper">
+                <div class="content">
+                    <div class="eye_left">
+                        <div id="pL" class="pupil"></div>
+                    </div>
+                    <div class="eye_right">
+                        <div id="pR" class="pupil"></div>
+                    </div>
                 </div>
-                <div class="eye_right">
-                    <div id="pR" class="pupil"></div> 
+                <div class="calendar_wood">
+                    <div id="calendari"></div>
                 </div>
-             </div>
-            <div class="calendar_wood">
-                <div id="calendari"></div>
             </div>
         </div>
-        </div>
-        
+
         <script src="js/day.js"></script>
         <!-- 月曆結束 -->
 
@@ -74,21 +74,21 @@
                     <div class="select_frame">
                         <h3>篩選條件:</h3>
                         <div class="noshow filter-active">
-                            <button type="button" class="btn" id="all">All</button>
+                            <button type="button" class="btn all" id="all">All</button>
                         </div>
                         <div class="noshow">
-                            <button type="button" class="btn" id="newgroup">活動資訊</button>
+                            <button type="button" class="btn newgroup" id="newgroup">活動資訊</button>
                         </div>
                         <div class="noshow">
-                            <button type="button" class="btn" id="park">一般資訊</button>
+                            <button type="button" class="btn park" id="park">一般資訊</button>
                         </div>
 
                         <!-- 手機的篩選器 -->
                         <div class="select_phone">
-                            <select>
-                                <option>All</option>
-                                <option>活動資訊</option>
-                                <option>一般資訊</option>
+                            <select id="select_activity">
+                                <option value="all">All</option>
+                                <option value="newgroup">活動資訊</option>
+                                <option value="park">一般資訊</option>
                             </select>
                         </div>
                     </div>
@@ -137,37 +137,60 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <script>
-        $(document).ready(function () {
-            getInfo('All');
-            // getNt($(this).text());
-            // getNt();
+        // 畫面出現會出現ALL的資料----
+        //點擊可篩選-----
 
         //點擊活動按鈕
-        $('#newgroup').click(function () {
-            if ('#newgroup') {
-                // console.log($(data)).text())         
-                getInfo($(this).text());
+        //  $('#newgroup').click(function () {
+        //     // $('#newgroup').ready('click',function ()
+        //     getInfo('status');
 
-            } else {
-                
-            }
-        });
-//---------------------------------活動公告start---------------------//
-        function getInfo(status){              
-            $.ajax({
-                type: 'post', //使用的方法
-                url: "php/getactivity_JSON.php", // 請求的位址
-                dataType:'json',//資料
-                success: function (data) {
-                    $('.activity_content').remove();
-                    console.log(data);
-                    $.each(data, function (index,value) {                  
-                        $('.activity_frame').append(
-                        `
+        // });
+
+        $(document).ready(function () {
+            getAll();
+            $(".all").click(function () {
+                getAll();
+            });
+            $(".newgroup").click(function () {
+                getInfo();
+            });
+            $(".park").click(function () {
+                getnot();
+            });
+
+            $("#select_activity").change(function () {              
+                switch ($("#select_activity").val()) {
+                    case "all":
+                        getAll();
+                        break;
+                    case "newgroup":
+                        getInfo();
+                        break;
+                    case "park":
+                        getnot();
+                        break;
+                }
+                // if($( "#select_activity" ).val()){
+                // }
+            });
+            // getNt($(this).text());
+            // getNt();
+            function getAll() {
+                $.ajax({
+                    type: 'post', //使用的方法
+                    url: "php/getactivityAll_JSON.php", // 請求的位址
+                    dataType: 'json',//資料
+                    success: function (data) {
+                        $('.activity_content').remove();
+                        console.log(data);
+                        $.each(data, function (index, value) {
+                            $('.activity_frame').append(
+                                `
                         <div class="activity_content">
                             <div class="activity_part">
                                 <div class="activity_pic">
-                                    ${value.activity_image}
+                                    <img src="${value.activity_image}" alt="活動照片" style="width:247px;height:204px;">
                                 </div>
                                 <div class="activity_text">
                                     <h4 class="paragraph_title">
@@ -184,53 +207,88 @@
                     </div>
                 </div>
                 `)
-                    });
-                }
-            });
-        }
-  
-        //----------------------------活動公告end---------------------------//
-        // ----------------------------一般公告start----------------------// 
-        // function getNt(){
-        //     $.ajax({
-        //         type: 'post', //使用的方法
-        //         url: "php/getnotice_JSON.php", // 請求的位址
-        //         dataType:'json',//資料
-               
-        //         success:function(data2){
-        //             console.log(data2);
-        //             $('.activity_content').remove();
-        //             $.each(data2, function (index,value){
-        //                 $('.activity_frame').append(
-        //                 `
-        //                 <div class="activity_content">
-        //                     <div class="activity_part">
-        //                         <div class="activity_pic">
-        //                             ${value.notice_image}
-        //                         </div>
-        //                         <div class="activity_text">
-        //                             <h4 class="paragraph_title">
-        //                                 ${value.notice_name}
-        //                             </h4>
-        //                         <hr>
-        //                         <p class="paragraph_p">
-        //                             ${value.notice_date_start}
-        //                         </p>
-        //                         <p class="paragraph_p">
-        //                         ${value.notice_content}
-        //                         </p>
-        //                 </div>
-        //             </div>
-        //         </div>
-        //         `)
-        //             })
-        //         }
-        //     })        
-        // }
+                        });
+                    }
+                });
+            }
+
+            //---------------------------------活動公告start---------------------//
+            function getInfo() {
+                $.ajax({
+                    type: 'post', //使用的方法
+                    url: "php/getactivity_JSON.php", // 請求的位址
+                    dataType: 'json',//資料
+                    success: function (data) {
+                        $('.activity_content').remove();
+                        console.log(data);
+                        $.each(data, function (index, value) {
+                            $('.activity_frame').append(
+                                `
+                        <div class="activity_content">
+                            <div class="activity_part">
+                                <div class="activity_pic">
+                                    <img src="${value.activity_image}" alt="活動照片" style="width:247px;height:204px;">
+                                </div>
+                                <div class="activity_text">
+                                    <h4 class="paragraph_title">
+                                        ${value.activity_name}
+                                    </h4>
+                                <hr>
+                                <p class="paragraph_p">
+                                    ${value.activity_date_start}
+                                </p>
+                                <p class="paragraph_p">
+                                ${value.activity_content}
+                                </p>
+                        </div>
+                    </div>
+                </div>
+                `)
+                        });
+                    }
+                });
+            }
+            //----------------------------活動公告end---------------------------//
+            // ----------------------------一般公告start----------------------// 
+            function getnot(notice) {
+                $.ajax({
+                    type: 'post', //使用的方法
+                    url: "php/getnotice_JSON.php", // 請求的位址
+                    dataType: 'json',//資料               
+                    success: function (data2) {
+                        console.log(data2);
+                        $('.activity_content').remove();
+                        $.each(data2, function (index, value) {
+                            $('.activity_frame').append(
+                                `
+                        <div class="activity_content">
+                            <div class="activity_part">
+                                <div class="activity_pic">
+                                    <img src="${value.notice_image}" alt="活動照片" style="width:247px;height:204px;">
+                                </div>
+                                <div class="activity_text">
+                                    <h4 class="paragraph_title">
+                                        ${value.notice_name}
+                                    </h4>
+                                <hr>
+                                <p class="paragraph_p">
+                                    ${value.notice_date_start}
+                                </p>
+                                <p class="paragraph_p">
+                                ${value.notice_content}
+                                </p>
+                        </div>
+                    </div>
+                </div>
+                `)
+                        })
+                    }
+                })
+            }
 
 
 
-    });
+        });
     </script>
     @@loop('template/jslink.html',[
     {"jslink" : "js/canlendar.js"}
