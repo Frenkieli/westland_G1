@@ -52,7 +52,7 @@ function showteam(jsonStr) {
                                     // 
                                     alertify.confirm('準備加入' + checkname + '隊伍！要跳轉至內頁嗎？',
                                         function () {
-                                            window.location.href = 'ticket.html?team_num=' + checkteam;
+                                            window.location.href = 'team.html?team_num=' + checkteam;
                                         },
                                         function () {
                                         });
