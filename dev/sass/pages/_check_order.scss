@@ -1,0 +1,31 @@
+.check_order_page{
+  .a4c174_deep{
+    background: #809957;
+  }
+  .shopping_cart_title_o{
+    margin-right: 2px;
+  }
+  .a4c174_deep:hover{
+    background: #f09100;
+    transition: 0.3s;
+  }
+  .f_c_w{
+    color: #fff ;
+  }
+  .pay_item{
+  width: 20%;
+  
+  }
+  .pay_mothod_text{
+  width: 100%;
+  padding: 2px 0;
+  }
+  .dis_f_jc_l{
+    display: flex;
+    justify-content: left;
+  }
+  @include rwd(desktop){
+    
+  }
+
+}

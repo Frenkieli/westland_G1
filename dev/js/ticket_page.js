@@ -5,33 +5,6 @@ function showLarge(e){
     document.getElementById("big").src = change;
 }
 
-// 門票數量增加
-// function countplus(){
-//     let count = parseInt(document.getElementById("ticket_amount").value);
-//     let box = document.querySelector(".opcatity_box");
-//     console.log(count);
-//     if( count>=1 ){
-//         box.innerText = "";
-//         count = count+1;
-//     }
-//     document.getElementById("ticket_amount").value = count;
-// }
-
-// 門票數量減少
-// function countless(){
-//     let count = parseInt(document.getElementById("ticket_amount").value);
-//     let box = document.querySelector(".opcatity_box");
-//     console.log(count);
-//     if( count<=1 ){
-//         count=1;
-//         box.innerText = "門票數量數量不能少於1";
-//     }else{
-//         count = count-1;
-//     }
-//     document.getElementById("ticket_amount").value = count;
-// }
-
-
 //選擇樣式
 function showopa(e){
     let opabox = document.getElementById("customize_opabox");
@@ -77,14 +50,14 @@ function minusitem(){
 // 樣式向右轉
 function rightitem(){
     let opabox = document.getElementById("customize_opabox");
-    itemdeg+=10;
+    itemdeg= parseInt(itemdeg)+10;
     opabox.style.transform = "scale(" + itemscale + ")rotate("+itemdeg+"deg)";
 }
 
 // 樣式向左轉
 function leftitem(){
     let opabox = document.getElementById("customize_opabox");
-    itemdeg-=10;
+    itemdeg= parseInt(itemdeg)-10;
     opabox.style.transform = "scale(" + itemscale + ")rotate("+itemdeg+"deg)";
 }
 
@@ -98,21 +71,49 @@ function trashitem(){
     opabox.style.transform = "scale(" + itemscale + ")rotate("+itemdeg+"deg)";
 };
 
-//更換賞單圖片
-function changepic(){
-    let pic = document.getElementById("uploadpic").files[0];
-    let readpic = new FileReader();
-    readpic.readAsDataURL(pic);
-    readpic.addEventListener("load",function(){
-        let preinstallpic = document.getElementById("preinstallpic");
-        preinstallpic.src = this.result;
-        preinstallpic.style.width = "300px";
-        preinstallpic.style.height = "300px";
-    });
+//抓賞單圖檔檔名，副檔名
+function getFileInfo(fileStr){
+    //回傳一個陣列，索引0放的是主檔名, 索引1放的是副檔名
+	let dotPos = fileStr.lastIndexOf(".");
+	let fileName = fileStr.substring(0, dotPos);
+	let fileExt = fileStr.substr( dotPos+1);
+
+	let file = { 
+		name : fileName,
+		ext : fileExt
+	};
+	return file;
 }
 
-//確認存圖
+//更換賞單圖片
+function changepic(e){
+    let fileAccepts = ["png","jpg","jpeg","gif",""];
+    let fileInfo = getFileInfo(e.target.value);
+    if( fileAccepts.indexOf(fileInfo.ext.toLowerCase()) == -1){
+        alert("檔案格式不對");
+        e.target.value = "";
+    }else{
+        let pic = document.getElementById("uploadpic").files[0];
+        let readpic = new FileReader();
+        readpic.readAsDataURL(pic);
+        readpic.addEventListener("load",function(){
+            preinstallpic = document.getElementById("preinstallpic");
+            preinstallpic.src = this.result;
+
+            setTimeout(() => {
+                let canvastopic = document.getElementById("canvastopic").getContext("2d");
+                canvastopic.clearRect(0,0,300,300);
+                canvastopic.drawImage(preinstallpic,0,0,300,300);
+            }, 100);
+            
+        });
+    }
+}
+
+//確認後將圖抓進canvas
 function confirm(){
+    checkclick = 1;
+
     //宣告canvas
     let canvasarea = document.getElementById("canvastopng").getContext("2d");
 
@@ -122,14 +123,13 @@ function confirm(){
     //抓box位置customize_mascot
     let customizeHeight = document.getElementById("savetocanvas").offsetHeight;
     let customizeWidth = document.getElementById("savetocanvas").offsetWidth;
-    console.log(customizeWidth,customizeHeight);
+    // console.log(customizeWidth,customizeHeight);
 
     //抓opabox位置
     let opaboxHeight = document.getElementById("customize_opabox").offsetHeight;
     let opaboxWidth = document.getElementById("customize_opabox").offsetWidth;
     let opaboxTop = document.getElementById("customize_opabox").offsetTop;
     let opaboxLeft = document.getElementById("customize_opabox").offsetLeft;
-    console.log(opaboxWidth,opaboxHeight,opaboxTop,opaboxLeft);
 
     //計算縮放比
     let boxscale = itemscale;
@@ -138,11 +138,9 @@ function confirm(){
 
     let Heightrule = opaboxHeight/customizeHeight*233*boxscale;
     let Widthrule = opaboxWidth/customizeWidth*280*boxscale;
-    console.log(Heightrule,Widthrule);
     
     let Toprule = (opaboxTop+(opaboxHeight/2))*(233/customizeHeight)-(Heightrule/2);
     let Leftrule = (opaboxLeft+(opaboxWidth/2))*(233/customizeWidth)-(Widthrule/2)+25;
-    console.log(Toprule,Leftrule);
 
     canvasarea.clearRect(0,0,280,233);  //清除舊圖
 
@@ -152,6 +150,7 @@ function confirm(){
     let imgsrcStr = "";
     imgsrcStr+=img.src;
 
+    //因圖案大小不一致，故個別設定
     if(img.src.indexOf("role4")!=-1 || img.src.indexOf("role5")!=-1){
         canvasarea.drawImage(img,80,13,130,197);
         canvasarea.translate((Leftrule+Widthrule/2),(Toprule+Heightrule/2));
@@ -160,7 +159,6 @@ function confirm(){
         canvasarea.rotate(-opaboxDeg);
         canvasarea.translate(-(Leftrule+Widthrule/2),-(Toprule+Heightrule/2));
     }else if(img.src.indexOf("role2")!=-1){
-        // alert("AA");
         canvasarea.drawImage(img,20,33,220,147);
         canvasarea.translate((Leftrule+Widthrule/2),(Toprule+Heightrule/2));
         canvasarea.rotate(opaboxDeg);
@@ -178,11 +176,11 @@ function confirm(){
 }
 
 
-
-
-
-
 function init(){
+    //小秘密變數
+    checkclick = 0;
+    buyclick = 0;
+
     //樣式角度
     itemdeg=0;
     itemscale=1;
@@ -203,10 +201,9 @@ function init(){
     xhr.send(null);
     function customizedimg(jsonStr){
         let ticket_custom = JSON.parse(jsonStr);
-        console.log(ticket_custom);
         let breakpoint = ticket_custom.indexOf("break");
         let point = ticket_custom.indexOf("point");
-
+        console.log(ticket_custom);
         let items = document.getElementById("ticket_items");
         let mascots = document.getElementById("ticket_mascots");
         let activity = document.getElementById("ticket_activity");
@@ -218,7 +215,6 @@ function init(){
             img.src = ticket_custom[i].mascot_customize_image;
             items.children[i].appendChild(img);
         }
-        console.log(breakpoint);
         for(i=breakpoint+1;i<point;i++){
             let img = document.createElement("img");
             img.className="mascots";
@@ -226,7 +222,6 @@ function init(){
             img.src = ticket_custom[i].mascot_image;
             mascots.children[i-(breakpoint+1)].appendChild(img);
         }
-        console.log(point);
         for(i=point+1;i<ticket_custom.length;i++){
             let startspan = document.createElement("span");
             let endspan = document.createElement("span");
@@ -247,20 +242,44 @@ function init(){
         }
     }
 
+    //抓首頁暫存
+    //如果都沒有暫存的話，客製吉祥物預設為第一隻，樣式為空值
+    if(storage.getItem("bigsrc")==null){
+        bigsrc = "images/cusitems/role1.svg";
+        opasrc = " ";
+    } //如果只選擇吉祥物沒選樣式的話，吉祥物為暫存區路徑，樣式為空值
+    else if(storage.getItem("opasrc")==null){
+        bigsrc = storage.getItem("bigsrc");
+        opasrc = " ";
+    } //選擇了吉祥物及樣式的話，吉祥物和樣式為暫存區路徑
+    else{
+        bigsrc = storage.getItem("bigsrc");
+        opasrc = storage.getItem("opasrc");
+
+        let axisstr = storage.getItem("itemaxis");
+        axis = axisstr.split(",");
+        
+        // 需判斷暫存是否有值在執行
+        //樣式座標
+        itemdeg = axis[5];
+        let axisbox = document.getElementById("customize_opabox");
+        axisbox.style.width = axis[1]+"px";
+        // axisbox.style.height = axis[0]+"px";
+        axisbox.style.left = axis[3]+"px";
+        axisbox.style.top = (axis[2]-350)+"px";
+        axisbox.style.transform = "rotate("+ axis[5] +"deg)";
+    }
+
+    // 門票圖片載入時先為預設圖
+    let canvastopic = document.getElementById("canvastopic").getContext("2d");
+    canvastopic.clearRect(0,0,300,300);
+    canvastopic.drawImage(preinstallpic,0,0,300,300);
 
     // 小圖換大圖
     let img = document.getElementsByClassName("mascots");
     for( let i=0 ; i<img.length ; i++ ){
         img[i].onclick = showLarge;
     }
-    
-    // 門票數量增加
-    // let ticketplus = document.querySelector(".plus");
-    // ticketplus.addEventListener("click",countplus);
-
-    // 門票數量減少
-    // let ticketless = document.querySelector(".less");
-    // ticketless.addEventListener("click",countless);
 
     // 選擇樣式
     let itemimg = document.getElementsByClassName("items_cus");
@@ -270,20 +289,24 @@ function init(){
     // 放大樣式鈕
     let plus = document.getElementById("opabox_plus");
     plus.addEventListener("click",plusitem);
+
     // 縮小樣式鈕
     let minus = document.getElementById("opabox_minus");
     minus.addEventListener("click",minusitem);
+
     // 選轉向右式鈕
     let turnright = document.getElementById("opabox_right");
     turnright.addEventListener("click",rightitem);
+
     // 選轉向左式鈕
     let turnleft = document.getElementById("opabox_left");
     turnleft.addEventListener("click",leftitem);
+
     // 垃圾桶鈕
     let trash = document.getElementById("opabox_del");
     trash.addEventListener("click",trashitem);
 
-    //更換賞單圖片
+    //更換賞單圖片，上傳
     let uploadpic = document.getElementById("uploadpic");
     uploadpic.addEventListener("change",changepic);
 
@@ -291,7 +314,23 @@ function init(){
     let customize_confirm = document.getElementById("customize_confirm");
     customize_confirm.addEventListener("click",confirm);
 
+    //抓首頁樣式暫存
+    document.getElementById("big").src = bigsrc;
+    let opaitem = document.createElement("img");
+    opaitem.src = opasrc;
+    document.getElementById("customize_opabox").appendChild(opaitem);
+
+
+    //上傳樣式圖片
+    // document.getElementById("uploadpic").onchange = drawtocanvas;
+    // let uploadpic = document.getElementById("uploadpic");
+    // uploadpic.addEventListener("load",drawtocanvas);
+
+
+    
 }
+
+
 
 //拖拉樣式位置
 $("#customize_opabox").draggable({

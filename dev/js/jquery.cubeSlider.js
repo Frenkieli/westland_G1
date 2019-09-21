@@ -41,7 +41,7 @@
 			facility_slider.addEventListener('touchstart', function (e) {
 				var touch = event.targetTouches[0];
 				touchIn = touch.pageX;
-				console.log(touch.pageX, 'touchIn');
+				// console.log(touch.pageX, 'touchIn');
 			}, false);
 			// 判斷手指頭進場
 			facility_slider.addEventListener('touchmove', function (e) {
@@ -60,12 +60,12 @@
 				if (touchMove > 100) {
 					index = index + 1;
 					move(index % length);
-					console.log(index);
+					// console.log(index);
 					// console.log(cat_slide.style.right, 'slidrRight');
 				} else if (touchMove < -100) {
 					index = index - 1;
 					move(index % length);
-					console.log(index);
+					// console.log(index);
 					// console.log(cat_slide.style.right, 'slidrLeft');
 				} else {
 				}
@@ -92,7 +92,7 @@
 
 		$child.on('click', function () {
 			index = $(this).index();
-			console.log(index);
+			// console.log(index);
 			move(index);
 		});
 

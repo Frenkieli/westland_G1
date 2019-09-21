@@ -176,7 +176,12 @@
     <section id="addMessage" class="section_messageBoard font">
         <div class="section_title">設施留言板</div>
         <div class="message_container">
-            <img class="who" src="images/information/who.svg" alt="頭像">
+            <div class="who">
+                <div id="who_name" class="name name_login">尚未登入</div>
+                <img  id="who_pic" class="pic pic_login" src="images/ticket/wewantyou.gif">
+                <div class="frame"><div id="who_teamName" class="teamName teamName_login">????</div></div>
+                <div id="who_bounty" class="bounty bounty_login">$???</div>
+            </div>
             <div id="status">Connecting...</div>
             <form id="message_form" method="POST">
                 <table id="message_table">
@@ -210,14 +215,7 @@
                     </tr>
                     <tr>
                         <td>
-                         <textarea id="equ_message" onkeydown="value=value.replace(/[\s　]+/g,'')"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))"
-                         onkeyup="value=value.replace(/[\s　]+/g,'')"onbeforepaste="clipboardData.setData('text',clipboardData.getData('text').replace(/[^\u4E00-\u9FA5]/g,''))"
-                         placeholder="請輸入留言..." required></textarea>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p style="color:rgb(94, 94, 94); font-size:12px;">只能輸入中文、英文、數字、符號且不能為空白</p>
+                         <textarea id="equ_message" placeholder="請輸入留言..." required></textarea>
                         </td>
                     </tr>
                     <tr>
@@ -239,13 +237,14 @@
     <!-- js -->
     @@loop('template/jslink.html',[
     {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"},
-    {"jslink" : "js/messageBoard.js"},
     {"jslink" : "js/jquery-1.11.0.min.js"},
     {"jslink" : "js/jquery.sliderPro.js"},
     {"jslink" : "js/information_inner_pageGetScore.js"},
-    {"jslink" : "js/keyinMessage.js"},
+    {"jslink" : "js/KeyinMsg_ChangBoard.js"},
     {"jslink" : "js/starBtnLevel.js"},
-    {"jslink" : "js/reportNGmessage.js"}
+    {"jslink" : "js/reportNGmessage.js"},
+    {"jslink" : "js/chickChangeBoard.js"},
+    {"jslink" : "js/info_innerGetMemGetMsg.js"}
     ])
     <script type="text/javascript">
         $(document).ready(function($) {

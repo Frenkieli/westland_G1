@@ -5,10 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>西部樂園-遊玩設施</title>
 
     <!-- css -->
     @@loop('template/csslink.html',[
+    {"csslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/alertify.min.css"},
+    {"csslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/default.min.css"},
     {"csslink" : "css/style.css"}
     ])
 
@@ -208,22 +210,22 @@
     <section class="section_mission">
         <h3 class="mission_title">經典任務進度</h3>
         <div class="mission_progress">
-            <div class="progress_check"></div>
+            <!-- <div class="progress_check"></div> -->
             <div class="progress_box">某某設施</div>
         </div>
         <div class="mission_progress">
-            <div class="progress_check"></div>
+            <!-- <div class="progress_check"></div> -->
             <div class="progress_box">某某設施</div>
         </div>
         <div class="mission_progress">
-            <div class="progress_check"></div>
+            <!-- <div class="progress_check"></div> -->
             <div class="progress_box">某某設施</div>
         </div>
         <div class="mission_progress">
-            <div class="progress_check"></div>
+            <!-- <div class="progress_check"></div> -->
             <div class="progress_box">某某設施</div>
         </div>
-        <div class="progress_box_Complete">完成任務</div>
+        <!-- <div class="progress_box_Complete">完成任務</div> -->
     </section>
 
     <section id="section_pick" class="section_pick app" v-if="!tickets[0][2]">
@@ -241,18 +243,21 @@
     @@include("template/footer.html")
 
 
-    @@include("template/robot.html")
-
+    
     <!-- js -->
     @@loop('template/jslink.html',[
+    {"jslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"},
+    {"jslink" : "js/alertifyJSset.js"},
     {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"},
     {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"},
     {"jslink" : "js/jquery-qrcode-0.17.0.min.js"},
     {"jslink" : "js/instascan.min.js"},
     {"jslink" : "js/smallmap.js"},
     {"jslink" : "js/gameplayVue.js"},
-    {"jslink" : "js/QRcode.js"}
+    {"jslink" : "js/QRcode.js"},
+    {"jslink" : "js/question.js"}
     ])
+    @@include("template/robot.html")
 </body>
 
 </html>

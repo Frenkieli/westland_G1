@@ -5,13 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>西部樂園</title>
 
     <!-- css -->
     @@loop('template/csslink.html',[
+    {"csslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/alertify.min.css"},
+    {"csslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/default.min.css"},
     {"csslink" : "css/swiper.min.css"},
+    {"csslink" : "css/text-animate.css"},
     {"csslink" : "css/style.css"}
     ])
+    <!-- <script src="js/jquery.lettering.js"></script>
+    <script src="js/jquery.textillate.js"></script> -->
+
+
 
 </head>
 
@@ -24,18 +31,22 @@
                 <div class="winner_people">
                     <img class="winner4th" src="images/robot/robot.png" alt="">
                     <img src="images/index/block.png" alt="">
+                    <!-- <p class="team_slogan">這是隊呼喔！</p> -->
                 </div>
                 <div class="winner_people">
                     <img class="winner4th" src="images/robot/robot.png" alt="">
                     <img src="images/index/block.png" alt="">
+                    <!-- <p class="team_slogan">這是隊呼喔！</p> -->
                 </div>
                 <div class="winner_people">
                     <img class="winner4th" src="images/robot/robot.png" alt="">
                     <img src="images/index/block.png" alt="">
+                    <!-- <p class="team_slogan">這是隊呼喔！</p> -->
                 </div>
                 <div class="winner_people">
                     <img class="winner4th" src="images/robot/robot.png" alt="">
                     <img src="images/index/block.png" alt="">
+                    <!-- <p class="team_slogan">這是隊呼喔！</p> -->
                 </div>
             </div>
             <div class="winner_teammate">
@@ -272,9 +283,9 @@
                             <div id="customize_opabox">
                             </div>
                         </div>
-                        
+
                     </div>
-                    
+
 
                     <!-- 配件樣式區域 -->
                     <div class="customize_items">
@@ -319,7 +330,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="btn--active indexticket_buy">進入購買</div>
+                    <div class="btn--active indexticket_buy"><a href="ticket.html">進入購買</a></div>
 
                     <!-- 客製確認鈕 -->
                 </div>
@@ -360,23 +371,30 @@
         .section_footer {
             margin-top: -87px;
         }
-    </style>
+        </style>
     <!-- js -->
+    @@include("template/robot.html")
     @@loop('template/jslink.html',[
+    {"jslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"},
+    {"jslink" : "js/alertifyJSset.js"},
     {"jslink" : "js/indexgetproduct.js"},
     {"jslink" : "js/swiper.min.js"},
     {"jslink" : "https://kit.fontawesome.com/6a6d2775fc.js"},
     {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"},
     {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"},
+    {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"},
+    {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/textillate/0.4.0/jquery.textillate.min.js"},
     {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"},
     {"jslink" : "js/jquery.cubeSlider.js"},
     {"jslink" : "js/ticket_index.js"},
     {"jslink" : "js/indexwinner.js"},
+    {"jslink" : "js/indexteam.js"},
     {"jslink" : "js/index.js"}
     ])
 
-    @@include("template/robot.html")
-
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/textillate/0.4.0/jquery.textillate.min.js'></script> -->
+    <div id="winner_team_slogan">隊伍呼喊！</div>
 </body>
 
 </html>

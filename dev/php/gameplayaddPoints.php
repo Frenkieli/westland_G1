@@ -10,7 +10,7 @@ try {
 
     // 獲得倍數
 
-    $sql2 = "select bonus_multiple , team_no ,entrance_status from  ticket WHERE ticket_no = :ticket_no";
+    $sql2 = "select bonus_multiple , team_no ,entrance_status , mission_no from  ticket WHERE ticket_no = :ticket_no";
     $ticBonus = $pdo->prepare($sql2);
     $ticBonus->bindValue(":ticket_no", $ticket);
     // $ticBonus->bindValue(":memid", 'me');
@@ -74,7 +74,7 @@ try {
     // $facility->bindValue(":eStr", $eStr);
     $facility->execute();
 
-    // 把倍數重置
+    // 把倍數重置後回傳資訊
 
     if ($ticBonusRow['bonus_multiple'] != 1) {
         $sql4 = "update ticket set bonus_multiple = 1 where ticket_no = :ticket_no";
@@ -82,7 +82,7 @@ try {
         $resetTicBonus->bindValue(":ticket_no", $ticket);
         // $resetTicBonus->bindValue(":memid", 'me');
         $resetTicBonus->execute();
-        echo $total, $equBonusRow['equ_bonus'], '|', $ticBonusRow['bonus_multiple'], '|';
+        echo $total, '|', $equBonusRow['equ_bonus'], '|', $ticBonusRow['bonus_multiple'];
     } else {
         echo $total;
     }

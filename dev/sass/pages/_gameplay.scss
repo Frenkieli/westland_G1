@@ -7,7 +7,6 @@
         height: 90vh;
         overflow: hidden;
         font-size: 0;
-        
         .demo_container {
             width: 300%;
             height: 300%;
@@ -107,7 +106,7 @@
             position: fixed;
             width: 40px;
             height: 40px;
-            z-index: 1;
+            z-index: 2;
             img {
                 width: 100%;
             }
@@ -115,6 +114,7 @@
         .demo_toparrow {
             top: 13%;
             left: 48%;
+            z-index: 1000;
             p {
                 z-index: 1;
                 position: absolute;
@@ -394,7 +394,7 @@
                 position: absolute;
                 right: -10px;
                 bottom: -10px;
-                width: 100px;
+                width: 200px;
             }
         }
         .playticket_buttom {
@@ -404,6 +404,9 @@
 }
 
 @include rwd(phone) {
+    .missindown{
+        filter:  contrast(60%);
+    }
     .section_demo {
         display: none;
     }
@@ -533,6 +536,7 @@
     }
     .section_camera {
         position: fixed;
+        z-index: 1;
         top: 0;
         right: 0;
         left: 0;

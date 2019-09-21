@@ -6,8 +6,14 @@ try {
     $amusement_equipments->execute();
     
     $amusement_equipments_array=[];
+    $check = 0;
     while($amusement_equipmentsRow=$amusement_equipments->fetch(PDO::FETCH_ASSOC)){
-        $amusement_equipments_array[]=$amusement_equipmentsRow;
+        if($check == $amusement_equipmentsRow['equ_no']){
+        }else{
+            $amusement_equipments_array[]=$amusement_equipmentsRow;
+        // echo $amusement_equipmentsRow['equ_no'];
+        }
+        $check = $amusement_equipmentsRow['equ_no'];
     }
     echo json_encode($amusement_equipments_array);
 } catch (PDOException $e) {

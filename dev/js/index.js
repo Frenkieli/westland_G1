@@ -16,7 +16,7 @@
     }, 1200);
     window.addEventListener('load', pushSlide, false);
     function pushSlide() {
-        console.log(arr);
+        // console.log(arr);
         let check = -1;
         for (let index = 0,i = 0; index < arr.length; index++) {
             if(check != arr[index][0]){

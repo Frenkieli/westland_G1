@@ -3,7 +3,7 @@ let robot = document.getElementById('section_robot');
 document.getElementById('arrow_down').addEventListener('click', robotDown, false);
 robot.addEventListener('click', robotPhone, false);
 getRobot_text();
-console.log($(window).width());
+// console.log($(window).width());
 function robotPhone() {
     let robot = document.getElementById('section_robot');
     robot.removeEventListener('click', robotPhone, false);
@@ -117,6 +117,8 @@ function say() { // 當送出鍵按下時，會呼叫這個函數進行回答動
     append(document.getElementById("say").value); // 先將使用者輸入的問句放到「對話區」顯示。
     answer(document.getElementById("say").value); // 然後回答使用者的問題。
     document.getElementById("say").value = '';
+    $('.robot_img').removeClass('swiper');
+    question_start();
 }
 
 function keyin(event) { // 當按下 enter 鍵時，會呼叫此函數進行回答

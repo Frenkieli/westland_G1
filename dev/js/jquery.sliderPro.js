@@ -233,11 +233,11 @@
 				});
 
 				for ( var k = this.shuffledIndexes.length - 1; k > 0; k-- ) {
-					var l = Math.floor( Math.random() * ( k + 1 ) ),
-						temp = this.shuffledIndexes[ k ];
+					// var l = Math.floor( Math.random() * ( k + 1 ) ),
+					// 	temp = this.shuffledIndexes[ k ];
 
-					this.shuffledIndexes[ k ] = this.shuffledIndexes[ l ];
-					this.shuffledIndexes[ l ] = temp;
+					// this.shuffledIndexes[ k ] = this.shuffledIndexes[ l ];
+					// this.shuffledIndexes[ l ] = temp;
 				}
 
 				// Reposition the slides based on the order of the indexes in the

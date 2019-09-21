@@ -30,35 +30,36 @@
         <li><a href="javascript:;" class="paragraph_p">商品詳情</a></li>
     </ul>
     <section class="item_intro_section container_mb">
+        <img class="item_bg_img" src="images/item/item_bg_img.png"></img>
         <div class="item_intro_wrap center">
             <div class="item_intro_img">
-                <img src="images/product/product_big/pd_b_01.jpg" alt="商品圖片">
+                <img id="itemIntroImg" src="" alt="商品圖片">
             </div>
         </div>
         <div class="item_intro_wrap center">
-            <h3 class="item_intro_title">仙人掌帽子<span class="item_intro_color"> - 紅色</span></h3>
+            <h3 id="itemIntroTitle" class="item_intro_title">仙人掌帽子<span class="item_intro_color"> - 紅色</span></h3>
             <div class="item_intro_box">
                 <div class="intro_box_title">簡介</div>
-                <p class="intro_box_text">超夯流行包包，獨家訂製經典款，通通搶購價超夯流行包包，獨家訂製經典款，通通搶購價超夯流行包包，獨家訂製經典款，通通搶購價</p>
+                <p id="introBoxText" class="intro_box_text"></p>
             </div>
             <div class="item_intro_box">
                 <div class="intro_box_title">單價</div>
-                <span class="item_price">NT.450</span>
+                <div class="item_price">NT.<span id="itemPrice"></span></div>
             </div>
             <div class="item_intro_box">
                 <div class="intro_box_title">剩餘</div>
-                <span class="item_lave">5個</span>
+                <div class="item_lave"><span id="itemLave">3</span>個</div>
             </div>
             <div class="item_intro_box">
                 <div class="intro_box_title">數量</div>
                 <div class="ticket_amount_box">
-                    <span class="plus count">
-                        <i class="fas fa-plus"></i>
-                    </span>
-                    <input class="ticket_amounts" type="text" id="ticket_amount" value="1">
-                    <span class="less count">
+                    <button type="button" class="btnLess">
                         <i class="fas fa-minus"></i>
-                    </span>
+                    </button>
+                    <input type="text" value="1" name="pQuantity" class="quantity h26">
+                    <button type="button" class="btnPlus">
+                        <i class="fas fa-plus"></i>
+                    </button>
                 </div>
             </div>
             <div class="item_intro_totalprice">
@@ -69,8 +70,16 @@
         </div>
     </section>
     <div class="item_btn_box container">
-        <div class="btn inline_block">加入購物車</div>
-        <div class="btn--active inline_block">直接購買</div>
+        <div class="btn inline_block" id="back">回上一頁</div> 
+        <div class="btn--active inline_block">加入購物車</div>
+    </div>
+    <div class="wheel">
+        <div class="wheel_wrap">
+            <img src="images/item/Wheel.png" alt="">
+            <img src="images/item/Wheel.png" alt="">
+        </div>
+        <div class="shadow">
+        </div>
     </div>
 
     <section class="item_recom_section container_mb">
@@ -118,7 +127,7 @@
         </div>
     </section>
     <!-- ================ -->
-    @@include("template/robot.html")
+    <!-- @@include("template/robot.html") -->
     @@include("template/footer.html")
 
     <!-- js -->
@@ -129,6 +138,7 @@
     ])
 
     <script>
+        // console.log(1);
         $('.owl-carousel').each(function () {
             $(this).owlCarousel({
                 loop: false,
@@ -155,6 +165,48 @@
             });
         });
 
+    </script>
+    <!-- -----------購物車內頁商品動態新增start-------- -->
+    <script>
+        function showProduct(jsonStr) {
+            var product = JSON.parse(jsonStr);
+            //   console.log(product.product_no);
+            var htmlStr = "";
+            if (product.product_no) {
+                document.getElementById("itemIntroImg").src = product.product_image;
+                document.getElementById("itemIntroTitle").innerText = product.product_name;
+                document.getElementById("introBoxText").innerText = product.product_ifo;
+                document.getElementById("itemPrice").innerText = product.product_price;
+                document.getElementById("itemLave").innerText = product.product_count;
+
+            } else {
+                htmlStr = "<center>查無此商品資料</center>"
+            }
+            document.getElementById('back').style.cursor='pointer';
+            document.getElementById('back').addEventListener('click',function(){
+                window.location=`items.html`;
+            },false);
+        }
+
+        function getProduct() {
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    //modify here
+                    showProduct(xhr.responseText);//連結PHP，使用showProduct函式JSON.parse
+                } else {
+                    alert(xhr.status);
+                }
+            }
+            //   console.log(window.location.href);
+            var location = window.location.href.split("product_no=")[1];
+            console.log(location);
+            var url = `php/item_JSON.php?product_no=${location}`;
+            //   var url = "item_JSON.php?product_no=1" + document.getElementById("memId").value;
+            xhr.open("Get", url, true);
+            xhr.send(null);
+        }
+        getProduct();
     </script>
 
 </body>
