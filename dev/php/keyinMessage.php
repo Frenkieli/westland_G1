@@ -1,17 +1,23 @@
 <?php
 	try {
 		require_once("connectWestland.php");
-		// $message_no=$_POST['message_no'];
 		$member_no=$_POST['member_no'];
 		$equ_no=$_POST['equ_no'];
 		$equ_message=$_POST['equ_message'];
 		// $report_status=$_POST['report_status'];
 		// $report_message=$_POST['report_message'];
-		$sql = "INSERT INTO `message_board`(`member_no`, `equ_no`, `equ_message`, `report_status`, `report_message`) 
-		VALUES ('1','1','$equ_message','0','1')";
+		$sql = "INSERT INTO `message_board`(`member_no`, `equ_no`, `equ_message`) 
+		VALUES ('$member_no','$equ_no','$equ_message')";
+
+
+		$starLevel=$_POST['starLevel'];
+		$sql_star="INSERT INTO `amusement_equipments`(`equ_score_total`) 
+		VALUES ('$starLevel')";
 
 		$addMessage = $pdo->prepare($sql);
 		$addMessage->execute();
+		$addStarlevel = $pdo->prepare($sql_star);
+		$addStarlevel->execute();
 	
 			echo "insert OK";
 		} 
