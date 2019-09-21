@@ -9,7 +9,7 @@ try {
     // $memberTickit->bindValue(":memid", 'me');
     $memberTickit->execute();
     
-    $sql2 ="select b.member_name,a.image_source,a.mascot_image,d.team_name,a.bounty from ticket a left OUTER JOIN members b on a.member_no=b.member_no left OUTER JOIN mission c on a.mission_no=c.mission_no left OUTER JOIN team d on a.team_no =d.team_no where ticket_no = :ticket_no";
+    $sql2 ="select b.member_name,a.image_source,a.mascot_image,d.team_name,a.bounty , a.team_no from ticket a left OUTER JOIN members b on a.member_no=b.member_no left OUTER JOIN mission c on a.mission_no=c.mission_no left OUTER JOIN team d on a.team_no =d.team_no where ticket_no = :ticket_no";
     $memberTickit2 = $pdo->prepare($sql2);
     $memberTickit2->bindValue(":ticket_no",$pickticket);
     $memberTickit2->execute();
