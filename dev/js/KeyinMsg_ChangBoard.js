@@ -4,7 +4,6 @@ let loginBoard= document.getElementById("butsave"); //設置按鈕事件
 function init() {
     let loginIsTure =sessionStorage['member_no']; //設置暫存變數
     if (loginIsTure) {
-        console.log(222222)
         console.log(loginIsTure)
         let xhr = new XMLHttpRequest();
         xhr.onload = function () {
@@ -15,17 +14,17 @@ function init() {
                 window.alert(xhr.status);
             }
         } 
-        let url="php/getMemGetMsg_info.php";
+        let url="php/newKeyinBoard.php";
             xhr.open('post', url, true);
             xhr.send(null);
     
         function getMember(jsonStr) {
             let display_MEM_MSG =JSON.parse(jsonStr);
             console.log(display_MEM_MSG);
-            $(`.name_login`).html(`${display_MEM_MSG[loginIsTure].member_name}`);
-            $(`.pic_login`).attr('src', `${display_MEM_MSG[loginIsTure].image_source}`);
-            $(`.teamName_login`).html(`${display_MEM_MSG[loginIsTure].team_name}`);
-            $(`.bounty_login`).html(`$${display_MEM_MSG[loginIsTure].bounty}`);
+            $(`.name_login`).html(`${display_MEM_MSG[loginIsTure -1].member_name}`);
+            $(`.pic_login`).attr('src', `${display_MEM_MSG[loginIsTure -1].image_source}`);
+            $(`.teamName_login`).html(`${display_MEM_MSG[loginIsTure -1].team_name}`);
+            $(`.bounty_login`).html(`$${display_MEM_MSG[loginIsTure -1].bounty}`);
             }
         }else{
             return;
@@ -39,23 +38,29 @@ loginBoard.addEventListener('click',function(){
         if (message.replace(/[\s　]+/g, "") == "") {  //如果空白不准發送
             window.alert('輸入文字不得為空白!');
         }else{
-            let message_no = $('#message_no').val();
-            let member_no = $('#member_no').val();
+            let member_no = loginIsTure;
             let equ_no = $('#equ_no').val();
             let equ_message = $('#equ_message').val();
+            let starLevel=document.getElementsByName('box');
+            let starLevelVal;
+            for(let i =0 ;i<starLevel.length;i++){
+                if(starLevel[i].checked == true){
+                    starLevelVal = starLevel[i].value;
+                }
+            }
             $.ajax({
                 url:"php/keyinMessage.php",
                 method:'POST',
                 data:{
-                    message_no: message_no,
                     member_no: member_no,
                     equ_no: equ_no,
-                    equ_message: equ_message,		
+                    equ_message: equ_message,                                 starLevel:starLevelVal,     		
                 },
                 error:function() {
                     window.alert("連線失敗!")
                 },
                 success:function(){
+                    console.log(starLevelVal)
                     window.alert("感謝您留言，訊息已發送!!")
                     window.location.reload();
                 }
