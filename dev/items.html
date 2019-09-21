@@ -727,6 +727,76 @@
                     }
                 }
             }
+            //箭頭消失/出現
+            (()=>{
+                for(let i=0;i<4;i++){
+                    //桌機
+                    if(document.querySelectorAll('.shop-tab-inner')[i].childElementCount != 0 &&document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount > 3){
+                        document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
+                        document.querySelectorAll('.shop-tab-inner')[i].children[0].addEventListener('click',function(){
+                            if(document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].firstElementChild.classList.contains('active')){
+                                document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
+                            }
+                            document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "";
+                        },false);
+                        document.querySelectorAll('.shop-tab-inner')[i].children[2].addEventListener('click',function(){
+                            if(document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].lastElementChild.classList.contains('active')){
+                                document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "none";
+                            }
+                            document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "";
+                        },false);
+                        document.querySelectorAll('.sort_same')[i].addEventListener('touchmove',function(){
+                            
+                            if(document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].firstElementChild.classList.contains('active')){
+                                document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
+                                console.log("");
+                            }else{
+                                document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "";
+                            }
+                            if(document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].lastElementChild.classList.contains('active')){
+                                document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "none";
+                                console.log("last");
+                            }
+                            else{
+                                document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "";
+                                console.log("no_last");
+                            }                  
+                        },false);
+                    }
+                    //手機
+                    else if(document.querySelectorAll('.shop-tab-inner')[i].childElementCount != 0 &&document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount > 1){
+                        document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
+                        document.querySelectorAll('.shop-tab-inner')[i].children[0].addEventListener('click',function(){
+                            if(document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].firstElementChild.classList.contains('active')){
+                                document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
+                            }
+                            document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "";
+                        },false);
+                        document.querySelectorAll('.shop-tab-inner')[i].children[2].addEventListener('click',function(){
+                            if(document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].lastElementChild.classList.contains('active')){
+                                document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "none";
+                            }
+                            document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "";
+                        },false);
+                        document.querySelectorAll('.sort_same')[i].addEventListener('touchstart',function(){
+                            if(document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].firstElementChild.classList.contains('active')){
+                                document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
+                            }else{
+                                document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "";
+                            }
+                            if(document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].lastElementChild.classList.contains('active')){
+                                console.log("last");
+                                document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "none";
+                            }
+                            else{
+                                console.log("no_last");
+                                document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "";
+                            }                  
+                        },false);
+                    }
+                }
+                document.querySelectorAll
+            })();
             // document.querySelectorAll('.shop-tab-inner')[0].insertBefore(newDiv, document.querySelectorAll('.shop-tab-inner')[0].children[1]);
             // document.querySelectorAll('.shop-tab-inner')[0].insertBefore(newDiv, document.querySelectorAll('.shop-tab-inner')[0].children[1]);
             $('.owl-carousel').each(function () {

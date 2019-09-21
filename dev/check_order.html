@@ -17,7 +17,7 @@
 
 </head>
 
-<body class="shoppingCart_page">
+<body class="check_order_page">
 
     <header class="header_navbar">
         @@include("template/header.html")
@@ -25,8 +25,8 @@
 
     <section class="container ">
         <div id="cartUpdateFormWrap" class="m_jg_0_50 m0_35">
-            <div class="shopping_cart_title dis_n">
-                <div class="col-lg-3 dis_f_jc_c shopping_cart_title_text">
+            <div class="shopping_cart_title dis_n ">
+                <div class="col-lg-3 dis_f_jc_c shopping_cart_title_text f_w">
                     <h5 class="m-0">商品圖片</h5>
                 </div>
                 <div class="col-lg-3 dis_f_jc_c shopping_cart_title_text">
@@ -45,7 +45,7 @@
                     <h5 class="m-0">刪除</h5>
                 </div>
             </div>
-            <form action="cartUpdate.php" method="get" class="bt" style="display: none">
+            <form class="bt" style="display: none">
                 <div class="bg_fdfff3">
                     <div class="shopping_cart  m40_0_0  dis_f_jc_c">
                         <div class="col48 m-a col-lg-3 dis_f_jc_c shopping_cart_item bl">
@@ -96,14 +96,109 @@
             <div class="bg_fdfff3 bg_fdfff3_d ta-r p10 bt">
                 <p class="ta-r dis-lg-ib mb-0 mt-15 mt-lg-0">總計：<span id="sumTotalPrice"></span>元</p>
             </div>
-            <div class="cotainer dis_f_j_c">
-                <a class="btn dis_ib mlr" href="items.html">繼續購物</a>
-                <button type="submit" class="btn mlr" id="check">進行結帳</button>
-            </div>
+
         </div>
     </section>
-    <section>
-        
+    <section class="container ">
+        <div class="pay_mothod m_jg_0_50">
+            <p>請點選付款方式</p>
+        </div>
+        <div id="cartUpdateFormWrap" class="m_jg_0_50 m0_35 dis_f_j_c f_c_w dis_f_jc_l">
+            <div class="shopping_cart_title a4c174_deep shopping_cart_title_o pay_item dis_n">
+                <div class=" dis_f_jc_c pay_mothod_text">
+                    <h5 class="m-0">線上付款</h5>
+                </div>
+            </div>
+            <div class="shopping_cart_title a4c174_deep dis_n pay_item">
+                <div class=" dis_f_jc_c pay_mothod_text">
+                    <h5 class="m-0">貨到付款</h5>
+                </div>
+            </div>
+        </div>
+        <form action="cartUpdate.php" method="get">
+            <div class="bg_fdfff3 m_jg_0_50">
+                <div class="shopping_cart  m40_0_0  dis_f_jc_c">
+                    <!-- <div class="reserver_online">
+                        <div class="col48 m-a col-lg-3 dis_f_jc_c shopping_cart_item">
+                            <p>信用卡卡號</p>
+                        </div>
+                        <div class="col48 col-lg-3 dis_f_jc_c shopping_cart_item">
+                            <p>信用卡到期</p>
+                            <input type="hidden" name="pName" value="仙人掌-紅色">
+                        </div>
+                        <div class="dis_n col-lg-2 dis_f_jc_c shopping_cart_item">
+                            <p>$<span class="thePrice">安全碼</span></p>
+                            <input type="hidden" name="pPrice" value="299">
+                        </div>
+                    </div> -->
+                    <div class="reserver_member ">
+                        <div class="col-lg-6 reserver_column_left">
+                            <p>訂購人資訊</p>
+                            <div class="reserve_person">
+                                <div class="reserve_titlebox">
+                                    <label for="name">訂購人姓名：
+                                </div>
+                                <div class="reserve_notebox">
+                                    <input type="text" name="name" id="name">
+                                </div>
+                            </div>
+                            <div class="reserve_person">
+                                <div class="reserve_titlebox">
+                                    <label for="name">訂購人電話：
+                                </div>
+                                <div class="reserve_notebox">
+                                    <input type="text" name="name" id="name">
+                                </div>
+                            </div>
+                            <div class="reserve_person">
+                                <div class="reserve_titlebox">
+                                    <label for="name">訂購人地址：
+                                </div>
+                                <div class="reserve_notebox">
+                                    <input type="text" name="name" id="name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 reserver_column_right">
+                            <p>收件人資訊</p>
+                            <div class="reserve_person">
+                                <div class="reserve_titlebox">
+                                    <label for="name">收件人姓名：
+                                </div>
+                                <div class="reserve_notebox">
+                                    <input type="text" name="name" id="name">
+                                </div>
+                            </div>
+                            <div class="reserve_person">
+                                <div class="reserve_titlebox">
+                                    <label for="name">收件人電話：
+                                </div>
+                                <div class="reserve_notebox">
+                                    <input type="text" name="name" id="name">
+                                </div>
+                            </div>
+                            <div class="reserve_person">
+                                <div class="reserve_titlebox">
+                                    <label for="name">收件人地址：
+                                </div>
+                                <div class="reserve_notebox">
+                                    <input type="text" name="name" id="name">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+
+        </form>
+    </section>
+    <section class="container ">
+        <div class="cotainer dis_f_j_c">
+            <a class="btn dis_ib mlr" href="items.html">回上一頁</a>
+            <button type="submit" class="btn mlr" id="check">確認訂單</button>
+        </div>
     </section>
     @@include("template/footer.html")
 
@@ -144,75 +239,85 @@
     </script>
     <!-- -----------購物車內頁商品動態新增start-------- -->
     <script>
-        function shopingCartFirst() {
-            sumTotalPrice = 0
-            let itemString = storage['addItemList'];
-            // console.log(itemString);
-            let items = itemString.substr(0, itemString.length - 2).split(', ');
-            // console.log(items);   // ["A1001", "A1005", "A1002"] //
-            for (let key in items) {  //use items[key]
-                let itemInfo = storage.getItem(items[key]);// itemInfo="formas|formas.png|$3000"
-                // console.log(itemInfo);
-                createCartContentList(itemInfo, items[key]);//items[key]="A1001"
+        console.log(window.location.href.indexOf('info'));
+        if (window.location.href.indexOf('info')!=-1) {
+
+        } else {
+            function shopingCartFirst() {
+                sumTotalPrice = 0
+                let itemString = storage['addItemList'];
+                // console.log(itemString);
+                if (storage['addItemList']) {
+                    let items = itemString.substr(0, itemString.length - 2).split(', ');
+                    // console.log(items);   // ["A1001", "A1005", "A1002"] //
+                    for (let key in items) {  //use items[key]
+                        let itemInfo = storage.getItem(items[key]);// itemInfo="formas|formas.png|$3000"
+                        // console.log(itemInfo);
+                        createCartContentList(itemInfo, items[key]);//items[key]="A1001"
+                    }
+                }
+
+                function createCartContentList(itemInfo, key) {
+                    // console.log(key);
+                    let cartUpdateFormClone = document.getElementById("cartUpdateFormWrap").children[1].cloneNode(true);
+                    cartUpdateFormClone.id = key;
+                    // console.log(cartUpdateFormClone);
+                    cartUpdateFormClone.style.display = '';
+                    // document.getElementById("cartUpdateFormWrap").appendChild(cartUpdateFormClone);
+
+                    document.getElementById("cartUpdateFormWrap").insertBefore(cartUpdateFormClone, document.getElementById("cartUpdateFormWrap").lastElementChild.previousElementSibling);
+                    //lastElementChild最後一個小孩
+                    //previousElementSibling我的上一個兄弟
+
+
+                    //console.log(cartUpdateFormClone.children[0].children[0].children[4].children[0].children[0]);//test
+
+                    cartUpdateFormClone.children[0].children[0].children[0].children[0].children[0].src = itemInfo.split('|')[1];
+                    cartUpdateFormClone.children[0].children[0].children[0].children[0].children[0].src = itemInfo.split('|')[1];
+
+                    cartUpdateFormClone.children[0].children[0].children[1].children[0].innerText = itemInfo.split('|')[0];
+
+                    cartUpdateFormClone.children[0].children[0].children[2].children[0].children[0].innerText = itemInfo.split('|')[2];
+                    cartUpdateFormClone.children[0].children[0].children[4].children[0].children[0].innerText = itemInfo.split('|')[2];
+                    cartUpdateFormClone.children[0].children[0].children[1].children[2].children[0].innerText = itemInfo.split('|')[2];//手機版單價
+                }
+
+
+                let delButton = document.getElementsByClassName('deleteBtn');
+                // console.log(delButton)
+
+                for (let i = 0; i < delButton.length; i++) {
+                    delButton[i].style.cursor = "pointer";
+                    delButton[i].addEventListener('click', deleteItem);
+                }
+                function deleteItem(e) {
+                    e.preventDefault()
+                    // let itemId = this.parentNode.getAttribute('id');
+                    let key = this.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+                    alert(key);
+                    //1.先扣除總金額
+                    // sumTotalPrice -= parseInt(itemValue.split('|')[2]);//parseInt:字串轉數字
+                    // document.getElementById('sumTotalPrice').innerText = sumTotalPrice;
+                    let sumTotalPrice = document.getElementById('sumTotalPrice').innerText;
+                    // let itemValue = storage.getItem(key);
+                    sumTotalPrice -= parseInt(this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText);
+                    //this是我的btn,parentNode是的爸爸
+                    document.getElementById('sumTotalPrice').innerText = sumTotalPrice;
+
+                    //2.清除storage的資料
+                    storage.removeItem(key);
+                    storage['addItemList'] = storage['addItemList'].replace(key + ', ', '');
+
+                    //3.刪除該筆form
+                    // this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
+                    this.parentNode.parentNode.parentNode.parentNode.parentNode.remove();
+                    //console.log(this.parentNode.parentNode.parentNode.parentNode.parentNode);
+                }
             }
-            function createCartContentList(itemInfo, key) {
-                // console.log(key);
-                let cartUpdateFormClone = document.getElementById("cartUpdateFormWrap").children[1].cloneNode(true);
-                cartUpdateFormClone.id = key;
-                // console.log(cartUpdateFormClone);
-                cartUpdateFormClone.style.display = '';
-                // document.getElementById("cartUpdateFormWrap").appendChild(cartUpdateFormClone);
-
-                document.getElementById("cartUpdateFormWrap").insertBefore(cartUpdateFormClone, document.getElementById("cartUpdateFormWrap").lastElementChild.previousElementSibling);
-                //lastElementChild最後一個小孩
-                //previousElementSibling我的上一個兄弟
-
-
-                //console.log(cartUpdateFormClone.children[0].children[0].children[4].children[0].children[0]);//test
-
-                cartUpdateFormClone.children[0].children[0].children[0].children[0].children[0].src = itemInfo.split('|')[1];
-                cartUpdateFormClone.children[0].children[0].children[0].children[0].children[0].src = itemInfo.split('|')[1];
-
-                cartUpdateFormClone.children[0].children[0].children[1].children[0].innerText = itemInfo.split('|')[0];
-
-                cartUpdateFormClone.children[0].children[0].children[2].children[0].children[0].innerText = itemInfo.split('|')[2];
-                cartUpdateFormClone.children[0].children[0].children[4].children[0].children[0].innerText = itemInfo.split('|')[2];
-                cartUpdateFormClone.children[0].children[0].children[1].children[2].children[0].innerText = itemInfo.split('|')[2];//手機版單價
-            }
-
-
-            let delButton = document.getElementsByClassName('deleteBtn');
-            // console.log(delButton)
-
-            for (let i = 0; i < delButton.length; i++) {
-                delButton[i].style.cursor = "pointer";
-                delButton[i].addEventListener('click', deleteItem);
-            }
-            function deleteItem(e) {
-                e.preventDefault()
-                // let itemId = this.parentNode.getAttribute('id');
-                let key = this.parentNode.parentNode.parentNode.parentNode.parentNode.id;
-                alert(key);
-                //1.先扣除總金額
-                // sumTotalPrice -= parseInt(itemValue.split('|')[2]);//parseInt:字串轉數字
-                // document.getElementById('sumTotalPrice').innerText = sumTotalPrice;
-                let sumTotalPrice = document.getElementById('sumTotalPrice').innerText;
-                // let itemValue = storage.getItem(key);
-                sumTotalPrice -= parseInt(this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText);
-                //this是我的btn,parentNode是的爸爸
-                document.getElementById('sumTotalPrice').innerText = sumTotalPrice;
-
-                //2.清除storage的資料
-                storage.removeItem(key);
-                storage['addItemList'] = storage['addItemList'].replace(key + ', ', '');
-
-                //3.刪除該筆form
-                // this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
-                this.parentNode.parentNode.parentNode.parentNode.parentNode.remove();
-                //console.log(this.parentNode.parentNode.parentNode.parentNode.parentNode);
-            }
+            shopingCartFirst();
         }
-        shopingCartFirst();
+
+
 
     </script>
     <!-- -----------購物車動態新增end-------- -->
