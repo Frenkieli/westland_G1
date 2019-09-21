@@ -23,7 +23,7 @@ function getTicket() {
                         }
                     },
                     change(e) {
-                        alertify.confirm('真的要選擇第' + e.target.value + '張票嗎？',
+                        alertify.confirm('真的要選擇第' + e.target.value + '張票嗎？不能換票喔！',
                             function () {
                                 // this.tickets[0][2] = '有';
                                 // console.log(this.tickets[0][2]);
@@ -128,7 +128,7 @@ function getUseTicket() {
                 alertify.alert("帳密錯誤");
             } else {
                 setTicket(xhr.responseText);
-                console.log(xhr.responseText);
+                // console.log(xhr.responseText);
             }
         } else {
             alertify.alert(xhr.status);
@@ -147,7 +147,11 @@ function setTicket(jsonStr) {
     console.log(ticket.mission_no, localStorage['member_useticket'], '0000');
     document.querySelector('.ticket_name p').innerHTML = ticket.member_name;
     document.querySelector('.ticket_img img').src = ticket.image_source;
-    document.querySelector('.ticket_team p').innerHTML = ticket.team_name;
+    if(ticket.team_name){
+        document.querySelector('.ticket_team p').innerHTML = ticket.team_name;
+    }else{
+        document.querySelector('.ticket_team').remove();
+    }
     ticketScore = ticket.bounty;
     document.querySelector('.ticket_reward p').innerHTML = '$' + ticket.bounty;
     document.querySelector('.ticket_mascot').src = ticket.mascot_image;
