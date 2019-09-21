@@ -95,6 +95,4 @@ try{
 }
 echo $errMsg;
 
-
-
 ?>
