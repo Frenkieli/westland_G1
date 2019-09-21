@@ -243,8 +243,7 @@
     @@include("template/footer.html")
 
 
-    @@include("template/robot.html")
-
+    
     <!-- js -->
     @@loop('template/jslink.html',[
     {"jslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"},
@@ -258,6 +257,7 @@
     {"jslink" : "js/QRcode.js"},
     {"jslink" : "js/question.js"}
     ])
+    @@include("template/robot.html")
 </body>
 
 </html>
