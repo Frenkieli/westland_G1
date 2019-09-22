@@ -29,8 +29,8 @@
                 document.querySelectorAll('.slider_member p')[i].innerHTML = arr[index][8] + '說：' + arr[index][6];
                 document.querySelectorAll('.slider_memberimg img')[i].src = arr[index][7];
                 document.querySelectorAll('.slider_img')[i].addEventListener('click', function () {
-                    localStorage['equ_no'] = null;
-                    localStorage['equ_no'] = arr[index][0];
+                    // localStorage['equ_no'] = null;
+                    // localStorage['equ_no'] = arr[index][0];
                     window.location.href = 'information_inner_page.html?equ_no=' + arr[index][0];
                 }, false)
                 check = arr[index][0];
