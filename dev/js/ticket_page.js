@@ -112,8 +112,8 @@ function changepic(e){
 
             setTimeout(() => {
                 let canvastopic = document.getElementById("canvastopic").getContext("2d");
-                canvastopic.clearRect(0,0,300,300);
-                canvastopic.drawImage(preinstallpic,0,0,300,300);
+                canvastopic.clearRect(0,0,1000,1000);
+                canvastopic.drawImage(preinstallpic,0,0,1000,1000);
             }, 100);
         });
     }
@@ -281,8 +281,8 @@ function init(){
 
     // 門票圖片載入時先為預設圖
     let canvastopic = document.getElementById("canvastopic").getContext("2d");
-    canvastopic.clearRect(0,0,300,300);
-    canvastopic.drawImage(preinstallpic,0,0,300,300);
+    canvastopic.clearRect(0,0,1000,1000);
+    canvastopic.drawImage(preinstallpic,0,0,1000,1000);
 
     // 小圖換大圖
     let img = document.getElementsByClassName("mascots");
@@ -331,7 +331,7 @@ function init(){
     document.getElementById("customize_opabox").appendChild(opaitem);
 
     if(storage.getItem("bigsrc")!=null){
-        setTimeout(confirm(),500);
+        setTimeout(confirm(),2000);
     }
 }
 
