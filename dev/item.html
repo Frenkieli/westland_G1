@@ -9,6 +9,8 @@
 
     <!-- css -->
     @@loop('template/csslink.html',[
+    {"csslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/alertify.min.css"},
+    {"csslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/default.min.css"},
     {"csslink" : "css/owl.carousel.min.css"},
     {"csslink" : "css/owl.theme.default.css"},
     {"csslink" : "css/style.css"}
@@ -37,6 +39,7 @@
             </div>
         </div>
         <div class="item_intro_wrap center">
+            <input type="hidden" name="" id="same_product_category">
             <h3 id="itemIntroTitle" class="item_intro_title">仙人掌帽子<span class="item_intro_color"> - 紅色</span></h3>
             <div class="item_intro_box">
                 <div class="intro_box_title">簡介</div>
@@ -56,7 +59,7 @@
                     <button type="button" class="btnLess">
                         <i class="fas fa-minus"></i>
                     </button>
-                    <input type="text" value="1" name="pQuantity" class="quantity h26">
+                    <input type="text" value="1" name="pQuantity" class="quantity h26" id="itemNowCount" readonly>
                     <button type="button" class="btnPlus">
                         <i class="fas fa-plus"></i>
                     </button>
@@ -70,8 +73,8 @@
         </div>
     </section>
     <div class="item_btn_box container">
-        <div class="btn inline_block" id="back">回上一頁</div> 
-        <div class="btn--active inline_block">加入購物車</div>
+        <div class="btn inline_block" id="back">回上一頁</div>
+        <div class="btn--active inline_block itemaddButton">加入購物車</div>
     </div>
     <div class="wheel dis_n">
         <div class="wheel_wrap">
@@ -90,35 +93,49 @@
             </div>
             <!-- <div class="sort_same pt350 owl-carousel owl-theme"> -->
             <div class="sort_same owl-carousel owl-theme">
-                <div class="hoverObj card_bg card_bg1">
+                <div class="hoverObj card_bg card_bg1 related_item">
                     <div class="gray_linear_gradient center">
                         <div class="sort_same_item_img center">
-                            <a href="item.html"><img src="images/product/product_small/pd_s-01.jpg"></a>
+                            <img src="images/products/product_list/pd_b-37.png">
                         </div>
                         <p class="sort_same_item_title text_align_c">仙人掌包包</p>
                         <p class="sort_same_item_price text_align_c">NT.450</p>
-                        <div class="btn m-b m-a">加入購物車</div>
+                        <div class="btn m-b m-a addCartButton">加入購物車</div>
                     </div>
+                    <input type="hidden" name="">
                 </div>
-                <div class="hoverObj card_bg card_bg1">
+                <div class="hoverObj card_bg card_bg1 related_item">
                     <div class="gray_linear_gradient center">
                         <div class="sort_same_item_img center">
-                            <img src="images/product/product_small/pd_s-02.jpg">
+                            <img src="images/products/product_list/pd_b-37.png">
                         </div>
                         <p class="sort_same_item_title text_align_c">仙人掌包包</p>
                         <p class="sort_same_item_price text_align_c">NT.450</p>
-                        <div class="btn m-b m-a">加入購物車</div>
+                        <div class="btn m-b m-a addCartButton">加入購物車</div>
                     </div>
+                    <input type="hidden" name="">
                 </div>
-                <div class="hoverObj card_bg card_bg1">
+                <div class="hoverObj card_bg card_bg1 related_item">
                     <div class="gray_linear_gradient center">
                         <div class="sort_same_item_img center">
-                            <img src="images/product/product_small/pd_s-03.jpg">
+                            <img src="images/products/product_list/pd_b-37.png">
                         </div>
                         <p class="sort_same_item_title text_align_c">仙人掌包包</p>
                         <p class="sort_same_item_price text_align_c">NT.450</p>
-                        <div class="btn m-b m-a">加入購物車</div>
+                        <div class="btn m-b m-a addCartButton">加入購物車</div>
                     </div>
+                    <input type="hidden" name="">
+                </div>
+                <div class="hoverObj card_bg card_bg1 related_item">
+                    <div class="gray_linear_gradient center">
+                        <div class="sort_same_item_img center">
+                            <img src="images/products/product_list/pd_b-37.png">
+                        </div>
+                        <p class="sort_same_item_title text_align_c">仙人掌包包</p>
+                        <p class="sort_same_item_price text_align_c">NT.450</p>
+                        <div class="btn m-b m-a addCartButton">加入購物車</div>
+                    </div>
+                    <input type="hidden" name="">
                 </div>
             </div>
             <div class="col-2 col-xl-1 v-xl-hide">
@@ -132,6 +149,8 @@
 
     <!-- js -->
     @@loop('template/jslink.html',[
+    {"jslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"},
+    {"jslink" : "js/alertifyJSset.js"},
     {"jslink" : "https://kit.fontawesome.com/6a6d2775fc.js"},
     {"jslink" : "js/jquery.min.js"},
     {"jslink" : "js/owl.carousel.js"}
@@ -153,7 +172,7 @@
                         items: 2
                     },
                     1200: {
-                        items: 3,
+                        items: 4,
                     }
                 },
             });
@@ -178,16 +197,75 @@
                 document.getElementById("introBoxText").innerText = product.product_ifo;
                 document.getElementById("itemPrice").innerText = product.product_price;
                 document.getElementById("itemLave").innerText = product.product_count;
-
+                document.getElementById("same_product_category").value = product.product_category;
+                if (product.product_count != 0)
+                    document.querySelector('.intro_totalprice').innerText = product.product_price;
+                else
+                    document.querySelector('.intro_totalprice').innerText = 0;
             } else {
                 htmlStr = "<center>查無此商品資料</center>"
             }
-            document.getElementById('back').style.cursor='pointer';
-            document.getElementById('back').addEventListener('click',function(){
-                window.location=`items.html`;
-            },false);
-        }
+            document.getElementById('back').style.cursor = 'pointer';
+            //返回上一頁
+            document.getElementById('back').addEventListener('click', function () {
+                window.location = `items.html`;
+            }, false);
+            //+ - 小記功能
+            (function () {
+                let btnLess = document.querySelector(".btnLess");//-
+                let btnPlus = document.querySelector(".btnPlus");//+
+                let total = 0;//總價
+                btnLess.style.cursor = "pointer";
+                btnPlus.style.cursor = "pointer";
+                btnLess.addEventListener('click', function () {
+                    if (this.nextElementSibling.value > 1) {
+                        this.nextElementSibling.value -= 1;
+                        total = document.getElementById('itemPrice').innerText * this.nextElementSibling.value;
+                        document.querySelector('.intro_totalprice').innerText = total;
+                    }
+                }, false);
+                btnPlus.addEventListener('click', function () {
+                    if (parseInt(document.getElementById('itemLave').innerText) > this.previousElementSibling.value)
+                        this.previousElementSibling.value = parseInt(this.previousElementSibling.value) + 1;
+                    total = document.getElementById('itemPrice').innerText * this.previousElementSibling.value;
+                    document.querySelector('.intro_totalprice').innerText = total;
+                }, false);
+            }
+            )();
+            //加入購物車
 
+            function addcart() {
+                var storage = sessionStorage;
+                if (storage['addItemList'] == null) {
+                    storage['addItemList'] = '';    //storage.setItem('addItemList','');
+                }
+
+                // 幫每個Add Cart建立事件聆聽功能
+                document.querySelector('.itemaddButton').addEventListener('click', function () {
+                    let productInfo = `${document.getElementById("itemIntroTitle").innerText}|${document.getElementById("itemIntroImg").src.substr(document.getElementById("itemIntroImg").src.indexOf('images'))}|${document.getElementById("itemPrice").innerText}|${document.getElementById('itemNowCount').value}`;
+                    // console.log(productInfo);
+                    // console.log(window.location.href.split("product_no=")[1]);
+                    // document.querySelector(`#${this.id} input`).value;
+                    addItem(window.location.href.split("product_no=")[1], productInfo);
+                    First();
+                });
+
+                function addItem(itemId, itemValue) {
+                    alertify.alert(`${itemId} : ${itemValue}`);
+                    //存入storage,判斷是否為重複商品，如果重複就不增加
+                    itemId = `pd-${itemId}`;
+                    if (storage[itemId]) {
+                        alertify.alert(`商品 : ${document.getElementById("itemIntroTitle").innerText} ，已經加入購物車了喔`);
+                    } else {
+                        alertify.alert(`商品 : ${document.getElementById("itemIntroTitle").innerText} ，加入購物車成功`);
+                        storage['addItemList'] += itemId + ', ';
+                        storage[itemId] = itemValue;
+                    }
+                }
+            };
+            addcart();
+        }
+        //撈取內頁該筆商品
         function getProduct() {
             var xhr = new XMLHttpRequest();
             xhr.onload = function () {
@@ -207,6 +285,84 @@
             xhr.send(null);
         }
         getProduct();
+        //撈取相關推薦商品
+        function getSameProduct() {
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    //modify here
+                    let SameProductlist = JSON.parse(xhr.responseText);
+                    let SameArray = [];
+                    SameProductlist.forEach(element => {
+                        if (element.product_category == document.getElementById("same_product_category").value && window.location.href.split("product_no=")[1] != element.product_no) {
+                            SameArray.push(element);
+                        }
+                    });
+                    // console.log(SameArray);
+                    for (let i = 0; i < 4; i++) {
+                        // console.log(Math.floor(Math.random()*SameArray.length));
+                        let related_items = document.querySelectorAll('.related_item');
+                        let randomNum = Math.floor(Math.random() * SameArray.length);
+                        console.log(SameArray[randomNum]);
+                        related_items[i].children[0].children[0].children[0].src = SameArray[randomNum].product_image;
+                        related_items[i].children[0].children[1].innerText = SameArray[randomNum].product_name;
+                        related_items[i].children[0].children[2].innerText = "NT." + SameArray[randomNum].product_price;
+                        related_items[i].children[1].value = SameArray[randomNum].product_no;
+                        SameArray.splice(randomNum, 1);
+                        console.log(SameArray);
+                    }
+                    var storage = sessionStorage;
+                    let name;
+                    let image;
+                    let price;
+                    function sameitemAddCart() {
+                        if (storage['addItemList'] == null) {
+                            storage['addItemList'] = '';    //storage.setItem('addItemList','');
+                        }
+
+                        let list = document.querySelectorAll('.addCartButton');     //list是陣列
+
+                        for (let i = 0; i < list.length; i++) {
+                            list[i].addEventListener('click', function () {
+                                // console.log(this.parentNode.nextElementSibling.value);
+
+                                name = this.previousElementSibling.previousElementSibling.innerText;
+                                image = this.previousElementSibling.previousElementSibling.previousElementSibling.children[0].src;
+                                image = image.substr(image.indexOf('images'));
+                                price = this.previousElementSibling.innerText;
+                                price = price.replace('NT.', "");
+                                productInfo = `${name}|${image}|${price}`;
+                                // console.log(productInfo);
+                                addItem(this.parentNode.nextElementSibling.value, productInfo);
+                                First();
+                            });
+                        }
+
+                    }
+                    function addItem(itemId, itemValue) {
+                        alertify.alert(`${itemId} : ${itemValue}`);
+                        //存入storage,判斷是否為重複商品，如果重複就不增加
+                        itemId = `pd-${itemId}`;
+                        if (storage[itemId]) {
+                            alertify.alert(`商品 : ${name} ，已經加入購物車了喔`);
+                        } else {
+                            alertify.alert(`商品 : ${name} ，加入購物車成功`);
+                            storage['addItemList'] += itemId + ', ';
+                            itemValue = itemValue + "|1";
+                            storage[itemId] = itemValue;
+                        }
+                    }
+                    sameitemAddCart();
+
+                } else {
+                    alert(xhr.status);
+                }
+            }
+            var url = `php/getProduct_JSON.php`;
+            xhr.open("Get", url, true);
+            xhr.send(null);
+        }
+        getSameProduct();
     </script>
 
 </body>
