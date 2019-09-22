@@ -99,11 +99,11 @@
             <br>
             <!-- 暱稱 -->
             <span>暱稱</span>
-            <input type="text" name="mem_name" id="member_name" placeholder="請輸入帳號">
+            <input type="text" name="mem_name" id="register_name" placeholder="請輸入暱稱">
             <br>
             <!-- Email -->
             <span>信箱</span>
-            <input type="email" name="mem_email" id="register_mememail" placeholder="輸入E-mail">
+            <input type="email" name="mem_email" id="register_mememail" placeholder="輸入@xxx.com">
             <br>
             <!-- 密碼 -->
             <span>密碼</span>
@@ -143,9 +143,13 @@
             </a>
             <!-- 文字區 -->
             <h3>重設密碼</h3>
+            <!----帳號------>
+            <span>帳號</span>
+            <input type="text" name="password_memid" id="password_memid">
+            <br>
             <!-- 提示密碼 -->
             <span>提示問題</span>
-            <select name="optionarea" id="password_question">
+            <select name="optionarea" id="repassword_question" class="repassword_question">
                 　<option value="1">您最喜歡的遊樂設施</option>
                 　<option value="2">您最喜歡的水果</option>
             </select>
@@ -155,7 +159,7 @@
             <input type="text" name="password_answer" id="repassword_answer">
             <br>
             <!-- 新密碼 -->
-            <span>密碼</span>
+            <span>新密碼</span>
             <input type="password" name="new_mempsw" id="new_mempsw" placeholder="請輸入新密碼">
             <br>
             <!-- 確認密碼 -->
@@ -198,9 +202,15 @@
                 loginmem2();
             }
         });
+        //============點擊立即註冊=================
+        $("#register_fast").click(function () {
+            $("#mem_id").val('qqq777'); //帳號
+            $("#mem_psw").val('111');   //密碼
+        });
+        
     });
 
-    //====檢查====
+    //===========檢查===========
     function checkVal(value) {
         var reg = /^[a-zA-Z0-9_-]{3,16}$/; //使用正規表達式
         if (value.search(reg)) {
@@ -236,6 +246,7 @@
             }
         });
     }
+
 </script>
 <!-- -----------購物車動態新增start-------- -->
 <script>
@@ -338,6 +349,7 @@
         obj = document.getElementById('itemlist');
         obj.style.display = "none";
     }
+
     // window.addEventListener("load",function(){
     //     console.log(123);
     //     var tds = document.getElementById("navbar_shoppingCart_popup");
@@ -352,10 +364,8 @@
     $('#register').click(function () {
         //顯示註冊燈箱
         $('#register_lightbox').css('display', 'block');
-
         //隱藏登入燈箱
         $('#lightBox').css('display', 'none');
-
         //====按取消按鈕====//  註冊燈箱會消失
         $('.login_cancel img').click(function () {
             $('#register_lightbox').css('display', 'none');
@@ -366,7 +376,7 @@
     $('#register_button').click(function () {
         ///////////////ajax///////////////////////
         var userid = $('#register_memid').val(); //帳號
-        var member_name = $('#member_name').val(); //暱稱
+        var member_name = $('#register_name').val(); //暱稱
         var password = $("#register_mempsw").val();//密碼
         var chk_password = $("#con_register_mempsw").val();//確認密碼
         var memmail = $("#register_mememail").val();//信箱
@@ -375,12 +385,11 @@
 
         if (checkVal(userid)) { //檢查帳號 
             alert("帳號不符合規則")
-        } else if (checkVal(password)) {   //檢查密碼
+        }else if (checkVal(password)) {  //檢查密碼
             alert("密碼不符合規則")
-        } else if (password != chk_password) {
+        }else if (password != chk_password ) { 
             alert("密碼不一致")
-        }
-        else {    // 註冊
+        }else{    // 註冊
             $.ajax({
                 type: "POST",
                 url: "php/addMember.php",
@@ -419,7 +428,57 @@
 
         //====按取消按鈕====//  密碼燈箱會消失
         $('.login_cancel img').click(function () {
-            $('#password_lightbox').css('display', 'none');
+            $('#password_lightbox').css('display','none');
         });
     })
+
+    //====點擊重設密碼確認按鈕====//
+    //輸入的密碼和新密碼必須相同
+    //提示問題必須回答正確---->比對資料庫
+    //密碼檢查字數checkVal
+    $('#password_button').click(function(){
+        var memid = $("#password_memid").val();//帳號
+        var password = $("#new_mempsw").val();//密碼
+        var re_password = $("#re_mempsw").val();//確認密碼
+        var requestion = $("#repassword_question").val();//提示問題
+        var reanswer = $("#repassword_answer").val();//回答問題
+        console.log(requestion);
+        if (checkVal(password)) { //檢查密碼
+            alert("密碼不符合規則")
+        } else if (checkVal(re_password)) {   //檢查新密碼
+            alert("密碼不符合規則")
+        }  else if (password != re_password ) {  //檢查密碼和新密碼的一致性
+            alert("密碼不一致")
+        }else if (memid=="") {   //檢查帳號
+            alert("不可空白")
+        }else if (reanswer=="") {   //檢查回答問題
+            alert("不可空白")
+        }else {    // 可修改密碼
+            $.ajax({
+                type: "POST",
+                url: "php/membersendPassword.php",
+                dataType: "JSON",
+                data: {  //輸入的資料
+                    "member_id":memid,
+                    "member_psw": password,
+                    "forget_hint": requestion,
+                    "forget_answer":reanswer,
+                },
+                success: function (data) {
+                    console.log(data)
+                    $('#password_lightbox').css('display', 'none'); //燈箱消失
+                    alert("修改成功！");                 
+                },
+                
+            })
+        }
+
+
+
+
+
+    })
+
+    
+
 </script>

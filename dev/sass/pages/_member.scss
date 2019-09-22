@@ -22,9 +22,9 @@
         background-repeat: no-repeat;
         position: relative;
         top: 25%;
-        max-width: 350px;
-        width: 60%;
-        height: 400px;
+        max-width: 320px;
+        width: 70%;
+        height: 330px;
         margin: 0 auto;
         border-radius: 10px;
         border: 2px solid #5a7529;
@@ -34,14 +34,21 @@
             //文字大區
             .login_cancel {
                 //刪除鈕
+                overflow: hidden;
                 width: 30px;
+                height: 30px;
                 border-radius:50%;
                 background-color:#fff;
                 position: absolute;
                 top: 0;
                 right: 0;
+                &:hover{
+                    transform: scale(1.1);
+                    transition:all 350ms ease;
+                }
             }
-            #mem_id {
+            
+            #mem_id{
                 //帳號
                 width: 50%;
                 margin: 10% 0 0% 0;
@@ -145,12 +152,18 @@
         background-color: rgba(255, 195, 83, 0.966);
         .login_cancel {
             //刪除鈕
-            width: 25px;
+            width: 30px;
+            height: 30px;
+            overflow: hidden;
             position: absolute;
             top: 0;
             right: 0;
             border-radius: 50%;
             background-color: #fff;
+            &:hover{
+                transform: scale(1.1);
+                transition:all 350ms ease;
+            }
         }
         h3 {
             line-height: 40px;
@@ -169,12 +182,12 @@
             text-align: left;
         }
         input {
-            width: 50%;
+            // width: 50%;
             margin: 3% 0;
             line-height: 24px;
         }
         #password_question { //提示問題
-            padding:1.9% 5.5%;
+            padding:1.9% 4.8%;
         }
         .btn {
             //按鈕
@@ -184,9 +197,9 @@
     }
 }
 
-///////////////////////
-//  會員重新申請密碼   //
-//////////////////////
+
+//////////////////////會員重新申請密碼/////////////////
+
 
 #password_lightbox {
     width: 100%;
@@ -198,7 +211,6 @@
     z-index: 3;
     //隱藏
     display: none;
-
     .passwordTable {
         //重設密碼區
         background-image: url("../images/member/logincus.png");
@@ -208,9 +220,9 @@
         background-repeat: no-repeat;
         position: relative;
         top: 25%;
-        width: 60%;
-        max-width: 300px;
-        height: 350px;
+        width: 70%;
+        max-width: 350px;
+        height: 400px;
         margin: 0 auto;
         border-radius: 10px;
         text-align: center;
@@ -220,42 +232,58 @@
             .login_cancel {
                 //刪除鈕
                 width: 30px;
+                height: 30px;
+                overflow: hidden;
                 position: absolute;
                 top: 0;
                 right: 0;
                 border-radius:50%;
                 background-color:#fff; 
+                &:hover{
+                    transform: scale(1.1);
+                    transition:all 350ms ease;
+                }
             }
-            h3 {
+            h3 { //--標題--
                 line-height: 40px;
                 font-size:36px;
                 padding: 4%;
+                padding-bottom:37px;
                 color: rgb(255, 255, 255);
-                margin: 10% 0 ;
+                // margin: 10% 0 ;
                 font-size: 36px;
+                // margin-top: 20px;
                 text-shadow: rgb(204, 204, 204) 0px 1px 0px, rgb(201, 201, 201) 0px 2px 0px, rgb(187, 187, 187) 0px 3px 0px, rgb(185, 185, 185) 0px 4px 0px, rgb(170, 170, 170) 0px 5px 0px, rgba(0, 0, 0, 0.1) 0px 6px 1px, rgba(0, 0, 0, 0.1) 0px 0px 5px, rgba(0, 0, 0, 0.3) 0px 1px 3px, rgba(0, 0, 0, 0.15) 0px 3px 5px, rgba(0, 0, 0, 0.2) 0px 5px 10px, rgba(0, 0, 0, 0.2) 0px 10px 10px, rgba(0, 0, 0, 0.1) 0px 20px 20px;
             }
             span {
                 display: inline-block;
                 width: 30%;
-
                 margin-top: 2px;
                 text-align: left;
             }
             input {
-                width: 50%;
-                margin: 3% 0;
-                line-height: 24px;
+                padding: 2% 0;
+                width: 45%;
+                margin: 5% 0 0% 0;
+                padding-left: 10px;
+                border-radius: 10px;
+                // line-height: 20px;
             }
-            #password_question {
+            .repassword_question {
                 padding: 2%;
+                width: 50%;
+                margin: 5% 0 0% 0;
+                padding-left: 10px;
+                border-radius: 10px;
+            }
+            #re_mempsw{
+                margin-bottom: 10px;
             }
             .btn {
                 //按鈕
-                margin-top: 15px;
                 margin-left:25px; 
-                padding:0% 5% 2% 5%; 
-
+                padding:0% 5% 2% 5%;
+                
             }
         }
     }

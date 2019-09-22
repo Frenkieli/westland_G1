@@ -5,6 +5,8 @@
 .account {
     margin: auto;
     text-align: center;
+    margin-bottom: 20px;
+    margin-right: 20px;
     .infowrap {
         display: flex;
         flex-direction: column;
@@ -12,31 +14,29 @@
         /////////////////////////////
         width: 90%;
         margin: auto;
-        padding-top: 10px;
+        // padding-top: 10px;
         .menulist {
             //選單部分
             width: 100%;
             padding: 0 1px;
             margin: auto;
             // background-color: #9dba65;
-            border-top-left-radius: 10px;
-            border-top-right-radius: 10px;
+            // border-top-left-radius: 10px;
+            // border-top-right-radius: 10px;
             .mymenu {
                 box-sizing: border-box;
-                padding: 10px 0px;
+                // padding: 10px 0px;
                 justify-content: center;
                 width: 100%;
                 display: flex;
                 flex-wrap: wrap;
-                // border-color: #fff8e4;
-                border-top-style: dashed;
-                border-bottom-style: dashed;
-                
+                // border-top-style: dashed;
+                // border-bottom-style: dashed;               
                 li {
-                    width: 25%;
+                    width:30%;
                     text-align: center;
                     list-style: none;
-                    padding: 5px 2px;
+                    padding: 5px 0;
                     position: relative;
                 }
                 a {
@@ -44,9 +44,8 @@
                     text-decoration: none;
                     align-items: center;
                     box-sizing: border-box;
-                    // color: #fff8e4;
-                    color: #9dba65;
-                    // background-image: url("../images/member/col.png");
+                    // color: #9dba65;
+                    color: #5A7529;
                     font-size: 20px;
                     line-height: 2rem;
                     font-family: "Noto Sans TC", sans-serif;
@@ -58,17 +57,19 @@
                         background-repeat: no-repeat;
                         position: absolute;
                         top:0px;
-                        left: 0%;
-                        bottom: 0%;
+                        left:0%;
+                        bottom:0%;
                         right: 120px;
                         display: none;
                     }
                     &:hover {
                         text-decoration: underline;
-                        // transition:all 5s;
-                        &::after{
-                            display: block;
-                        }
+                        color:#f09100;
+                        text-shadow: 15px 5px 5px rgb(253, 253, 255) ;
+                        // text-shadow: rgb(213, 213, 230) 0px 1px 0px;
+                        // &::after{
+                        //     display: block;
+                        // }
                     }
                 }
             }
@@ -79,9 +80,18 @@
     .account {
         .infowrap {
             max-width: 700px;
-            // .menulist{
-
-            // }
+            .menulist{
+                li{
+                    width:23%; 
+                }
+            a{
+                &:hover{
+                    &::after{
+                        display: block;
+                    }
+                }
+            }    
+            }
             .info_content {
                 // width: 70%;
                 text-align: center;
@@ -95,16 +105,32 @@
 //     個人資訊         //
 //////////////////////////
 .info_content {
-    // 個人資訊部分
-    // background-image: url("../images/member/p0029_m.png");
-    // background-size:cover;
-    // background-repeat: no-repeat;
-    // background-position: right;
+    // 個人資訊部分 
+    // box-shadow:0 0 3px rgba(0, 0, 0, 0.2);
+    box-shadow: 10px 10px 5px #888888;
     width: 100%;  
     display: block;
     background-color: #fff;
-    border: 5px solid #9dba65;
+    border: 10px solid #9dba65;
+    position: relative;
     text-align: left;
+    // &::before{//暫時
+    //     width: 20%;
+    //     height: 20%;
+    //     // background-color: #555;
+    //     // opacity: .5;
+    //     z-index:-1;
+    //     position: absolute; 
+    //     top:49%; 
+    //     bottom:0px; 
+    //     left:67%;
+    //     content:"";
+    //     // box-shadow:0 15px 10px rgba(0, 0, 0, 0.5);                                      
+    //     transform: rotate(10deg);
+    //     background-image: url("../images/member/fat.png");
+    //     background-size:contain;
+    //     background-repeat: no-repeat;                               
+    // }
     h3 {
         background-color: #9dba65;
         border-color: #fff8e4;
@@ -147,10 +173,15 @@
         }
     }
     .but_item {
-        text-align: right;
-        #dit_button {
-            //修改資料 按鈕
-            //Button在css的長寬：130x30px,font-size:14p
+        // text-align: right;
+        margin: auto;
+        // a{
+        //     position: relative;
+        //     top: 0%;
+        //     right: -60%;
+        #dit_button{
+                //修改資料 按鈕
+                //Button在css的長寬：130x30px,font-size:14p
             border: 1px solid #9dba65;
             width: 130px;
             height: 30px;
@@ -158,11 +189,22 @@
             display: block;
             margin: auto;
             text-align: center;
-        }
+            }
+        // }
+        
     }
 }
 @media screen and (min-width: 768px) {
     .info_content{
+        // &::before{//暫時
+        //     width: 20%;
+        //     height: 20%;
+        //     position: absolute; 
+        //     top:55%; 
+        //     bottom:0px; 
+        //     left:85%;                                  
+        //     transform: rotate(10deg);                              
+        // }
         .content_item{
             .memid{
                 padding-left:90px;
@@ -173,7 +215,20 @@
         }
     }
 }
+// @media screen and (min-width: 1200px){
+//     .info_content{
+//         &::before{//暫時
+//             width: 20%;
+//             height: 20%;
+//             position: absolute; 
+//             top:49%; 
+//             bottom:0px; 
+//             left:80%;                                  
+//             transform: rotate(10deg);                              
+//         }
+//     }
 
+// }
 
 ////////////////////////////////
 //     訂單部分               //
@@ -191,6 +246,7 @@
     // border: 1px solid #9dba65;
     background-color: #fff;
     border: 5px solid #9dba65;
+    box-shadow: 10px 10px 5px #888888;
     // height: 70%;
     h3 {
         padding: 20px 0;
@@ -212,38 +268,70 @@
         }
     }
 }
-////////////////////////////
-//   購票                 //
-////////////////////////////
+//////////////////////////////
+//          購票            //
+/////////////////////////////
 .ticket_content {
     width: 100%;
     display: block;  
     background-color: #fff;
-    // background-image: url("../images/member/p0029_m.png");
-    // background-size:cover;
-    // background-repeat: no-repeat;
+    box-shadow: 10px 10px 5px #888888;
     padding-bottom: 68%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     border: 5px solid #9dba65;
     h3 {
         padding: 20px 0;
+        font-size: 20px;
+        line-height: 2rem;
+        margin: auto;
+        position: relative;
+        // &::before{
+        //     background-image: url("../images/member/headd.png");
+        //     background-size:contain;
+        //     background-repeat: no-repeat;
+        //     width: 30%;
+        //     position: absolute;
+        //     top:10px;
+        //     right: 20px;
+        //     content: "123";
+        // }
     }
     .ticket_item {
-        width: 90%;
+        // width: 90%;
         margin: auto;
-        border: 1px solid #9dba65;
-        border-radius: 5px;
-        table {
-            border-collapse: collapse;
-            width: 100%;
-            height: 50%;
-            tr {
+        border: 3px solid #9dba65;
+        width: 150px;
+        font-size: 18px;
+        line-height: 30px;
+        padding: 20px;
+        border-radius: 25px;
+        // background-color: #9dba65;
+        // opacity: .5;
+        margin-top: 25px;
+        margin-bottom: 25px;
+            P{
+                color: #668823;
                 font-family: "Noto Sans TC", sans-serif;
-                line-height: normal;
-                font-size: 14px;
+                text-align: left;
+                #ticket_no{
+                    color: #f09100;
+                    }
+                #entrance_status{
+                    color: #f09100;
+                    }
             }
-        }
+            
+        // table {
+        //     border-collapse: collapse;
+        //     width: 100%;
+        //     height: 50%;
+        //     tr {
+        //         font-family: "Noto Sans TC", sans-serif;
+        //         line-height: normal;
+        //         font-size: 14px;
+        //     }
+        // }
     }
 }
 ////////////////////////////
@@ -253,9 +341,7 @@
     width: 100%;
     display: block;
     background-color: #fff;
-    // background-image: url("../images/member/p0029_m.png");
-    // background-size:cover;
-    // background-repeat: no-repeat;
+    box-shadow: 10px 10px 5px #888888;
     padding-bottom: 60%;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
@@ -264,21 +350,36 @@
     .team_list{
         h3 {
             padding: 20px 0;
+            line-height: 2rem;
+            font-size: 20px;
         }
         .team_item{
             width: 90%;
             margin: auto;
-            border: 1px solid #9dba65;
-            border-radius: 5px;
+            // border: 1px solid #9dba65;
+         
             margin-bottom:10px; 
             table{
                 border-collapse: collapse;
                 width: 100%;
                 height: 50%;
+                .team_head{
+                    width: 20%;
+                    line-height: 3;
+                    color: #92b846;
+                    font-size: 16px;
+                    border: 2px solid #9dba65;
+                    // border-radius: 5%;
+                    background-color: #EBDCC2;
+                  
+                }
                 tr {
                     font-family: "Noto Sans TC", sans-serif;
-                    line-height: normal;
+                    line-height: 3rem;
                     font-size: 14px;
+                    td{
+                        text-align: center
+                    }
                     }
                 }
             }
@@ -286,18 +387,17 @@
     }
 ////////////////////////////////////////
 //              評分/留言              /
-///////////////////////////////////////
+////////////////////////////////////////
 .evaluation_content {
     width: 100%;
     display: block;
     background-color: #fff;
-    // background-image: url("../images/member/p0029_m.png");
-    // background-size:cover;
-    // background-repeat: no-repeat;
+    box-shadow: 10px 10px 5px #888888;
     padding-bottom: 40%;
-    border: 5px solid #9dba65;      
+    border: 5px solid #9dba65;   
     h3{
-        padding-top:20px; 
+        padding-top:20px;
+        margin-bottom:10px;  
     }
     .score_item {
         width: 80%;
@@ -312,6 +412,11 @@
         display: flex;
         flex-flow: row wrap;
         margin: auto;
+        background-color: #9dba65;
+        opacity: .5;
+        border-radius: 15px;
+        margin: 10px;
+        // text-align: center;
         .message_pot {
             border: 1px solid #9dba65;
             border-radius: 10px;
@@ -329,5 +434,11 @@
                 margin-right: 10px;
             }
         }
+    }
+}
+.tab-inner {
+    display: none;
+    &.active {
+        display: block;
     }
 }
