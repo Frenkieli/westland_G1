@@ -168,8 +168,7 @@
             </div>
             <h3>請先登入</h3>
             <div class="btn_login">
-                <a href="check_order.html"><button class="btn--active btn_bor">登入
-                    </button></a>
+                <button class="btn--active btn_bor showloginBox">登入</button>
             </div>
         </div>
     </div>
@@ -339,9 +338,14 @@
         document.getElementById('check').addEventListener('click', function () {
 
             if (storage['member_no']) {//有登入
-
+                window.location='check_order.html';
             } else {//沒登入
                 document.getElementById('pleaseLogin').style.display = "";
+                document.querySelector('.showloginBox').addEventListener('click',function(){
+                    $('#lightBox').css('display', 'block');
+                    document.getElementById('pleaseLogin').style.display = "none";
+                    order=1;
+                });
             }
         }, false);
 

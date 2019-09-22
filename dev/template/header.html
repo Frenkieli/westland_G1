@@ -177,6 +177,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script>  //使用jquery-Ajax//
+    var order=0;
     //----------------------------登入start---------------------------------------//
     $(document).ready(function () {
         //====按會員登入icon====//..假使sessionStorage有member_no，就跳轉去會員中心頁面，否則就跳出登入燈箱
@@ -240,6 +241,10 @@
                 });
                 $('#lightBox').css('display', 'none'); //成功之後...>燈箱關掉
                 console.log('sessionStorage: ' + sessionStorage.member_id)
+                if(order==0)
+                    window.location.reload();
+                else
+                    window.location='check_order.html';
             }, error: function (XMLHttpRequest, textStatus) { //錯誤的話要執行的函數
                 console.log(XMLHttpRequest);  //XMLHttpRequest.responseText    XMLHttpRequest.status   XMLHttpRequest.readyState
                 console.log(textStatus);

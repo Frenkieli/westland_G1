@@ -174,9 +174,9 @@
     
 
                     <form id="toRecipient">
-                        <input name="formGetRecipientName" id="formGetRecipientName" type="hidden">
-                        <input name="formGetRecipientTel" id="formGetRecipientTel" type="hidden">
-                        <input name="formGetrecipientAdd" id="formGetrecipientAdd" type="hidden">
+                        <input name="formGetRecipientName" type="hidden">
+                        <input name="formGetRecipientTel" type="hidden">
+                        <input name="formGetrecipientAdd" type="hidden">
                     </form>
                 </div>
 
@@ -232,15 +232,13 @@
                     //previousElementSibling我的上一個兄弟
 
 
-                    //console.log(cartUpdateFormClone.children[0].children[0].children[4].children[0].children[0]);//test
+                    console.log(cartUpdateFormClone.children[0].children[0].children[1]);//test
 
-                    cartUpdateFormClone.children[0].children[0].children[0].children[0].children[0].src = itemInfo.split('|')[1];
-                    cartUpdateFormClone.children[0].children[0].children[0].children[0].children[0].src = itemInfo.split('|')[1];
-
-                    cartUpdateFormClone.children[0].children[0].children[1].children[0].innerText = itemInfo.split('|')[0];
-
-                    cartUpdateFormClone.children[0].children[0].children[2].children[0].children[0].innerText = itemInfo.split('|')[2];
-                    cartUpdateFormClone.children[0].children[0].children[4].children[0].children[0].innerText = itemInfo.split('|')[2];
+                    cartUpdateFormClone.children[0].children[0].children[0].children[0].children[0].src = itemInfo.split('|')[1];//／圖片
+                    cartUpdateFormClone.children[0].children[0].children[1].children[0].innerText = itemInfo.split('|')[0];//商品名稱
+                    cartUpdateFormClone.children[0].children[0].children[2].children[0].children[0].innerText = itemInfo.split('|')[2];//單價
+                    cartUpdateFormClone.children[0].children[0].children[3].children[0].children[0].value = itemInfo.split('|')[3];//數量
+                    cartUpdateFormClone.children[0].children[0].children[4].children[0].children[0].innerText = itemInfo.split('|')[2]*itemInfo.split('|')[3];//小計
                     cartUpdateFormClone.children[0].children[0].children[1].children[2].children[0].innerText = itemInfo.split('|')[2];//手機版單價
                 }
 
@@ -285,6 +283,7 @@
     <!-- -----------購物車動態新增end-------- -->
     <!-- -----------購物車數量及小計end-------- -->
     <script>
+        order=0;
         (function () {
             let btnLess = document.querySelectorAll(".btnLess");
             let btnPlus = document.querySelectorAll(".btnPlus");
@@ -323,9 +322,9 @@
     <!-- -----------購物車數量及小計end-------- -->
     <!-- -----------購物車結帳付款抓訂貨人資訊-------- -->
     <script>
-        function $id(id) {
-            return document.getElementById(id);
-        }
+        // function $id(id) {
+        //     return document.getElementById(id);
+        // }
         document.getElementById("member_no").value = storage.getItem("member_no");
         // console.log(document.getElementById("member_no").value);
         function checkMemberIfo() {//撈訂購人資訊
@@ -340,22 +339,32 @@
                     document.querySelector(".order_person_name").value=memberInfo.member_name;
                     document.querySelector(".order_person_phone").value=memberInfo.member_tel;
                     document.querySelector(".order_person_email").value=memberInfo.member_email;
+                    document.getElementById('check').addEventListener('click',function(){
+                        for(let i=0;i<document.getElementById('cartUpdateFormWrap').childElementCount-3;i++){
+                            console.log(document.getElementById('cartUpdateFormWrap').children[i+1]);
+                            let itemID=document.getElementById('cartUpdateFormWrap').children[i+1].id.replace("pd-","");
+                            console.log(itemID);
+                            let itemCount=document.getElementById('cartUpdateFormWrap').children[i+1].children[0].children[0].children[3].children[0].children[0].value;
+                            console.log(itemCount);
+                        }
+                        
+                    },false);
                 } else {//............失敗
                     alert(xhr.status);
                 }
             }
-            //###
             // console.log(document.getElementById("getMember"));
             // let getMember = new FormData(document.getElementById("getMember"));
             // console.log(document.getElementById("member_no").value);
             // console.log("aaaaa",getMember);
+
             //設定好所要連結的程式
             var url = `php/getCheck_order_JSON.php?member_no=${document.getElementById("member_no").value}`;
             xhr.open("get", url, true);  //readyState : 1
             //送出資料
             xhr.send(null);//readyState : 2
 
-        }//function_checkId 
+        }
         //..........................................
         window.addEventListener("load", checkMemberIfo, false);
 
