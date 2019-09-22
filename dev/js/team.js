@@ -19,11 +19,11 @@ function $id(id) {
 }
 //所有頁籤畫面生成
 function showTeam(teamlist, ticketlist) {
-    //檢查有沒有可以使用的票(沒加入隊伍的)
+    //檢查有沒有可以使用的票(沒加入隊伍的 且 未出園的)
     canUseTicket = [];//該會員所有未組隊的門票
     ticketlist.forEach(ticketElement => {
-        if (ticketElement.team_no) {
-
+        if (ticketElement.team_no || ticketElement.exit_status == 1) {
+            // console.log(ticketElement);
         }
         else {
             canUseTicket.push(ticketElement);
@@ -39,9 +39,10 @@ function showTeam(teamlist, ticketlist) {
     //動態生成 加入/已加入 畫面
     let inputIndex = 0;//1加入 2已加入
     teamlist.forEach(teamElement => {
-        let have_add = 0;
-        let use_ticket = 0;
-        let use_ticket_bounty = 0;
+        let have_add = 0;//是否已加入
+        let use_ticket = 0;//加入隊伍使用的門票
+        let use_ticket_bounty = 0;//該門票有的賞金
+        let have_add_exit_status = 0;//加入隊伍門票的出園狀態
         //沒登入 人數少於5的隊伍
         if (member_no == undefined && teamElement.team_num != 5) {
             inputIndex = 1;
@@ -63,8 +64,13 @@ function showTeam(teamlist, ticketlist) {
             //有登入 且是自己的隊伍 或是已加入的隊伍
             else if ((member_no && teamElement.leader_member_no == member_no) || (member_no && teamElement.team_no == ticketElement.team_no)) {
                 // console.log('已加入', ticketElement.ticket_no);
-                have_add = 1;
-                //加入隊伍或是創建隊伍所使用的門票
+                have_add=1;
+                //判斷加入此隊伍的這張門票是不是已經出園了，如果出園就不顯示
+                if (teamElement.team_no == ticketElement.team_no && ticketElement.exit_status == 1) {
+                    console.log(teamElement,"出園隊伍");
+                    have_add_exit_status = -1;
+                }
+                //加入隊伍 或是 創建隊伍所使用的門票
                 if (teamElement.team_no == ticketElement.team_no) {
                     use_ticket = ticketElement.ticket_no;
                     use_ticket_bounty = ticketElement.bounty;
@@ -86,7 +92,10 @@ function showTeam(teamlist, ticketlist) {
                 inputIndex = 0;
             }
         });
-        if (have_add == 1) {
+        if(have_add_exit_status==-1){
+            inputIndex = 0;
+        }
+        else if (have_add == 1) {
             inputIndex = 2;
         }
         // console.log('over---------------------------------------');
@@ -120,7 +129,7 @@ function showTeam(teamlist, ticketlist) {
                 break;
             //已加入
             case 2:
-                // console.log(teamElement);
+                console.log(teamElement);
                 let createjoinedTeam =
                     `<div class="team_list_box">
                         <input type="hidden" name="leader_status" value="${leader_status}">
@@ -135,7 +144,7 @@ function showTeam(teamlist, ticketlist) {
                             <p class="wanted_teamname">${teamElement.team_name}</p>
                             <p class="wanted_bounty">$${teamElement.team_bounty}</p>
                             <div class="wanted_mascot">
-                                <img src="${teamElement.mascot_image}}">
+                                <img src="${teamElement.mascot_image}">
                             </div>
                         </div>
                         <div class="list_box_info">
@@ -423,7 +432,7 @@ function joined() {
     console.log("joined");
 
     //切換頁籤
-    
+
     $id("join").style.display = 'none';
     $id("create").style.display = 'none';
     $id("joined").style.display = '';
