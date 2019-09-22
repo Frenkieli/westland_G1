@@ -173,20 +173,20 @@
             <!-- -------------評分/留言部分 ----------------->
             <div id="tab05" class="evaluation_content tab-inner">
                 <div class="evaluation_list" id="evaluation_list">
-                    <h3>我的評分</h3>
+                    <!-- <h3>我的評分</h3>
                     <div class="score_box">
-                        <!-- 第一則評分 -->
+                        
                         <div class="score_item">
                             <div class="equ_historypic">
                                 <span>海盜船</span>
-                                <!-- <img src="pic/member/equ01.png" alt="設施照片"> -->
+                                
                             </div>
                             <div class="equ_score">
                                 <span>評分</span>
                                 <span>3</span>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     <h3>我的留言</h3>
                     <div class="message_box">
                         <!-- 第ㄧ則留言 -->
@@ -429,10 +429,10 @@
         //2.輸入完要更新的資料後，表單會改成更新後的資料
         $('#dit_button').click(function () {
             //將值存起來
-            var member_name = $('#mem_name').val();     //暱稱
-            var member_email = $('#mem_email').val();   //信箱
+            var member_name = $('#mem_name').val();    //暱稱
+            var member_email = $('#mem_email').val();  //信箱
             var mem_phone = $('#mem_phone').val();   //電話
-            var member_birth = $('#mem_birth').val();   //生日
+            var member_birth = $('#mem_birth').val();  //生日
             var mem_credit = $('#mem_credit').val();  //信用卡 
             $.ajax({
                 url: "php/updateMember.php",
