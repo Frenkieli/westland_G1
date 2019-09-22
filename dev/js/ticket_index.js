@@ -110,6 +110,8 @@ function saveticketinfo(){
 
 
 
+
+
 function init() {
     //樣式角度預設
     itemdeg=0;
@@ -170,15 +172,19 @@ function init() {
     // 放大樣式鈕
     let plus = document.getElementById("opabox_plus");
     plus.addEventListener("click", plusitem);
+
     // 縮小樣式鈕
     let minus = document.getElementById("opabox_minus");
     minus.addEventListener("click", minusitem);
+
     // 選轉向右式鈕
     let turnright = document.getElementById("opabox_right");
     turnright.addEventListener("click", rightitem);
+
     // 選轉向左式鈕
     let turnleft = document.getElementById("opabox_left");
     turnleft.addEventListener("click", leftitem);
+    
     // 垃圾桶鈕
     let trash = document.getElementById("opabox_del");
     trash.addEventListener("click", trashitem);
