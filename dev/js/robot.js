@@ -133,7 +133,46 @@ function append(line) { // 將 line 放到「對話區」顯示。
 
 function answer(value) { // 回答問題
     setTimeout(function () { // 停頓 1 到 3 秒再回答問題 (因為若回答太快就不像人了，人打字需要時間)
-        append(">> " + getAnswer(value));
+        if (value.match('換票')) {
+            append('>>正在幫您處理。');
+            setTimeout(() => {
+                if (!sessionStorage['member_no']) {
+                    append('>>還沒有登入喔！');
+                } else if(localStorage['member_useticket'] == 'null'){
+                    append('>>沒有正在使用的票喔！');
+                }else{
+                    var xhr = new XMLHttpRequest();
+                    xhr.onload = function () {
+                        if (xhr.status == 200) {
+                            //..................取回server端回傳的使用者資料
+                            if (xhr.responseText.indexOf("sysError") != -1) {
+                                alertify.alert("系統異常,請通知系統維護人員");
+                            } else if (xhr.responseText.indexOf("使用過") != -1) {
+                                setTimeout(() => {
+                                    append('>>這張票已經進場不能換票囉！');
+                                }, 100 + random(200));
+                            } else {
+                                setTimeout(() => {
+                                    append('>>已經為你換票！正在幫你重整頁面。');
+                                    localStorage['member_useticket'] = null;
+                                    setTimeout(() => {
+                                        window.location.reload();
+                                    }, 1000);
+                                }, 100 + random(200));
+                            }
+                        } else {
+                            alertify.alert(xhr.status);
+                        }
+                    }
+                    xhr.open("post", "php/checkchangeticket.php", true);
+                    xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                    var data_info = `mem_no=${sessionStorage['member_no']}&ticket=${localStorage['member_useticket']}`;
+                    xhr.send(data_info);
+                }
+            }, 100 + random(200));
+        } else {
+            append(">> " + getAnswer(value));
+        }
     }, 500 + random(1000));
 }
 

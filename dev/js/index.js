@@ -25,7 +25,7 @@
                 document.querySelectorAll('.slider_title')[i].innerHTML = arr[index][2];
                 document.querySelectorAll('.slider_star')[i].innerHTML += arr[index][3];
                 document.querySelectorAll('.slider_score')[i].style.clipPath = ` polygon(0% 0% ,${arr[index][4] / arr[index][5] * 2}0% 0%,${arr[index][4] / arr[index][5] * 2}0% 100%,0% 100%)`;
-                document.querySelectorAll('.slider_member p')[i].innerHTML = arr[index][6];
+                document.querySelectorAll('.slider_member p')[i].innerHTML = arr[index][8]+'說：'+ arr[index][6];
                 document.querySelectorAll('.slider_memberimg img')[i].src = arr[index][7];
                 check = arr[index][0];
                 i++;
