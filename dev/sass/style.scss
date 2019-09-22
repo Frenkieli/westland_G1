@@ -216,3 +216,18 @@ h1,h2,h3,h4,h5,h6,p,a,span,div,ul,li,ol{
 .ajs-no-overflow{
     overflow: auto !important;
 }
+
+button.ajs-button.ajs-ok {
+    cursor: pointer !important;
+    width: 130px !important;
+    border-radius: 15px !important;
+    text-align: center !important;
+    -webkit-transition: 0.3s !important;
+    transition: 0.3s !important;
+    background-color: #f09100 !important;
+    -webkit-box-shadow: 2px 4px #ef5925 !important;
+    box-shadow: 2px 4px #ef5925 !important;
+    font-size: 14px !important;
+    line-height: 30px !important;
+    color: #fff !important;
+}

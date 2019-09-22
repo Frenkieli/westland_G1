@@ -16,21 +16,27 @@
     }, 1200);
     window.addEventListener('load', pushSlide, false);
     function pushSlide() {
-        // console.log(arr);
+        // console.log(arr, '設施');
         let check = -1;
-        for (let index = 0,i = 0; index < arr.length; index++) {
-            if(check != arr[index][0]){
+        for (let index = 0, i = 0; index < arr.length; index++) {
+            if (check != arr[index][0]) {
                 // console.log(i,'++',arr[index][0]);
+
                 document.querySelectorAll('.slider_img>img')[i].src = arr[index][1];
                 document.querySelectorAll('.slider_title')[i].innerHTML = arr[index][2];
                 document.querySelectorAll('.slider_star')[i].innerHTML += arr[index][3];
                 document.querySelectorAll('.slider_score')[i].style.clipPath = ` polygon(0% 0% ,${arr[index][4] / arr[index][5] * 2}0% 0%,${arr[index][4] / arr[index][5] * 2}0% 100%,0% 100%)`;
-                document.querySelectorAll('.slider_member p')[i].innerHTML = arr[index][8]+'說：'+ arr[index][6];
+                document.querySelectorAll('.slider_member p')[i].innerHTML = arr[index][8] + '說：' + arr[index][6];
                 document.querySelectorAll('.slider_memberimg img')[i].src = arr[index][7];
+                document.querySelectorAll('.slider_img')[i].addEventListener('click', function () {
+                    localStorage['equ_no'] = null;
+                    localStorage['equ_no'] = arr[index][0];
+                    window.location.href = 'information_inner_page.html?equ_no=' + arr[index][0];
+                }, false)
                 check = arr[index][0];
                 i++;
             }
-                
+
 
             // console.log(arr[index][4] / arr[index][5], '測試');
         }
