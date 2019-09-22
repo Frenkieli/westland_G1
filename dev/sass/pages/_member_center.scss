@@ -249,7 +249,10 @@
     box-shadow: 10px 10px 5px #888888;
     // height: 70%;
     h3 {
+    
         padding: 20px 0;
+        font-size: 20px;
+        line-height: 2rem;
     }
     .order_item {
         width: 90%;
@@ -394,11 +397,14 @@
     background-color: #fff;
     box-shadow: 10px 10px 5px #888888;
     padding-bottom: 40%;
-    border: 5px solid #9dba65;   
+    border: 5px solid #9dba65; 
+    
     h3{
         padding-top:20px;
+        font-size: 20px;
+        line-height: 2rem;
         margin-bottom:10px;  
-    }
+        }
     .score_item {
         width: 80%;
         margin: 20px auto;
