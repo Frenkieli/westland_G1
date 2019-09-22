@@ -204,13 +204,13 @@
         });
         //============點擊立即註冊=================
         $("#register_fast").click(function () {
-            $("#mem_id").val('qaz123');
-            $("#mem_psw").val('777');
+            $("#mem_id").val('qqq777'); //帳號
+            $("#mem_psw").val('111');   //密碼
         });
         
     });
 
-    //====檢查====
+    //===========檢查===========
     function checkVal(value) {
         var reg = /^[a-zA-Z0-9_-]{3,16}$/; //使用正規表達式
         if (value.search(reg)) {
@@ -247,8 +247,6 @@
         });
     }
 
-
-  
 </script>
 <!-- -----------購物車動態新增start-------- -->
 <script>
@@ -430,7 +428,7 @@
 
         //====按取消按鈕====//  密碼燈箱會消失
         $('.login_cancel img').click(function () {
-            $('#password_lightbox').css('display', 'none');
+            $('#password_lightbox').css('display','none');
         });
     })
 
@@ -439,7 +437,7 @@
     //提示問題必須回答正確---->比對資料庫
     //密碼檢查字數checkVal
     $('#password_button').click(function(){
-        var memid = $("#password_memid").val();//密碼
+        var memid = $("#password_memid").val();//帳號
         var password = $("#new_mempsw").val();//密碼
         var re_password = $("#re_mempsw").val();//確認密碼
         var requestion = $("#repassword_question").val();//提示問題

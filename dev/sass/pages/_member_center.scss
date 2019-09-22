@@ -6,6 +6,7 @@
     margin: auto;
     text-align: center;
     margin-bottom: 20px;
+    margin-right: 20px;
     .infowrap {
         display: flex;
         flex-direction: column;
@@ -32,7 +33,7 @@
                 // border-top-style: dashed;
                 // border-bottom-style: dashed;               
                 li {
-                    width:25%;
+                    width:30%;
                     text-align: center;
                     list-style: none;
                     padding: 5px 0;
@@ -43,7 +44,8 @@
                     text-decoration: none;
                     align-items: center;
                     box-sizing: border-box;
-                    color: #9dba65;
+                    // color: #9dba65;
+                    color: #5A7529;
                     font-size: 20px;
                     line-height: 2rem;
                     font-family: "Noto Sans TC", sans-serif;
@@ -110,34 +112,24 @@
     display: block;
     background-color: #fff;
     border: 10px solid #9dba65;
-    // border-radius: 2%;
-    // border-style:ridge;
+    position: relative;
     text-align: left;
     // &::before{//暫時
-    //     width: 40%;
-    //     height: 50%;
-    //     background-color: #555;
-    //     opacity: .5;
+    //     width: 20%;
+    //     height: 20%;
+    //     // background-color: #555;
+    //     // opacity: .5;
     //     z-index:-1;
     //     position: absolute; 
-    //     top:83%; 
+    //     top:49%; 
     //     bottom:0px; 
-    //     left:38%;
+    //     left:67%;
     //     content:"";
-    //     box-shadow:0 15px 10px rgba(0, 0, 0, 0.5);                                      
-    //     transform: rotate(3deg);                              
-    // }
-    // &::after{
-    //     width:30%;
-    //     height:50%;
-    //     left:46%;
-    //     top:85%;
-    //     box-shadow:0px 15px 0px rgba(0, 0, 0, 0.5); 
-    //     transform: rotate(3deg);
-    //     background-color: #111;
-    //     z-index:-1;
-    //     position: absolute;
-    //     content:"";
+    //     // box-shadow:0 15px 10px rgba(0, 0, 0, 0.5);                                      
+    //     transform: rotate(10deg);
+    //     background-image: url("../images/member/fat.png");
+    //     background-size:contain;
+    //     background-repeat: no-repeat;                               
     // }
     h3 {
         background-color: #9dba65;
@@ -204,6 +196,15 @@
 }
 @media screen and (min-width: 768px) {
     .info_content{
+        // &::before{//暫時
+        //     width: 20%;
+        //     height: 20%;
+        //     position: absolute; 
+        //     top:55%; 
+        //     bottom:0px; 
+        //     left:85%;                                  
+        //     transform: rotate(10deg);                              
+        // }
         .content_item{
             .memid{
                 padding-left:90px;
@@ -214,7 +215,20 @@
         }
     }
 }
+// @media screen and (min-width: 1200px){
+//     .info_content{
+//         &::before{//暫時
+//             width: 20%;
+//             height: 20%;
+//             position: absolute; 
+//             top:49%; 
+//             bottom:0px; 
+//             left:80%;                                  
+//             transform: rotate(10deg);                              
+//         }
+//     }
 
+// }
 
 ////////////////////////////////
 //     訂單部分               //
@@ -254,9 +268,9 @@
         }
     }
 }
-////////////////////////////
-//   購票                 //
-////////////////////////////
+//////////////////////////////
+//          購票            //
+/////////////////////////////
 .ticket_content {
     width: 100%;
     display: block;  
@@ -268,26 +282,46 @@
     border: 5px solid #9dba65;
     h3 {
         padding: 20px 0;
+        font-size: 20px;
+        line-height: 2rem;
+        margin: auto;
+        position: relative;
+        // &::before{
+        //     background-image: url("../images/member/headd.png");
+        //     background-size:contain;
+        //     background-repeat: no-repeat;
+        //     width: 30%;
+        //     position: absolute;
+        //     top:10px;
+        //     right: 20px;
+        //     content: "123";
+        // }
     }
     .ticket_item {
         // width: 90%;
         margin: auto;
-        border: 2px solid #9dba65;
-        // border-radius: 5px;
-
+        border: 3px solid #9dba65;
         width: 150px;
         font-size: 18px;
         line-height: 30px;
         padding: 20px;
-        // border: 2px solid #002552;
         border-radius: 25px;
-        background-color: #EBDCC2;
+        // background-color: #9dba65;
+        // opacity: .5;
         margin-top: 25px;
         margin-bottom: 25px;
             P{
-                color: #9dba65;
+                color: #668823;
                 font-family: "Noto Sans TC", sans-serif;
+                text-align: left;
+                #ticket_no{
+                    color: #f09100;
+                    }
+                #entrance_status{
+                    color: #f09100;
+                    }
             }
+            
         // table {
         //     border-collapse: collapse;
         //     width: 100%;
@@ -316,21 +350,36 @@
     .team_list{
         h3 {
             padding: 20px 0;
+            line-height: 2rem;
+            font-size: 20px;
         }
         .team_item{
             width: 90%;
             margin: auto;
-            border: 1px solid #9dba65;
-            border-radius: 5px;
+            // border: 1px solid #9dba65;
+         
             margin-bottom:10px; 
             table{
                 border-collapse: collapse;
                 width: 100%;
                 height: 50%;
+                .team_head{
+                    width: 20%;
+                    line-height: 3;
+                    color: #92b846;
+                    font-size: 16px;
+                    border: 2px solid #9dba65;
+                    // border-radius: 5%;
+                    background-color: #EBDCC2;
+                  
+                }
                 tr {
                     font-family: "Noto Sans TC", sans-serif;
-                    line-height: normal;
+                    line-height: 3rem;
                     font-size: 14px;
+                    td{
+                        text-align: center
+                    }
                     }
                 }
             }
@@ -338,16 +387,17 @@
     }
 ////////////////////////////////////////
 //              評分/留言              /
-///////////////////////////////////////
+////////////////////////////////////////
 .evaluation_content {
     width: 100%;
     display: block;
     background-color: #fff;
     box-shadow: 10px 10px 5px #888888;
     padding-bottom: 40%;
-    border: 5px solid #9dba65;      
+    border: 5px solid #9dba65;   
     h3{
-        padding-top:20px; 
+        padding-top:20px;
+        margin-bottom:10px;  
     }
     .score_item {
         width: 80%;
@@ -362,6 +412,11 @@
         display: flex;
         flex-flow: row wrap;
         margin: auto;
+        background-color: #9dba65;
+        opacity: .5;
+        border-radius: 15px;
+        margin: 10px;
+        // text-align: center;
         .message_pot {
             border: 1px solid #9dba65;
             border-radius: 10px;
@@ -379,5 +434,11 @@
                 margin-right: 10px;
             }
         }
+    }
+}
+.tab-inner {
+    display: none;
+    &.active {
+        display: block;
     }
 }

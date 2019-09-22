@@ -7,10 +7,7 @@
         $member_id = $_POST['member_id'];
         $member_psw = $_POST['member_psw'];
         $sql = "SELECT `member_no` FROM `members` WHERE `member_id` = '$member_id' and member_psw =  '$member_psw' "; 
-    
-       
-        $members=$pdo->prepare($sql); //要執行事先編譯過後的指令
-       
+        $members=$pdo->prepare($sql); //要執行事先編譯過後的指令  
         $members->execute();//執行sql命令
             //取得欄位第一筆的值
         if($members->rowCount() == 0){
