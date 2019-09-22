@@ -41,13 +41,14 @@ loginBoard.addEventListener('click',function(){
             let member_no = loginIsTure;
             let equ_no = $('#equ_no').val();
             let equ_message = $('#equ_message').val();
-            let starLevel=document.getElementsByName('box');
+            let starLevel=document.getElementsByName('starBox');
             let starLevelVal;
             for(let i =0 ;i<starLevel.length;i++){
                 if(starLevel[i].checked == true){
                     starLevelVal = starLevel[i].value;
                 }
             }
+            console.log(starLevelVal);
             $.ajax({
                 url:"php/keyinMessage.php",
                 method:'POST',

@@ -11,8 +11,10 @@
 
 
 		$starLevel=$_POST['starLevel'];
-		$sql_star="INSERT INTO `amusement_equipments`(`equ_score_total`) 
-		VALUES ('$starLevel')";
+		$sql_star="UPDATE `amusement_equipments` 
+			       SET `equ_score_total` = `equ_score_total`+$starLevel
+				   WHERE `amusement_equipments`.`equ_no` = $equ_no
+		";
 
 		$addMessage = $pdo->prepare($sql);
 		$addMessage->execute();
