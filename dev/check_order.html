@@ -17,13 +17,13 @@
 
 </head>
 
-<body class="check_order_page">
+<body class="check_order_page ">
 
     <header class="header_navbar">
         @@include("template/header.html")
     </header>
-
-    <section class="container ">
+    <div class="section_title ">付款明細</div>
+    <section class="container section_m_b50">
         <div id="cartUpdateFormWrap" class="m_jg_0_50 m0_35">
             <div class="shopping_cart_title dis_n ">
                 <div class="col-lg-3 dis_f_jc_c shopping_cart_title_text f_w">
@@ -94,16 +94,15 @@
                 </div>
             </form>
             <div class="bg_fdfff3 bg_fdfff3_d ta-r p10 bt">
-                <p class="ta-r dis-lg-ib mb-0 mt-15 mt-lg-0">總計：<span id="sumTotalPrice"></span>元</p>
+                <p class="ta-r dis_lg_ib mb-0 mt-15 mt-lg-0">總計：<span id="sumTotalPrice"></span>元</p>
             </div>
 
         </div>
     </section>
+    <div class="section_title">付款方式</div>
     <section class="container ">
-        <div class="pay_mothod m_jg_0_50">
-            <p>請點選付款方式</p>
-        </div>
-        <div id="cartUpdateFormWrap" class="m_jg_0_50 m0_35 dis_f_j_c f_c_w dis_f_jc_l">
+        
+        <div id="cartUpdateFormWrap" class="b_b_f09100 m_jg_0_50 m0_35 dis_f_j_c f_c_w dis_f_jc_l">
             <div class="shopping_cart_title a4c174_deep shopping_cart_title_o pay_item dis_n">
                 <div class=" dis_f_jc_c pay_mothod_text">
                     <h5 class="m-0">線上付款</h5>
@@ -117,7 +116,62 @@
         </div>
         <form action="cartUpdate.php" method="get">
             <div class="bg_fdfff3 m_jg_0_50">
-                <div class="shopping_cart  m40_0_0  dis_f_jc_c">
+                <div class="shopping_cart  m40_0_0 ">
+                    <div id="online" class="payTypeDetail mt_20 mb_50">
+                        <div>
+                            <p class="mb_5 mt_18 dis_lg_ib">信用卡卡號</p>
+                            <input class="input_809957" type="text" name="creditCard-1">
+                            <span>-</span>
+                            <input class="input_809957" type="text" name="creditCard-2">
+                            <span>-</span>
+                            <input class="input_809957" type="text" name="creditCard-3">
+                            <span>-</span>
+                            <input class="input_809957" type="text" name="creditCard-4">
+                        </div>
+                        <div>
+                            <p class="mb_5 mt_18 dis_lg_ib">有效期限</p>
+                            <select name="chooseMonth" id="chooseMonth"></select>
+                            <select name="chooseYear" id="chooseYear"></select>
+                        </div>
+                        <div>
+                            <p class="mb_5 mt_18 dis_lg_ib">安全碼</p>
+                            <input class="input_809957" type="text" name="creditCardSafeCode">
+                        </div>
+
+                    </div>
+                    <!-- <div id="cash" class="payTypeDetail">
+                        <p>您已選擇貨到付款，請點選『進行結帳』完成購買。</p>
+                    </div> -->
+                    
+                    <div class="line mb_50">
+                        <div class="col-lg-6 mt_18">
+                            <h5 class="mb_15">訂購人資訊</h5>
+                            <p class="mt_5 mb_5">
+                                <span class="w-100 dis-ib">訂購人姓名</span>
+                                <input class="input_809957" type="text" name="order-person-name" value="sara">
+                            </p>
+                            <p class="mt_5 mb_5">
+                                <span class="w-100 dis-ib">訂購人電話</span>
+                                <input class="input_809957" type="text" name="order-person-phone" value="0987654321">
+                            </p>
+                            <p class="mt_5 mb_5">
+                                <span class="w-100 dis-ib">訂購人地址</span>
+                                <input class="input_809957" type="text" name="order-person-address">
+                            </p>
+                        </div>
+
+                        <div class="col-lg-6 mt_18">
+                            <h5 class="mb_15">收件人資訊</h5>
+                            <p class="mt_5 mb_5"><span class="w-100 dis-ib">收件人姓名</span><input class="input_809957" type="text"
+                                    name="receive-person-name"></p>
+                            <p class="mt_5 mb_5"><span class="w-100 dis-ib">收件人電話</span><input class="input_809957" type="text"
+                                    name="receive-person-phone"></p>
+                            <p class="mt_5 mb_5"><span class="w-100 dis-ib">收件人地址</span><input class="input_809957" type="text"
+                                    name="receive-person-address"></p>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
                     <!-- <div class="reserver_online">
                         <div class="col48 m-a col-lg-3 dis_f_jc_c shopping_cart_item">
                             <p>信用卡卡號</p>
@@ -131,7 +185,7 @@
                             <input type="hidden" name="pPrice" value="299">
                         </div>
                     </div> -->
-                    <div class="reserver_member ">
+                    <!-- <div class="reserver_member ">
                         <div class="col-lg-6 reserver_column_left">
                             <p>訂購人資訊</p>
                             <div class="reserve_person">
@@ -187,7 +241,7 @@
                             </div>
                         </div>
 
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
@@ -240,7 +294,7 @@
     <!-- -----------購物車內頁商品動態新增start-------- -->
     <script>
         console.log(window.location.href.indexOf('info'));
-        if (window.location.href.indexOf('info')!=-1) {
+        if (window.location.href.indexOf('info') != -1) {
 
         } else {
             function shopingCartFirst() {

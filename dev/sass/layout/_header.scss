@@ -30,6 +30,14 @@
             }
         }
     }
+    .shoppingCart_popup_count_number{ 
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -60%);
+        color: #fff;
+        
+    }
     @include rwd(phone) {
         .nav_space{
             height: 127px;
@@ -37,6 +45,9 @@
         .shoppingCart_popup,.shoppingCart_popup_count,.navbar_cloud,.forcomputerdemo{
             display: none;
         }
+        // .shoppingCart_popup_count{
+        //     display: block;
+        // }
         .navbar_burger{
             width: 44px;
             height: 44px;
@@ -287,14 +298,7 @@
             height: 25px; 
             // position: relative;
         }
-        .shoppingCart_popup_count_number{ 
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -60%);
-            color: #fff;
-            
-        }
+        
     }
 }
 
