@@ -9,10 +9,11 @@
 
     <!-- css -->
     @@loop('template/csslink.html',[
+    {"csslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/alertify.min.css"},
+    {"csslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/default.min.css"},
     {"csslink" : "css/style.css"},
     {"csslink" : "css/owl.carousel.min.css"},
     {"csslink" : "css/owl.theme.default.css"}
-
     ])
 
 </head>
@@ -102,7 +103,7 @@
             </div>
         </div>
     </section>
-    <section class="item_recom_section container">
+    <section class="item_recom_section container_mb">
         <h3 class="section_title">推薦商品</h3>
         <div class="shop-tab-inner">
             <div class="col-2 col-xl-1 ta-r v-xl-hide">
@@ -110,45 +111,49 @@
             </div>
             <!-- <div class="sort_same pt350 owl-carousel owl-theme"> -->
             <div class="sort_same owl-carousel owl-theme">
-                <div class="hoverObj card_bg card_bg1">
+                <div class="hoverObj card_bg card_bg1 related_item">
                     <div class="gray_linear_gradient center">
                         <div class="sort_same_item_img center">
-                            <a href="item.html"><img src="images/product/product_small/pd_s-01.jpg"></a>
+                            <img src="images/products/product_list/pd_b-37.png">
                         </div>
                         <p class="sort_same_item_title text_align_c">仙人掌包包</p>
                         <p class="sort_same_item_price text_align_c">NT.450</p>
-                        <div class="btn m-b m-a">加入購物車</div>
+                        <div class="btn m-b m-a addCartButton">加入購物車</div>
                     </div>
+                    <input type="hidden" name="">
                 </div>
-                <div class="hoverObj card_bg card_bg1">
+                <div class="hoverObj card_bg card_bg1 related_item">
                     <div class="gray_linear_gradient center">
                         <div class="sort_same_item_img center">
-                            <img src="images/product/product_small/pd_s-02.jpg">
+                            <img src="images/products/product_list/pd_b-37.png">
                         </div>
                         <p class="sort_same_item_title text_align_c">仙人掌包包</p>
                         <p class="sort_same_item_price text_align_c">NT.450</p>
-                        <div class="btn m-b m-a">加入購物車</div>
+                        <div class="btn m-b m-a addCartButton">加入購物車</div>
                     </div>
+                    <input type="hidden" name="">
                 </div>
-                <div class="hoverObj card_bg card_bg1">
+                <div class="hoverObj card_bg card_bg1 related_item">
                     <div class="gray_linear_gradient center">
                         <div class="sort_same_item_img center">
-                            <img src="images/product/product_small/pd_s-03.jpg">
+                            <img src="images/products/product_list/pd_b-37.png">
                         </div>
                         <p class="sort_same_item_title text_align_c">仙人掌包包</p>
                         <p class="sort_same_item_price text_align_c">NT.450</p>
-                        <div class="btn m-b m-a">加入購物車</div>
+                        <div class="btn m-b m-a addCartButton">加入購物車</div>
                     </div>
+                    <input type="hidden" name="">
                 </div>
-                <div class="hoverObj card_bg card_bg1">
+                <div class="hoverObj card_bg card_bg1 related_item">
                     <div class="gray_linear_gradient center">
                         <div class="sort_same_item_img center">
-                            <img src="images/product/product_small/pd_s-03.jpg">
+                            <img src="images/products/product_list/pd_b-37.png">
                         </div>
                         <p class="sort_same_item_title text_align_c">仙人掌包包</p>
                         <p class="sort_same_item_price text_align_c">NT.450</p>
-                        <div class="btn m-b m-a">加入購物車</div>
+                        <div class="btn m-b m-a addCartButton">加入購物車</div>
                     </div>
+                    <input type="hidden" name="">
                 </div>
             </div>
             <div class="col-2 col-xl-1 v-xl-hide">
@@ -172,6 +177,8 @@
 
     <!-- js -->
     @@loop('template/jslink.html',[
+    {"jslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"},
+    {"jslink" : "js/alertifyJSset.js"},
     {"jslink" : "https://kit.fontawesome.com/6a6d2775fc.js"},
     {"jslink" : "js/jquery.min.js"},
     {"jslink" : "js/owl.carousel.js"}
@@ -264,7 +271,7 @@
                 e.preventDefault()
                 // let itemId = this.parentNode.getAttribute('id');
                 let key = this.parentNode.parentNode.parentNode.parentNode.parentNode.id;
-                alert(key);
+                alertify.alert(key);
                 //1.先扣除總金額
                 // sumTotalPrice -= parseInt(itemValue.split('|')[2]);//parseInt:字串轉數字
                 // document.getElementById('sumTotalPrice').innerText = sumTotalPrice;
@@ -334,10 +341,90 @@
             if (storage['member_no']) {//有登入
 
             } else {//沒登入
-                document.getElementById('pleaseLogin').style.display="";
+                document.getElementById('pleaseLogin').style.display = "";
             }
         }, false);
 
+    </script>
+
+    <script>
+        //撈取相關推薦商品
+        function getSameProduct() {
+            var xhr = new XMLHttpRequest();
+            xhr.onload = function () {
+                if (xhr.status == 200) {
+                    //modify here
+                    let SameProductlist = JSON.parse(xhr.responseText);
+                    // let SameArray = [];
+                    // SameProductlist.forEach(element => {
+                    //     if (element.product_category == document.getElementById("same_product_category").value && window.location.href.split("product_no=")[1] != element.product_no) {
+                    //         SameArray.push(element);
+                    //     }
+                    // });
+                    // console.log(SameArray);
+                    for (let i = 0; i < 4; i++) {
+                        // console.log(Math.floor(Math.random()*SameArray.length));
+                        let related_items = document.querySelectorAll('.related_item');
+                        let randomNum = Math.floor(Math.random() * SameProductlist.length);
+                        // console.log(SameProductlist[randomNum]);
+                        related_items[i].children[0].children[0].children[0].src = SameProductlist[randomNum].product_image;
+                        related_items[i].children[0].children[1].innerText = SameProductlist[randomNum].product_name;
+                        related_items[i].children[0].children[2].innerText = "NT." + SameProductlist[randomNum].product_price;
+                        related_items[i].children[1].value = SameProductlist[randomNum].product_no;
+                        SameProductlist.splice(randomNum, 1);
+                        // console.log(SameArray);
+                    }
+                    var storage = sessionStorage;
+                    let name;
+                    let image;
+                    let price;
+                    function sameitemAddCart() {
+                        if (storage['addItemList'] == null) {
+                            storage['addItemList'] = '';    //storage.setItem('addItemList','');
+                        }
+
+                        let list = document.querySelectorAll('.addCartButton');     //list是陣列
+
+                        for (let i = 0; i < list.length; i++) {
+                            list[i].addEventListener('click', function () {
+                                // console.log(this.parentNode.nextElementSibling.value);
+                                name = this.previousElementSibling.previousElementSibling.innerText;
+                                image = this.previousElementSibling.previousElementSibling.previousElementSibling.children[0].src;
+                                image = image.substr(image.indexOf('images'));
+                                price = this.previousElementSibling.innerText;
+                                price = price.replace('NT.', "");
+                                productInfo = `${name}|${image}|${price}`;
+                                // console.log(productInfo);
+                                addItem(this.parentNode.nextElementSibling.value, productInfo);
+                                First();
+                            });
+                        }
+
+                    }
+                    function addItem(itemId, itemValue) {
+                        alertify.alert(`${itemId} : ${itemValue}`);
+                        //存入storage,判斷是否為重複商品，如果重複就不增加
+                        itemId = `pd-${itemId}`;
+                        if (storage[itemId]) {
+                            alertify.alert(`商品 : ${name} ，已經加入購物車了喔`);
+                        } else {
+                            alertify.alert(`商品 : ${name} ，加入購物車成功`);
+                            storage['addItemList'] += itemId + ', ';
+                            itemValue = itemValue + "|1";
+                            storage[itemId] = itemValue;
+                        }
+                    }
+                    sameitemAddCart();
+
+                } else {
+                    alert(xhr.status);
+                }
+            }
+            var url = `php/getProduct_JSON.php`;
+            xhr.open("Get", url, true);
+            xhr.send(null);
+        }
+        getSameProduct();
     </script>
 </body>
 
