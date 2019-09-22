@@ -176,7 +176,7 @@
     <section id="addMessage" class="section_messageBoard font">
         <div class="section_title">設施留言板</div>
         <div class="message_container">
-            <div class="who">
+            <div class="who" id="who_login" >
                 <div id="who_name" class="name name_login">尚未登入</div>
                 <img  id="who_pic" class="pic pic_login" src="images/ticket/wewantyou.gif">
                 <div class="frame"><div id="who_teamName" class="teamName teamName_login">????</div></div>
@@ -188,11 +188,11 @@
                     <tr>
                         <div class="starbtn">
                             <p>星星評比:</p><img id="starLevel" src="../dest/images/information/other/5star.svg" alt="星星評比按鈕">
-                            <input value="1" type="radio"  class="1star sbtn" name="box" id="click1Star">
-                            <input value="2" type="radio" class="2star sbtn" name="box" id="click2Star">
-                            <input value="3" type="radio" class="3star sbtn" name="box" id="click3Star">
-                            <input value="4" type="radio" class="4star sbtn" name="box" id="click4Star">
-                            <input value="5" type="radio" class="5star sbtn" name="box" id="click5Star" checked>
+                            <input value="1" type="radio"  class="star_1 sbtn" name="box" id="click1Star">
+                            <input value="2" type="radio" class="star_2 sbtn" name="box" id="click2Star">
+                            <input value="3" type="radio" class="star_3 sbtn" name="box" id="click3Star">
+                            <input value="4" type="radio" class="star_4 sbtn" name="box" id="click4Star">
+                            <input value="5" type="radio" class="star_5 sbtn" name="box" id="click5Star" checked>
                             <label class="oneStar" for="click1Star"></label>
                             <label class="twoStar" for="click2Star"></label>
                             <label class="threeStar" for="click3Star"></label>

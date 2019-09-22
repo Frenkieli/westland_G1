@@ -3,15 +3,20 @@
 // }
 
 @include rwd(phone) {
+    body.information_inner_page{
+        background-position: top;
+        background-size: cover;
+        background-image: url(../images/information/inner_bgi.png);
+        background-repeat: no-repeat;
+    }
     .section_rides_DetailedIntroduction {
         .page_title {
             background-size: 20%;
             font-size: 10%;
         }
-        padding-top: 200px;
         margin: auto;
         max-width: 95vw;
-        margin-bottom: 200px;
+        margin-bottom: 100px;
     }
     .section_messageBoard {
         .page_title {
@@ -20,40 +25,153 @@
         }
         .message_container {
             display: flex;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.8);
+            width: 80%;
+            margin: auto;
             background-color: rgba(160, 228, 146, 0.5);
             border: 10px solid #5a752825;
-            border-radius: 20px;
+            border-radius: 25px;
+            padding: 20px;
+            margin-bottom: 50px;
+            position: relative;
+            #who_login{
+                margin: 2%;
+                width: 68%;
+            }
+            .mascot{
+                display: none;
+            }
+            #message_form{
+                margin: auto;
+            }
             .who {
-                flex-grow: 1;
-                width: 50px;
+                width: 40%;
+                background-image: url(../images/team/wanted.svg);
+                background-size: 90% 90%;
+                background-position: center;
+                background-repeat: no-repeat;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+                .name{
+                    top: 0;
+                    position: absolute;
+                    font-size: 20px;
+                    font-family: 'Noto Sans TC', sans-serif;
+                    text-align: center;
+                    width: 100%;
+                }
+                .pic{
+                    padding: 8%;
+                    width: 50%;
+                }
+                .frame{
+                    position: absolute;
+                    // z-index: 5;
+                    top:65%;
+                    height: 10%;
+                    width: 80%;
+                    background-image: url(../images/ticket/ticket_board.png);
+                    background-size: 100% 100%;
+                    background-position: center;
+                    .teamName{
+                        right: 0;
+                        left: 0;
+                        position: absolute;
+                        font-size: 18px;
+                        font-family: 'Noto Sans TC', sans-serif;
+                        text-align: center;
+                    }
+                }
+                .bounty{
+                    bottom: 0;
+                    position: absolute;
+                    font-size: 18px;
+                    font-family: 'Noto Sans TC', sans-serif;
+                    text-align: center;
+                    width: 100%;
+                }
             }
             #status {
                 display: none;
             }
-            margin: 50px;
-            // #messages{
-            //由他自然生成
-            // }
-            #message_form {
+            #message_box {
                 flex-grow: 1;
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                .buttonControl {
-                    flex-grow: 2;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    button {
-                        @include btn();
-                    }
-                }
-                #equ_message {
+                border-radius: 20px;
+                #report{
                     margin: auto;
+                    @include btn();
+                    font-family: 'Noto Sans TC', sans-serif;
+                }
+                #message {
+                    background-color: #fff;
+                    height: 18vh;
                     width: 80%;
-                    flex-grow: 2;
+                    font-family: 'Noto Sans TC', sans-serif;
+                    padding: 10px;
+                    margin: 10%;
+                }
+            }
+            #message_form {
+                flex-grow: 12;
+                border-radius: 20px;
+                position: relative;
+                #starLevel{
+                    width: 100%;
+                    padding: 1%;
+                }
+                .sbtn{
+                    display: none;
+                }
+                .oneStar,.twoStar,.threeStar,.fourStar,.fiveStar{
+                    top:7%;
+                    width: 15%;
+                    border-radius:20px;
+                    cursor: pointer;
+                    position: absolute;
+                    opacity: 0;
+                    height: 30px;
+                }
+                .oneStar{
+                    left: 1%;
+                }
+                .twoStar{
+                    left: 21%;
+                }
+                .threeStar{
+                    left: 41%;
+                }
+                .fourStar{
+                    left: 61%;
+                }
+                .fiveStar{
+                    left: 81%;
+                }
+                #message_table{
+                    width: 100%;
+                    justify-content: center;
+                    td{
+                        display: flex;
+                    }
+                    #equ_message {
+                        background-color: #fff;
+                        height: 15vh;
+                        margin: 10%;
+                        width: 100%;
+                        font-family: 'Noto Sans TC', sans-serif;
+                        border-radius: 15px;
+                    }
+                    #butsave{
+                        margin-top: 20px;
+                        margin: auto;
+                        @include btn();
+                        font-family: 'Noto Sans TC', sans-serif;
+                    }
                 }
             }
         }
@@ -65,6 +183,7 @@
         background-position: top;
         background-size: 100%;
         background-image: url(../images/information/inner_bgi.png);
+        background-repeat: no-repeat;
     }
     .section_rides_DetailedIntroduction {
         padding-top: 100px;
@@ -237,9 +356,10 @@
                 align-items: center;
                 border-radius: 20px;
                 #report{
-                    @include btn();
-                    height: 10%;
                     margin-top: 20px;
+                    margin: auto;
+                    @include btn();
+                    font-family: 'Noto Sans TC', sans-serif;
                 }
                 #message {
                     background-color: #fff;
@@ -300,7 +420,7 @@
                     }
                     #butsave{
                         margin-top: 20px;
-                        margin-left: 30%;
+                        margin: auto;
                         @include btn();
                         font-family: 'Noto Sans TC', sans-serif;
                     }
