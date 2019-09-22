@@ -34,8 +34,10 @@ function plusitem(){
     itemscale+=0.15;
     if(itemscale>=2.5){
         itemscale=2.5;
+        confirm();
     }else{
         opabox.style.transform = "scale(" + itemscale + ")rotate("+itemdeg+"deg)";
+        confirm();
     }
 };
 
@@ -45,8 +47,10 @@ function minusitem(){
     itemscale-=0.15;
     if(itemscale<=0.5){
         itemscale=0.5;
+        confirm();
     }else{
         opabox.style.transform = "scale(" + itemscale + ")rotate("+itemdeg+"deg)";
+        confirm();
     }
 };
 
@@ -55,6 +59,7 @@ function rightitem(){
     let opabox = document.getElementById("customize_opabox");
     itemdeg= parseInt(itemdeg)+10;
     opabox.style.transform = "scale(" + itemscale + ")rotate("+itemdeg+"deg)";
+    confirm();
 }
 
 // 樣式向左轉
@@ -62,6 +67,7 @@ function leftitem(){
     let opabox = document.getElementById("customize_opabox");
     itemdeg= parseInt(itemdeg)-10;
     opabox.style.transform = "scale(" + itemscale + ")rotate("+itemdeg+"deg)";
+    confirm();
 }
 
 //刪除樣式
@@ -72,6 +78,7 @@ function trashitem(){
     itemdeg=0;
     itemscale=1;
     opabox.style.transform = "scale(" + itemscale + ")rotate("+itemdeg+"deg)";
+    confirm();
 };
 
 //抓賞單圖檔檔名，副檔名
@@ -96,9 +103,6 @@ function changepic(e){
         alert("檔案格式不對");
         e.target.value = "";
     }else{
-        
-
-
         let pic = document.getElementById("uploadpic").files[0];
         let readpic = new FileReader();
         readpic.readAsDataURL(pic);

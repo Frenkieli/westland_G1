@@ -115,6 +115,7 @@
 // 基本按鈕
 @mixin btn(){
     // 基本寬高，圓角，文字置中，做動時間
+    cursor: pointer;
     width: 130px;
     border-radius: 15px;
     text-align: center;
@@ -134,6 +135,7 @@
 
 // 做動/手機按鈕
 @mixin btn_active(){
+    cursor: pointer;
     // 基本寬高，圓角，文字置中，做動時間
     width: 130px;
     border-radius: 15px;
