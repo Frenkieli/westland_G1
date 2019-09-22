@@ -76,7 +76,7 @@
                                 storage['addItemList'] = '';
                             }
                             storage['addItemList'] += theId.split('|')[3] + ', ';
-                            storage[theId.split('|')[3]] = theId.replace('|' + theId.split('|')[3], '');
+                            storage[theId.split('|')[3]] = theId.replace('|' + theId.split('|')[3], '') + '|1';
                             First(); //先這樣...之後再改
                         });
                 }
