@@ -1,37 +1,32 @@
 
 //////////////會員中心選單 ///////////////////      
 // //////////////////////////////////////////
-
 .account {
     margin: auto;
     text-align: center;
-    margin-bottom: 20px;
-    margin-right: 20px;
+    // margin-bottom: 30px;
+    // margin-right: 20px;
     .infowrap {
         display: flex;
         flex-direction: column;
         justify-content: center; //置中
-        /////////////////////////////
-        width: 90%;
-        margin: auto;
+        ///////////////////////////
+        width:90%;
+        margin:auto;
         // padding-top: 10px;
         .menulist {
             //選單部分
             width: 100%;
-            padding: 0 1px;
+            // padding: 0 1px;
             margin: auto;
-            // background-color: #9dba65;
-            // border-top-left-radius: 10px;
-            // border-top-right-radius: 10px;
             .mymenu {
                 box-sizing: border-box;
                 // padding: 10px 0px;
+                padding-bottom: 20px;
                 justify-content: center;
                 width: 100%;
                 display: flex;
-                flex-wrap: wrap;
-                // border-top-style: dashed;
-                // border-bottom-style: dashed;               
+                flex-wrap: wrap;             
                 li {
                     width:30%;
                     text-align: center;
@@ -65,11 +60,7 @@
                     &:hover {
                         text-decoration: underline;
                         color:#f09100;
-                        text-shadow: 15px 5px 5px rgb(253, 253, 255) ;
-                        // text-shadow: rgb(213, 213, 230) 0px 1px 0px;
-                        // &::after{
-                        //     display: block;
-                        // }
+                        // text-shadow: 15px 5px 5px rgb(253, 253, 255) ;
                     }
                 }
             }
@@ -104,16 +95,35 @@
 //////////////////////////
 //     個人資訊         //
 //////////////////////////
+$green:#9dba65;
+$orange: #f09100;
 .info_content {
     // 個人資訊部分 
-    // box-shadow:0 0 3px rgba(0, 0, 0, 0.2);
-    box-shadow: 10px 10px 5px #888888;
     width: 100%;  
     display: block;
     background-color: #fff;
-    border: 10px solid #9dba65;
     position: relative;
     text-align: left;
+   //-------------------------------------//
+    border-radius: 3px;
+    div:after { // Postcard border
+        content: '';
+        background: repeating-linear-gradient(
+        45deg,$green,$green 10px,#fff 10px,#fff 20px,
+        $orange 20px,
+        $orange 30px,#fff 30px,#fff 40px
+        );
+        // For wider stripes, I'd use an image to orangeuce jagged edges
+        padding: 20px;
+        border-radius: 6px;
+        box-shadow: 1px 2px 6px 1px rgba(76, 66, 47, 0.75);
+        width: calc(100% - 24px);
+        height: calc(100% - 24px);
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        z-index: -1;
+      }   
     // &::before{//暫時
     //     width: 20%;
     //     height: 20%;
@@ -138,6 +148,7 @@
         width: 35%;
         padding: 5px 0;
         padding-left: 2%;
+        margin-left:2%; 
         font-family: "Noto Sans TC", sans-serif;
         border-radius: 10px;
         font-size: 20px;
@@ -155,17 +166,10 @@
             display: block;
             padding-right: 20px;
             font-size: 18px;
-        }
-        
+        } 
         .member_span {
             text-align:center;
         }
-        // .memid {
-        //     padding-left: 30px;
-        // }
-        // .memdoller{
-        //     padding-left: 30px;
-        // }
         input {
             width: 40%;
             line-height: 2;
@@ -173,6 +177,10 @@
             font-family: "Noto Sans TC", sans-serif;
             line-height: normal;
             padding: 5px;
+            &:focus{
+                border: 2px solid #f09100 ;
+                border-style: dashed;
+            }
         }
         //購物金
         #member_money{
@@ -308,11 +316,33 @@
     width: 100%;
     display: block;  
     background-color: #fff;
-    box-shadow: 10px 10px 5px #888888;
-    padding-bottom: 68%;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    border: 5px solid #9dba65;
+    // box-shadow: 10px 10px 5px #888888;
+    padding-bottom: 20%;
+    // border: 5px solid #9dba65;
+    position: relative;
+    // text-align: left;
+   //-------------------------------------//
+    border-radius: 3px;
+    div:after { // Postcard border
+        content: '';
+        background: repeating-linear-gradient(
+        45deg,
+        $green,
+        $green 10px, #fff 10px,#fff 20px,
+        $orange 20px,
+        $orange 30px,#fff 30px,#fff 40px
+        );
+        // For wider stripes, I'd use an image to orangeuce jagged edges
+        padding: 20px;
+        border-radius: 6px;
+        box-shadow: 1px 2px 6px 1px rgba(76, 66, 47, 0.75);
+        width: calc(100% - 24px);
+        height: calc(100% - 24px);
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        z-index: -1;
+    }   
     h3 {
         padding: 20px 0;
         font-size: 20px;
@@ -339,8 +369,6 @@
         line-height: 30px;
         padding: 20px;
         border-radius: 25px;
-        // background-color: #9dba65;
-        // opacity: .5;
         margin-top: 25px;
         margin-bottom: 25px;
             P{
@@ -381,18 +409,43 @@
 ////////////////////////////
 //       組隊紀錄        ///
 ///////////////////////////
+$green:#9dba65;
+$orange: #f09100;
 .team_content{
     width: 100%;
     display: block;
     background-color: #fff;
-    box-shadow: 10px 10px 5px #888888;
-    padding-bottom: 60%;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
-    margin-bottom: 10px;
-    border: 5px solid #9dba65;
+    padding-bottom: 20%;
+    margin-bottom: 6px;
+   //-------------------------------------//
+    position: relative;
+    border-radius: 3px;
+    div:after { // Postcard border
+        content: '';
+        background: repeating-linear-gradient(
+        45deg,
+        $green,
+        $green 10px,
+        #fff 10px,
+        #fff 20px,
+        $orange 20px,
+        $orange 30px,
+        #fff 30px,
+        #fff 40px
+        );
+        // For wider stripes, I'd use an image to orangeuce jagged edges
+        padding: 20px;
+        border-radius: 6px;
+        box-shadow: 1px 2px 6px 1px rgba(76, 66, 47, 0.75);
+        width: calc(100% - 24px);
+        height: calc(100% - 24px);
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        z-index: -1;
+      }   
     .team_list{
-
+        
         h3 {
             padding: 20px 0;
             line-height: 2rem;
@@ -449,15 +502,49 @@
 ////////////////////////////////////////
 //              評分/留言              /
 ////////////////////////////////////////
+$green:#9dba65;
+$orange: #f09100;
 .evaluation_content {
-    width: 100%;
+    // width: 100%;
+    // display: block;
+    // background-color: #fff;
+    // box-shadow: 10px 10px 5px #888888;
+    padding-bottom: 20%;
+    // border: 5px solid #9dba65;
+    width: 100%;  
     display: block;
     background-color: #fff;
-    box-shadow: 10px 10px 5px #888888;
-    padding-bottom: 40%;
-    border: 5px solid #9dba65; 
+    position: relative;
+    // text-align: left;
+   //-------------------------------------//
+    border-radius: 3px;
+    div:after { // Postcard border
+        content: '';
+        background: repeating-linear-gradient(
+        45deg,
+        $green,
+        $green 10px,
+        #fff 10px,
+        #fff 20px,
+        $orange 20px,
+        $orange 30px,
+        #fff 30px,
+        #fff 40px
+        );
+        // For wider stripes, I'd use an image to orangeuce jagged edges
+        padding: 20px;
+        border-radius: 6px;
+        box-shadow: 1px 2px 6px 1px rgba(76, 66, 47, 0.75);
+        width: calc(100% - 24px);
+        height: calc(100% - 24px);
+        position: absolute;
+        top: -8px;
+        left: -8px;
+        z-index: -1; 
+    }
     .evaluation_list{
         // text-align: center;
+        // background: #fff;
         h3{
             padding-top:20px;
             font-size: 20px;
@@ -473,30 +560,43 @@
         //     justify-content: space-around;
         // }
         .message_item {
-            width: 80%;
+            width: 95%;
             display: flex;
             flex-flow: row wrap;
             margin: auto;
-            background-color: #9dba65;
-            opacity: .5;
+            border:5px solid #92b846 ;
+            // background-color: #9dba65;
+            // opacity: .5;
             border-radius: 15px;
             margin: 10px;
             // text-align: center;
             .message_pot {
-                border: 1px solid #9dba65;
-                border-radius: 10px;
+                // border: 1px solid #9dba65;
+                // border-radius: 10px;
                 margin: 20px 0px;
+                width: 100%;
+                
                 .equ_historypic {
-                    padding: 10px 0;
+                    // padding: 10px 0;
+                    border-bottom: dashed 2px #92b846;
+                    .equ_no{
+                        font-size: 18px;
+                    }
                 }
                 .equ_message {
+                    // line-height: 1.5rem;
+                    padding-top: 10px;
                     p {
                         text-align: left;
-                        line-height: 1.5rem;
+                        
+                        font-size: 16px;
+                        // line-height: 1.5rem;
                         // margin-right: 20px;
                     }
+                    
                     .equ_message_txt{
                         text-indent:2em;
+                        line-height: 30px;
                     }
                 }
                 span {
@@ -507,7 +607,7 @@
                     width: 100px;
                     height: 100px;
                     // padding-right: 20px;
-                    background-color: #f09100;
+                    // background-color: #f09100;
                     border-radius: 50%;
                 }
             }
