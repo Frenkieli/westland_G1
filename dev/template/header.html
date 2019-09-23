@@ -48,7 +48,7 @@
         <div class="login_box">
             <!-- 刪除按鈕 -->
             <a href="#" class="login_cancel">
-                <img src="images/member/login_del.png" alt="刪除鈕小icon">
+                <img src="images/member/login_camcel.png" alt="刪除鈕小icon" >
             </a>
             <!-- 文字區     -->
             <h3>會員登入</h3>
@@ -89,7 +89,7 @@
         <div class="register_box">
             <!-- 刪除按鈕 -->
             <a href="#" class="login_cancel">
-                <img src="images/member/login_del.png" alt="刪除鈕小icon">
+                <img src="images/member/login_camcel.png" alt="刪除鈕小icon" >
             </a>
             <!-- 文字區 -->
             <h3>會員註冊</h3>
@@ -139,7 +139,7 @@
         <div class="password_box">
             <!-- 刪除按鈕 -->
             <a href="#" class="login_cancel">
-                <img src="images/member/login_del.png" alt="刪除鈕小icon">
+                <img src="images/member/login_camcel.png" alt="刪除鈕小icon" >
             </a>
             <!-- 文字區 -->
             <h3>重設密碼</h3>
@@ -240,6 +240,7 @@
                     console.log(value)
                 });
                 $('#lightBox').css('display', 'none'); //成功之後...>燈箱關掉
+                alertify.alert("登入成功");
                 console.log('sessionStorage: ' + sessionStorage.member_id)
                 if(order==0)
                     window.location.reload();
