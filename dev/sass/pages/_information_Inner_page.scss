@@ -152,6 +152,7 @@
                     background-size: 100% 100%;
                     background-position: center;
                     .teamName{
+                        display: none;
                         right: 0;
                         left: 0;
                         position: absolute;
@@ -312,7 +313,7 @@
                 }
                 .fork{
                     z-index: 10;
-                    top: 4%;
+                    top: 3%;
                     right:1.5%;
                     position: absolute;
                     width: 15px;
@@ -401,10 +402,11 @@
                     top:65%;
                     height: 10%;
                     width: 80%;
-                    background-image: url(../images/ticket/ticket_board.png);
+                    // background-image: url(../images/ticket/ticket_board.png);
                     background-size: 100% 100%;
                     background-position: center;
                     .teamName{
+                        display: none;
                         right: 0;
                         left: 0;
                         position: absolute;
