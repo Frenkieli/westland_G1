@@ -41,7 +41,7 @@
                         <a href="#tab04">購票紀錄</a>
                     </li>
                     <li>
-                        <a href="#tab05">評分留言</a>
+                        <a href="#tab05">留言紀錄</a>
                     </li>
                     <li>
                         <a href="javascript:void(0)" class="tablink">登出</a>
@@ -78,7 +78,7 @@
                     <!-- 生日-->
                     <div class="content_item">
                         <span>生日</span>
-                        <input type="text" id="mem_birth" name="mem_birth" placeholder="e.g. 1999-01-01"
+                        <input type="date" id="mem_birth" name="mem_birth" placeholder="e.g. 1999-01-01"
                             required="required">
                     </div>
                     <!-- 信用卡區  -->
@@ -158,14 +158,14 @@
                                 <td>隊伍編號</td>
                                 <td>隊伍名稱</td>
                                 <td>隊伍人數</td>
-                                <td>隊伍懸賞金</td>
+                                <td>懸賞金</td>
                             </tr>
-                            <tr>
+                            <!-- <tr class="team_body">
                                 <td id="team_no"></td>
                                 <td id="team_name"></td>
                                 <td id="team_num"></td>
                                 <td id="team_bounty"></td>
-                            </tr>
+                            </tr> -->
                         </table>
                     </div>
                 </div>
@@ -241,13 +241,7 @@
             tabLinks.forEach(link => {
                 link.addEventListener('click', showTab);
             });
-            // var $li = $('ul.tab-title li');
-            // $($li.eq(0).addClass('active').find('a').attr('href')).siblings('.tab-inner').hide();
-
-            // $li.click(function () {
-            //     $($(this).find('a').attr('href')).show().siblings('.tab-inner').hide();
-            //     $(this).addClass('active').siblings('.active').removeClass('active');
-            // });
+       
             // <!------ tab open page ----->
             //==============================我的資料==================================//
             // $('#mem_name').val(sessionStorage.member_name);           
@@ -283,7 +277,6 @@
                                     $('#mem_credit').val(value);
                                     break;
                                 case 'member_money'://購物金
-                                    // console.log(member_money);
                                     $('#member_money').text(value);
                                     break;
 
@@ -308,24 +301,37 @@
                 success: function (data) {
                     let userData = JSON.parse(data);
                     console.log(userData)
+                    $('.team_body').remove();
+                    $.each(userData, function (index, value) {
+                        $('.team_list').append(`
+                        <div class="team_item">
+                            <table>
+                                <tr class="team_body">
+                                    <td id="team_no">${value.team_no}</td>
+                                    <td id="team_name">${value.team_name}</td>
+                                    <td id="team_num">${value.team_num}</td>
+                                    <td id="team_bounty">${value.team_bounty}</td>
+                                </tr>
+                               
+                            </table> 
+                        </div>           
+                        `);
+                        // switch (index) {
+                        //     case 'team_no'://隊伍編號
+                        //         $('#team_no').text(value);
+                        //         break;
+                        //     case 'team_name'://隊伍名稱
+                        //         $('#team_name').text(value);
+                        //         break;
+                        //     case 'team_num'://隊伍人數
+                        //         $('#team_num').text(value);
+                        //         break;
+                        //     case 'team_bounty'://隊伍懸賞金
+                        //         $('#team_bounty').text(value);
+                        //         break;
 
-                    $.each(userData[0], function (index, value) {
-                        switch (index) {
-                            case 'team_no'://隊伍編號
-                                $('#team_no').text(value);
-                                break;
-                            case 'team_name'://隊伍名稱
-                                $('#team_name').text(value);
-                                break;
-                            case 'team_num'://隊伍人數
-                                $('#team_num').text(value);
-                                break;
-                            case 'team_bounty'://隊伍懸賞金
-                                $('#team_bounty').text(value);
-                                break;
-
-                        }
-                        console.log(index)
+                        // }
+                        // console.log(index)
                     });
                     // console.logo(data);
                 }
@@ -351,7 +357,7 @@
                             <div class="message_pot">
                                 <div class="equ_historypic">
                                     <!-- <img src="" alt="設施照片"> -->
-                                    <span>設施</span>
+                                    <span class="equ_ti">設施</span>
                                     <span class="equ_no">`+ equ_no[value.equ_no] + `</span>
                                 </div>
                                 <div class="equ_message">
@@ -395,7 +401,7 @@
         });
         //====================================門票紀錄===========================================//
         $(function () {
-            var entrance_status = ['未使用', '使用'];
+            var entrance_status = ['使用中', '已使用'];
             $.ajax({
                 url: "php/getMemberticket.php",
                 type: 'post',
@@ -459,8 +465,9 @@
 
         //====按了登出按鈕後 會清空 和 跳出頁面=====
         $('.tablink').click(function () {
-            sessionStorage.removeItem('member_no');
             window.location.href = "index.html";
+            sessionStorage.removeItem('member_no');
+           
         })
 
     </script>

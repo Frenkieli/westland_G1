@@ -135,12 +135,14 @@
         background-color: #9dba65;
         border-color: #fff8e4;
         color: #fff;
-        width: 45%;
+        width: 35%;
         padding: 5px 0;
+        padding-left: 2%;
         font-family: "Noto Sans TC", sans-serif;
         border-radius: 10px;
-        font-size: 18px;
+        font-size: 20px;
         margin-top: 20px;
+        text-align: left;
     }
     .content_item {
         display: flex;
@@ -149,20 +151,21 @@
         span {
             width: 30%;
             margin-top: 8px;
-            text-align: left;
+            text-align: center;
             display: block;
             padding-right: 20px;
-            font-size: 14px;
+            font-size: 18px;
         }
+        
         .member_span {
             text-align:center;
         }
-        .memid {
-            padding-left: 30px;
-        }
-        .memdoller{
-            padding-left: 30px;
-        }
+        // .memid {
+        //     padding-left: 30px;
+        // }
+        // .memdoller{
+        //     padding-left: 30px;
+        // }
         input {
             width: 40%;
             line-height: 2;
@@ -171,10 +174,26 @@
             line-height: normal;
             padding: 5px;
         }
+        //購物金
+        #member_money{
+            font-family: "Noto Sans TC", sans-serif;
+            font-size: 14px;
+            text-align: left;
+            // padding-left: 30px;
+        }
+        //會員ID
+        #memid{
+            font-family: "Noto Sans TC", sans-serif;
+            font-size: 14px;
+            text-align: left;
+            // padding-left: 10px;
+        }
     }
+    //修改資料
     .but_item {
         // text-align: right;
         margin: auto;
+        margin-top: 10px;
         // a{
         //     position: relative;
         //     top: 0%;
@@ -214,6 +233,17 @@
             }
         }
     }
+}
+@media screen and (max-width: 767px){
+    //會員ID
+    #memid{
+        padding-left: 30px;
+    }
+    //購物金
+    #member_money{
+        padding-left: 30px;
+    }
+
 }
 // @media screen and (min-width: 1200px){
 //     .info_content{
@@ -317,10 +347,10 @@
                 color: #668823;
                 font-family: "Noto Sans TC", sans-serif;
                 text-align: left;
-                #ticket_no{
+                .ticket_no{
                     color: #f09100;
                     }
-                #entrance_status{
+                .entrance_status{
                     color: #f09100;
                     }
             }
@@ -337,6 +367,17 @@
         // }
     }
 }
+
+@media screen and (min-width: 768px) {
+  
+    // .ticket_list{
+    //     text-align: left;
+    // }
+    .ticket_item{
+        display: inline-block;
+    }
+
+}
 ////////////////////////////
 //       組隊紀錄        ///
 ///////////////////////////
@@ -351,43 +392,60 @@
     margin-bottom: 10px;
     border: 5px solid #9dba65;
     .team_list{
+
         h3 {
             padding: 20px 0;
             line-height: 2rem;
             font-size: 20px;
         }
         .team_item{
-            width: 90%;
+            width: 100%;
             margin: auto;
-            // border: 1px solid #9dba65;
-         
+            // border: 1px solid #9dba65;       
             margin-bottom:10px; 
             table{
                 border-collapse: collapse;
                 width: 100%;
                 height: 50%;
+                text-align: center;
+                border-collapse: collapse;
                 .team_head{
-                    width: 20%;
+                    width: 22%;
+                    line-height: 3;
+                    color: #fff8e4;
+                    font-size: 16px;
+                    // border: 2px solid #9dba65;
+                    // border-radius: 5%;
+                    background-color: #668823;              
+                }
+                .team_body{
+                    // width: 20%;
                     line-height: 3;
                     color: #92b846;
                     font-size: 16px;
-                    border: 2px solid #9dba65;
+                    // border: 2px solid #9dba65;
                     // border-radius: 5%;
-                    background-color: #EBDCC2;
-                  
+                    // background-color: #EBDCC2;              
                 }
                 tr {
                     font-family: "Noto Sans TC", sans-serif;
-                    line-height: 3rem;
-                    font-size: 14px;
+                    // width: 23%;
+                    // line-height: 2rem;
+                    // font-size: 14px;
+                    // width: 20%;
                     td{
-                        text-align: center
+                        text-align: center;
+                        // border: 2px solid #9dba65;
+                        width: 23%;
+                        // width: 420px;
+                        // width: 70px;
                     }
                     }
                 }
             }
         }
     }
+  
 ////////////////////////////////////////
 //              評分/留言              /
 ////////////////////////////////////////
@@ -398,49 +456,66 @@
     box-shadow: 10px 10px 5px #888888;
     padding-bottom: 40%;
     border: 5px solid #9dba65; 
-    
-    h3{
-        padding-top:20px;
-        font-size: 20px;
-        line-height: 2rem;
-        margin-bottom:10px;  
-        }
-    .score_item {
-        width: 80%;
-        margin: 20px auto;
-        border: 1px solid #9dba65;
-        border-radius: 5px;
-        display: flex;
-        justify-content: space-around;
-    }
-    .message_item {
-        width: 80%;
-        display: flex;
-        flex-flow: row wrap;
-        margin: auto;
-        background-color: #9dba65;
-        opacity: .5;
-        border-radius: 15px;
-        margin: 10px;
+    .evaluation_list{
         // text-align: center;
-        .message_pot {
-            border: 1px solid #9dba65;
-            border-radius: 10px;
-            margin: 20px 0px;
-            .equ_historypic {
-                padding: 10px 0;
+        h3{
+            padding-top:20px;
+            font-size: 20px;
+            line-height: 2rem;
+            margin-bottom:20px;  
             }
-            .equ_message {
-                p {
-                    text-align: left;
-                    line-height: 1.5rem;
+        // .score_item {
+        //     width: 80%;
+        //     margin: 20px auto;
+        //     border: 1px solid #9dba65;
+        //     border-radius: 5px;
+        //     display: flex;
+        //     justify-content: space-around;
+        // }
+        .message_item {
+            width: 80%;
+            display: flex;
+            flex-flow: row wrap;
+            margin: auto;
+            background-color: #9dba65;
+            opacity: .5;
+            border-radius: 15px;
+            margin: 10px;
+            // text-align: center;
+            .message_pot {
+                border: 1px solid #9dba65;
+                border-radius: 10px;
+                margin: 20px 0px;
+                .equ_historypic {
+                    padding: 10px 0;
+                }
+                .equ_message {
+                    p {
+                        text-align: left;
+                        line-height: 1.5rem;
+                        // margin-right: 20px;
+                    }
+                    .equ_message_txt{
+                        text-indent:2em;
+                    }
+                }
+                span {
+                    margin:0 10px;
+                    // border-bottom: dashed 2px #000;      
+                }
+                .equ_ti{
+                    width: 100px;
+                    height: 100px;
+                    // padding-right: 20px;
+                    background-color: #f09100;
+                    border-radius: 50%;
                 }
             }
-            span {
-                margin-right: 10px;
-            }
-        }
+        } 
+
+
     }
+    
 }
 .tab-inner {
     display: none;
