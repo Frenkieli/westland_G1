@@ -28,11 +28,11 @@
                 <div id="itemlist" class="shoppingCart_popup" style="display: none">
                 </div>
                 <div class="shoppingCart_popup_count" style="display:none">
-                    <span  class="shoppingCart_popup_count_number"></span>
+                    <span class="shoppingCart_popup_count_number"></span>
                 </div>
             </div>
             <!-- -----------------購物車彈跳品項end----------------- -->
-            <a href="#"><img class="navbar_memicon" id="navbar_loginicon" src="images/navBar/member.png" alt="會員"></a>
+            <a href="#"><img class="navbar_memicon" id="navbar_loginicon" src="images/navBar/member_1.png" alt="會員"></a>
         </div>
     </div>
 </div>
@@ -48,7 +48,7 @@
         <div class="login_box">
             <!-- 刪除按鈕 -->
             <a href="#" class="login_cancel">
-                <img src="images/member/login_camcel.png" alt="刪除鈕小icon" >
+                <img src="images/member/login_camcel.png" alt="刪除鈕小icon">
             </a>
             <!-- 文字區     -->
             <h3>會員登入</h3>
@@ -89,7 +89,7 @@
         <div class="register_box">
             <!-- 刪除按鈕 -->
             <a href="#" class="login_cancel">
-                <img src="images/member/login_camcel.png" alt="刪除鈕小icon" >
+                <img src="images/member/login_camcel.png" alt="刪除鈕小icon">
             </a>
             <!-- 文字區 -->
             <h3>會員註冊</h3>
@@ -139,7 +139,7 @@
         <div class="password_box">
             <!-- 刪除按鈕 -->
             <a href="#" class="login_cancel">
-                <img src="images/member/login_camcel.png" alt="刪除鈕小icon" >
+                <img src="images/member/login_camcel.png" alt="刪除鈕小icon">
             </a>
             <!-- 文字區 -->
             <h3>重設密碼</h3>
@@ -177,7 +177,10 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <script>  //使用jquery-Ajax//
-    var order=0;
+    var order = 0;
+    var storage = sessionStorage;
+    if(storage['member_no'])
+    document.getElementById('navbar_loginicon').src = 'images/navBar/member_0.png';
     //----------------------------登入start---------------------------------------//
     $(document).ready(function () {
         //====按會員登入icon====//..假使sessionStorage有member_no，就跳轉去會員中心頁面，否則就跳出登入燈箱
@@ -208,7 +211,7 @@
         //     $("#mem_id").val('qqq777'); //帳號
         //     $("#mem_psw").val('111');   //密碼
         // });
-        
+
     });
 
     //===========檢查===========
@@ -240,12 +243,16 @@
                     console.log(value)
                 });
                 $('#lightBox').css('display', 'none'); //成功之後...>燈箱關掉
-                alertify.alert("登入成功");
-                console.log('sessionStorage: ' + sessionStorage.member_id)
-                if(order==0)
-                    window.location.reload();
-                else
-                    window.location='check_order.html';
+
+                console.log(document.getElementById('navbar_loginicon'));
+                document.getElementById('navbar_loginicon').src = 'images/navBar/member_0.png';
+                console.log('sessionStorage: ' + sessionStorage.member_id);
+                alertify.alert("登入成功", function () {
+                    if (order == 0)
+                        window.location.reload();
+                    else
+                        window.location = 'check_order.html';
+                });
             }, error: function (XMLHttpRequest, textStatus) { //錯誤的話要執行的函數
                 console.log(XMLHttpRequest);  //XMLHttpRequest.responseText    XMLHttpRequest.status   XMLHttpRequest.readyState
                 console.log(textStatus);
@@ -260,11 +267,11 @@
     if (storage['addItemList']) {
         First();
     }
-    //把storage的商品以畫面呈現 (重寫)
+    //把storage的商品以畫面呈現
     function changCartIcon() {
-        if(document.getElementById("navbar_shoppingCart_popup_wrap").childElementCount==4)
+        if (document.getElementById("navbar_shoppingCart_popup_wrap").childElementCount == 4)
             document.getElementById("navbar_shoppingCart_popup_wrap").children[3].remove();
-        console.log(document.getElementById('itemlist').childElementCount - 1);
+        // console.log(document.getElementById('itemlist').childElementCount - 1);
         let shoppingCartPopClone = document.getElementById("navbar_shoppingCart_popup_wrap").children[2].cloneNode(true);
         // console.log(shoppingCartPopClone);
         shoppingCartPopClone.style.display = '';
@@ -303,7 +310,7 @@
                 createCartList(itemInfo);
             }
             function createCartList(itemInfo) {
-                console.log(itemInfo);
+                // console.log(itemInfo);
                 // console.log(itemInfo.split('|')[0]);
                 // console.log(itemInfo.split('|')[1]);
                 newDivfa = document.createElement('div');
@@ -328,22 +335,22 @@
             }
             changCartIcon();
             (function () {
-                console.log(123);
+                // console.log(123);
                 var tds = document.getElementById("navbar_shoppingCart_popup");
                 //tds.length  記錄元素的個素
-                tds.addEventListener('mouseover',showCartPop,false);
-                tds.addEventListener('mouseout',normal,false);
+                tds.addEventListener('mouseover', showCartPop, false);
+                tds.addEventListener('mouseout', normal, false);
             })();
         } else {
             var tds = document.getElementById("navbar_shoppingCart_popup");
-                //tds.length  記錄元素的個素
-            tds.removeEventListener('mouseover',showCartPop,false);
-            tds.removeEventListener('mouseout',normal,false);
-            document.getElementById("itemlist").innerHTML ="";
-            if(document.getElementById("navbar_shoppingCart_popup_wrap").childElementCount==4)
+            //tds.length  記錄元素的個素
+            tds.removeEventListener('mouseover', showCartPop, false);
+            tds.removeEventListener('mouseout', normal, false);
+            document.getElementById("itemlist").innerHTML = "";
+            if (document.getElementById("navbar_shoppingCart_popup_wrap").childElementCount == 4)
                 document.getElementById("navbar_shoppingCart_popup_wrap").children[3].remove();
             let cartIcon = document.getElementById("navbar_shoppingCart_popup");
-                cartIcon.src = "images/navBar/shopcar_0.png";
+            cartIcon.src = "images/navBar/shopcar_0.png";
         }
 
     }
@@ -391,11 +398,11 @@
 
         if (checkVal(userid)) { //檢查帳號 
             alert("帳號不符合規則")
-        }else if (checkVal(password)) {  //檢查密碼
+        } else if (checkVal(password)) {  //檢查密碼
             alert("密碼不符合規則")
-        }else if (password != chk_password ) { 
+        } else if (password != chk_password) {
             alert("密碼不一致")
-        }else{    // 註冊
+        } else {    // 註冊
             $.ajax({
                 type: "POST",
                 url: "php/addMember.php",
@@ -434,7 +441,7 @@
 
         //====按取消按鈕====//  密碼燈箱會消失
         $('.login_cancel img').click(function () {
-            $('#password_lightbox').css('display','none');
+            $('#password_lightbox').css('display', 'none');
         });
     })
 
@@ -442,7 +449,7 @@
     //輸入的密碼和新密碼必須相同
     //提示問題必須回答正確---->比對資料庫
     //密碼檢查字數checkVal
-    $('#password_button').click(function(){
+    $('#password_button').click(function () {
         var memid = $("#password_memid").val();//帳號
         var password = $("#new_mempsw").val();//密碼
         var re_password = $("#re_mempsw").val();//確認密碼
@@ -453,29 +460,29 @@
             alert("密碼不符合規則")
         } else if (checkVal(re_password)) {   //檢查新密碼
             alert("密碼不符合規則")
-        }  else if (password != re_password ) {  //檢查密碼和新密碼的一致性
+        } else if (password != re_password) {  //檢查密碼和新密碼的一致性
             alert("密碼不一致")
-        }else if (memid=="") {   //檢查帳號
+        } else if (memid == "") {   //檢查帳號
             alert("不可空白")
-        }else if (reanswer=="") {   //檢查回答問題
+        } else if (reanswer == "") {   //檢查回答問題
             alert("不可空白")
-        }else {    // 可修改密碼
+        } else {    // 可修改密碼
             $.ajax({
                 type: "POST",
                 url: "php/membersendPassword.php",
                 dataType: "JSON",
                 data: {  //輸入的資料
-                    "member_id":memid,
+                    "member_id": memid,
                     "member_psw": password,
                     "forget_hint": requestion,
-                    "forget_answer":reanswer,
+                    "forget_answer": reanswer,
                 },
                 success: function (data) {
                     console.log(data)
                     $('#password_lightbox').css('display', 'none'); //燈箱消失
-                    alert("修改成功！");                 
+                    alert("修改成功！");
                 },
-                
+
             })
         }
 
@@ -485,7 +492,7 @@
 
     })
 
-    
+
 
 </script>
 
