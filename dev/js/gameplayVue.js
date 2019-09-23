@@ -148,7 +148,7 @@ function setTicket(jsonStr) {
     console.log(ticket, localStorage['member_useticket'], '0000');
     setTimeout(() => {
         team_num = ticket.team_no;
-        console.log(team_num);
+        // console.log(team_num);
     }, 100);
     document.querySelector('.ticket_name p').innerHTML = ticket.member_name;
     document.querySelector('.ticket_img img').src = ticket.image_source;
@@ -317,7 +317,11 @@ function addPointsCheck(value) {
                 }
                 xhr.open("post", "php/updaticketmission.php", true);
                 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                if(!team_num){
+                    team_num = 0;
+                }
                 var data_info = `ticket=${localStorage['member_useticket']}&mission_bonus=${localStorage['mission_bonus']}&team_no=${team_num}`;
+                
                 xhr.send(data_info);
                 ticketScore = ticketScore;
                 ticketScore += parseInt(localStorage['mission_bonus']);
@@ -429,7 +433,11 @@ function addPointsCheck(value) {
                 }
                 xhr.open("post", "php/updaticketmission.php", true);
                 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
+                if(!team_num){
+                    team_num = 0;
+                }
                 var data_info = `ticket=${localStorage['member_useticket']}&mission_bonus=${localStorage['mission_bonus']}&team_no=${team_num}`;
+                
                 xhr.send(data_info);
                 ticketScore = ticketScore;
                 ticketScore += parseInt(localStorage['mission_bonus']);
