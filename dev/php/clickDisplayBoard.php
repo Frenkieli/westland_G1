@@ -9,7 +9,8 @@
 
 		$starLevel=$_POST['starLevel'];
 		$sql_star="UPDATE `amusement_equipments` 
-				SET `equ_score_total` = `equ_score_total`+$starLevel
+				SET `equ_score_total` = `equ_score_total`+$starLevel ,
+					`score_num` = `score_num` +1
 				WHERE `amusement_equipments`.`equ_no` = $equ_no
 		";
 

@@ -1,4 +1,5 @@
-function init() {
+window.addEventListener('load', function () {
+
     let loginIsTure = sessionStorage['member_no']; //設置暫存變數
     if (loginIsTure) {
         // console.log(loginIsTure, '有撈到嗎?');
@@ -29,5 +30,5 @@ function init() {
     } else {
         return;
     }
-}
-window.addEventListener('load', init, false);
+
+}, false);
