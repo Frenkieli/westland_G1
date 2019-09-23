@@ -107,6 +107,7 @@
                 <div class="order_list" id="order_list">
                     <h3>我的訂單</h3>
                     <div class="order_item" id="order_item">
+<<<<<<< HEAD
                         <ul>
                             <li class="title">訂單日期:<span>2019/08/23</span></li>
                             <li class="title">訂單編號:<span>no123</span></li>
@@ -118,6 +119,42 @@
                             <div class="bg_fdfff3">
                                 <h4>訂單詳情</h4>
                                 <div class="shopping_cart  m40_0_0  dis_f_jc_c bt_line">
+=======
+                        <table>
+                            <tr>
+                                <td class="title">訂單日期</td>
+                                <td class="title">訂單編號</td>
+                                <td class="title">訂單狀況</td>
+                                <td class="title">訂單金額</td>
+                            </tr>
+                            <tr>
+                                <td>2019/08/23</td>
+                                <td>no123</td>
+                                <td>出貨中</td>
+                                <td>$2100</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <!-- <div class="order_item" id="order_item">
+                        <table>
+                            <tr>
+                                <td class="title">訂單日期</td>
+                                <td class="title">訂單編號</td>
+                                <td class="title">訂單狀況</td>
+                                <td class="title">訂單金額</td>
+                            </tr>
+                            <tr>
+                                <td>2019/08/23</td>
+                                <td>no123</td>
+                                <td>出貨中</td>
+                                <td>$2100</td>
+                            </tr>
+                        </table>
+                        <form class="bt" style="">
+                            <div class="bg_fdfff3">
+                                <h4>訂單詳情</h4>
+                                <div class="shopping_cart  m40_0_0  dis_f_jc_c">
+>>>>>>> Kenver5
                                     <div class="col48 m-a col-lg-3 dis_f_jc_c shopping_cart_item bl">
                                         <div class="po-r w-50p m-a">
                                             <img class="shoppingCartContentImg" src="">
@@ -136,6 +173,7 @@
                                     </div>
                                     <div class="col48 col-lg-2 dis_f_jc_c shopping_cart_item bl">
                                         <div class="dis_f_jc_c ai-fs">
+<<<<<<< HEAD
 
                                             <input type="submit" value="1" name="pQuantity" class="quantity"
                                                 style="background-color: transparent;border: transparent;font-size: 16px">
@@ -218,6 +256,40 @@
 
                                         </div>
                                     </div>
+=======
+                                            <input type="submit" value="1" name="pQuantity" class="quantity"
+                                                style="background-color: transparent;border: transparent;font-size: 16px">
+                                        </div>
+                                    </div>
+                                    <div class="col48 col-lg-2 dis_f_jc_c shopping_cart_item bl">
+                                        <p>NT.<span class="thePrice subtotal">0</span></p>
+                                        <input type="hidden" name="pPrice" value="299">
+                                    </div>
+                                </div>
+                                <div class="shopping_cart  m40_0_0  dis_f_jc_c">
+                                    <div class="col48 m-a col-lg-3 dis_f_jc_c shopping_cart_item bl">
+                                        <div class="po-r w-50p m-a">
+                                            <img class="shoppingCartContentImg" src="">
+                                            <input type="hidden" name="pImage" value="towel4.png">
+                                        </div>
+                                    </div>
+                                    <div class="col48 col-lg-3 dis_f_jc_c shopping_cart_item bl">
+                                        <p class="shoppingCartContentPdName"></p>
+                                        <input type="hidden" name="pName" value="仙人掌-紅色">
+                                        <p class="dis-lg-n">單價：$<span class="thePrice dis-lg-n"></span></p>
+
+                                    </div>
+                                    <div class="dis_n col-lg-2 dis_f_jc_c shopping_cart_item bl">
+                                        <p>$<span class="thePrice"></span></p>
+                                        <input type="hidden" name="pPrice" value="299">
+                                    </div>
+                                    <div class="col48 col-lg-2 dis_f_jc_c shopping_cart_item bl">
+                                        <div class="dis_f_jc_c ai-fs">
+                                            <input type="submit" value="1" name="pQuantity" class="quantity"
+                                                style="background-color: transparent;border: transparent;font-size: 16px">
+                                        </div>
+                                    </div>
+>>>>>>> Kenver5
                                     <div class="col48 col-lg-2 dis_f_jc_c shopping_cart_item bl">
                                         <p>NT.<span class="thePrice subtotal">0</span></p>
                                         <input type="hidden" name="pPrice" value="299">
@@ -225,7 +297,11 @@
                                 </div>
                             </div>
                         </form>
+<<<<<<< HEAD
                     </div>
+=======
+                    </div> -->
+>>>>>>> Kenver5
                 </div>
             </div>
             <!-- ---------購票部分 -------------------->
@@ -574,7 +650,41 @@
             sessionStorage.removeItem('member_no');
 
         })
+        //====================================訂單紀錄===========================================//
+        var Storage = sessionStorage;
+        let orderArr = [];//訂單陣列
+        let orderList = [];
+        let ordermaster;
+        let xhr = new XMLHttpRequest();
+        xhr.onload = function () {
+            if (xhr.status == 200) {
+                let ordermaster = JSON.parse(xhr.responseText);
+                ordermaster.forEach(element => {
+                    // orderArr.push(element.order_no);
+                    //清單
+                    let xhrlist = new XMLHttpRequest();
+                    xhrlist.onload = function () {
+                        if (xhrlist.status == 200) {
+                            console.log(JSON.parse(xhrlist.responseText));
+                        } else {
+                            console.log(xhrlist.status);
+                        }
+                    }
+                    let url =`php/getMemberOrderlist.php?order_no=${element.order_no}`;
+                        xhrlist.open('get', url, true);
+                    xhrlist.send(null);
+                });
+                // console.log(orderArr);
+                // orderArr.forEach
+                // console.log(JSON.parse(xhr.responseText));
 
+            } else {
+                console.log(xhr.status);
+            }
+        }
+        let url = `php/getMemberOrder.php?member_no=${Storage['member_no']}`;
+        xhr.open('get', url, true);
+        xhr.send(null);
     </script>
     @@loop('template/jslink.html',[
     ])

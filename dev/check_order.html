@@ -9,6 +9,8 @@
 
     <!-- css -->
     @@loop('template/csslink.html',[
+    {"csslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/alertify.min.css"},
+    {"csslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/default.min.css"},
     {"csslink" : "css/style.css"},
     {"csslink" : "css/owl.carousel.min.css"},
     {"csslink" : "css/owl.theme.default.css"}
@@ -194,6 +196,8 @@
 
     <!-- js -->
     @@loop('template/jslink.html',[
+    {"jslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"},
+    {"jslink" : "js/alertifyJSset.js"},
     {"jslink" : "https://kit.fontawesome.com/6a6d2775fc.js"},
     {"jslink" : "js/jquery.min.js"},
     {"jslink" : "js/owl.carousel.js"}
@@ -430,7 +434,20 @@
                         xhrForm.onload=function(){
                             if(xhrForm.status==200){
                                 // alert('成功');
-                                console.log(xhrForm.responseText);
+                                alertify.alert(xhrForm.responseText+'1秒後跳轉至周邊商品');
+                                // console.log(xhrForm.responseText);
+                                var storage=sessionStorage;
+                                let itemString = storage['addItemList'];
+                                let items = itemString.substr(0, itemString.length - 2).split(', ');
+                                for(let i=0;i<items.length;i++){
+                                    storage.removeItem(items[i]);
+                                    storage['addItemList'] = storage['addItemList'].replace(items[i] + ', ', '');
+                                }
+                                First();
+                                setTimeout(function(){
+                                    window.location='items.html';
+                                },1000);
+
                             }else{
                                 alert(xhrForm.status);
                             }
@@ -442,7 +459,7 @@
                     },false);
 
                 } else {//............失敗
-                    alert(xhr.status);
+                    alertify.alert(xhr.status);
                 }
             }
             // console.log(document.getElementById("getMember"));

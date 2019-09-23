@@ -250,8 +250,10 @@
                 alertify.alert("登入成功", function () {
                     if (order == 0)
                         window.location.reload();
-                    else
+                    else if(storage['addItemList'])
                         window.location = 'check_order.html';
+                    else
+                        alertify.alert('請先選購商品喔');
                 });
             }, error: function (XMLHttpRequest, textStatus) { //錯誤的話要執行的函數
                 console.log(XMLHttpRequest);  //XMLHttpRequest.responseText    XMLHttpRequest.status   XMLHttpRequest.readyState

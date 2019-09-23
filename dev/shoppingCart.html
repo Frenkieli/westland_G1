@@ -338,7 +338,10 @@
         document.getElementById('check').addEventListener('click', function () {
 
             if (storage['member_no']) {//有登入
-                window.location='check_order.html';
+                if(storage['addItemList'])
+                    window.location='check_order.html';
+                else
+                    alertify.alert('請先選購商品喔');  
             } else {//沒登入
                 document.getElementById('pleaseLogin').style.display = "";
                 document.querySelector('.showloginBox').addEventListener('click',function(){
@@ -401,6 +404,7 @@
                                 // console.log(productInfo);
                                 addItem(this.parentNode.nextElementSibling.value, productInfo);
                                 First();
+
                             });
                         }
 
