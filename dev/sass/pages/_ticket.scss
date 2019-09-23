@@ -383,6 +383,9 @@
             @at-root
             .customize_items_set_box{
                 padding: 10px;
+                .customize_items_set{
+                    width: 100%;
+                }
             }
         }
         .customize_mascots_box{

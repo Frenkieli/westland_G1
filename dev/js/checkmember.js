@@ -1,9 +1,9 @@
 //點選購買鈕
 document.getElementById("buy_ticket").addEventListener("click",function(){
     if(storage.getItem("member_no")==null){
-        alert("請先登入");
+        alertify.alert("請先登入");
     }else if(checkclick == 0){
-        alert("請先客製化自己的吉祥物");
+        alertify.alert("請先客製化自己的吉祥物");
     }else{
         document.getElementById("membernocheck").value = storage.getItem("member_no");
 
@@ -16,7 +16,7 @@ document.getElementById("buy_ticket").addEventListener("click",function(){
                 // alert(JSON.parse(xhr.responseText));
             }
             else{
-                alert("錯誤的拉..",xhr.status);
+                alertify.alert("系統異常,請通知系統維護人員",xhr.status);
             }
         }
         let check_member_money = new FormData(document.getElementById("member_moneycheck"));
@@ -27,7 +27,7 @@ document.getElementById("buy_ticket").addEventListener("click",function(){
 
 function moneycost(money){
     if(money[0].member_money<600){
-        alert(`金額不足，目前賞金餘額為${money[0].member_money}門票流水編號為${parseInt(money[1].ticket_no)+1}`);
+        alertify.alert(`金額不足，目前賞金餘額為${money[0].member_money}`);
     }else{
         document.getElementById("uploadmoney").value = money[0].member_money;
         document.getElementById("uploadticketno").value = parseInt(money[1].ticket_no)+1;
@@ -50,10 +50,10 @@ function uploadticket(){
     let xhr = new XMLHttpRequest();
     xhr.onload = function(){
         if(xhr.status ==200){
-            alert(xhr.responseText);
+            alertify.alert(xhr.responseText);
             // console.log(xhr.responseText);
         }else{
-            alert("錯誤的拉~~");
+            alertify.alert("系統異常,請通知系統維護人員");
         }
     }
     let upload = new FormData(document.getElementById("ticket_mascot_upload"));
