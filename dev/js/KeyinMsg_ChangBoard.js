@@ -23,7 +23,7 @@ function init() {
             console.log(display_MEM_MSG);
             $(`.name_login`).html(`${display_MEM_MSG[loginIsTure -1].member_name}`);
             $(`.pic_login`).attr('src', `${display_MEM_MSG[loginIsTure -1].image_source}`);
-            $(`.teamName_login`).html(`${display_MEM_MSG[loginIsTure -1].team_name}`);
+            // $(`.teamName_login`).html(`${display_MEM_MSG[loginIsTure -1].team_name}`);
             $(`.bounty_login`).html(`$${display_MEM_MSG[loginIsTure -1].bounty}`);
             }
         }else{
