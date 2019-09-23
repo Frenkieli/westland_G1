@@ -100,7 +100,7 @@ function changepic(e){
     let fileAccepts = ["png","jpg","jpeg","gif",""];
     let fileInfo = getFileInfo(e.target.value);
     if( fileAccepts.indexOf(fileInfo.ext.toLowerCase()) == -1){
-        alert("檔案格式不對");
+        alertify.alert("檔案格式不對");
         e.target.value = "";
     }else{
         let pic = document.getElementById("uploadpic").files[0];
@@ -201,7 +201,7 @@ function init(){
             customizedimg(xhr.responseText);
         }
         else {
-            alert(xhr.status);
+            alertify.alert(xhr.status);
         }
     }
     let url = "php/getTicket_customized_items_JOSN.php";

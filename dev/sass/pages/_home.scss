@@ -618,9 +618,9 @@
     }
     @include rwd(phone) {
         background-image: url("../images/index/homeM_bg_2.png");
-        .customize_items_set_box {
-            width: 100%;
-        }
+        // .customize_items_set_box {
+        //     width: 100%;
+        // }
         .indexticket_buy {
             margin: 0 auto;
             > a {
