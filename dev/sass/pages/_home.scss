@@ -287,7 +287,7 @@
     justify-content: center;
     flex-wrap: wrap;
     margin: auto;
-
+    overflow: hidden;
     //===
 
     .container {
@@ -690,5 +690,8 @@
 .index {
     .section_footer {
         margin-top: -87px;
+    }
+    .index_ticket_customize{
+        overflow: hidden;
     }
 }

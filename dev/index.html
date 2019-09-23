@@ -117,12 +117,13 @@
             </div>
         </div>
     </header>
+    <div id="trigger_01"></div>
     @@include("template/index_facility.html")
-
+    <div id="trigger_02"></div>
     <section class="team index_team">
         <div class="container">
             <h3 class="section_title">最新團隊</h3>
-            <div class="team_bulletin_board">
+            <div class="team_bulletin_board" id="index_team">
                 <div class="img_Canopy">
                     <img src="images/team/team_canopytop2.png" alt="揪團遮雨棚">
                 </div>
@@ -220,7 +221,7 @@
         </div>
     </section>
 
-
+    <div id="trigger_03"></div>
 
     <section class="ticket_customize_scetion index_ticket_customize">
         <div class="container">
@@ -246,7 +247,7 @@
             </div> -->
 
             <div class="section_title">客製門票</div>
-            <div class="ticket_customize">
+            <div class="ticket_customize" id="index_ticket_customize">
                 <!-- 客製門票左手邊區塊 -->
                 <div class="ticket_customize_wrap">
 
@@ -341,8 +342,11 @@
     <section class="section_store">
         <div class="title_box">
             <h3 class="section_title">商品介紹</h3>
+
         </div>
-        <div class="swiper-container">
+        <div id="trigger_04"></div>
+
+        <div class="swiper-container" id="section_store">
             <div class="swiper-wrapper">
                 @@loop('template/index_store.html',[
                 {"img" :"01","name" : "仙人掌背包","price":9999},
@@ -384,6 +388,11 @@
     {"jslink" : "js/indexwinner.js"},
     {"jslink" : "js/indexteam.js"},
     {"jslink" : "js/index.js"},
+    {"jslink" : "js/TweenMax/TweenMax.min.js"},
+    {"jslink" : "js/TweenMax/TimelineMax.min.js"},
+    {"jslink" : "js/TweenMax/ScrollMagic.min.js"},
+    {"jslink" : "js/TweenMax/animation.gsap.min.js"},
+    {"jslink" : "js/TweenMax/debug.addIndicators.min.js"},
     {"jslink" : "js/indexanime.js"}
     ])
 

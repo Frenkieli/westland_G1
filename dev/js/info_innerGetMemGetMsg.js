@@ -39,7 +39,7 @@ window.addEventListener('load',function (){
                     </div><input type="button" class="btn-report" value="檢舉" id="report" name="${display_MEM_MSG[i].message_no}">
                 </div>
                 <div class="mascot mascot_memberNo_${display_MEM_MSG[i].member_no}">
-                    <img class="mascot_image" src="../dest/${display_MEM_MSG[i].mascot_image}" alt="客製化吉祥物">
+                    <img class="mascot_image" src="${display_MEM_MSG[i].mascot_image}" alt="客製化吉祥物">
                 </div>`;
         };
     }
