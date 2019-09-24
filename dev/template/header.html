@@ -249,7 +249,9 @@
                 console.log('sessionStorage: ' + sessionStorage.member_id);
                 alertify.alert("登入成功", function () {
                     if (order == 0)
-                        window.location.reload();
+                    setTimeout(() => {
+                        window.location.reload();  
+                    }, 100);
                     else if(storage['addItemList'])
                         window.location = 'check_order.html';
                     else
@@ -422,9 +424,14 @@
                         case 1://用戶已存在
                             alert("該用戶已存在。")
                             break;
-                        case 2://註冊成功
+                        default://註冊成功
                             alert("註冊成功！");
-                            window.location.href = "index.html";
+                            sessionStorage['member_no'] = data;
+                            setTimeout(() => {
+                            window.location.reload();    
+                            }, 100);
+                            
+                            
                             $('#register_lightbox').css('display', 'none');
                             break;
                     }
