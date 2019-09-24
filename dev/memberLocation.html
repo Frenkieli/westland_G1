@@ -105,8 +105,8 @@
             <!-- -----------------訂單部分 ----------------->
             <div id="tab02" class="order_content tab-inner">
                 <div class="order_list" id="order_list">
-                    <!-- <h3>我的訂單</h3>
-                    <div class="order_item" id="order_item">
+                    <h3>我的訂單</h3>
+                    <!-- <div class="order_item" id="order_item">
                         <ul>
                             <li class="title">訂單日期:<span>2019/08/23</span></li>
                             <li class="title">訂單編號:<span>no123</span></li>
@@ -114,42 +114,25 @@
                             <li class="title">訂單總金額:<span>$2100</span>
                             <li>
                         </ul>
-                        <form class="bt">
-                            <div class="bg_fdfff3">
-                                <h4>訂單詳情</h4> -->
-                                <!-- <div class="shopping_cart  m40_0_0  dis_f_jc_c bt_line">
-                                    <div class="col48 m-a col-lg-3 dis_f_jc_c shopping_cart_item bl">
-                                        <div class="po-r w-50p m-a">
-                                            <img class="shoppingCartContentImg" src="">
-                                            <input type="hidden" name="pImage" value="towel4.png">
-                                        </div>
-                                    </div>
-                                    <div class="col48 col-lg-3 dis_f_jc_c shopping_cart_item bl">
-                                        <p class="shoppingCartContentPdName"></p>
-                                        <input type="hidden" name="pName" value="仙人掌-紅色">
-                                        <p class="dis-lg-n">單價：$<span class="thePrice dis-lg-n"></span></p>
 
-                                    </div>
-                                    <div class="dis_n col-lg-2 dis_f_jc_c shopping_cart_item bl">
-                                        <p>$<span class="thePrice"></span></p>
-                                        <input type="hidden" name="pPrice" value="299">
-                                    </div>
-                                    <div class="col48 col-lg-2 dis_f_jc_c shopping_cart_item bl">
-                                        <div class="dis_f_jc_c ai-fs">
-
-                                            <input type="submit" value="1" name="pQuantity" class="quantity"
-                                                style="background-color: transparent;border: transparent;font-size: 16px">
-
-                                        </div>
-                                    </div>
-                                    <div class="col48 col-lg-2 dis_f_jc_c shopping_cart_item bl">
-                                        <p>NT.<span class="thePrice subtotal">0</span></p>
-                                        <input type="hidden" name="pPrice" value="299">
-                                    </div>
-                                </div> -->
-
-                            <!-- </div>
-                        </form>
+                    </div> -->
+                    <!-- <div class="order_item" id="order_item">
+                        <ul>
+                            <li class="title">訂單日期:<span>2019/08/23</span></li>
+                            <li class="title">訂單編號:<span>no123</span></li>
+                            <li class="title">訂單狀況:<span>出貨中</span></li>
+                            <li class="title">訂單總金額:<span>$2100</span>
+                            <li>
+                        </ul>
+                    </div> -->
+                    <!-- <div class="order_item" id="order_item">
+                        <ul>
+                            <li class="title">訂單日期:<span>2019/08/23</span></li>
+                            <li class="title">訂單編號:<span>no123</span></li>
+                            <li class="title">訂單狀況:<span>出貨中</span></li>
+                            <li class="title">訂單總金額:<span>$2100</span>
+                            <li>
+                        </ul>
                     </div> -->
                 </div>
             </div>
@@ -506,16 +489,17 @@
         let ordermaster;
         let xhr = new XMLHttpRequest();
         let over=0;
+        let order_status_arr=['下單','處理中','取消','出貨','結案'];
         xhr.onload = function () {
             if (xhr.status == 200) {
                 let ordermaster = JSON.parse(xhr.responseText);
-                ordermaster.forEach(ordermasterElement => {
+                ordermaster.forEach((ordermasterElement,key) => {
                     let createOrder = `
                     <div class="order_item" id="order_item">
                         <ul>
                             <li class="title">訂單日期:<span>${ordermasterElement.order_item_date}</span></li>
                             <li class="title">訂單編號:<span>no${ordermasterElement.order_no}</span></li>
-                            <li class="title">訂單狀況:<span>出貨中</span></li>
+                            <li class="title">訂單狀況:<span></span>${order_status_arr[ordermasterElement.order_item_status]}</li>
                             <li class="title">訂單總金額:<span>$${ordermasterElement.order_item_total}</span>
                             <li>
                         </ul>
@@ -564,8 +548,8 @@
                                 </div>`;
                                 // console.log(document.getElementById('order_list').children[2].children[1]);
                                 // console.log(createList);
-                                document.getElementById('order_list').children[over].children[1].children[0].innerHTML=document.getElementById('order_list').children[over].children[1].children[0].innerHTML+createList;
-                                console.log(document.getElementById('order_list').children[0].children[1]);
+                                document.getElementById('order_list').children[over+1].children[1].children[0].innerHTML=document.getElementById('order_list').children[over+1].children[1].children[0].innerHTML+createList;
+                                console.log(document.getElementById('order_list').children[over+1].children[1]);
                             });
                             over+=1;
                         } else {
