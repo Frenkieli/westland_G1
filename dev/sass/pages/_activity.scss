@@ -12,17 +12,13 @@
 // }
 
 ///////////////////////////////
-//           篩選器         //
-/////////////////////////////
-
-////////////////////////////
-//      page_title  M      //
-///////////////////////////
+//           篩選器          //
+///////////////////////////////
 
 .newswrap {
     width: 100%;
     
-    //篩選器
+    //====篩選器====
     .selectpart {
         margin: auto;
         width: 100%;
@@ -44,6 +40,10 @@
                 -webkit-box-align: center;
                 align-items: center;
                 text-align: center;
+                //篩選條件
+                >h3{
+                    font-size: 20px;
+                }
                 .select_phone {
                     select {
                         border: #5a7528 solid 3px;
@@ -62,7 +62,7 @@
                         border: none;
                         padding: 5px 25px;
                         border-radius: 10px;
-                        box-shadow: 0px 3px 0px #5a7528;
+                        // box-shadow: 0px 3px 0px #5a7528;
                         color: #111;
                         font: 16px;
                         
@@ -116,18 +116,18 @@
     // animation: Updown 1s infinite alternate;
     @keyframes Updown {
         from {
-          margin-top: 30px;
+        margin-top: 30px;
         }
         to {
-          margin-top: 10px;
+        margin-top: 10px;
         }
-      }
-      &:hover{
-        background-color: #f09100;
-        &::after{
-            display: block;   
+    }
+        &:hover{
+            background-color: #f09100;
+            &::after{
+                display: block;   
         }
-      }
+    }
     .activity_part {
         display: flex;
         flex-wrap: wrap;
@@ -194,8 +194,7 @@
     }
 }
 
-/////////////////////////////////////
-//
+
 //   日曆
 /////////////////////////////////////
 .activity_section {
@@ -470,13 +469,82 @@
     // }
 
     // 天空
-
+    $sun-color: #FFD740;
+    $face-color: #880E4F;
+    $face-color2: #EF9A9A;    
     
     .activity_section{
         .sun_content{
+            overflow: hidden;
+            
+            // position: relative;
+            // height: 100vh;
+            // background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%);
+            // .sun {
+            //     position: absolute;
+            //     top: 0px;
+            //     left: 80%;
+            //     width: 120px;
+            //     height: 120px;
+            //     background-image: linear-gradient(to top, #ff0844 0%, yellow 100%);
+            //     border-radius: 60px;
+            //     animation: sun 1.3s ease-in-out 2.7s infinite alternate;
+            //     .smile {
+            //         position: relative;
+            //         top: 32px;
+            //         left: calc(50% - 10px);
+            //         width: 20px;
+            //         height: 10px;
+            //         border-bottom: 10px solid $face-color;
+            //         border-radius: 100%;
+            //     }
+            //     .eye {
+            //         display: inline-block;
+            //         position: relative;
+            //         top: 37px;
+            //         width: 10px;
+            //         height: 10px;
+            //         border-radius: 10px;
+            //         background-color: $face-color;
+            //         &:nth-child(1) {
+            //             left: 30%;
+            //         }
+            //         &:nth-child(2) {
+            //             left: 50%;
+            //         }
+            //     }
+                
+            // }
+            // @media screen and (max-width:767px){
+            //     .sun{
+            //         width: 60px;
+            //         height: 60px;
+            //         .smile{
+            //             width: 10px;
+            //             height: 5px;
+            //             .eye{
+            //                 width: 3px;
+            //                 height: 3px;
+            //                 top: 30px;
+            //             }
+            //         }
+            //     }
+            // }
+            @keyframes sun{
+                0% {
+                    transform: translate(0px, 0px);
+                }
+                50% {
+                    transform: translate(0px, -5px);
+                }
+                100% {
+                    transform: translate(0px, 0px);
+                }
+            }
             .skycloud{
                 width:20%;
                 z-index:-1;
+                
             }
             #skycloud_b{
                 position:absolute;
@@ -490,6 +558,7 @@
                 right:0px;
                 }
                 to{
+                // transform: scaleX(-1);
                 right:1930px;
                 }
             } 
