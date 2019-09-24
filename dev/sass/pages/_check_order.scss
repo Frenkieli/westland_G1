@@ -16,7 +16,7 @@
     color: #fff ;
   }
   .pay_item{
-  width: 20%;
+  width: 100px;
   
   }
   .pay_mothod_text{
@@ -29,6 +29,9 @@
   }
   .b_b_f09100{
     border-bottom: 2px solid #809957;
+  }
+  .w60{
+    width: 60px;
   }
   .b_b_f09100:hover{
     border-bottom: 2px solid #f09100;
@@ -52,9 +55,11 @@
   .mt_5{
     margin-top: 5px;
   }
-  // .payTypeDetail{
-  //   display: none;
-  // }
+  .shopping_cart{
+    .payTypeDetail{
+      border-bottom: none;
+    }
+  }
   input[type=text], input[type=password] {
     padding-left: 16px;
     line-height: 2;
@@ -80,6 +85,8 @@
   }
 
   @include rwd(desktop){
+    
+      
     .dis_lg_ib{
       display: inline-block;
     }

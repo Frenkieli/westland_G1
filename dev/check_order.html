@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>check_order_page</title>
+    <title>西部樂園</title>
 
     <!-- css -->
     @@loop('template/csslink.html',[
@@ -57,7 +57,7 @@
                 </div> -->
             </div>
             <form class="bt" style="display: none">
-                <div class="bg_fdfff3">
+                <div class="bg_fdfff3 bg_fdfff3_br10">
                     <div class="shopping_cart  m40_0_0  dis_f_jc_c">
                         <div class="col48 m-a col-lg-3 dis_f_jc_c shopping_cart_item bl">
                             <div class="po-r w-50p m-a">
@@ -110,21 +110,21 @@
     <div class="section_title">付款方式</div>
     <section class="container ">
 
-        <div id="cartUpdateFormWrap" class="b_b_f09100 m_jg_0_50 m0_35 dis_f_j_c f_c_w dis_f_jc_l">
-            <div class="shopping_cart_title a4c174_deep shopping_cart_title_o pay_item dis_n">
+        <div id="cartUpdateFormWrap" class="b_b_f09100 m_jg_0_50 m0_35 dis_f_j_c f_c_w dis_f_jc_l ">
+            <div id="payonline" class="payonline shopping_cart_title a4c174_deep shopping_cart_title_o pay_item ">
                 <div class=" dis_f_jc_c pay_mothod_text">
                     <h5 class="m-0">線上付款</h5>
                 </div>
             </div>
-            <div class="shopping_cart_title a4c174_deep dis_n pay_item">
+            <div id="payon" class="payon shopping_cart_title a4c174_deep  pay_item">
                 <div class=" dis_f_jc_c pay_mothod_text">
                     <h5 class="m-0">貨到付款</h5>
                 </div>
             </div>
         </div>
         <form action="cartUpdate.php" method="get">
-            <div class="bg_fdfff3 m_jg_0_50">
-                <div class="shopping_cart  m40_0_0 ">
+            <div class="bg_fdfff3 m_jg_0_50 m0_35 ">
+                <div class="shopping_cart ">
                     <div id="online" class="payTypeDetail mt_20 mb_50">
                         <div>
                             <p class="mb_5 mt_18 dis_lg_ib">信用卡卡號</p>
@@ -478,6 +478,21 @@
         window.addEventListener("load", checkMemberIfo, false);
 
     </script>
+    <script>
+            document.getElementById('check').addEventListener('click', function () {
+    
+                if (storage['member_no']) {//有登入
+                    window.location='check_order.html';
+                } else {//沒登入
+                    document.getElementById('pleaseLogin').style.display = "";
+                    document.querySelector('.showloginBox').addEventListener('click',function(){
+                        $('#lightBox').css('display', 'block');
+                        document.getElementById('pleaseLogin').style.display = "none";
+                        order=1;
+                    });
+                }
+            }, false);
+        </script> 
     
 </body>
 
