@@ -25,10 +25,10 @@
             $Addmembers = $pdo->prepare($sql);
             $Addmembers->execute();
 
-            $sql2 = "select member_no from members order by member_no";
+            $sql2 = "select member_no from members order by member_no DESC LIMIT 1";
             $memberno = $pdo->prepare($sql2);
             $memberno->execute();
-            $membernorow =$member->fetch(PDO::FETCH_ASSOC);
+            $membernorow =$memberno->fetch(PDO::FETCH_ASSOC);
 
             echo $membernorow['member_no'];
         };
