@@ -30,7 +30,7 @@ $("#register_fast").click(function () {
     let num = Math.floor(Math.random() * familyNames.length);
     let num2 = Math.floor(Math.random() * givenNames.length);
     // 隨機姓名
-    
+
     let mem_name = familyNames[num] + givenNames[num2];
 
     // console.log(mem_id ,'dahjaksdhkjasdhhjk');
@@ -48,7 +48,9 @@ $("#register_fast").click(function () {
                 sessionStorage['member_no'] = mem_no.member_no;
                 $('#lightBox').css('display', 'none');
                 document.getElementById('navbar_loginicon').src = 'images/navBar/member_0.png';
-                alertify.alert("快速註冊成功！");
+                alertify.alert("快速註冊成功！", function () {
+                    window.location.reload();
+                });
             }
         } else {
             alertify.alert(xhr.status);
