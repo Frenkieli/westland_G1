@@ -14,6 +14,8 @@
     }
     .customize_items_title{
         padding: 15px 15px 5px;
+        color: map-get( $colors_map,botton_shadow );
+        
     }
     .customize_items{
         width: 100%;
@@ -23,6 +25,7 @@
         box-shadow: 5px 5px #DC9C55;
         @at-root
         .customize_items_box{
+            justify-content: center;
             display: flex; 
             flex-wrap: wrap;
             padding: 15px;
@@ -318,6 +321,7 @@
         //     width: 200px;
         //     height: 167px;
         // }
+        
     }
 // ==============//=======//==============//
 
@@ -400,12 +404,13 @@
         }
     }
     .customize_backimage{
+        background-position: center 15%;
         width: 100%;
         background-image: url("../images/background/ticket_backimage1.svg");
         height: 545px;
         .ticket_title{
             font-size: 32px;  
-            padding: 10px 20px; 
+            padding: 10px 15px; 
             margin-top: 40px; 
         }
         .ticket_subtitle{
@@ -450,13 +455,20 @@
                 padding: 5px 0;
                 .triangle{
                     transform: translateY(13px);
+                    margin-right: 15px;
                 }
                 .ticket_startdate{
-                    width: 34%;
+                    text-align: center;
+                    width: 40%;
+                }
+                .ticket_enddate{
+                    text-align: center;
+                    width: 41%;
                 }
                 .ticket_activity_title{
-                    width: 100%;
+                    width: 80%;
                     text-align: center;
+                    margin: 0 auto;
                 }
             }
         }
