@@ -116,7 +116,8 @@
 @mixin btn(){
     // 基本寬高，圓角，文字置中，做動時間
     cursor: pointer;
-    width: 130px;
+    // width: 130px;
+    width: 145px;
     border-radius: 15px;
     text-align: center;
     transition: 0.3s;

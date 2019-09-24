@@ -16,15 +16,7 @@ $errMsg="";
 
     // 門票圖canvas.toDataURL的值
     $mem_ticket = $_POST["uploadticketpic"];
-    if(stristr($mem_ticket,"png")){
-        $mem_ticket = str_replace('data:image/png;base64,', '', $mem_ticket); //將檔案格式的資訊拿掉
-    }else if(stristr($mem_ticket,"jpeg")){
-        $mem_ticket = str_replace('data:image/jepg;base64,', '', $mem_ticket); //將檔案格式的資訊拿掉
-    }else if(stristr($mem_ticket,"jpg")){
-        $mem_ticket = str_replace('data:image/jpg;base64,', '', $mem_ticket); //將檔案格式的資訊拿掉
-    }else{
-        $mem_ticket = str_replace('data:image/gif;base64,', '', $mem_ticket); //將檔案格式的資訊拿掉
-    }
+    $mem_ticket = str_replace('data:image/jpeg;base64,', '', $mem_ticket); //將檔案格式的資訊拿掉
     $mem_ticketdata = base64_decode($mem_ticket); //編碼
 
     //money扣款後
@@ -35,13 +27,7 @@ $errMsg="";
     //門票流水編號(+1)
     $ticket_no = $_POST["uploadticketno"];
 
-    // 吉祥物檔名與路徑
-    $mascotfile = $upload_mascot . "/" . $ticket_no . ".png";
-    $mascotfileok = file_put_contents($mascotfile, $mem_mascotdata);
-    // echo $mascotfileok ? $mascotfile : 'error';
-    // 門票圖片檔名及路徑
-    $ticketfile = $upload_picture . "/" . $ticket_no . ".png";
-    $ticketfileok = file_put_contents($ticketfile, $mem_ticketdata);
+    
 
     // 門票圖片儲存背景 使用input file傳圖 無法控制大小
     // switch($_FILES['uploadpic']['error']){
@@ -66,28 +52,56 @@ $errMsg="";
     //             break;
     // }
     
-    //吉祥物資料庫路徑
-    $mascotfile_src = "images/ticket/member/mascot". "/" . $ticket_no . ".png";
-    
-    //門票圖片資料庫路徑
-    $picturefile_src = "images/ticket/member/picture". "/" . $ticket_no . ".png";
 
 try{
     //上傳
     require_once("connectWestland.php");
-    $sqlticket="insert into ticket(`member_no`,`image_source`,`mascot_image`)values(:member_no,:picture_src,:mascot_src)";
+
+    // $sqlticket="insert into ticket(`member_no`,`image_source`,`mascot_image`)values(:member_no,:picture_src,:mascot_src)";
+    // $uploadtotal = $pdo->prepare($sqlticket);
+    // $uploadtotal->bindValue(":member_no",$uploadmember);
+    // $uploadtotal->bindValue(":picture_src",$picturefile_src);
+    // $uploadtotal->bindValue(":mascot_src",$mascotfile_src);
+    // $uploadtotal->execute();
+
+    $sqlticket="insert into ticket(`member_no`)values(:member_no)";
     $uploadtotal = $pdo->prepare($sqlticket);
     $uploadtotal->bindValue(":member_no",$uploadmember);
-    $uploadtotal->bindValue(":picture_src",$picturefile_src);
-    $uploadtotal->bindValue(":mascot_src",$mascotfile_src);
+    // $uploadtotal->bindValue(":picture_src",$picturefile_src);
+    // $uploadtotal->bindValue(":mascot_src",$mascotfile_src);
     $uploadtotal->execute();
+
+    $newticketNo = $pdo->lastInsertId();
+
+
+    // 吉祥物檔名與路徑
+    $mascotfile = $upload_mascot . "/" . $newticketNo . ".png";
+    $mascotfileok = file_put_contents($mascotfile, $mem_mascotdata);
+    // echo $mascotfileok ? $mascotfile : 'error';
+    // 門票圖片檔名及路徑
+    $ticketfile = $upload_picture . "/" . $newticketNo . ".jpeg";
+    $ticketfileok = file_put_contents($ticketfile, $mem_ticketdata);
+    //吉祥物資料庫路徑
+    $mascotfile_src = "images/ticket/member/mascot". "/" . $newticketNo . ".png";
+    //門票圖片資料庫路徑
+    $picturefile_src = "images/ticket/member/picture". "/" . $newticketNo . ".jpeg";
+
+
+
+    $sqlnew="update `ticket` SET `image_source`=:picture_src,`mascot_image`=:mascot_src WHERE `ticket_no`=:ticket_no";
+    $uploadpic = $pdo->prepare($sqlnew);
+    $uploadpic->bindValue(":ticket_no",$newticketNo);
+    $uploadpic->bindValue(":picture_src",$picturefile_src);
+    $uploadpic->bindValue(":mascot_src",$mascotfile_src);
+    $uploadpic->execute();
+
 
     $sqlmember="update `members` SET `member_money`=`member_money`-600 WHERE `member_no`=:member_no";
     $uploadmoney = $pdo->prepare($sqlmember);
     $uploadmoney->bindValue(":member_no",$uploadmember);
     $uploadmoney->execute();
 
-    echo "已成功購票";
+    echo "已成功購票,門票流水編號為$newticketNo";
 
 }catch(PDOException $e){
     $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";

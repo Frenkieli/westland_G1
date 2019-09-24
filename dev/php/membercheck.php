@@ -4,7 +4,7 @@ try{
     require_once("connectWestland.php");
     $array=[];
     $sql="select member_no,member_money from members where member_no=:no";
-    $sql_ticket = "select max(ticket_no) ticket_no from ticket";
+    // $sql_ticket = "select max(ticket_no) ticket_no from ticket";
 
     $member = $pdo->prepare($sql);
     $member->bindValue(":no",$_POST["membernocheck"]);
@@ -13,11 +13,11 @@ try{
     $memberRow= $member->fetch(PDO::FETCH_ASSOC);
     $array[]=$memberRow;
 
-    $ticket = $pdo->prepare($sql_ticket);
-    $ticket->execute();
+    // $ticket = $pdo->prepare($sql_ticket);
+    // $ticket->execute();
 
-    $ticketRow= $ticket->fetch(PDO::FETCH_ASSOC);
-    $array[]=$ticketRow;
+    // $ticketRow= $ticket->fetch(PDO::FETCH_ASSOC);
+    // $array[]=$ticketRow;
 
     echo json_encode($array);
 

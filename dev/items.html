@@ -169,7 +169,7 @@
                 <!-- 恐龍樣板(衣服商品) -->
                 <div id='objDinosaur' style="display:none">
                     <div class=" card_bg card_bg2 fi_dr_sh hoverObj">
-                        <a href="item.html" >
+                        <a href="item.html">
                             <div class="hoverObj_img dis_n">
                                 <img src="images/products/hoverObj_dinosaur.png" alt="商品裝飾圖片">
                             </div>
@@ -190,7 +190,7 @@
                 <!-- 老鷹樣板(杯子商品) -->
                 <div id='objEagle' style="display:none">
                     <div class=" card_bg card_bg3 fi_dr_sh hoverObj">
-                        <a href="item.html" >
+                        <a href="item.html">
                             <div class="hoverObj_img dis_n">
                                 <img src="images/products/hoverObj_eagle.png" alt="商品裝飾圖片">
                             </div>
@@ -211,7 +211,7 @@
                 <!-- 羊駝樣板(枕頭商品)) -->
                 <div id='objHorse' style="display:none">
                     <div class=" card_bg card_bg4 fi_dr_sh hoverObj">
-                        <a href="item.html" >
+                        <a href="item.html">
                             <div class="hoverObj_img dis_n">
                                 <img src="images/products/hoverObj_horse.png" alt="商品裝飾圖片">
                             </div>
@@ -601,7 +601,7 @@
                 switch (category) {
                     case "包包":
                         let cloneobjCactus = objCactus.cloneNode(true);
-                        cloneobjCactus.children[0].href=`item.html?product_no=${element.product_no}`;
+                        cloneobjCactus.children[0].href = `item.html?product_no=${element.product_no}`;
                         cloneobjCactus.firstElementChild.children[1].children[0].firstElementChild.src = products[i].product_image;
                         cloneobjCactus.firstElementChild.children[1].children[1].innerText = products[i].product_name;
                         cloneobjCactus.firstElementChild.children[1].children[2].innerText = "NT." + products[i].product_price;
@@ -611,7 +611,7 @@
                         break;
                     case "衣服":
                         let cloneobjDinosaur = objDinosaur.cloneNode(true);
-                        cloneobjDinosaur.children[0].href=`item.html?product_no=${element.product_no}`;
+                        cloneobjDinosaur.children[0].href = `item.html?product_no=${element.product_no}`;
                         cloneobjDinosaur.firstElementChild.children[1].children[0].firstElementChild.src = products[i].product_image;
                         cloneobjDinosaur.firstElementChild.children[1].children[1].innerText = products[i].product_name;
                         cloneobjDinosaur.firstElementChild.children[1].children[2].innerText = "NT." + products[i].product_price;
@@ -621,7 +621,7 @@
                         break;
                     case "馬克杯":
                         let cloneobjEagle = objEagle.cloneNode(true);
-                        cloneobjEagle.children[0].href=`item.html?product_no=${element.product_no}`;
+                        cloneobjEagle.children[0].href = `item.html?product_no=${element.product_no}`;
                         cloneobjEagle.firstElementChild.children[1].children[0].firstElementChild.src = products[i].product_image;
                         cloneobjEagle.firstElementChild.children[1].children[1].innerText = products[i].product_name;
                         cloneobjEagle.firstElementChild.children[1].children[2].innerText = "NT." + products[i].product_price;
@@ -631,7 +631,7 @@
                         break;
                     case "枕頭":
                         let cloneobjHorse = objHorse.cloneNode(true);
-                        cloneobjHorse.children[0].href=`item.html?product_no=${element.product_no}`;
+                        cloneobjHorse.children[0].href = `item.html?product_no=${element.product_no}`;
                         cloneobjHorse.firstElementChild.children[1].children[0].firstElementChild.src = products[i].product_image;
                         cloneobjHorse.firstElementChild.children[1].children[1].innerText = products[i].product_name;
                         cloneobjHorse.firstElementChild.children[1].children[2].innerText = "NT." + products[i].product_price;
@@ -728,75 +728,80 @@
                 }
             }
             //箭頭消失/出現
-            (()=>{
-                for(let i=0;i<4;i++){
+            (() => {
+                for (let i = 0; i < 4; i++) {
                     //桌機
-                    if(document.querySelectorAll('.shop-tab-inner')[i].childElementCount != 0 &&document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount > 3){
+                    if (document.querySelectorAll('.shop-tab-inner')[i].childElementCount != 0 && document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount > 3) {
                         document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
-                        document.querySelectorAll('.shop-tab-inner')[i].children[0].addEventListener('click',function(){
-                            if(document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].firstElementChild.classList.contains('active')){
+
+                        document.querySelectorAll('.shop-tab-inner')[i].children[0].addEventListener('click', function () {
+                            if (document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].firstElementChild.classList.contains('active')) {
                                 document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
                             }
                             document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "";
-                        },false);
-                        document.querySelectorAll('.shop-tab-inner')[i].children[2].addEventListener('click',function(){
-                            if(document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].lastElementChild.classList.contains('active')){
+                        }, false);
+
+                        document.querySelectorAll('.shop-tab-inner')[i].children[2].addEventListener('click', function () {
+                            if (document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].lastElementChild.classList.contains('active')) {
                                 document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "none";
                             }
                             document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "";
-                        },false);
-                        document.querySelectorAll('.sort_same')[i].addEventListener('touchmove',function(){
-                            
-                            if(document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].firstElementChild.classList.contains('active')){
-                                document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
-                                console.log("");
-                            }else{
-                                document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "";
-                            }
-                            if(document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].lastElementChild.classList.contains('active')){
-                                document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "none";
-                                console.log("last");
-                            }
-                            else{
-                                document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "";
-                                console.log("no_last");
-                            }                  
-                        },false);
+                        }, false);
+                        // console.log(document.querySelectorAll('.sort_same')[i]);
+                        document.querySelectorAll('.shop-tab-inner')[i].addEventListener('touchend', function () {
+                            setTimeout(() => {
+                                if (document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].firstElementChild.classList.contains('active')) {
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
+                                } else {
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "";
+                                }
+                                if (document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].lastElementChild.classList.contains('active')) {
+                                    console.log("last");
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "none";
+                                }
+                                else {
+                                    console.log("no_last");
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "";
+                                }
+                            }, 100);
+                        }, false);
                     }
                     //手機
-                    else if(document.querySelectorAll('.shop-tab-inner')[i].childElementCount != 0 &&document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount > 1){
+                    else if (document.querySelectorAll('.shop-tab-inner')[i].childElementCount != 0 && document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount > 1) {
                         document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
-                        document.querySelectorAll('.shop-tab-inner')[i].children[0].addEventListener('click',function(){
-                            if(document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].firstElementChild.classList.contains('active')){
+                        document.querySelectorAll('.shop-tab-inner')[i].children[0].addEventListener('click', function () {
+                            if (document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].firstElementChild.classList.contains('active')) {
                                 document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
                             }
                             document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "";
-                        },false);
-                        document.querySelectorAll('.shop-tab-inner')[i].children[2].addEventListener('click',function(){
-                            if(document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].lastElementChild.classList.contains('active')){
+                        }, false);
+                        document.querySelectorAll('.shop-tab-inner')[i].children[2].addEventListener('click', function () {
+                            if (document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].lastElementChild.classList.contains('active')) {
                                 document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "none";
                             }
                             document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "";
-                        },false);
-                        document.querySelectorAll('.sort_same')[i].addEventListener('touchstart',function(){
-                            if(document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].firstElementChild.classList.contains('active')){
-                                document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
-                            }else{
-                                document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "";
-                            }
-                            if(document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].lastElementChild.classList.contains('active')){
-                                console.log("last");
-                                document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "none";
-                            }
-                            else{
-                                console.log("no_last");
-                                document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "";
-                            }                  
-                        },false);
+                        }, false);
+                        document.querySelectorAll('.shop-tab-inner')[i].addEventListener('touchend', function () {
+                            setTimeout(() => {
+                                if (document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].firstElementChild.classList.contains('active')) {
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
+                                } else {
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "";
+                                }
+                                if (document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].lastElementChild.classList.contains('active')) {
+                                    console.log("last");
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "none";
+                                }
+                                else {
+                                    console.log("no_last");
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "";
+                                }
+                            }, 100);
+                        }, false);
                     }
                 }
-                document.querySelectorAll
             })();
+
             // document.querySelectorAll('.shop-tab-inner')[0].insertBefore(newDiv, document.querySelectorAll('.shop-tab-inner')[0].children[1]);
             // document.querySelectorAll('.shop-tab-inner')[0].insertBefore(newDiv, document.querySelectorAll('.shop-tab-inner')[0].children[1]);
             $('.owl-carousel').each(function () {
@@ -824,6 +829,53 @@
                     $(this).parent().siblings('.owl-carousel').trigger('prev.owl.carousel');
                 });
             });
+            //點點控制箭頭
+            (() => {
+                console.log("??");
+                for (let i = 0; i < 4; i++) {
+                    //桌機
+                    console.log(document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount);
+                    if (document.querySelectorAll('.shop-tab-inner')[i].childElementCount != 0 && document.querySelectorAll('.shop-tab-inner')[i].children[1].childElementCount > 2) {
+                        // document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
+                        console.log(document.querySelectorAll('.shop-tab-inner')[i].children[1].children[2]);
+                        document.querySelectorAll('.shop-tab-inner')[i].children[1].children[2].addEventListener('click', function (e) {
+                            console.log(e.target);
+                            setTimeout(() => {
+                                if (document.querySelectorAll('.shop-tab-inner')[i].children[1].children[2].children[0].firstElementChild.classList.contains('active')) {
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
+                                }
+                                document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "";
+                            },1000)
+                        }, false);
+
+                        document.querySelectorAll('.shop-tab-inner')[i].children[2].addEventListener('click', function () {
+                            if (document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].lastElementChild.classList.contains('active')) {
+                                document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "none";
+                            }
+                            document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "";
+                        }, false);
+
+                        // console.log(document.querySelectorAll('.sort_same')[i]);
+                        document.querySelectorAll('.shop-tab-inner')[i].addEventListener('touchend', function () {
+                            setTimeout(() => {
+                                if (document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].firstElementChild.classList.contains('active')) {
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
+                                } else {
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "";
+                                }
+                                if (document.querySelectorAll('.shop-tab-inner')[i].children[1].children[0].children[0].lastElementChild.classList.contains('active')) {
+                                    console.log("last");
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "none";
+                                }
+                                else {
+                                    console.log("no_last");
+                                    document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "";
+                                }
+                            }, 100);
+                        }, false);
+                    }
+                }
+            })();
             doFirst();
         }
         // console.log(123);
@@ -902,7 +954,7 @@
                 alert('You have checked.');
             } else {
                 storage['addItemList'] += itemId + ', ';
-                itemValue=itemValue+"|1";
+                itemValue = itemValue + "|1";
                 storage[itemId] = itemValue;
             }
 
