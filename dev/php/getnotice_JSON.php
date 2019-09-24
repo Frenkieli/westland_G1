@@ -3,7 +3,8 @@
 
 try{
     require_once("connectWestland.php"); //引用連線
-    $sql = "select * from notice" ;
+    // $sql = "select * from notice ORDER BY activity_date_start DESC" ;
+    $sql = "SELECT * FROM notice ORDER BY notice_date_start DESC";
     $notices =$pdo->prepare($sql);
     $notices->execute();
     if($notices->rowCount()==0){
