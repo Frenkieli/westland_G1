@@ -20,6 +20,16 @@
                 .ridesIntroduction_column {
                     margin-top: 50px;
                     .text_box {
+                        position: relative;
+                        .text{
+                            margin-top: 10%;
+                        }
+                        .plot {
+                            top: 70%;
+                            right: 25%;
+                            z-index: -3;
+                            position: absolute;
+                        }
                         img {
                             &:first-child {
                                 &:hover {
