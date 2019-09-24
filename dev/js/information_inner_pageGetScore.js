@@ -46,33 +46,33 @@ window.addEventListener('load', function () {
 
 
         star_data.sort(function (a, b) {
-            return (a.equ_score_total / a.score_num) - (b.equ_score_total / b.score_num);
+            return (b.equ_score_total / b.score_num) - (a.equ_score_total / a.score_num);
         });
         let strnum = ['一', '二', '三', '四', '五', '六'];
         for (let i = 0; i < star_data.length; i++) {
 
             switch (star_data[i].equ_name) {
                 case '摩天輪':
-                    document.getElementsByClassName('rank')[0].innerHTML = '第' + strnum[i] + '分設施';
+                    document.getElementsByClassName('rank')[0].innerHTML = '第' + strnum[i] + '名';
                     break;
                 case "旋轉木馬":
-                    document.getElementsByClassName('rank')[1].innerHTML = '第' + strnum[i] + '分設施';
+                    document.getElementsByClassName('rank')[1].innerHTML = '第' + strnum[i] + '名';
 
                     break;
                 case "海盜船":
-                    document.getElementsByClassName('rank')[3].innerHTML = '第' + strnum[i] + '分設施';
+                    document.getElementsByClassName('rank')[3].innerHTML = '第' + strnum[i] + '名';
 
                     break;
                 case "滑水道":
-                    document.getElementsByClassName('rank')[4].innerHTML = '第' + strnum[i] + '分設施';
+                    document.getElementsByClassName('rank')[4].innerHTML = '第' + strnum[i] + '名';
 
                     break;
                 case "旋轉椅":
-                    document.getElementsByClassName('rank')[2].innerHTML = '第' + strnum[i] + '分設施';
+                    document.getElementsByClassName('rank')[2].innerHTML = '第' + strnum[i] + '名';
 
                     break;
                 case "雲霄飛車":
-                    document.getElementsByClassName('rank')[5].innerHTML = '第' + strnum[i] + '分設施';
+                    document.getElementsByClassName('rank')[5].innerHTML = '第' + strnum[i] + '名';
 
                     break;
                 default:

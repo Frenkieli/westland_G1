@@ -7,7 +7,7 @@ $(document).ready(function () {
         // qrcodes[i].text(array[i]);
         $(`#QRcode${i}`).qrcode({
             text: theURL,
-            size: 200,
+            size: 140,
             fill: '#000',
             background: '#fff',
             // mode: 2,

@@ -63,7 +63,9 @@ function getTicket() {
         }, false);
 
     } else {
-        alertify.alert('沒有登入喔！立刻幫您跳轉！', function () { window.location.href = 'ticket.html'; });
+        alertify.alert('沒有登入喔！立刻幫您跳轉！', function () {
+            $('#lightBox').css('display', 'block');
+        });
         return;
     }
 
@@ -83,7 +85,7 @@ function getTicket() {
             alertify.alert(xhr.status);
         }
     }
-    xhr.open("post", "php/getMemberticket_JSON.php", true);
+    xhr.open("post", "php/getMemberticket_JSON.php", false);
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     var data_info = `mem_no=${ticketsPick}`;
     xhr.send(data_info);
@@ -152,9 +154,9 @@ function setTicket(jsonStr) {
     }, 100);
     document.querySelector('.ticket_name p').innerHTML = ticket.member_name;
     document.querySelector('.ticket_img img').src = ticket.image_source;
-    if(ticket.team_name){
+    if (ticket.team_name) {
         document.querySelector('.ticket_team p').innerHTML = ticket.team_name;
-    }else{
+    } else {
         document.querySelector('.ticket_team').remove();
     }
     ticketScore = ticket.bounty;
@@ -317,11 +319,11 @@ function addPointsCheck(value) {
                 }
                 xhr.open("post", "php/updaticketmission.php", true);
                 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-                if(!team_num){
+                if (!team_num) {
                     team_num = 0;
                 }
                 var data_info = `ticket=${localStorage['member_useticket']}&mission_bonus=${localStorage['mission_bonus']}&team_no=${team_num}`;
-                
+
                 xhr.send(data_info);
                 ticketScore = ticketScore;
                 ticketScore += parseInt(localStorage['mission_bonus']);
@@ -433,11 +435,11 @@ function addPointsCheck(value) {
                 }
                 xhr.open("post", "php/updaticketmission.php", true);
                 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
-                if(!team_num){
+                if (!team_num) {
                     team_num = 0;
                 }
                 var data_info = `ticket=${localStorage['member_useticket']}&mission_bonus=${localStorage['mission_bonus']}&team_no=${team_num}`;
-                
+
                 xhr.send(data_info);
                 ticketScore = ticketScore;
                 ticketScore += parseInt(localStorage['mission_bonus']);
@@ -476,7 +478,7 @@ function addPoint(str, eStr) {
                 } else {
                     alertify.alert('成功遊玩設施：' + str + '，加了' + ticketPointBack[0] + '分！');
                 }
-                
+
             }
         } else {
             alertify.alert(xhr.status);
