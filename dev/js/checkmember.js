@@ -1,7 +1,9 @@
 //點選購買鈕
 document.getElementById("buy_ticket").addEventListener("click",function(){
     if(storage.getItem("member_no")==null){
-        alertify.alert("請先登入");
+        alertify.alert("尚未登入，馬上幫你轉跳",function(){
+            $('#lightBox').css('display', 'block');
+        });
     }else if(checkclick == 0){
         alertify.alert("請先客製化自己的吉祥物");
     }else{
@@ -30,8 +32,8 @@ function moneycost(money){
         alertify.alert(`金額不足，目前賞金餘額為${money[0].member_money}`);
     }else{
         document.getElementById("uploadmoney").value = money[0].member_money;
-        document.getElementById("uploadticketno").value = parseInt(money[1].ticket_no)+1;
-        console.log("下一張門票流水",document.getElementById("uploadticketno").value);
+        // document.getElementById("uploadticketno").value = parseInt(money[1].ticket_no)+1;
+        // console.log("下一張門票流水",document.getElementById("uploadticketno").value);
         uploadticket();
     }
 }
@@ -42,9 +44,9 @@ function uploadticket(){
     let canvaspng = document.getElementById("canvastopng");
     let dataURL = canvaspng.toDataURL("image/png");
     document.getElementById("uploadmascot").value = dataURL;
-    //門票canvas檔案存為png
+    //門票canvas檔案存為jpeg
     let canvaspic = document.getElementById("canvastopic");
-    let dataURLpic = canvaspic.toDataURL("image/png");
+    let dataURLpic = canvaspic.toDataURL("image/jpeg");
     document.getElementById("uploadticketpic").value = dataURLpic;
 
     let xhr = new XMLHttpRequest();
