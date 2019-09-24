@@ -111,12 +111,12 @@
     <section class="container ">
 
         <div id="cartUpdateFormWrap" class="b_b_f09100 m_jg_0_50 m0_35 dis_f_j_c f_c_w dis_f_jc_l ">
-            <div id="payonline" class="payonline shopping_cart_title a4c174_deep shopping_cart_title_o pay_item ">
+            <div id="payonline" class="hoverf09100 shopping_cart_title a4c174_deep shopping_cart_title_o pay_item ">
                 <div class=" dis_f_jc_c pay_mothod_text">
                     <h5 class="m-0">線上付款</h5>
                 </div>
             </div>
-            <div id="payon" class="payon shopping_cart_title a4c174_deep  pay_item">
+            <div id="payon" class=" shopping_cart_title a4c174_deep  pay_item">
                 <div class=" dis_f_jc_c pay_mothod_text">
                     <h5 class="m-0">貨到付款</h5>
                 </div>
@@ -151,7 +151,7 @@
                         <p>您已選擇貨到付款，請點選『進行結帳』完成購買。</p>
                     </div> -->
 
-                    <div class="line mb_50">
+                    <div id="on" class="line mb_50">
                         <div class="col-lg-6 mt_18">
                             <h5 class="mb_15">訂購人資訊</h5>
                             <p class="mt_5 mb_5">
@@ -479,20 +479,66 @@
 
     </script>
     <script>
-            document.getElementById('check').addEventListener('click', function () {
-    
-                if (storage['member_no']) {//有登入
-                    window.location='check_order.html';
-                } else {//沒登入
-                    document.getElementById('pleaseLogin').style.display = "";
-                    document.querySelector('.showloginBox').addEventListener('click',function(){
-                        $('#lightBox').css('display', 'block');
-                        document.getElementById('pleaseLogin').style.display = "none";
-                        order=1;
-                    });
-                }
+        //兩個click事件要分開function
+        console.log( document.getElementById('payonline'));
+            document.getElementById('payonline').addEventListener('click', function () {
+                let payonline=document.getElementById('payonline');
+                let online=document.getElementById('online');
+                let hoverf09100=document.createAttribute("class");
+                let payon=document.getElementById('payon');
+                hoverf09100.value="hoverf09100";
+                // payonline.classList.add(hoverf09100);
+                this.style.background=`#f09100`;
+                payon.style.background=`#809957`;
+                online.style.display="block";
+                on.style.borderTop="1px solid #ccc";
             }, false);
+
+            document.getElementById('payon').addEventListener('click', function () {
+                let payon=document.getElementById('payon');
+                let on=document.getElementById('on');
+                let payonline=document.getElementById('payonline');
+                this.style.backgroundColor=`#f09100`;
+                // payon.classList.add(hoverf09100);//用class去控要獨立出來，scss不能有東西包
+                let hoverf09100=document.createAttribute("class");
+                online.style.display = "none";
+                on.style.borderTop="none";
+                payonline.style.background=`#809957`;
+
+            }, false);
+
+           
         </script> 
+        <script>
+            function eYear(){
+            var nowTime = new Date();
+            var theYear = nowTime.getFullYear();
+
+            var chooseYear = document.getElementById("chooseYear");
+            if(chooseYear){
+                for (var i = 0; i < 20; i++) {
+                    var t = theYear + i + "年";
+                    var v = theYear + i;
+                    var new_option = new Option(t, v);
+                    chooseYear.options.add(new_option);
+                    }
+                }
+            }
+            eYear();
+
+            function eMonth(){
+                var chooseMonth = document.getElementById("chooseMonth");
+                if(chooseMonth){
+                    for (var i = 1; i <= 12; i++) {
+                        var t = i + "月";
+                        var v = i;
+                        var new_option = new Option(t, v);
+                        chooseMonth.options.add(new_option);
+                    }
+                }
+            }
+            eMonth();
+        </script>
     
 </body>
 
