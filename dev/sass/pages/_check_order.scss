@@ -12,6 +12,9 @@
     background: #f09100;
     transition: 0.3s;
   }
+.hoverf09100{
+  background: #f09100;
+}
   .f_c_w{
     color: #fff ;
   }
@@ -28,15 +31,15 @@
     justify-content: left;
   }
   .b_b_f09100{
-    border-bottom: 2px solid #809957;
+    border-bottom: 2px solid #f09100;
   }
   .w60{
     width: 60px;
   }
-  .b_b_f09100:hover{
-    border-bottom: 2px solid #f09100;
-    transition: 0.3s;
-  }
+  // .b_b_f09100:hover{
+  //   border-bottom: 2px solid #f09100;
+  //   transition: 0.3s;
+  // }
   .mt_20{
     margin-top: 20px;
   }
@@ -59,6 +62,7 @@
     .payTypeDetail{
       border-bottom: none;
     }
+    
   }
   input[type=text], input[type=password] {
     padding-left: 16px;
