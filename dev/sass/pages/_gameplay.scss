@@ -280,7 +280,7 @@
             #QRcode6,
             #QRcode7,
             #QRcode8 {
-                transform: scale(0.7);
+                margin: 30px 0 ;
             }
             .btn {
                 margin: auto;
@@ -337,7 +337,7 @@
         bottom: 0%;
         width: 375px;
         margin: auto;
-        transform: scale(0.5,0.5);
+        transform: scale(0.5,0.5) translateY(200px);
         z-index: 1;
         * {
             vertical-align: middle;
