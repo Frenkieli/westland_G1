@@ -175,7 +175,7 @@ h1,h2,h3,h4,h5,h6,p,a,span,div,ul,li,ol{
     }
 }
 @include rwd(phone){
-    .shoppingCart_page,.activity_page,.gameplay_page,.information_inner_page,.information_page,.item_page,.items_page,.member_page,.memberLocation_page,.shoppingCart_page,.team_page,.ticket_page{
+    .check_order_page,.shoppingCart_page,.activity_page,.gameplay_page,.information_inner_page,.information_page,.item_page,.items_page,.member_page,.memberLocation_page,.shoppingCart_page,.team_page,.ticket_page{
         background-image: url("../images/background/home_bgiM_1.jpg");
         background-size: cover;
     }
