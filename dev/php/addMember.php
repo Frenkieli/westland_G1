@@ -24,7 +24,13 @@
             VALUES ('$member_id','$member_name','$member_psw','$member_email','$forget_hint','$forget_answer')";
             $Addmembers = $pdo->prepare($sql);
             $Addmembers->execute();
-            echo '2';
+
+            $sql2 = "select member_no from members order by member_no";
+            $memberno = $pdo->prepare($sql2);
+            $memberno->execute();
+            $membernorow =$member->fetch(PDO::FETCH_ASSOC);
+
+            echo $membernorow['member_no'];
         };
     }catch(PDOException $e){
             echo $e->getMessage();
