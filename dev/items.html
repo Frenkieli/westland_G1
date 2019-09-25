@@ -9,6 +9,8 @@
 
     <!-- css -->
     @@loop('template/csslink.html',[
+    {"csslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/alertify.min.css"},
+    {"csslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/default.min.css"},
     {"csslink" : "css/owl.carousel.min.css"},
     {"csslink" : "css/owl.theme.default.css"},
     {"csslink" : "css/style.css"}
@@ -251,6 +253,8 @@
 
     <!-- js -->
     @@loop('template/jslink.html',[
+    {"jslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"},
+    {"jslink" : "js/alertifyJSset.js"},
     {"jslink" : "https://kit.fontawesome.com/6a6d2775fc.js"},
     {"jslink" : "js/jquery.min.js"},
     {"jslink" : "js/owl.carousel.js"}
@@ -948,28 +952,28 @@
             }
         }
         function addItem(itemId, itemValue) {
-            alert(`${itemId} : ${itemValue}`);
+            // alert(`${itemId} : ${itemValue}`);
             //存入storage,判斷是否為重複商品，如果重複就不增加
             if (storage[itemId]) {
-                alert('You have checked.');
+                alertify.alert(`商品 : ${itemValue.split('|')[0]} ，已經加入購物車了喔`);
             } else {
                 storage['addItemList'] += itemId + ', ';
                 itemValue = itemValue + "|1";
                 storage[itemId] = itemValue;
+                alertify.alert(`商品 : ${itemValue.split('|')[0]} ，成功加入購物車`);
             }
 
-            //計算購買數量和小計
-            let itemString = storage['addItemList'];
-            let items = itemString.substr(0, itemString.length - 2).split(', ');
-            //console.log(items);   // ["A1001", "A1005", "A1002"]
+            // //計算購買數量和小計
+            // let itemString = storage['addItemList'];
+            // let items = itemString.substr(0, itemString.length - 2).split(', ');
+            // //console.log(items);   // ["A1001", "A1005", "A1002"]
 
-            subtotal = 0;
-            for (let key in items) {  //use items[key]
-                let itemInfo = storage.getItem(items[key]);
-                let itemPrice = parseInt(itemInfo.split('|')[2]);
-
-                subtotal += itemPrice;
-            }
+            // subtotal = 0;
+            // for (let key in items) {  //use items[key]
+            //     let itemInfo = storage.getItem(items[key]);
+            //     let itemPrice = parseInt(itemInfo.split('|')[2]);
+            //     subtotal += itemPrice;
+            // }
 
             // document.getElementById('itemCount').innerText = items.length;
             // document.getElementById('subtotal').innerText = subtotal;
