@@ -125,6 +125,7 @@
     border: transparent;
     background-color: map-get( $colors_map,botton_base );
     box-shadow: 2px 4px map-get( $colors_map,botton_shadow );
+    font-family: "Noto Sans TC" , 'Noto Sans';
     font-size: map-get( $fonts_map , btn_text );
     line-height: map-get( $line_height_map , btn_text );
     color: map-get( $colors_map , font_base );
@@ -144,8 +145,10 @@
     text-align: center;
     transition: 0.3s;
     // 背景顏色，陰影顏色
+    border: transparent;
     background-color: map-get( $colors_map,active_base );
     box-shadow: 2px 4px map-get( $colors_map,active_shadow );
+    font-family: "Noto Sans TC" , 'Noto Sans';
     font-size: map-get( $fonts_map , btn_text );
     line-height: map-get( $line_height_map , btn_text );
     color: map-get( $colors_map , font_hover );
