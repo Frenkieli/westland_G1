@@ -25,7 +25,7 @@ $errMsg="";
     //會員id
     $uploadmember = $_POST["uploadmemberno"];
     //門票流水編號(+1)
-    $ticket_no = $_POST["uploadticketno"];
+    // $ticket_no = $_POST["uploadticketno"];
 
     
 
@@ -101,12 +101,13 @@ try{
     $uploadmoney->bindValue(":member_no",$uploadmember);
     $uploadmoney->execute();
 
-    echo "已成功購票,門票流水編號為$newticketNo";
+    echo "已成功購票,門票流水編號為",$newticketNo;
 
 }catch(PDOException $e){
     $errMsg .= "錯誤原因 : ".$e -> getMessage(). "<br>";
-	$errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";
+    $errMsg .= "錯誤行號 : ".$e -> getLine(). "<br>";
+    echo $errMsg;
 }
-echo $errMsg;
+
 
 ?>
