@@ -10,6 +10,8 @@
 
     <!-- css -->
     @@loop('template/csslink.html',[
+    {"csslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/alertify.min.css"},
+    {"csslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/default.min.css"},
     {"csslink" : "css/style.css"},
     {"csslink" : "css/slider-pro.css"},
     {"csslink" : "css/examples.css"}
@@ -293,6 +295,8 @@
 
     <!-- js -->
     @@loop('template/jslink.html',[
+    {"jslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"},
+    {"jslink" : "js/alertifyJSset.js"},
     {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"},
     {"jslink" : "js/jquery-1.11.0.min.js"},
     {"jslink" : "js/jquery.sliderPro.js"},
@@ -303,6 +307,7 @@
     {"jslink" : "js/chickChangeBoard.js"},
     {"jslink" : "js/KeyinMsg_ChangBoard.js"},
     {"jslink" : "js/info_innerGetMemGetMsg.js"}
+
     ])
     <script type="text/javascript">
         $(document).ready(function ($) {
