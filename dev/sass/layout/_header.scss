@@ -38,11 +38,24 @@
         color: #fff;
         
     }
+    .shoppingCart_popup_count{
+        z-index: 99;
+        line-height: 1;
+        top: 20px;
+        right: 40px;
+        position: absolute;
+        border-radius:50%;
+        background: #5a7529;
+        width: 25px;
+        height: 25px; 
+        // position: relative;
+    }
     @include rwd(phone) {
+        
         .nav_space{
             height: 127px;
         }
-        .shoppingCart_popup,.shoppingCart_popup_count,.navbar_cloud,.forcomputerdemo{
+        .shoppingCart_popup,.navbar_cloud,.forcomputerdemo{
             display: none;
         }
         // .shoppingCart_popup_count{
