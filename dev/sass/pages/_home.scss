@@ -46,7 +46,6 @@
 }
 
 .section_Podium {
-    
     .Podium_welcome {
         background-image: url("../images/mixin/page_title.svg");
         background-size: cover;
@@ -55,7 +54,7 @@
         padding: 1.4% 5%;
         margin: 0 auto;
         text-align: center;
-        &-anime{
+        &-anime {
             animation: welcome 1s ease-out 1.3s backwards;
         }
         @keyframes welcome {
@@ -190,7 +189,7 @@
             img:nth-child(1) {
                 position: relative;
                 z-index: 1;
-                margin-bottom: -20%;
+                margin-bottom: -25%;
             }
             @include rwd(desktop) {
                 // :hover {
@@ -232,7 +231,7 @@
             flex-direction: column;
             align-items: center;
             margin: 1%;
-            padding:60px 10px 20px;
+            padding: 60px 10px 20px;
             width: 20%;
             // background-image: url("../images/index/wanted.png");
             background-image: url("../images/team/wanted.png");
@@ -243,7 +242,7 @@
             @include rwd(phone) {
                 font-size: 16px;
                 width: 29%;
-                padding:8% 1% 3%;
+                padding: 8% 1% 3%;
                 background-image: url("../images/team/wanted.png");
             }
             .ticket_name {
@@ -582,6 +581,7 @@
         background-size: 100% 100%;
         width: 100%;
         background-position: 50% 100%;
+        padding-bottom: 5px;
         .container {
             .ticket_customize {
                 display: block;
@@ -694,26 +694,26 @@
     .section_footer {
         margin-top: -87px;
     }
-    .index_ticket_customize{
+    .index_ticket_customize {
         overflow: hidden;
     }
     @include rwd(phone) {
-        .ticket_customize_wrap{
+        .ticket_customize_wrap {
             display: flex;
             flex-direction: column;
-            .customize_mascots_boxs{
+            .customize_mascots_boxs {
                 order: 0;
             }
-            .customize_mascot_role{
+            .customize_mascot_role {
                 order: 1;
             }
-            .customize_items_set_box{
+            .customize_items_set_box {
                 order: 2;
             }
-            .customize_items{
+            .customize_items {
                 order: 3;
             }
-            .indexticket_buy{
+            .indexticket_buy {
                 order: 4;
                 margin-top: 10px;
             }
