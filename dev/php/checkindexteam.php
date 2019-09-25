@@ -5,6 +5,18 @@ try {
     // $checkteam = 1;
     // $mem_no = 7;
     require_once("connectWestland.php"); //引用連線
+
+    $sql2 = "select * from members a left outer join ticket b ON b.member_no = a.member_no where b.member_no  = :member_no";
+    $member = $pdo->prepare($sql2);
+    $member->bindValue(":member_no", $mem_no);
+    $member->execute();
+
+    if($member->rowCount()==0){
+        echo '沒有票喔';
+        die();
+    }
+
+
     $sql = "select * from team a left outer join ticket b ON a.team_no=b.team_no left outer join members c on b.member_no=c.member_no WHERE a.team_no  =  :team_no AND b.member_no = :member_no";
     $team = $pdo->prepare($sql);
     $team->bindValue(":member_no", $mem_no);

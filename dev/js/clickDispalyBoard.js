@@ -4,7 +4,7 @@ loginBoard.addEventListener('click',function(){
     if (loginIsTure) {
         let message=$('#equ_message').val();  //設置對話框輸入文字為此變數
         if (message.replace(/[\s　]+/g, "") == "") {  //如果空白不准發送
-            window.alert('輸入文字不得為空白!');
+            alertify.alert('輸入文字不得為空白!');
         }else{
             let member_no = loginIsTure;
             let equ_no = $('#equ_no').val();
@@ -27,18 +27,21 @@ loginBoard.addEventListener('click',function(){
                     starLevel:starLevelVal,     		
                 },
                 error:function() {
-                    window.alert("連線失敗!")
+                    alertify.alert("連線失敗!請洽相關客服人員!")
                 },
                 success:function(){
                     console.log(starLevelVal)
-                    window.alert("感謝您留言，訊息已發送!!")
-                    window.location.reload();
+                    alertify.alert("感謝您留言，訊息已發送!!")
+                    $(document).on('click', '.ajs-button', function(){
+                        window.location.reload();
+                    })
                 }
             })
         }
     }else{
-        alert('尚未登入會員，請您先登入會員！');
-        $('#lightBox').css('display', 'block');
+        alertify.alert('尚未登入會員，請您先登入會員！');
+        $(document).on('click', '.ajs-button', function(){
+            $('#lightBox').css('display', 'block');
         $("#mem_id").change(function () {
             if ($("#mem_id").val().search(nnn)) {
                 console.log('不可');
@@ -70,8 +73,10 @@ loginBoard.addEventListener('click',function(){
                             sessionStorage.setItem(index, value);
                         }
                     });
-                    window.alert("感謝您，登入成功!!")
-                    window.location.reload();
+                    alertify.alert("感謝您，登入成功!!")
+                    $(document).on('click', '.ajs-button', function(){
+                        window.location.reload();
+                    })
                     $('#lightBox').css('display', 'none');
                     console.log('sessionStorage: ' + sessionStorage.member_id)
                 }, error: function (XMLHttpRequest, textStatus) {
@@ -84,5 +89,6 @@ loginBoard.addEventListener('click',function(){
         $('.login_cancel img').click(function () {
             $('#lightBox').css('display', 'none');
         });
+        })
     }
 },false)

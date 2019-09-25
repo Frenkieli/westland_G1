@@ -43,10 +43,12 @@ function showteam(jsonStr) {
                     var xhr = new XMLHttpRequest();
                     xhr.onload = function () {
                         if (xhr.status == 200) {
+                            console.log('sssss');
                             //..................取回server端回傳的使用者資料
                             if (xhr.responseText.indexOf("sysError") != -1) {
                                 alertify.alert("系統異常,請通知系統維護人員");
                             } else if (xhr.responseText.indexOf("沒有票喔") != -1) {
+                                alertify.alert("沒有票喔！！");
                             } else {
                                 if (parseInt(xhr.responseText)) {
                                     // 

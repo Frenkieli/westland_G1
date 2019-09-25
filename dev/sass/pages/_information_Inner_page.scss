@@ -9,6 +9,9 @@
         background-image: url(../images/information/inner_bgi.png);
         background-repeat: no-repeat;
     }
+    #example3 .sp-layer{
+        font-size: 22px;
+    }
     .section_rides_DetailedIntroduction {
         margin: auto;
         max-width: 95vw;
@@ -24,7 +27,7 @@
             top: 0;
             left: 0;
             background: rgba(0, 0, 0, .5);
-            z-index: 5;
+            z-index: 999;
             .reportMessage{
                 width: 60%;
                 height: 40%;

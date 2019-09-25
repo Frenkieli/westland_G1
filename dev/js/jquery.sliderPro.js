@@ -2942,7 +2942,7 @@
 				if ( typeof this.settings.width === 'string' && this.settings.width.indexOf( '%' ) !== -1 ) {
 					useAutoScale = false;
 				} else {
-					autoScaleReference = parseInt( this.settings.width, 10 );
+					autoScaleReference = parseInt( this.settings.width*0.85, 10 );
 				}
 			} else {
 				autoScaleReference = this.settings.autoScaleReference;

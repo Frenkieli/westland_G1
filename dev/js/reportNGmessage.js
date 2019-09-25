@@ -32,12 +32,11 @@ $(document).on('click', '.toReport', function(){
 			console.log(`#messageNo_${message_no}`)
 			console.log("回報成功");
 			// 寫完立即增加到下方
-			window.alert('回報成功!');
-			deletBoard();
-			window.location.reload();
+
 		}
 	})
-	function deletBoard() {
-		window.alert("可以刪除資料了喔")
-	}
+	alertify.alert("回報成功!");
+	$(document).on('click', '.ajs-button', function(){
+		window.location.reload();
+	})
 })
