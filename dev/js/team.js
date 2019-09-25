@@ -38,73 +38,79 @@ function showTeam(teamlist, ticketlist) {
     $id("create").innerHTML = ``;
     //動態生成 加入/已加入 畫面
     let inputIndex = 0;//1加入 2已加入
-    teamlist.forEach(teamElement => {
-        let have_add = 0;//是否已加入
-        let use_ticket = 0;//加入隊伍使用的門票
-        let use_ticket_bounty = 0;//該門票有的賞金
-        let have_add_exit_status = 0;//加入隊伍門票的出園狀態
-        //沒登入 人數少於5的隊伍
-        if (member_no == undefined && teamElement.team_num != 5) {
-            inputIndex = 1;
-            //  console.log("NO");
-        }
-        //沒登入 人數等於5的隊伍
-        else if (member_no == undefined && teamElement.team_num == 5) {
-            // console.log("?");
-            inputIndex = 0;
-        }
-
-        ticketlist.forEach(ticketElement => {
-            // console.log(ticketElement.ticket_no);
-            //有登入 且不是自己的隊伍 且未加入的隊伍 且隊伍人數小於5人
-            if (member_no && teamElement.leader_member_no != member_no && ticketElement.team_no != teamElement.team_no && teamElement.team_num != 5) {
+    //隊伍篩選
+    if (teamlist.length != 0) {
+        teamlist.forEach(teamElement => {
+            let have_add = 0;//是否已加入
+            let use_ticket = 0;//加入隊伍使用的門票
+            let use_ticket_bounty = 0;//該門票有的賞金
+            let have_add_exit_status = 0;//加入隊伍門票的出園狀態
+            //沒登入 人數少於5的隊伍
+            if (member_no == undefined && teamElement.team_num < 5) {
                 inputIndex = 1;
-                // console.log('加入', ticketElement.ticket_no);
+                //  console.log("NO");
             }
-            //有登入 且是自己的隊伍 或是已加入的隊伍
-            else if ((member_no && teamElement.leader_member_no == member_no) || (member_no && teamElement.team_no == ticketElement.team_no)) {
-                // console.log('已加入', ticketElement.ticket_no);
-                have_add = 1;
-                //判斷加入此隊伍的這張門票是不是已經出園了，如果出園就不顯示
-                if (teamElement.team_no == ticketElement.team_no && ticketElement.exit_status == 1) {
-                    // console.log(teamElement,"出園隊伍");
-                    have_add_exit_status = -1;
-                }
-                //加入隊伍 或是 創建隊伍所使用的門票
-                if (teamElement.team_no == ticketElement.team_no) {
-                    use_ticket = ticketElement.ticket_no;
-                    use_ticket_bounty = ticketElement.bounty;
-                }
-
-                //是否為隊長
-                if (teamElement.leader_member_no == member_no) {
-                    // console.log("隊長");
-                    leader_status = 1;
-                }
-                else
-                    leader_status = 0;
-                // inputIndex = 2;
-                // break;
-            }
-            //有登入 不是已加入的隊伍 滿人不能加入(不顯示)
-            else if (member_no && teamElement.team_num == 5) {
-                // console.log("滿人了", ticketElement.ticket_no);
+            //沒登入 人數等於5的隊伍
+            else if (member_no == undefined && teamElement.team_num >= 5) {
+                // console.log("?");
                 inputIndex = 0;
             }
-        });
-        if (have_add_exit_status == -1) {
-            inputIndex = 0;
-        }
-        else if (have_add == 1) {
-            inputIndex = 2;
-        }
-        // console.log('over---------------------------------------');
-        // console.log(inputIndex);
-        switch (inputIndex) {
-            //加入
-            case 1:
-                let createjoinTeam =
-                    `<div class="team_list_box">
+            //有登入 完全沒票(連已加入隊伍的票都沒有) 人數小於5的隊伍
+            if (member_no && teamElement.team_num < 5 && ticketlist.length == 0) {
+                inputIndex = 1;
+            }
+            //隊伍+門票的篩選
+            ticketlist.forEach(ticketElement => {
+                // console.log(ticketElement.ticket_no);
+                //有登入 且不是自己的隊伍 且未加入的隊伍 且隊伍人數小於5人
+                if (member_no && teamElement.leader_member_no != member_no && ticketElement.team_no != teamElement.team_no && teamElement.team_num < 5) {
+                    inputIndex = 1;
+                    // console.log('加入', ticketElement.ticket_no);
+                }
+                //有登入 且是自己的隊伍 或是已加入的隊伍
+                else if ((member_no && teamElement.leader_member_no == member_no) || (member_no && teamElement.team_no == ticketElement.team_no)) {
+                    // console.log('已加入', ticketElement.ticket_no);
+                    have_add = 1;
+                    //判斷加入此隊伍的這張門票是不是已經出園了，如果出園就不顯示
+                    if (teamElement.team_no == ticketElement.team_no && ticketElement.exit_status == 1) {
+                        // console.log(teamElement,"出園隊伍");
+                        have_add_exit_status = -1;
+                    }
+                    //加入隊伍 或是 創建隊伍所使用的門票
+                    if (teamElement.team_no == ticketElement.team_no) {
+                        use_ticket = ticketElement.ticket_no;
+                        use_ticket_bounty = ticketElement.bounty;
+                    }
+
+                    //是否為隊長
+                    if (teamElement.leader_member_no == member_no) {
+                        // console.log("隊長");
+                        leader_status = 1;
+                    }
+                    else
+                        leader_status = 0;
+                    // inputIndex = 2;
+                    // break;
+                }
+                //有登入 不是已加入的隊伍 滿人不能加入(不顯示)
+                else if (member_no && teamElement.team_num >= 5) {
+                    // console.log("滿人了", ticketElement.ticket_no);
+                    inputIndex = 0;
+                }
+            });
+            if (have_add_exit_status == -1) {
+                inputIndex = 0;
+            }
+            else if (have_add == 1) {
+                inputIndex = 2;
+            }
+            // console.log('over---------------------------------------');
+            // console.log(inputIndex);
+            switch (inputIndex) {
+                //加入
+                case 1:
+                    let createjoinTeam =
+                        `<div class="team_list_box">
                         <input type="hidden" name="team_no" value="${teamElement.team_no}">
                         <div class="list_box_img">
                             <p class="wanted_name">${teamElement.member_name}</p>
@@ -114,7 +120,7 @@ function showTeam(teamlist, ticketlist) {
                             <p class="wanted_teamname">${teamElement.team_name}</p>
                             <p class="wanted_bounty">$${teamElement.team_bounty}</p>
                             <div class="wanted_mascot">
-                                <img src="${teamElement.mascot_image}}">
+                                <img src="${teamElement.mascot_image}">
                             </div>
                         </div>
                         <div class="list_box_info">
@@ -125,13 +131,13 @@ function showTeam(teamlist, ticketlist) {
                             <p class="paragraph_p">人數 : <span class="info_teamcount">${teamElement.team_num}</span> / 5</p>
                         </div>
                     </div>`
-                $id("join").innerHTML = $id("join").innerHTML + createjoinTeam;
-                break;
-            //已加入
-            case 2:
-                // console.log(teamElement);
-                let createjoinedTeam =
-                    `<div class="team_list_box">
+                    $id("join").innerHTML = $id("join").innerHTML + createjoinTeam;
+                    break;
+                //已加入
+                case 2:
+                    // console.log(teamElement);
+                    let createjoinedTeam =
+                        `<div class="team_list_box">
                         <input type="hidden" name="leader_status" value="${leader_status}">
                         <input type="hidden" name="ticket_no" value="${use_ticket}">
                         <input type="hidden" name="team_no" value="${teamElement.team_no}">
@@ -155,12 +161,14 @@ function showTeam(teamlist, ticketlist) {
                             <p class="paragraph_p">人數 : <span class="info_teamcount">${teamElement.team_num}</span> / 5</p>
                         </div>
                     </div>`
-                $id("joined").innerHTML = $id("joined").innerHTML + createjoinedTeam;
-                break;
-            default:
-                break;
-        }
-    });
+                    $id("joined").innerHTML = $id("joined").innerHTML + createjoinedTeam;
+                    break;
+                default:
+                    break;
+            }
+        });
+    }
+
     //動態生成 創建 畫面
     if (chose == 3) {
         //有可以使用的票
@@ -252,9 +260,9 @@ function showTeam(teamlist, ticketlist) {
                     let xhr = new XMLHttpRequest();
                     xhr.onload = function () {
                         if (xhr.status == 200) {
-                            alertify.alert(xhr.responseText+`1秒後重整`);
+                            alertify.alert(xhr.responseText + `1秒後重整跳轉已加入隊伍頁面`);
                             // alert(xhr.responseText);
-                             setTimeout(create,1000);
+                            setTimeout(joined, 1000);
                             // create();
                         } else {
                             alertify.alert('創建隊伍失敗QQ');
@@ -270,7 +278,9 @@ function showTeam(teamlist, ticketlist) {
         }
         //沒有可以使用的票
         else {
-            alertify.alert("沒有可以使用的票喔");
+            alertify.confirm("沒有可以使用的票喔，點擊確認跳轉到購票頁面",function(){
+                window.location.href="ticket.html";
+            });
         }
 
     }
@@ -338,7 +348,7 @@ function indexjoinInvitation() {
                 if ($id('join').children[i].children[0].value == indexTeamNO) {
                     console.log($id('join').children[i].children[0].value);
                     clone_thisTeam = $id('join').children[i].cloneNode(true);
-                    joinIndex=i;
+                    joinIndex = i;
                 }
             }
             // console.log(joinIndex);
@@ -355,8 +365,8 @@ function indexjoinInvitation() {
                 $id('chose_ticket').appendChild(newOption);
             });
         } else {
-            alertify.alert('沒有可以使用的票喔',function(){
-                window.location.href = window.location.href.substr(0, window.location.href.indexOf('?'));
+            alertify.confirm("沒有可以使用的票喔，點擊確認跳轉到購票頁面",function(){
+                window.location.href="ticket.html";
             });
             // alert('沒有可以使用的票喔');
         }
@@ -374,21 +384,23 @@ function indexjoinInvitation() {
         $id("team_join_window").style.clipPath = "polygon(0 50% , 100% 50% , 100% 50%,0 50%)";
         $id("team_join_window").style.opacity = 0;
         $id("ok").removeEventListener("click", move, false);
-        window.location.href=window.location.href.substr(0,window.location.href.indexOf('?team_num'));
+        window.location.href = window.location.href.substr(0, window.location.href.indexOf('?team_num'));
         console.log(window.location.href);
     }, false);
     //點選OK
     $id("ok").addEventListener("click", move, false);
+
     console.log(joinIndex);
     console.log($id('join').children[joinIndex]);
     //ajax加入隊伍 點選OK就在畫面上移除 且 判斷還有沒有隊伍
     function move() {
-        // console.log(joinIndex);
-        // console.log($id('join').children[joinIndex]);
-        // $id('join').children[joinIndex].remove();
+        console.log(joinIndex);
+        console.log($id('join').children[joinIndex]);
+        $id('join').children[joinIndex].remove();
         console.log($id('chose_ticket').value);
         //有選擇門票
         if ($id('chose_ticket').value != '請選擇') {
+            $id("ok").disabled = true;
             let bounty;
             canUseTicket.forEach((element, index) => {
                 if ($id('chose_ticket').value == element.ticket_no) {
@@ -399,7 +411,13 @@ function indexjoinInvitation() {
             xhr.onload = function () {
                 if (xhr.status == 200) {
                     //回傳成功訊息
-                    alertify.alert(xhr.responseText);
+                    alertify.alert(xhr.responseText, function () {
+                        //移除OK按鈕監聽
+                        $id("ok").removeEventListener("click", move, false);
+                        setTimeout(function () {
+                            window.location.href = window.location.href.substr(0, window.location.href.indexOf('?'));
+                        }, 100)
+                    });
                     // alert(xhr.responseText);
 
                     //移除該門票選項
@@ -420,9 +438,7 @@ function indexjoinInvitation() {
                         document.querySelector(".no_can_join").style.opacity = "1";
                     }
 
-                    //移除OK按鈕監聽
-                    $id("ok").removeEventListener("click", move, false);
-                    window.location.href = window.location.href.substr(0, window.location.href.indexOf('?'));
+
                     console.log(window.location.href);
                 }
                 else {
@@ -463,6 +479,7 @@ function join() {
 }
 //加入隊伍彈窗
 function joinInvitation() {
+    $id("ok").disabled = false;
     let thisTeam = this;
     //有登入
     if (member_no) {
@@ -492,7 +509,9 @@ function joinInvitation() {
             });
         } else {
             // console.log(`????`);
-            alertify.alert('沒有可以使用的票喔');
+            alertify.confirm("沒有可以使用的票喔，點擊確認跳轉到購票頁面",function(){
+                window.location.href="ticket.html";
+            });
             // alert('沒有可以使用的票喔');
         }
     }
@@ -517,6 +536,7 @@ function joinInvitation() {
         console.log($id('chose_ticket').value);
         //有選擇門票
         if ($id('chose_ticket').value != '請選擇') {
+            $id("ok").disabled = true;
             let bounty;
             canUseTicket.forEach((element, index) => {
                 if ($id('chose_ticket').value == element.ticket_no) {
@@ -595,7 +615,7 @@ function joined() {
 }
 //已加入隊伍彈窗
 function dropOut() {
-
+    $id("ok").disabled = false;
     // console.log(2);
     this.style.cursor = 'context-menu';
     $id("team_join_window").style.opacity = 1;
@@ -638,6 +658,7 @@ function dropOut() {
 
     //ajax退出隊伍 點選OK就在畫面上移除 且 判斷還有沒有隊伍
     function move() {
+        $id("ok").disabled = true;
         let xhr = new XMLHttpRequest();
         xhr.onload = function () {
             if (xhr.status == 200) {
@@ -694,7 +715,9 @@ function allData() {
     let xhr = new XMLHttpRequest();
     xhr.onload = function () {
         if (xhr.status == 200) {
-            allTeam = JSON.parse(xhr.responseText);
+            // console.log(xhr.responseText);
+            if (xhr.responseText != '0')
+                allTeam = JSON.parse(xhr.responseText);
             // console.log(allTeam);
             //showTeam(allTeam);
             //ajax 撈取該會員所有的門票(有登入)
@@ -702,7 +725,8 @@ function allData() {
                 let xhr = new XMLHttpRequest();
                 xhr.onload = function () {
                     if (xhr.status == 200) {
-                        allTicket = JSON.parse(xhr.responseText);
+                        if (xhr.responseText != '0')
+                            allTicket = JSON.parse(xhr.responseText);
                         // console.log(allTicket);
                         showTeam(allTeam, allTicket);
                     } else {

@@ -10,7 +10,7 @@
             $userTicket->bindValue(':member_no',$_GET['member_no']);
             $userTicket->execute();
             if($userTicket->rowCount()==0){
-                echo "{}";
+                echo "0";
             }else{
                 //=====撈資料=====
                 $userTicketRow=$userTicket->fetchAll(PDO::FETCH_ASSOC);
@@ -24,7 +24,7 @@
             $teams =$pdo->prepare($sql);
             $teams->execute();
             if($teams->rowCount()==0){
-                echo "{}";
+                echo "0";
             }else{
                 //=====撈資料=====
                 $teamRow=$teams->fetchAll(PDO::FETCH_ASSOC);

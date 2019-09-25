@@ -93,11 +93,7 @@
                                 <button type="submit" class="deleteBtn btn--active btn_bor">刪除</button>
                             </div>
                         </div> -->
-                        <div class="trash_icon deleteBtn">
-                            <button type="submit" class="trash">
-                                <i class="fas fa-trash-alt"></i>
-                            </button>
-                        </div>
+                       
                     </div>
                 </div>
             </form>
@@ -173,11 +169,11 @@
 
                         <div class="col-lg-6 mt_18">
                             <h5 class="mb_15">收件人資訊</h5>
-                            <p class="mt_5 mb_5"><span class="w-100 dis-ib">收件人姓名</span><input
+                            <p class="mt_5 mb_5"><span class="w-100 dis-ib">收件人姓名</span><input placeholder="請輸入收件人的姓名"
                                     class="input_809957 recipient_name" type="text" name="receive-person-name"></p>
-                            <p class="mt_5 mb_5"><span class="w-100 dis-ib">收件人電話</span><input
+                            <p class="mt_5 mb_5"><span class="w-100 dis-ib">收件人電話</span><input placeholder="請輸入收件人的電話"
                                     class="input_809957 recipient_phone" type="text" name="receive-person-phone"></p>
-                            <p class="mt_5 mb_5"><span class="w-100 dis-ib">收件人地址</span><input
+                            <p class="mt_5 mb_5"><span class="w-100 dis-ib">收件人地址</span><input placeholder="請輸入收件人的地址"
                                     class="input_809957 recipient_addre" type="text" name="receive-person-address"></p>
                         </div>
                         <div class="clearfix"></div>
@@ -356,6 +352,7 @@
                     //                      <input name="recipient_addre" type="hidden">
                     //                 </form>
                     document.getElementById('check').addEventListener('click', function () {
+                        // if()
                         //所有購物車商品資訊動態新增到訂單表單
                         let itemSum = 0;
                         let allItemId = '';
@@ -365,19 +362,6 @@
                             allItemId = allItemId + document.getElementById('cartUpdateFormWrap').children[i + 1].id;
                             allItemCount = allItemCount + 'ct-' + document.getElementById('cartUpdateFormWrap').children[i + 1].children[0].children[0].children[3].children[0].children[0].value;
                             allItemPrice = allItemPrice + 'pe-' + document.getElementById('cartUpdateFormWrap').children[i + 1].children[0].children[0].children[2].children[0].innerText.replace("$", "");
-                            // console.log(document.getElementById('cartUpdateFormWrap').children[i+1].children[0].children[0].children[2].children[0].innerText.replace("$",""));
-                            // console.log(document.getElementById('cartUpdateFormWrap').children[i+1]);
-                            // let itemID=document.getElementById('cartUpdateFormWrap').children[i+1].id.replace("pd-","");
-                            // console.log(itemID);
-                            // let itemCount=document.getElementById('cartUpdateFormWrap').children[i+1].children[0].children[0].children[3].children[0].children[0].value;
-                            // console.log(itemCount);
-                            // let newInput=document.createElement('input');
-                            // newInput.name=`product_no|${itemID}`;
-                            // newInput.type="hidden";
-                            // newInput.value=`${itemID}|${itemCount}`;
-                            // console.log(newInput);
-                            // document.getElementById('toRecipient').appendChild(newInput);
-                            // console.log( document.getElementById('toRecipient'));
                             itemSum += 1;
                         }
                         //各商品的ID
@@ -455,8 +439,8 @@
                         }
                         let myForm = new FormData(sendOrderForm);
                         let url = 'php/toRecipient_JSON.php';
-                        xhrForm.open('post', url, true);
-                        xhrForm.send(myForm);
+                        // xhrForm.open('post', url, true);
+                        // xhrForm.send(myForm);
                     }, false);
 
                 } else {//............失敗
