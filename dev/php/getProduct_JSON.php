@@ -3,7 +3,7 @@
         //=====建立資料庫連線=====
         require_once("connectWestland.php");
         //=====SQL語法=====
-        $sql ="select * from product ";
+        $sql ="select * from product where product_status = 1";
         $products =$pdo->prepare($sql);
         $products->execute();
         if($products->rowCount()==0){
