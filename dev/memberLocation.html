@@ -23,7 +23,7 @@
     </header>
     <!-- ------會員中心部分------ -->
     <section class="account">
-        <div class="infowrap tabs">
+        <div class="infowrapcen tabs">
             <!-- ----------------選單部分--------------- -->
             <div class="menulist tab-demo tab-links">
                 <!-- 選單部分 -->
@@ -104,8 +104,10 @@
             </div>
             <!-- -----------------訂單部分 ----------------->
             <div id="tab02" class="order_content tab-inner">
+                <h3>我的訂單</h3>
                 <div class="order_list" id="order_list">
-                    <!-- <h3>我的訂單</h3>
+                    
+                    <!-- 
                     <div class="order_item" id="order_item">
                         <ul>
                             <li class="title">訂單日期:<span>2019/08/23</span></li>
@@ -224,12 +226,12 @@
                             <div class="message_pot">
                                 <div class="equ_historypic">
                                     <!-- <img src="" alt="設施照片"> -->
-                                    <span>設施</span>
-                                    <span class="equ_no">雲霄飛車</span>
+                                    <!-- <span>設施</span> -->
+                                    <!-- <span class="equ_no">雲霄飛車</span> -->
                                 </div>
-                                <div class="equ_message">
+                                <!-- <div class="equ_message">
                                     <p class="equ_message_txt">約朋友一起去好久沒去的遊樂園，但好笑的是我和我的朋友們其實都不太敢坐那種超可怕的遊樂設施哈哈哈哈</p>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -342,7 +344,7 @@
                                     <td id="team_num">${value.team_num}</td>
                                     <td id="team_bounty">${value.team_bounty}</td>
                                 </tr>
-                               
+
                             </table> 
                         </div>           
                         `);
@@ -448,12 +450,12 @@
                         // console.log(value)
                         // console.log( '${value.entrance_status}' + "AA")
                         $('#ticket_list').append(`
-                             <div class="ticket_item">
+                            <div class="ticket_item">
                                 <p>門票編號:<span class="ticket_no">${value.ticket_no}</span></p>
                                 <p>門票狀態:<span class="entrance_status">`+ entrance_status[value.entrance_status] + `</span></p>
-                             </div>
+                            </div>
                              
-                             `)
+                            `)
                     });
                     // console.logo(data);
                 }
@@ -484,7 +486,7 @@
                 },
                 success: function (e) {
                     // console.log(e);
-                    alert("確認更新");
+                    alertify.alert("確認更新");
                 },
                 error: function (jqXHR, textStatus, errorThrown) {
                     alert(jqXHR.responseText);
