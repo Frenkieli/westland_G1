@@ -59,7 +59,9 @@
 #example3 .sp-selected-thumbnail {
 	border: 4px solid #000;
 }
-
+#example3 .sp-layer{
+	font-size: 22px;
+}
 /* Example 4 */
 
 #example4 .sp-slides-container {
