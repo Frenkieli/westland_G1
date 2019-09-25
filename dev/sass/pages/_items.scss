@@ -95,8 +95,9 @@
         }
         .addButton{
             position: absolute;
-            bottom: 70px;
-            left: 45px;
+            bottom: 60px;
+            left: 50%;
+            transform: translateX(-50%);
         }
     }
     .card_bg1{

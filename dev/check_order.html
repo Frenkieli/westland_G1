@@ -156,28 +156,29 @@
                             <h5 class="mb_15">訂購人資訊</h5>
                             <p class="mt_5 mb_5">
                                 <span class="w-100 dis-ib">訂購人姓名</span>
-                                <input class="input_809957 order_person_name" type="text" name="order_person_name" value="sara" readonly>
+                                <input class="input_809957 order_person_name" type="text" name="order_person_name"
+                                    value="sara" readonly>
                             </p>
                             <p class="mt_5 mb_5">
                                 <span class="w-100 dis-ib">訂購人電話</span>
-                                <input class="input_809957 order_person_phone" type="text" name="order_person_phone" value="0988888888"
-                                    readonly>
+                                <input class="input_809957 order_person_phone" type="text" name="order_person_phone"
+                                    value="0988888888" readonly>
                             </p>
                             <p class="mt_5 mb_5">
                                 <span class="w-100 dis-ib">訂購人信箱</span>
-                                <input class="input_809957 order_person_email" type="text" name="order_person_email" value="0988888888"
-                                    readonly>
+                                <input class="input_809957 order_person_email" type="text" name="order_person_email"
+                                    value="0988888888" readonly>
                             </p>
                         </div>
 
                         <div class="col-lg-6 mt_18">
                             <h5 class="mb_15">收件人資訊</h5>
-                            <p class="mt_5 mb_5"><span class="w-100 dis-ib">收件人姓名</span><input class="input_809957 recipient_name"
-                                    type="text" name="receive-person-name"></p>
-                            <p class="mt_5 mb_5"><span class="w-100 dis-ib">收件人電話</span><input class="input_809957 recipient_phone"
-                                    type="text" name="receive-person-phone"></p>
-                            <p class="mt_5 mb_5"><span class="w-100 dis-ib">收件人地址</span><input class="input_809957 recipient_addre"
-                                    type="text" name="receive-person-address"></p>
+                            <p class="mt_5 mb_5"><span class="w-100 dis-ib">收件人姓名</span><input
+                                    class="input_809957 recipient_name" type="text" name="receive-person-name"></p>
+                            <p class="mt_5 mb_5"><span class="w-100 dis-ib">收件人電話</span><input
+                                    class="input_809957 recipient_phone" type="text" name="receive-person-phone"></p>
+                            <p class="mt_5 mb_5"><span class="w-100 dis-ib">收件人地址</span><input
+                                    class="input_809957 recipient_addre" type="text" name="receive-person-address"></p>
                         </div>
                         <div class="clearfix"></div>
                     </div>
@@ -243,7 +244,7 @@
                     cartUpdateFormClone.children[0].children[0].children[1].children[0].innerText = itemInfo.split('|')[0];//商品名稱
                     cartUpdateFormClone.children[0].children[0].children[2].children[0].children[0].innerText = itemInfo.split('|')[2];//單價
                     cartUpdateFormClone.children[0].children[0].children[3].children[0].children[0].value = itemInfo.split('|')[3];//數量
-                    cartUpdateFormClone.children[0].children[0].children[4].children[0].children[0].innerText = itemInfo.split('|')[2]*itemInfo.split('|')[3];//小計
+                    cartUpdateFormClone.children[0].children[0].children[4].children[0].children[0].innerText = itemInfo.split('|')[2] * itemInfo.split('|')[3];//小計
                     cartUpdateFormClone.children[0].children[0].children[1].children[2].children[0].innerText = itemInfo.split('|')[2];//手機版單價
                 }
 
@@ -288,7 +289,7 @@
     <!-- -----------購物車動態新增end-------- -->
     <!-- -----------購物車數量及小計end-------- -->
     <script>
-        order=0;
+        order = 0;
         (function () {
             let btnLess = document.querySelectorAll(".btnLess");
             let btnPlus = document.querySelectorAll(".btnPlus");
@@ -338,32 +339,32 @@
             xhr.onload = function () {//readyState : 4
                 if (xhr.status == 200) { //............成功
                     // checkMember(xhr.responseText)//回應的資料中含有exist
-                    let memberInfo=JSON.parse(xhr.responseText);
+                    let memberInfo = JSON.parse(xhr.responseText);
                     // console.log(JSON.parse(xhr.responseText));
                     // console.log(xhr.responseText);
                     //訂購人資訊
-                    document.querySelector(".order_person_name").value=memberInfo.member_name;
-                    document.querySelector(".order_person_phone").value=memberInfo.member_tel;
-                    document.querySelector(".order_person_email").value=memberInfo.member_email;
+                    document.querySelector(".order_person_name").value = memberInfo.member_name;
+                    document.querySelector(".order_person_phone").value = memberInfo.member_tel;
+                    document.querySelector(".order_person_email").value = memberInfo.member_email;
                     //確認訂單按鈕事件
-    //                 <form id="toRecipient">
-    //                      <input name="member_no" type="hidden">
-    //                      <input name="cancel_order_item_date" type="hidden">
-    //                      <input name="order_item_total" type="hidden">
-    //                      <input name="recipient_name" type="hidden">
-    //                      <input name="recipient_phone" type="hidden">
-    //                      <input name="recipient_addre" type="hidden">
-    //                 </form>
-                    document.getElementById('check').addEventListener('click',function(){
+                    //                 <form id="toRecipient">
+                    //                      <input name="member_no" type="hidden">
+                    //                      <input name="cancel_order_item_date" type="hidden">
+                    //                      <input name="order_item_total" type="hidden">
+                    //                      <input name="recipient_name" type="hidden">
+                    //                      <input name="recipient_phone" type="hidden">
+                    //                      <input name="recipient_addre" type="hidden">
+                    //                 </form>
+                    document.getElementById('check').addEventListener('click', function () {
                         //所有購物車商品資訊動態新增到訂單表單
-                        let itemSum=0;
-                        let allItemId='';
-                        let allItemCount='';
-                        let allItemPrice='';
-                        for(let i=0;i<document.getElementById('cartUpdateFormWrap').childElementCount-3;i++){
-                            allItemId=allItemId+document.getElementById('cartUpdateFormWrap').children[i+1].id;
-                            allItemCount=allItemCount+'ct-'+document.getElementById('cartUpdateFormWrap').children[i+1].children[0].children[0].children[3].children[0].children[0].value;
-                            allItemPrice=allItemPrice+'pe-'+document.getElementById('cartUpdateFormWrap').children[i+1].children[0].children[0].children[2].children[0].innerText.replace("$","");
+                        let itemSum = 0;
+                        let allItemId = '';
+                        let allItemCount = '';
+                        let allItemPrice = '';
+                        for (let i = 0; i < document.getElementById('cartUpdateFormWrap').childElementCount - 3; i++) {
+                            allItemId = allItemId + document.getElementById('cartUpdateFormWrap').children[i + 1].id;
+                            allItemCount = allItemCount + 'ct-' + document.getElementById('cartUpdateFormWrap').children[i + 1].children[0].children[0].children[3].children[0].children[0].value;
+                            allItemPrice = allItemPrice + 'pe-' + document.getElementById('cartUpdateFormWrap').children[i + 1].children[0].children[0].children[2].children[0].innerText.replace("$", "");
                             // console.log(document.getElementById('cartUpdateFormWrap').children[i+1].children[0].children[0].children[2].children[0].innerText.replace("$",""));
                             // console.log(document.getElementById('cartUpdateFormWrap').children[i+1]);
                             // let itemID=document.getElementById('cartUpdateFormWrap').children[i+1].id.replace("pd-","");
@@ -377,86 +378,86 @@
                             // console.log(newInput);
                             // document.getElementById('toRecipient').appendChild(newInput);
                             // console.log( document.getElementById('toRecipient'));
-                            itemSum+=1;
+                            itemSum += 1;
                         }
                         //各商品的ID
-                        let allItemIdInput=document.createElement('input');
-                        allItemIdInput.name=`allItemId`;
-                        allItemIdInput.type="hidden";
-                        allItemIdInput.value=allItemId;
+                        let allItemIdInput = document.createElement('input');
+                        allItemIdInput.name = `allItemId`;
+                        allItemIdInput.type = "hidden";
+                        allItemIdInput.value = allItemId;
                         document.getElementById('toRecipient').appendChild(allItemIdInput);
                         //各商品的數量
-                        let allItemCountInput=document.createElement('input');
-                        allItemCountInput.name=`allItemCount`;
-                        allItemCountInput.type="hidden";
-                        allItemCountInput.value=allItemCount;
+                        let allItemCountInput = document.createElement('input');
+                        allItemCountInput.name = `allItemCount`;
+                        allItemCountInput.type = "hidden";
+                        allItemCountInput.value = allItemCount;
                         document.getElementById('toRecipient').appendChild(allItemCountInput);
                         //各商品的單價
-                        let allItemPriceInput=document.createElement('input');
-                        allItemPriceInput.name=`allItemPrice`;
-                        allItemPriceInput.type="hidden";
-                        allItemPriceInput.value=allItemPrice;
+                        let allItemPriceInput = document.createElement('input');
+                        allItemPriceInput.name = `allItemPrice`;
+                        allItemPriceInput.type = "hidden";
+                        allItemPriceInput.value = allItemPrice;
                         document.getElementById('toRecipient').appendChild(allItemPriceInput);
                         //商品總筆數
-                        let itemSumInput=document.createElement('input');
-                        itemSumInput.name=`itemSum`;
-                        itemSumInput.type="hidden";
-                        itemSumInput.value=itemSum;
+                        let itemSumInput = document.createElement('input');
+                        itemSumInput.name = `itemSum`;
+                        itemSumInput.type = "hidden";
+                        itemSumInput.value = itemSum;
                         document.getElementById('toRecipient').appendChild(itemSumInput);
                         // console.log(itemSum);
                         //要送出的訂單表單
-                        let sendOrderForm=document.getElementById('toRecipient');
+                        let sendOrderForm = document.getElementById('toRecipient');
                         //會員
-                        sendOrderForm.children[0].value=document.getElementById("member_no").value;
+                        sendOrderForm.children[0].value = document.getElementById("member_no").value;
                         //日期
-                        let date=new Date();
-                        let Formdate_getFullYear=date.getFullYear();
-                        let Formdate_getMonth=date.getMonth()+1;
-                        if(Formdate_getMonth<10)
-                            Formdate_getMonth=`0${Formdate_getMonth}`;
-                        let Formdate_getDate=date.getDate();
-                        let Formdate=`${Formdate_getFullYear}-${Formdate_getMonth}-${Formdate_getDate}`;
-                        sendOrderForm.children[1].value=Formdate;
+                        let date = new Date();
+                        let Formdate_getFullYear = date.getFullYear();
+                        let Formdate_getMonth = date.getMonth() + 1;
+                        if (Formdate_getMonth < 10)
+                            Formdate_getMonth = `0${Formdate_getMonth}`;
+                        let Formdate_getDate = date.getDate();
+                        let Formdate = `${Formdate_getFullYear}-${Formdate_getMonth}-${Formdate_getDate}`;
+                        sendOrderForm.children[1].value = Formdate;
                         // console.log(date);
                         // console.log(Formdate);
                         //訂單總金額
-                        sendOrderForm.children[2].value=document.getElementById('sumTotalPrice').innerText;
+                        sendOrderForm.children[2].value = document.getElementById('sumTotalPrice').innerText;
                         //收件人姓名
-                        sendOrderForm.children[3].value=document.querySelector('.recipient_name').value;
+                        sendOrderForm.children[3].value = document.querySelector('.recipient_name').value;
                         //收件人電話
-                        sendOrderForm.children[4].value=document.querySelector('.recipient_phone').value;
+                        sendOrderForm.children[4].value = document.querySelector('.recipient_phone').value;
                         //收件人地址
-                        sendOrderForm.children[5].value=document.querySelector('.recipient_addre').value;
+                        sendOrderForm.children[5].value = document.querySelector('.recipient_addre').value;
                         console.log(sendOrderForm);
-                        
+
                         //送出表單(沒防呆)
-                        let xhrForm=new XMLHttpRequest();
-                        xhrForm.onload=function(){
-                            if(xhrForm.status==200){
+                        let xhrForm = new XMLHttpRequest();
+                        xhrForm.onload = function () {
+                            if (xhrForm.status == 200) {
                                 // alert('成功');
-                                alertify.alert(xhrForm.responseText+'1秒後跳轉至周邊商品');
+                                alertify.alert(xhrForm.responseText + '，點擊確認返回周邊商品', function () {
+                                    setTimeout(function () {
+                                        window.location = 'items.html';
+                                    }, 100); 
+                                });
                                 // console.log(xhrForm.responseText);
-                                var storage=sessionStorage;
+                                var storage = sessionStorage;
                                 let itemString = storage['addItemList'];
                                 let items = itemString.substr(0, itemString.length - 2).split(', ');
-                                for(let i=0;i<items.length;i++){
+                                for (let i = 0; i < items.length; i++) {
                                     storage.removeItem(items[i]);
                                     storage['addItemList'] = storage['addItemList'].replace(items[i] + ', ', '');
                                 }
                                 First();
-                                setTimeout(function(){
-                                    window.location='items.html';
-                                },1000);
-
-                            }else{
+                            } else {
                                 alert(xhrForm.status);
                             }
                         }
-                        let myForm=new FormData(sendOrderForm);
-                        let url='php/toRecipient_JSON.php';
-                        xhrForm.open('post',url,true);
+                        let myForm = new FormData(sendOrderForm);
+                        let url = 'php/toRecipient_JSON.php';
+                        xhrForm.open('post', url, true);
                         xhrForm.send(myForm);
-                    },false);
+                    }, false);
 
                 } else {//............失敗
                     alertify.alert(xhr.status);
@@ -480,66 +481,66 @@
     </script>
     <script>
         //兩個click事件要分開function
-        console.log( document.getElementById('payonline'));
-            document.getElementById('payonline').addEventListener('click', function () {
-                let payonline=document.getElementById('payonline');
-                let online=document.getElementById('online');
-                let hoverf09100=document.createAttribute("class");
-                let payon=document.getElementById('payon');
-                hoverf09100.value="hoverf09100";
-                // payonline.classList.add(hoverf09100);
-                this.style.background=`#f09100`;
-                payon.style.background=`#809957`;
-                online.style.display="block";
-                on.style.borderTop="1px solid #ccc";
-            }, false);
+        console.log(document.getElementById('payonline'));
+        document.getElementById('payonline').addEventListener('click', function () {
+            let payonline = document.getElementById('payonline');
+            let online = document.getElementById('online');
+            let hoverf09100 = document.createAttribute("class");
+            let payon = document.getElementById('payon');
+            hoverf09100.value = "hoverf09100";
+            // payonline.classList.add(hoverf09100);
+            this.style.background = `#f09100`;
+            payon.style.background = `#809957`;
+            online.style.display = "block";
+            on.style.borderTop = "1px solid #ccc";
+        }, false);
 
-            document.getElementById('payon').addEventListener('click', function () {
-                let payon=document.getElementById('payon');
-                let on=document.getElementById('on');
-                let payonline=document.getElementById('payonline');
-                this.style.backgroundColor=`#f09100`;
-                // payon.classList.add(hoverf09100);//用class去控要獨立出來，scss不能有東西包
-                let hoverf09100=document.createAttribute("class");
-                online.style.display = "none";
-                on.style.borderTop="none";
-                payonline.style.background=`#809957`;
+        document.getElementById('payon').addEventListener('click', function () {
+            let payon = document.getElementById('payon');
+            let on = document.getElementById('on');
+            let payonline = document.getElementById('payonline');
+            this.style.backgroundColor = `#f09100`;
+            // payon.classList.add(hoverf09100);//用class去控要獨立出來，scss不能有東西包
+            let hoverf09100 = document.createAttribute("class");
+            online.style.display = "none";
+            on.style.borderTop = "none";
+            payonline.style.background = `#809957`;
 
-            }, false);
+        }, false);
 
-           
-        </script> 
-        <script>
-            function eYear(){
+
+    </script>
+    <script>
+        function eYear() {
             var nowTime = new Date();
             var theYear = nowTime.getFullYear();
 
             var chooseYear = document.getElementById("chooseYear");
-            if(chooseYear){
+            if (chooseYear) {
                 for (var i = 0; i < 20; i++) {
                     var t = theYear + i + "年";
                     var v = theYear + i;
                     var new_option = new Option(t, v);
                     chooseYear.options.add(new_option);
-                    }
                 }
             }
-            eYear();
+        }
+        eYear();
 
-            function eMonth(){
-                var chooseMonth = document.getElementById("chooseMonth");
-                if(chooseMonth){
-                    for (var i = 1; i <= 12; i++) {
-                        var t = i + "月";
-                        var v = i;
-                        var new_option = new Option(t, v);
-                        chooseMonth.options.add(new_option);
-                    }
+        function eMonth() {
+            var chooseMonth = document.getElementById("chooseMonth");
+            if (chooseMonth) {
+                for (var i = 1; i <= 12; i++) {
+                    var t = i + "月";
+                    var v = i;
+                    var new_option = new Option(t, v);
+                    chooseMonth.options.add(new_option);
                 }
             }
-            eMonth();
-        </script>
-    
+        }
+        eMonth();
+    </script>
+
 </body>
 
 </html>

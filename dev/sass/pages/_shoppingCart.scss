@@ -9,9 +9,12 @@
 //  .shopping_cart_title>div~div{
 //    border-left: 1px solid #fff;
 //  }
-//  .trash_icon{
-//    border-left: none;
-//  }
+ .trash_icon{
+  .fas{
+    color: #555;
+    font-size: 20px;
+  }
+ }
 
 .shopping_cart_title_text{
   width: 20%;
@@ -197,6 +200,12 @@ margin: 20px 10px;
 }
 // ===================
 @include rwd(phone){
+  .trash_icon{
+    button{
+      background-color: transparent;
+      border: none;
+    }
+  }
  .m0_35{
    margin: 0 35px;
  }
