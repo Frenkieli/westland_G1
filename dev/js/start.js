@@ -27,7 +27,7 @@ function openDoor() {
     }
     if (this.id == 'fontend') {
         setTimeout(() => {
-            window.location.href = 'index.html';
+            window.location.href = 'home.html';
         }, 1500);
     } else {
         setTimeout(() => {

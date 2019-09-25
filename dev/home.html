@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>西部樂園</title>
+
+    <!-- css -->
+    @@loop('template/csslink.html',[
+    {"csslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/alertify.min.css"},
+    {"csslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/default.min.css"},
+    {"csslink" : "css/swiper.min.css"},
+    {"csslink" : "css/text-animate.css"},
+    {"csslink" : "css/style.css"}
+    ])
+    <!-- <script src="js/jquery.lettering.js"></script>
+    <script src="js/jquery.textillate.js"></script> -->
+
+
+</head>
+
+<body class="index">
+    <header class="header_navbar index_navbar">
+        @@include("template/header.html")
+        <div class="section_Podium">
+            <div class="Podium_welcome"><img src="images/index/welcome_3.png" alt="歡迎光臨"></div>
+            <div class="Podium_winner">
+                <div class="winner_people">
+                    <img  src="images/robot/robot.png" alt="">
+                    <img src="images/index/block4.png" alt="">
+                    <!-- <p class="team_slogan">這是隊呼喔！</p> -->
+                </div>
+                <div class="winner_people">
+                    <img  src="images/robot/robot.png" alt="">
+                    <img src="images/index/block3.png" alt="">
+                    <!-- <p class="team_slogan">這是隊呼喔！</p> -->
+                </div>
+                <div class="winner_people">
+                    <img  src="images/robot/robot.png" alt="">
+                    <img src="images/index/block2.png" alt="">
+                    <!-- <p class="team_slogan">這是隊呼喔！</p> -->
+                </div>
+                <div class="winner_people">
+                    <img  src="images/robot/robot.png" alt="">
+                    <img src="images/index/block1.png" alt="">
+                    <!-- <p class="team_slogan">這是隊呼喔！</p> -->
+                </div>
+            </div>
+            <div class="winner_teammate">
+                <div class="teammate_post">
+                    <div class="ticket_name">
+                        <p>匿名人士</p>
+                    </div>
+                    <div class="ticket_img"><img src="images/ticket/FB_IMG_1566403713083.jpg"></div>
+                    <div class="ticket_team">
+                        <p> 某某隊</p>
+                    </div>
+                    <div class="ticket_reward">
+                        <p> $123456789</p>
+                    </div>
+                    <img class="ticket_mascot" src="images/robot/robot.png" alt="">
+                </div>
+                <div class="teammate_post">
+                    <div class="ticket_name">
+                        <p>匿名人士</p>
+                    </div>
+                    <div class="ticket_img"><img src="images/ticket/FB_IMG_1566403713083.jpg"></div>
+                    <div class="ticket_team">
+                        <p>某某隊</p>
+                    </div>
+                    <div class="ticket_reward">
+                        <p> $123456789</p>
+                    </div>
+                    <img class="ticket_mascot" src="images/robot/robot.png" alt="">
+                </div>
+                <div class="teammate_post">
+                    <div class="ticket_name">
+                        <p>匿名人士</p>
+                    </div>
+                    <div class="ticket_img"><img src="images/ticket/FB_IMG_1566403713083.jpg"></div>
+                    <div class="ticket_team">
+                        <p> 某某隊</p>
+                    </div>
+                    <div class="ticket_reward">
+                        <p> $123456789</p>
+                    </div>
+                    <img class="ticket_mascot" src="images/robot/robot.png" alt="">
+                </div>
+                <div class="teammate_post">
+                    <div class="ticket_name">
+                        <p>匿名人士</p>
+                    </div>
+                    <div class="ticket_img"><img src="images/ticket/FB_IMG_1566403713083.jpg"></div>
+                    <div class="ticket_team">
+                        <p> 某某隊</p>
+                    </div>
+                    <div class="ticket_reward">
+                        <p> $123456789</p>
+                    </div>
+                    <img class="ticket_mascot" src="images/robot/robot.png" alt="">
+                </div>
+                <div class="teammate_post">
+                    <div class="ticket_name">
+                        <p>匿名人士</p>
+                    </div>
+                    <div class="ticket_img"><img src="images/ticket/FB_IMG_1566403713083.jpg"></div>
+                    <div class="ticket_team">
+                        <p> 某某隊</p>
+                    </div>
+                    <div class="ticket_reward">
+                        <p> $123456789</p>
+                    </div>
+                    <img class="ticket_mascot" src="images/robot/robot.png" alt="">
+                </div>
+            </div>
+        </div>
+    </header>
+    <div id="trigger_01"></div>
+    @@include("template/index_facility.html")
+    <div id="trigger_02"></div>
+    <section class="team index_team">
+        <div class="container">
+            <h3 class="section_title">最新團隊</h3>
+            <div class="team_bulletin_board" id="index_team">
+                <div class="img_Canopy">
+                    <img src="images/team/team_canopytop2.png" alt="揪團遮雨棚">
+                </div>
+                <div class="team_container">
+                    <div class="team_container_list">
+                        <div id="join" class="team_join_list">
+                            <div class="team_list_box team_list_box1">
+                                <div class="list_box_img">
+                                    <p class="wanted_name">小帥帥</p>
+                                    <div class="wanted_playerphoto">
+                                        <img src="images/team/FB_IMG_1566404286898.jpg">
+                                    </div>
+                                    <p class="wanted_teamname">帥帥隊驢子</p>
+                                    <p class="wanted_bounty">$77777</p>
+                                    <div class="wanted_mascot">
+                                        <img src="images/team/alpaca.svg">
+                                    </div>
+                                </div>
+                                <div class="list_box_info">
+                                    <p class="paragraph_p">隊伍名稱 : <br><span class="info_teamname">帥帥隊</span></p>
+                                    <p class="paragraph_p">精神標語 :</p>
+                                    <p class="info_teamslogan paragraph_p">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
+                                    <p class="paragraph_p">人數 : <span class="info_teamcount">1</span></p>
+                                </div>
+                            </div>
+                            <div class="team_list_box team_list_box2">
+                                <div class="list_box_img">
+                                    <p class="wanted_name">小帥帥</p>
+                                    <div class="wanted_playerphoto">
+                                        <img src="images/team/FB_IMG_1566404442214.jpg">
+                                    </div>
+                                    <p class="wanted_teamname">帥帥隊</p>
+                                    <p class="wanted_bounty">$77776</p>
+                                    <div class="wanted_mascot">
+                                        <img src="images/team/alpaca.svg">
+                                    </div>
+                                </div>
+                                <div class="list_box_info">
+                                    <p class="paragraph_p">隊伍名稱 : <br><span class="info_teamname">帥帥隊</span></p>
+                                    <p class="paragraph_p">精神標語 :</p>
+                                    <p class="info_teamslogan paragraph_p">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
+                                    <p class="paragraph_p">人數 : <span class="info_teamcount">1</span></p>
+                                </div>
+                            </div>
+                            <div class="team_list_box team_list_box3">
+                                <div class="list_box_img">
+                                    <p class="wanted_name">小帥帥</p>
+                                    <div class="wanted_playerphoto">
+                                        <img src="images/team/FB_IMG_1566404671794.jpg">
+                                    </div>
+                                    <p class="wanted_teamname">帥帥隊</p>
+                                    <p class="wanted_bounty">$77777</p>
+                                    <div class="wanted_mascot">
+                                        <img src="images/team/alpaca.svg">
+                                    </div>
+                                </div>
+                                <div class="list_box_info">
+                                    <p class="paragraph_p">隊伍名稱 : <br><span class="info_teamname">帥帥隊</span></p>
+                                    <p class="paragraph_p">精神標語 :</p>
+                                    <p class="info_teamslogan paragraph_p">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
+                                    <p class="paragraph_p">人數 : <span class="info_teamcount">1</span></p>
+                                </div>
+                            </div>
+                            <div class="team_list_box team_list_box4">
+                                <div class="list_box_img">
+                                    <p class="wanted_name">小帥帥</p>
+                                    <div class="wanted_playerphoto">
+                                        <img src="images/team/FB_IMG_1566404795035.jpg">
+                                    </div>
+                                    <p class="wanted_teamname">帥帥隊</p>
+                                    <p class="wanted_bounty">$77777</p>
+                                    <div class="wanted_mascot">
+                                        <img src="images/team/alpaca.svg">
+                                    </div>
+                                </div>
+                                <div class="list_box_info">
+                                    <p class="paragraph_p">隊伍名稱 : <br><span class="info_teamname">帥帥隊</span></p>
+                                    <p class="paragraph_p">精神標語 :</p>
+                                    <p class="info_teamslogan paragraph_p">只會往前，瘋狂入野!!只會往前，瘋狂入野!!只會往前，瘋狂入野!!</p>
+                                    <p class="paragraph_p">人數 : <span class="info_teamcount">1</span></p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="img_Wooden_pile">
+                    <img src="images/team/team_canopybottom4.png" alt="">
+                </div>
+            </div>
+        </div>
+        <!-- <img src="images/team/bulletin_board.svg" alt="揪團布告欄"> -->
+        </div>
+        </div>
+    </section>
+
+    <div id="trigger_03"></div>
+
+    <section class="ticket_customize_scetion index_ticket_customize">
+        <div class="container">
+            <!-- @@include("template/ticket_section.html") -->
+            <!-- <div class="ticket_customize_wrap">
+                <div class="customize_backimage">
+                    <div class="ticket_title">客製您的門票</div>
+                    <div class="ticket_subtitle">DEAD OR ALIVE</div>
+                    <input class="uploadpic" type="file" id="uploadpic" value="">
+                    <div class="ticket_picture">
+                        <img id="preinstallpic" src="images/cusitems/ticket_bgi.svg" alt="預設圖">
+                    </div>
+                    <div class="ticket_amount">
+                        <a class="center" href="ticket.html">
+                            <div class="btn">前往客製</div>
+                        </a>
+                    </div>
+                    <span class="opcatity_box"></span>
+                    <div class="ticket_customize_sub">
+                        <img class="customize_sub" src="images/cusitems/role1.svg" alt="客製後出現位置">
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="section_title">客製門票</div>
+            <div class="ticket_customize" id="index_ticket_customize">
+                <!-- 客製門票左手邊區塊 -->
+                <div class="ticket_customize_wrap">
+
+                    <!-- 選擇吉祥物長相 -->
+                    <div class="customize_mascots_boxs" id="customize_mascots_boxs">
+                        <div class="customize_items_title paragraph_title">第一步 - 選擇吉祥物 :</div>
+                        <ul class="customize_mascots_box" id="ticket_mascots">
+                            <li class="customize_mascots" id="customize_mascots1">
+                                <!-- <img class="mascots" src="images/cusitems/role1.svg" alt="吉祥物一"> -->
+                            </li>
+                            <li class="customize_mascots" id="customize_mascots2">
+                                <!-- <img class="mascots" src="images/cusitems/role2.svg" alt="吉祥物二"> -->
+                            </li>
+                            <li class="customize_mascots" id="customize_mascots3">
+                                <!-- <img class="mascots" src="images/cusitems/role3.svg" alt="吉祥物三"> -->
+                            </li>
+                            <li class="customize_mascots" id="customize_mascots4">
+                                <!-- <img class="mascots" src="images/cusitems/role4.svg" alt="吉祥物四"> -->
+                            </li>
+                            <li class="customize_mascots" id="customize_mascots5">
+                                <!-- <img class="mascots" src="images/cusitems/role5.svg" alt="吉祥物五"> -->
+                            </li>
+                            <li class="customize_mascots" id="customize_mascots6">
+                                <!-- <img class="mascots" src="images/cusitems/role6.svg" alt="吉祥物六"> -->
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- 客製吉祥物大圖 -->
+                    <div class="customize_mascot_role">
+                        <div class="customize_mascot" id="savetocanvas">
+                            <img id="big" src="images/cusitems/role1.svg" alt="吉祥物本人">
+                            <div id="customize_opabox">
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <!-- 配件樣式區域 -->
+                    <div class="customize_items" id="customize_items">
+                        <div class="customize_items_title paragraph_title">第二步 - 選擇配件 :</div>
+                        <ul class="customize_items_box" id="ticket_items">
+                            <li class="customize_item" id="customize_item1">
+                                <!-- <img class="items_cus" src="images/cusitems/item1.svg" alt="配件一"> -->
+                            </li>
+                            <li class="customize_item" id="customize_item2">
+                                <!-- <img class="items_cus" src="images/cusitems/item2.svg" alt="配件二"> -->
+                            </li>
+                            <li class="customize_item" id="customize_item3">
+                                <!-- <img class="items_cus" src="images/cusitems/item3.svg" alt="配件三"> -->
+                            </li>
+                            <li class="customize_item" id="customize_item4">
+                                <!-- <img class="items_cus" src="images/cusitems/item4.svg" alt="配件四"> -->
+                            </li>
+                            <li class="customize_item" id="customize_item5">
+                                <!-- <img class="items_cus" src="images/cusitems/item5.svg" alt="配件五"> -->
+                            </li>
+                            <li class="customize_item" id="customize_item6">
+                                <!-- <img class="items_cus" src="images/cusitems/item6.svg" alt="配件六"> -->
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="customize_items_set_box">
+                        <ul class="customize_items_set">
+                            <li class="customize_set">
+                                <i id="opabox_plus" class="fas fa-search-plus"></i>
+                            </li>
+                            <li class="customize_set">
+                                <i id="opabox_minus" class="fas fa-search-minus"></i>
+                            </li>
+                            <li class="customize_set">
+                                <i id="opabox_right" class="fas fa-redo-alt"></i>
+                            </li>
+                            <li class="customize_set">
+                                <i id="opabox_left" class="fas fa-undo-alt"></i>
+                            </li>
+                            <li class="customize_set">
+                                <i id="opabox_del" class="fas fa-trash-alt"></i>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="btn--active indexticket_buy"><a href="ticket.html">進入購買</a></div>
+
+                    <!-- 客製確認鈕 -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section_store">
+        <div class="title_box">
+            <h3 class="section_title">商品介紹</h3>
+
+        </div>
+        <div id="trigger_04"></div>
+
+        <div class="swiper-container" id="section_store">
+            <div class="swiper-wrapper">
+                @@loop('template/index_store.html',[
+                {"img" :"01","name" : "仙人掌背包","price":9999},
+                {"img" :"02","name" : "仙人掌背包","price":9999},
+                {"img" :"03","name" : "仙人掌背包","price":9999},
+                {"img" :"04","name" : "仙人掌背包","price":9999},
+                {"img" :"05","name" : "老鷹背包","price":9999},
+                {"img" :"06","name" : "老鷹背包","price":9999},
+                {"img" :"07","name" : "老鷹背包","price":9999},
+                {"img" :"08","name" : "老鷹背包","price":9999},
+                {"img" :"09","name" : "仙人掌衣服","price":9999},
+                {"img" :"10","name" : "仙人掌衣服","price":9999},
+                {"img" :"11","name" : "仙人掌衣服","price":9999},
+                {"img" :"12","name" : "仙人掌衣服","price":9999}
+                ])
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-button-prev swiper_btn"></div>
+            <div class="swiper-button-next swiper_btn"></div>
+            <div class=" swiper-pagination"></div>
+        </div>
+    </section>
+    @@include("template/footer.html")
+    <!-- js -->
+    @@include("template/robot.html")
+    @@loop('template/jslink.html',[
+    {"jslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"},
+    {"jslink" : "js/alertifyJSset.js"},
+    {"jslink" : "js/indexgetproduct.js"},
+    {"jslink" : "js/swiper.min.js"},
+    {"jslink" : "https://kit.fontawesome.com/6a6d2775fc.js"},
+    {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"},
+    {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"},
+    {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js"},
+    {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/textillate/0.4.0/jquery.textillate.min.js"},
+    {"jslink" : "https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"},
+    {"jslink" : "js/jquery.cubeSlider.js"},
+    {"jslink" : "js/ticket_index.js"},
+    {"jslink" : "js/indexwinner.js"},
+    {"jslink" : "js/indexteam.js"},
+    {"jslink" : "js/index.js"},
+    {"jslink" : "js/TweenMax/TweenMax.min.js"},
+    {"jslink" : "js/TweenMax/TimelineMax.min.js"},
+    {"jslink" : "js/TweenMax/ScrollMagic.min.js"},
+    {"jslink" : "js/TweenMax/animation.gsap.min.js"},
+    {"jslink" : "js/TweenMax/debug.addIndicators.min.js"},
+    {"jslink" : "js/indexanime.js"}
+    ])
+
+    <!-- <script src='https://cdnjs.cloudflare.com/ajax/libs/lettering.js/0.7.0/jquery.lettering.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/textillate/0.4.0/jquery.textillate.min.js'></script> -->
+    <div id="winner_team_slogan">隊伍呼喊！</div>
+</body>
+
+</html>

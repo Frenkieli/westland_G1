@@ -46,6 +46,7 @@
 }
 
 .section_Podium {
+    
     .Podium_welcome {
         background-image: url("../images/mixin/page_title.svg");
         background-size: cover;
@@ -54,7 +55,9 @@
         padding: 1.4% 5%;
         margin: 0 auto;
         text-align: center;
-        animation: welcome 1s ease-out 1.3s backwards;
+        &-anime{
+            animation: welcome 1s ease-out 1.3s backwards;
+        }
         @keyframes welcome {
             from {
                 opacity: 0;

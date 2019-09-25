@@ -20,16 +20,16 @@
         x: 600,
         opacity: 0
     }, {
-            x: 0,
-            opacity: 1
-        }));
+        x: 0,
+        opacity: 1
+    }));
     animation.add(TweenMax.fromTo('#facility_rule', 0.5, {
         x: 600,
         opacity: 0
     }, {
-            x: 0,
-            opacity: 1
-        }));
+        x: 0,
+        opacity: 1
+    }));
 
 
     var scene = new ScrollMagic.Scene({
@@ -54,37 +54,37 @@
         y: 600,
         opacity: 0
     }, {
-            y: 0,
-            opacity: 1
-        }));
+        y: 0,
+        opacity: 1
+    }));
     animation2.add(TweenMax.fromTo('.team_list_box1', 0.5, {
         scale: 0,
         opacity: 0
     }, {
-            scale: 1,
-            opacity: 1
-        }));
+        scale: 1,
+        opacity: 1
+    }));
     animation2.add(TweenMax.fromTo('.team_list_box2', 0.5, {
         scale: 0,
         opacity: 0
     }, {
-            scale: 1,
-            opacity: 1
-        }));
+        scale: 1,
+        opacity: 1
+    }));
     animation2.add(TweenMax.fromTo('.team_list_box3', 0.5, {
         scale: 0,
         opacity: 0
     }, {
-            scale: 1,
-            opacity: 1
-        }));
+        scale: 1,
+        opacity: 1
+    }));
     animation2.add(TweenMax.fromTo('.team_list_box4', 0.5, {
         scale: 0,
         opacity: 0
     }, {
-            scale: 1,
-            opacity: 1
-        }));
+        scale: 1,
+        opacity: 1
+    }));
 
 
 
@@ -110,23 +110,23 @@
         x: 600,
         opacity: 0
     }, {
-            x: 0,
-            opacity: 1
-        }));
+        x: 0,
+        opacity: 1
+    }));
     animation3.add(TweenMax.fromTo('#customize_mascots_boxs', 0.33, {
         x: 600,
         opacity: 0
     }, {
-            x: 0,
-            opacity: 1
-        }));
+        x: 0,
+        opacity: 1
+    }));
     animation3.add(TweenMax.fromTo('#customize_items', 0.33, {
         x: 600,
         opacity: 0
     }, {
-            x: 0,
-            opacity: 1
-        }));
+        x: 0,
+        opacity: 1
+    }));
     // 
     // animation3.add(TweenMax.fromTo('#customize_mascots1', 0.1, {
     //     scale: 0,
@@ -226,9 +226,9 @@
         rotationY: 90,
         opacity: 0
     }, {
-            rotationY: 0,
-            opacity: 1
-        });
+        rotationY: 0,
+        opacity: 1
+    });
 
 
     var scene4 = new ScrollMagic.Scene({
@@ -239,3 +239,21 @@
         triggerHook: 0.7,
     }).setTween(animation4).addIndicators().addTo(controller)
 })();
+
+
+
+window.addEventListener('load', function () {
+    let winnerPeoples = document.querySelectorAll('.Podium_winner img:first-child');
+    document.querySelector('.Podium_welcome').classList.add('Podium_welcome-anime');
+    for (let i = 0; i < winnerPeoples.length; i++) {
+        winnerPeoples[i].className = 'winner4th';
+        // console.log('開始');
+    }
+    setTimeout(() => {
+        for (let i = 0; i < winnerPeoples.length; i++) {
+            winnerPeoples[i].className = 'winnermove';
+            // console.log('開始');
+        }
+
+    }, 1200);
+}, false);

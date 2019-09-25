@@ -152,7 +152,10 @@ function init() {
             img.className="mascots";
             img.alt= "吉祥物"+(i-6);
             img.src = ticket_custom[i].mascot_image;
-            mascots.children[i-7].appendChild(img);
+            if(mascots.children[i-7]){
+                mascots.children[i-7].appendChild(img);
+            }
+
         }
     }
 

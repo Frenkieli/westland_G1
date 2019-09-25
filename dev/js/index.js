@@ -5,15 +5,7 @@
 
     let arr = new Array;
     getamusement_equipments();
-
-    setTimeout(() => {
-        let winnerPeoples = document.querySelectorAll('.Podium_winner img:first-child');
-        for (let i = 0; i < winnerPeoples.length; i++) {
-            winnerPeoples[i].className = 'winnermove';
-            // console.log('開始');
-        }
-
-    }, 1200);
+    
     window.addEventListener('load', pushSlide, false);
     function pushSlide() {
         // console.log(arr, '設施');
