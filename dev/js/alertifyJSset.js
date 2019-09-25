@@ -1,4 +1,4 @@
-// 給js談窗套件用的參數 
+// 給js彈窗套件用的參數 
 alertify.defaults = {
     // dialogs defaults
     autoReset: true,
