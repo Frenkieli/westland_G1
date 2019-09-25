@@ -1,39 +1,38 @@
 
 //////////////會員中心選單 ///////////////////      
-// //////////////////////////////////////////
+
 .account {
     margin: auto;
-    margin-bottom: 20%;
+    min-height: 100vh;
     text-align: center;
-    // margin-bottom: 30px;
-    // margin-right: 20px;
-    .infowrap {
+    .infowrapcen {
         display: flex;
         flex-direction: column;
         justify-content: center; //置中
-        ///////////////////////////
-        width:90%;
+        width: 95%;
         margin:auto;
-        // padding-top: 10px;
+        
         .menulist {
             //選單部分
             width: 100%;
             // padding: 0 1px;
             margin: auto;
             .mymenu {
+                padding-bottom: 5%;
                 box-sizing: border-box;
-                // padding: 10px 0px;
-                padding-bottom: 20px;
                 justify-content: center;
                 width: 100%;
                 display: flex;
-                flex-wrap: wrap;             
+                flex-wrap: wrap;            
                 li {
                     width:30%;
                     text-align: center;
                     list-style: none;
-                    padding: 5px 0;
+                    // padding: 5px 0;
                     position: relative;
+                    
+                    // border: 2px solid #f09100;
+                    // border-radius: 50%;
                 }
                 a {
                     cursor: pointer;                
@@ -68,21 +67,37 @@
         }
     }
 }
+// @media screen and (max-width:767px) {
+//     .menulist{
+//         flex-wrap:wrap;
+//         li{
+//             width: 33%;
+//         }
+//     }
+// }
+
 @media screen and (min-width: 768px) {
     .account {
-        .infowrap {
-            max-width: 700px;
+        width: 100%;
+        // max-width: 1200px;
+        .infowrapcen {
+            max-width: 800px;
+
             .menulist{
-                li{
-                    width:23%; 
-                }
-            a{
-                &:hover{
-                    &::after{
-                        display: block;
+                .mymenu{
+                    flex-wrap: nowrap;
+                    li{
+                        width:17%;
+                        // bottom: 10px; 
                     }
                 }
-            }    
+                a{
+                    &:hover{
+                        &::after{
+                            display: block;
+                        }
+                    }
+                }    
             }
             .info_content {
                 // width: 70%;
@@ -233,6 +248,9 @@ $orange: #f09100;
         //     left:85%;                                  
         //     transform: rotate(10deg);                              
         // }
+        h3{
+            width: 25%;
+        }
         .content_item{
             .memid{
                 padding-left:90px;
@@ -434,7 +452,6 @@ $orange: #f09100;
 }
 
 @media screen and (min-width: 768px) {
-  
     // .ticket_list{
     //     text-align: left;
     // }
@@ -453,7 +470,7 @@ $orange: #f09100;
     display: block;
     background-color: #fff;
     padding-bottom: 20%;
-    margin-bottom: 6px;
+    // margin-bottom: 6px;
    //-------------------------------------//
     position: relative;
     border-radius: 3px;
@@ -504,9 +521,11 @@ $orange: #f09100;
                     line-height: 3;
                     color: #fff8e4;
                     font-size: 16px;
+                    background-color: #9dba65;
                     // border: 2px solid #9dba65;
                     // border-radius: 5%;
-                    background-color: #668823;              
+                    // background-color: #668823; 
+
                 }
                 .team_body{
                     // width: 20%;
@@ -534,8 +553,7 @@ $orange: #f09100;
                 }
             }
         }
-    }
-  
+    } 
 ////////////////////////////////////////
 //              評分/留言              /
 ////////////////////////////////////////
