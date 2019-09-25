@@ -86,8 +86,8 @@
                                 <button type="submit" class="deleteBtn btn--active btn_bor">刪除</button>
                             </div>
                         </div>
-                        <div class="trash_icon deleteBtn">
-                            <button type="submit" class="trash">
+                        <div class="trash_icon ">
+                            <button type="submit" class="trash iconDeleteBtn">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </div>
@@ -297,6 +297,36 @@
                 // this.parentNode.parentNode.parentNode.removeChild(this.parentNode.parentNode);
                 this.parentNode.parentNode.parentNode.parentNode.parentNode.remove();
                 //console.log(this.parentNode.parentNode.parentNode.parentNode.parentNode);
+                First();
+            }
+            let iconDeleteBtn = document.getElementsByClassName('iconDeleteBtn');
+            // console.log(delButton)
+            for (let i = 0; i < iconDeleteBtn.length; i++) {
+                // console.log( iconDeleteBtn[i]);
+                iconDeleteBtn[i].style.cursor = "pointer";
+                iconDeleteBtn[i].addEventListener('click', iconDeleteItem);
+            }
+            function iconDeleteItem(e) {
+
+                e.preventDefault();
+                
+                let key = this.parentNode.parentNode.parentNode.parentNode.id;
+
+                console.log(key);
+
+                // //1.先扣除總金額
+                let sumTotalPrice = document.getElementById('sumTotalPrice').innerText;
+                sumTotalPrice -= parseInt(this.parentNode.previousElementSibling.previousElementSibling.children[0].children[0].innerText);
+                // //this是我的btn,parentNode是的爸爸//JS=>this=e.currentTarget(事件加在誰身上)
+                document.getElementById('sumTotalPrice').innerText = sumTotalPrice;
+
+                //2.清除storage的資料
+                storage.removeItem(key);
+                storage['addItemList'] = storage['addItemList'].replace(key + ', ', '');
+
+                //3.刪除該筆form
+                this.parentNode.parentNode.parentNode.parentNode.remove();
+                console.log(this.parentNode.parentNode.parentNode.parentNode);
                 First();
             }
         }
