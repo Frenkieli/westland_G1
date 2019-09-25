@@ -38,7 +38,7 @@
     var swiper = new Swiper('.swiper-container', {
         effect: 'coverflow',
         grabCursor: true,
-        centeredSlides: false,
+        centeredSlides: true,
         slidesPerView: 'auto',
         loop: true,
         prevButton: '.swiper-button-prev',

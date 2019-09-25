@@ -57,28 +57,28 @@
         y: 0,
         opacity: 1
     }));
-    animation2.add(TweenMax.fromTo('.team_list_box1', 0.5, {
+    animation2.add(TweenMax.fromTo('.team_list_box1', 0.25, {
         scale: 0,
         opacity: 0
     }, {
         scale: 1,
         opacity: 1
     }));
-    animation2.add(TweenMax.fromTo('.team_list_box2', 0.5, {
+    animation2.add(TweenMax.fromTo('.team_list_box2', 0.25, {
         scale: 0,
         opacity: 0
     }, {
         scale: 1,
         opacity: 1
     }));
-    animation2.add(TweenMax.fromTo('.team_list_box3', 0.5, {
+    animation2.add(TweenMax.fromTo('.team_list_box3', 0.25, {
         scale: 0,
         opacity: 0
     }, {
         scale: 1,
         opacity: 1
     }));
-    animation2.add(TweenMax.fromTo('.team_list_box4', 0.5, {
+    animation2.add(TweenMax.fromTo('.team_list_box4', 0.25, {
         scale: 0,
         opacity: 0
     }, {

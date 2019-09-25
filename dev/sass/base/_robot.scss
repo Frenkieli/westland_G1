@@ -64,6 +64,15 @@
             transform: translateX(0%) translateY(0%);
         }
     }
+    #guidearrow {
+        position: absolute;
+        background-color: #512600;
+        color: #fff;
+        width: 200px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+    }
 }
 @include rwd(desktop) {
     .section_robot {
@@ -82,6 +91,9 @@
             background-color: #fff;
             border-radius: 10%;
             position: relative;
+            #say {
+                display: none;
+            }
             &::after {
                 content: "";
                 position: absolute;
@@ -95,7 +107,6 @@
                 border-bottom: 0px solid blue;
                 border-radius: 0 0 0 40000px;
             }
-
         }
         &:hover {
             // background-color: #9dba65;
@@ -111,14 +122,23 @@
                 input {
                     width: 95%;
                 }
+                #say {
+                    display: block;
+                }
             }
         }
         .robot_enter {
             width: 80%;
             text-align: center;
-            *{
+            * {
                 margin: 5px 0;
             }
+        }
+        #guidearrow {
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);
         }
     }
 }
@@ -140,6 +160,7 @@
         .robot_enter {
             width: 95%;
             margin: 5px auto;
+            display: none;
             > input {
                 width: 100%;
                 box-sizing: border-box;
@@ -147,7 +168,7 @@
             }
         }
         .arrow_down {
-            border-top: 50px solid rgba(155,83,17,0.9);
+            border-top: 50px solid rgba(155, 83, 17, 0.9);
             border-right: 50px solid transparent;
             border-left: 50px solid transparent;
             position: absolute;
@@ -169,9 +190,16 @@
                     opacity: 1;
                 }
             }
-            .robot_enter{
+            .robot_enter {
                 color: #fff;
+                display: block;
             }
+        }
+        #guidearrow {
+            top: 50%;
+            left: -210px;
+            transform: translateY(-50%);
+            clip-path: polygon(0% 20%, 80% 20%, 80% 0%, 100% 50%, 80% 100%, 80% 80%, 0% 80%);
         }
     }
 }

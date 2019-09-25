@@ -22,18 +22,42 @@
             case "1":
                 // echo $_POST["product_name"],$_POST["product_price"],$_POST["product_ifo"],$_POST["product_style"],$_POST["product_sort"],$_POST["product_category"],$_POST["product_count"],$_POST["product_no"];
                 // exit();
-                $sql="INSERT INTO `product`(`product_name`, `product_image`, `product_price`,`product_style`, `product_sort`, `product_category`, `product_count`,`product_ifo`) VALUES (:product_name,:product_image,:product_price,:product_style,:product_sort,:product_category,:product_count,:product_ifo)";
-                $input=$pdo->prepare($sql);
-                $input->bindValue(":product_name",$_POST['product_name']);
-                $input->bindValue(":product_image",$_POST['product_image']);
-                $input->bindValue(":product_price",$_POST['product_price']);
-                $input->bindValue(":product_style",$_POST['product_style']);
-                $input->bindValue(":product_sort",$_POST['product_sort']);
-                $input->bindValue(":product_category",$_POST['product_category']);
-                $input->bindValue(":product_count",$_POST['product_count']);
-                $input->bindValue(":product_ifo",$_POST['product_ifo']);
-                $input->execute();
-                echo "商品新增成功";
+                if($_FILES["product_image"]["error"] == UPLOAD_ERR_OK){
+                    $sql="INSERT INTO `product`(`product_name`, `product_price`,`product_style`, `product_sort`, `product_category`, `product_count`,`product_ifo`) VALUES (:product_name,:product_price,:product_style,:product_sort,:product_category,:product_count,:product_ifo)";
+                    $input=$pdo->prepare($sql);
+                    $input->bindValue(":product_name",$_POST['product_name']);
+                    // $input->bindValue(":product_image",$_POST['product_image']);
+                    $input->bindValue(":product_price",$_POST['product_price']);
+                    $input->bindValue(":product_style",$_POST['product_style']);
+                    $input->bindValue(":product_sort",$_POST['product_sort']);
+                    $input->bindValue(":product_category",$_POST['product_category']);
+                    $input->bindValue(":product_count",$_POST['product_count']);
+                    $input->bindValue(":product_ifo",$_POST['product_ifo']);
+                    $input->execute();
+                    echo "商品新增成功";
+                    $psn = $pdo->lastInsertId();
+
+                    $upload_mascot = "../images/products/product_list/";
+
+                    if( file_exists($upload_mascot) === false){
+                        mkdir($upload_mascot);
+                    }
+                    $fileInfoArr = pathinfo($_FILES["product_image"]["name"]);
+                    $fileName = "pd_b-{$psn}.{$fileInfoArr["extension"]}";  //8.gif 獲得副檔名
+
+                    $from = $_FILES["product_image"]["tmp_name"];
+                    $to = "../images/products/product_list//$fileName";
+                    copy( $from, $to);
+            
+                    //將檔案名稱寫回資料庫
+                    $src = "images/products/product_list/".$fileName;
+                    $sql = "update product set product_image = :image where product_no = $psn";
+                    $products = $pdo->prepare($sql);
+                    $products -> bindValue(":image", $src);
+                    $products -> execute();
+                    echo "新增成功~";
+
+                }
                 break;
             //活動新增 activity_update
             case "5":

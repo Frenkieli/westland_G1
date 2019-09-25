@@ -68,27 +68,27 @@ function choose() {
     // if(document.querySelector('.sp-slide').style.left==`${(GetScreenWidth+10)*3}px`){
     if (document.getElementById('slider_5').className.indexOf('sp-selected') != -1) {
         // console.log('雲霄飛車');
-        document.getElementById('equ_no').selectedIndex = 0;
+        document.getElementById('equ_no').selectedIndex = 2;
 
-        s6.css({ "background-color": 'rgba(238, 64, 64, 0.80)', 'display': 'flex' });
+        s4.css({ "background-color": 'rgba(238, 64, 64, 0.80)', 'display': 'flex' });
         s1.css('display', 'none');
         s2.css('display', 'none');
         s3.css('display', 'none');
-        s4.css('display', 'none');
+        s6.css('display', 'none');
         s5.css('display', 'none');
         // console.log(s6);
     }
     // if(document.querySelector('.sp-slide').style.left==`${(GetScreenWidth+10)*4}px`){
     if (document.getElementById('slider_6').className.indexOf('sp-selected') != -1) {
         // console.log('滑水道');
-        document.getElementById('equ_no').selectedIndex = 2;
+        document.getElementById('equ_no').selectedIndex = 0;
 
-        s4.css({ "background-color": 'rgba(128, 136, 127, 0.76)', 'display': 'flex' });
+        s6.css({ "background-color": 'rgba(128, 136, 127, 0.76)', 'display': 'flex' });
         s1.css('display', 'none');
         s2.css('display', 'none');
         s3.css('display', 'none');
         s5.css('display', 'none');
-        s6.css('display', 'none');
+        s4.css('display', 'none');
         // console.log(s4);
     }
     timer = setTimeout(init, 50);
