@@ -29,7 +29,7 @@ document.getElementById("buy_ticket").addEventListener("click",function(){
 
 function moneycost(money){
     if(money[0].member_money<600){
-        alertify.alert(`金額不足，目前賞金餘額為${money[0].member_money}`);
+        alertify.alert(`金額不足，目前購物金餘額為${money[0].member_money}`);
     }else{
         document.getElementById("uploadmoney").value = money[0].member_money;
         // document.getElementById("uploadticketno").value = parseInt(money[1].ticket_no)+1;
