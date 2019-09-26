@@ -14,6 +14,10 @@ var storage = sessionStorage;
 let member_no = storage['member_no'];
 let leader_status;//是否為隊長
 // console.log(member_no);
+// 新手引路
+localStorage['team'] = null;
+localStorage['team'] = 1;
+// 新手引路
 function $id(id) {
     return document.getElementById(id);
 }

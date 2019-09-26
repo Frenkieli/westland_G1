@@ -6,11 +6,11 @@
     if (localStorage['admin_name']) {
         loginName.innerText = localStorage['admin_name'];
         loginButton.addEventListener('click', function () {
-            window.location.href = '../start.html';
+            window.location.href = '../index.html';
             delete localStorage['admin_name'];
         }, false)
     } else {
-        window.location.href = '../start.html';
+        window.location.href = '../index.html';
     }
 }());
 

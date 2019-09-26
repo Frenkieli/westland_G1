@@ -22,6 +22,41 @@ function robotDown(e) {
     }, 50);
 }
 
+// 指引道路開始
+
+let guidearrow = document.querySelector('#guidearrow p');
+
+if (localStorage['usegame']) {
+    document.getElementById('guidearrow').style.display = 'none';
+} else if (!sessionStorage['member_no']) {
+    guidearrow.innerHTML = '來註冊吧!';
+    document.getElementById('guidearrow').addEventListener('click', function () {
+        document.getElementById('lightBox').style.display = 'block';
+    }, false);
+} else if (!localStorage['buyticket']) {
+    guidearrow.innerHTML = '來去買票吧!';
+    function toticket() {
+        window.location.href = 'ticket.html';
+    }
+    document.getElementById('guidearrow').addEventListener('click', toticket , false);
+} else if (!localStorage['team']) {
+    guidearrow.innerHTML = '想加入隊伍嗎?';
+    document.getElementById('guidearrow').addEventListener('click', function () {
+        window.location.href = 'team.html';
+    }, false);
+} else if (!localStorage['usegame']) {
+    guidearrow.innerHTML = '準備進場吧!';
+    document.getElementById('guidearrow').addEventListener('click', function () {
+        window.location.href = 'gameplay.html';
+    }, false);
+} else {
+    document.getElementById('guidearrow').style.display = 'none';
+}
+
+
+// 指引道路結束
+
+
 
 
 
@@ -138,9 +173,9 @@ function answer(value) { // 回答問題
             setTimeout(() => {
                 if (!sessionStorage['member_no']) {
                     append('>>還沒有登入喔！');
-                } else if(localStorage['member_useticket'] == 'null'){
+                } else if (localStorage['member_useticket'] == 'null') {
                     append('>>沒有正在使用的票喔！');
-                }else{
+                } else {
                     var xhr = new XMLHttpRequest();
                     xhr.onload = function () {
                         if (xhr.status == 200) {

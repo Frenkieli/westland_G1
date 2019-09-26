@@ -64,14 +64,19 @@
             transform: translateX(0%) translateY(0%);
         }
     }
-    #guidearrow {
-        position: absolute;
-        background-color: #512600;
-        color: #fff;
-        width: 200px;
-        height: 50px;
-        line-height: 50px;
-        text-align: center;
+}
+#guidearrow {
+    position: fixed;
+    background-color: #512600;
+    color: #fff;
+    width: 200px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    clip-path: ellipse(50% 50% at 50% 50%);
+    cursor: pointer;
+    p {
+        font-size: 24px;
     }
 }
 @include rwd(desktop) {
@@ -134,12 +139,10 @@
                 margin: 5px 0;
             }
         }
-        #guidearrow {
-            top: -40px;
-            left: 50%;
-            transform: translateX(-50%);
-            clip-path: polygon(25% 0%, 100% 1%, 100% 100%, 25% 100%, 0% 50%);
-        }
+    }
+    #guidearrow {
+        bottom: 200px;
+        right: 60px;
     }
 }
 
@@ -195,12 +198,10 @@
                 display: block;
             }
         }
-        #guidearrow {
-            top: 50%;
-            left: -210px;
-            transform: translateY(-50%);
-            clip-path: polygon(0% 20%, 80% 20%, 80% 0%, 100% 50%, 80% 100%, 80% 80%, 0% 80%);
-        }
+    }
+    #guidearrow {
+        bottom: 10px;
+        right: 110px;
     }
 }
 

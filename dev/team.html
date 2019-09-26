@@ -83,9 +83,8 @@
             <!-- <img src="images/team/bulletin_board.svg" alt="揪團布告欄"> -->
         </div>
     </article>
-    @@include("template/robot.html")
     @@include("template/footer.html")
-
+    
     <!-- js -->
     @@loop('template/jslink.html',[
     {"jslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/alertify.min.js"},
@@ -94,7 +93,9 @@
     {"jslink" : "js/owl.carousel.min.js"},
     {"jslink" : "js/team.js"}
     ])
-
+    <!-- 新手引路 -->
+    @@include("template/robot.html")
+    <!-- 新手引路 -->
     <script>
         // $(document).ready(function () {
         //     $(".owl-carousel").owlCarousel();

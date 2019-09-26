@@ -1,5 +1,7 @@
 localStorage['member_useticket'] = null;
 localStorage['inoutCheck'] = 0;
+localStorage['usegame'] = null;
+localStorage['usegame'] = 1;
 let memTicket = [];
 var ticketScore;
 var team_num;

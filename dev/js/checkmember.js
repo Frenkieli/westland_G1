@@ -54,6 +54,15 @@ function uploadticket(){
         if(xhr.status ==200){
             alertify.alert(xhr.responseText);
             // console.log(xhr.responseText);
+            // 新手引路
+            localStorage['buyticket']=null;
+            localStorage['buyticket']=1;
+            guidearrow.innerHTML = '想加入隊伍嗎?';
+            document.getElementById('guidearrow').removeEventListener('click',toticket);
+            document.getElementById('guidearrow').addEventListener('click', function () {
+                window.location.href = 'team.html';
+            }, false);
+            // 新手引路
         }else{
             alertify.alert("系統異常,請通知系統維護人員");
         }
