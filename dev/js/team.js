@@ -517,7 +517,9 @@ function joinInvitation() {
     }
     //沒登入
     else {
-        alertify.alert('你沒登入喔');
+        alertify.alert('你沒登入喔',function(){
+            $('#lightBox').css('display', 'block');
+        });
     }
 
 
@@ -609,7 +611,9 @@ function joined() {
         document.querySelector('#leader_status').style.display = "";
         document.querySelector('.select_ticket_content').innerText = "使用的門票 : ";
     } else {
-        alertify.alert('你沒登入喔');
+        alertify.alert('你沒登入喔',function(){
+            $('#lightBox').css('display', 'block');
+        });
     }
 
 }
