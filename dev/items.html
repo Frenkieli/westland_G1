@@ -184,9 +184,9 @@
 
                             </div>
                         </a>
-                        <span id="" class="btn m-b m-a addButton">加入購物車<input type="hidden" value=""></span>
-
-
+                        <span id="" class="btn m-b m-a addButton">加入購物車
+                            <input type="hidden" value="">
+                        </span>
                     </div>
                 </div>
                 <!-- 老鷹樣板(杯子商品) -->
@@ -205,9 +205,9 @@
 
                             </div>
                         </a>
-                        <span id="" class="btn m-b m-a addButton">加入購物車<input type="hidden" value=""></span>
-
-
+                        <span id="" class="btn m-b m-a addButton">加入購物車
+                            <input type="hidden" value="">
+                        </span>
                     </div>
                 </div>
                 <!-- 羊駝樣板(枕頭商品)) -->
@@ -226,8 +226,9 @@
 
                             </div>
                         </a>
-                        <span id="" class="btn m-b m-a addButton">加入購物車<input type="hidden" value=""></span>
-
+                        <span id="" class="btn m-b m-a addButton">加入購物車
+                            <input type="hidden" value="">
+                        </span>
                     </div>
                 </div>
                 <!-- <div class="sort_same owl-carousel owl-theme" style="padding-top: 350px;"> -->
@@ -849,7 +850,7 @@
                                     document.querySelectorAll('.shop-tab-inner')[i].children[0].style.display = "none";
                                 }
                                 document.querySelectorAll('.shop-tab-inner')[i].children[2].style.display = "";
-                            },1000)
+                            }, 1000)
                         }, false);
 
                         document.querySelectorAll('.shop-tab-inner')[i].children[2].addEventListener('click', function () {
@@ -946,6 +947,7 @@
             for (let i = 0; i < list.length; i++) {
                 list[i].addEventListener('click', function () {
                     let productInfo = document.querySelector(`#${this.id} input`).value;
+                    list[i].disabled
                     addItem(this.id, productInfo);
                     First();
                 });
