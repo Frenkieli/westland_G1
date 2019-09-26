@@ -3,7 +3,16 @@
         //=====建立資料庫連線=====
         require_once("connectWestland.php");
         //=====SQL語法=====
-        //新增訂單
+        //扣除購物金
+        // echo $_POST["order_item_total"],$_POST["member_no"];
+        // exit();
+        $total=$_POST["order_item_total"];
+        $sql=" UPDATE members SET member_money=member_money-:member_money WHERE member_no=:member_no;";
+        $updataMoney=$pdo->prepare($sql);
+        $updataMoney->bindValue(":member_no",$_POST["member_no"]);
+        $updataMoney->bindValue(":member_money",(int)$total);
+        $updataMoney->execute();
+        //新增訂單        
         $sql="INSERT INTO `ordermaster`(`member_no`, `order_item_date`, `order_item_total`, `recipient_addre`, `recipient_phone`, `recipient_name`) VALUES (:member_no,:order_item_date,:order_item_total,:recipient_addre,:recipient_phone,:recipient_name)";
         $insertOrder=$pdo->prepare($sql);
         $insertOrder->bindValue(":member_no",$_POST["member_no"]);
@@ -37,7 +46,7 @@
             $insertOrderlist->bindValue(":item_price",$itemPriceArr[$i]);
             $insertOrderlist->execute();
         }
-        echo "訂單清單產生成功";
+        // echo "訂單清單產生成功";
     }catch(PDOException $e){
         echo $e->getMessage();
     }
