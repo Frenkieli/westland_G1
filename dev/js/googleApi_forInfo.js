@@ -2,7 +2,7 @@ var map;
 var a = -1;
 function initMap() {
     map = new google.maps.Map(document.getElementById('googleMapIn'), {
-        zoom: 15.8,
+        zoom: 15.5,
         center: { lat: 24.96954, lng: 121.1914 },
         scrollwheel: false,
         mapTypeControl: false,
@@ -254,42 +254,42 @@ function initMap() {
             name: 'ferrisWheel',
             icon: {
                 url:'images/information/ferrisWheel.svg',
-                scaledSize: new google.maps.Size(105, 105)
+                scaledSize: new google.maps.Size(95, 95)
             }
         },
         carousels: {
             name: 'carousels',
             icon: {
                 url:'images/information/carousels.svg',
-                scaledSize: new google.maps.Size(105, 105)
+                scaledSize: new google.maps.Size(95, 95)
             }
         },
         swivelChair: {
             name: 'swivelChair',
             icon: {
                 url:'images/information/swivelChair.svg',
-                scaledSize: new google.maps.Size(105, 105)
+                scaledSize: new google.maps.Size(95, 95)
             }
         },
         pirateShip: {
             name: 'pirateShip',
             icon: {
                 url:'images/information/pirateShip.svg',
-                scaledSize: new google.maps.Size(105, 105)
+                scaledSize: new google.maps.Size(95, 95)
             }
         },
         waterSlide: {
             name: 'waterSlide',
             icon: {
                 url:'images/information/waterSlide.svg',
-                scaledSize: new google.maps.Size(105, 105)
+                scaledSize: new google.maps.Size(95, 95)
             }
         },
         rollerCoaster: {
             name: 'rollerCoaster',
             icon: {
                 url:'images/information/rollerCoaster.svg',
-                scaledSize: new google.maps.Size(105, 105)
+                scaledSize: new google.maps.Size(95, 95)
             }
         }
     };
