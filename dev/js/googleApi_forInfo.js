@@ -249,14 +249,85 @@ function initMap() {
     polygonPath.addListener('click' ,function(){
 
     });
+    var icons = {
+        ferrisWheel: {
+            name: 'ferrisWheel',
+            icon: {
+                url:'images/information/ferrisWheel.svg',
+                scaledSize: new google.maps.Size(105, 105)
+            }
+        },
+        carousels: {
+            name: 'carousels',
+            icon: {
+                url:'images/information/carousels.svg',
+                scaledSize: new google.maps.Size(105, 105)
+            }
+        },
+        swivelChair: {
+            name: 'swivelChair',
+            icon: {
+                url:'images/information/swivelChair.svg',
+                scaledSize: new google.maps.Size(105, 105)
+            }
+        },
+        pirateShip: {
+            name: 'pirateShip',
+            icon: {
+                url:'images/information/pirateShip.svg',
+                scaledSize: new google.maps.Size(105, 105)
+            }
+        },
+        waterSlide: {
+            name: 'waterSlide',
+            icon: {
+                url:'images/information/waterSlide.svg',
+                scaledSize: new google.maps.Size(105, 105)
+            }
+        },
+        rollerCoaster: {
+            name: 'rollerCoaster',
+            icon: {
+                url:'images/information/rollerCoaster.svg',
+                scaledSize: new google.maps.Size(105, 105)
+            }
+        }
+    };
 
-    
+    //Associate the styled map with the MapTypeId and set it to display.
 
+    var features = [
+        {
+            position: new google.maps.LatLng(24.968464, 121.187889),
+            type: 'ferrisWheel'
+
+        },
+        {
+            position: new google.maps.LatLng(24.969899, 121.190120),
+            type: 'carousels'
+        },
+        {
+            position: new google.maps.LatLng(24.969133, 121.192335),
+            type: 'swivelChair'
+        },
+        {
+            position: new google.maps.LatLng(24.970524, 121.194883),
+            type: 'pirateShip'
+        },
+        {
+            position: new google.maps.LatLng(24.968253, 121.196085),
+            type: 'waterSlide'
+        },
+        {
+            position: new google.maps.LatLng(24.966765, 121.195586),
+            type: 'rollerCoaster'
+        }
+    ]
 
     features.forEach(function (feature) {
         var marker = new google.maps.Marker({
             position: feature.position,
-            icon: icons[feature.type],
+            icon: icons[feature.type].icon,
             map: map,
 
         });
