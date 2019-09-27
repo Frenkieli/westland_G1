@@ -6,12 +6,17 @@
         //扣除購物金
         // echo $_POST["order_item_total"],$_POST["member_no"];
         // exit();
-        $total=$_POST["order_item_total"];
-        $sql=" UPDATE members SET member_money=member_money-:member_money WHERE member_no=:member_no;";
-        $updataMoney=$pdo->prepare($sql);
-        $updataMoney->bindValue(":member_no",$_POST["member_no"]);
-        $updataMoney->bindValue(":member_money",(int)$total);
-        $updataMoney->execute();
+        
+        //購物金付款扣除購物金
+        if($_REQUEST["paymentMethod"]==1){
+             $total=$_POST["order_item_total"];
+            $sql=" UPDATE members SET member_money=member_money-:member_money WHERE member_no=:member_no;";
+            $updataMoney=$pdo->prepare($sql);
+            $updataMoney->bindValue(":member_no",$_POST["member_no"]);
+            $updataMoney->bindValue(":member_money",(int)$total);
+            $updataMoney->execute();
+        }
+       
         //新增訂單        
         $sql="INSERT INTO `ordermaster`(`member_no`, `order_item_date`, `order_item_total`, `recipient_addre`, `recipient_phone`, `recipient_name`) VALUES (:member_no,:order_item_date,:order_item_total,:recipient_addre,:recipient_phone,:recipient_name)";
         $insertOrder=$pdo->prepare($sql);

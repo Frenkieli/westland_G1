@@ -358,6 +358,7 @@
                     document.getElementById('check').addEventListener('click', function () {
                         // console.log(parseInt(document.getElementById('sumTotalPrice').innerText));
                         // console.log(parseInt(memberInfo.member_money));
+                        // if()
                         //購物金付款(購物金不夠用)
                         if (parseInt(document.getElementById('sumTotalPrice').innerText) > parseInt(memberInfo.member_money) && paymentMethod == 1) {
                             alertify.alert(`你的購物金不夠喔，您目前所擁有的購物金 : ${parseInt(memberInfo.member_money)}`);
@@ -458,7 +459,7 @@
                                 }
                             }
                             let myForm = new FormData(sendOrderForm);
-                            let url = 'php/toRecipient_JSON.php';
+                            let url = `php/toRecipient_JSON.php?paymentMethod=${paymentMethod}`;
                             xhrForm.open('post', url, true);
                             xhrForm.send(myForm);
                         }
