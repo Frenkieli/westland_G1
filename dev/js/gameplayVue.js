@@ -5,6 +5,41 @@ localStorage['usegame'] = 1;
 let memTicket = [];
 var ticketScore;
 var team_num;
+var clientHeight = document.body.clientHeight;
+// console.log(" 網頁可見區域高：" + document.body.clientHeight);
+if (clientHeight < 770) {
+    let playTicket = document.getElementsByClassName('playticket_ticket')[0];
+    let demo_textbox = document.getElementsByClassName('demo_textbox');
+    let demo_text = document.getElementsByClassName('demo_text');
+    playTicket.style.display = "none";
+    playTicket.style.transform = 'rotateY(90deg)';
+    // demo_img.style.bottom = '0';
+    // demo_img.style.right = '0';
+    // demo_img.style.height = '100%';
+    
+    for (let i = 0; i < demo_textbox.length; i++) {
+        demo_textbox[i].style.position = 'absolute';
+        demo_textbox[i].style.top = '0px';
+        demo_textbox[i].style.bottom = '0px';
+        demo_textbox[i].style.left = '0px';
+        demo_textbox[i].style.right = '0px';
+        demo_textbox[i].style.width = '100%';
+        demo_textbox[i].style.padding = '10px';
+        demo_textbox[i].style.boxSizing = 'border-box';
+        demo_textbox[i].style.backgroundColor = 'rgba(255,255,255, 0.7)';
+        demo_textbox[i].style.color = '#000';
+        demo_textbox[i].style.opacity = '0';
+        demo_textbox[i].style.borderRadius = '20px';
+        demo_textbox[i].style.transition = '0.2s';
+        demo_text[i].style.backgroundColor ='rgba(255,255,255,0)';
+        demo_text[i].addEventListener('mousemove', function () {
+            demo_textbox[i].style.opacity = '1';
+        }, false);
+        demo_text[i].addEventListener('mouseout', function () {
+            demo_textbox[i].style.opacity = '0';
+        }, false);
+    }
+}
 
 getTicket();
 function getTicket() {
@@ -146,7 +181,7 @@ function getUseTicket() {
 // 設定門票
 function setTicket(jsonStr) {
     let ticket = JSON.parse(jsonStr);
-    console.log(ticket, localStorage['member_useticket'], '0000');
+    // console.log(ticket, localStorage['member_useticket'], '0000');
     setTimeout(() => {
         team_num = ticket.team_no;
         // console.log(team_num);
@@ -401,6 +436,9 @@ function addPointsCheck(value) {
         } else if ($(this).prev().prev().text().indexOf('商店') != -1) {
         } else if ($(this).prev().prev().text().indexOf('出口') != -1) {
         }
+        if (clientHeight < 770) {
+            ticketanimate();
+        }
 
 
         let section_titleText = document.getElementsByClassName('section_title');
@@ -626,4 +664,23 @@ function playedCheck() {
     xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
     var data_info = `ticket=${localStorage['member_useticket']}`;
     xhr.send(data_info);
+}
+
+
+// 門票隱藏動畫
+let timeclear;
+
+function ticketanimate() {
+    let playTicket = document.getElementsByClassName('playticket_ticket')[0];
+    clearTimeout(timeclear)
+    playTicket.style.display = "flex";
+    setTimeout(() => {
+        playTicket.style.transform = 'rotateY(0deg)';
+    }, 1);
+    timeclear = setTimeout(() => {
+        playTicket.style.transform = 'rotateY(90deg)';
+        setTimeout(() => {
+            playTicket.style.display = "none";
+        }, 200);
+    }, 2000);
 }
