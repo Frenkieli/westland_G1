@@ -3,8 +3,6 @@
     // console.log('動畫製作中');
 
     var controller = new ScrollMagic.Controller();
-
-
     //動畫
     // var animation = TweenMax.fromTo('#section_facility', 1, {
     //     x: 600,
@@ -38,7 +36,7 @@
         // duration :'30%',
         // offset :' 100px',
         triggerHook: 0.7,
-    }).setTween(animation).addIndicators().addTo(controller)
+    }).setTween(animation).addTo(controller)
 
     // var animation2 = TweenMax.fromTo('#index_team', 1, {
     //     y: 600,
@@ -94,7 +92,7 @@
         // duration :'30%',
         // offset :' 100px',
         triggerHook: 0.7,
-    }).setTween(animation2).addIndicators().addTo(controller)
+    }).setTween(animation2).addTo(controller)
 
     // var animation3 = TweenMax.fromTo('#index_ticket_customize', 1, {
     //     x: 600,
@@ -220,7 +218,7 @@
         // duration: '60%',
         // offset :' 100px',
         triggerHook: 0.7,
-    }).setTween(animation3).addIndicators().addTo(controller)
+    }).setTween(animation3).addTo(controller)
 
     var animation4 = TweenMax.fromTo('#section_store', 1, {
         rotationY: 90,
@@ -237,7 +235,7 @@
         // duration :'40%',
         // offset :' 100px',
         triggerHook: 0.7,
-    }).setTween(animation4).addIndicators().addTo(controller)
+    }).setTween(animation4).addTo(controller)
 })();
 
 

@@ -9,7 +9,7 @@ var team_num;
 getTicket();
 function getTicket() {
     let ticketsPick = sessionStorage['member_no'];
-    console.log(ticketsPick);
+    // console.log(ticketsPick);
 
     if (ticketsPick) {
         window.addEventListener('load', () => {
@@ -26,7 +26,7 @@ function getTicket() {
                         }
                     },
                     change(e) {
-                        alertify.confirm('真的要選擇第' + e.target.value + '張票嗎？不能換票喔！',
+                        alertify.alert('選擇第' + e.target.value + '張票，入場前都可以跟機器人說換票喔！',
                             function () {
                                 // this.tickets[0][2] = '有';
                                 // console.log(this.tickets[0][2]);
@@ -52,9 +52,6 @@ function getTicket() {
                                 var data_info = `pickticket=${e.target.value}&member_no=${memTicket[0][3]}`;
                                 xhr.send(data_info);
                                 alertify.success('選擇第' + e.target.value + '張票');
-                            },
-                            function () {
-
                             });
                     },
                 },
