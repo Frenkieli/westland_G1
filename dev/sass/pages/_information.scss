@@ -156,15 +156,15 @@
             width: 100%;
             margin: auto;
             height: 500px;
-            margin-top: 227px;
+            margin-bottom: 227px;
             display: flex;
             justify-content: space-around;
             align-items: center;
             &:nth-child(2) {
-                margin-top: 300px;
+                // margin-top: 300px;
             }
             &:nth-child(4) {
-                margin-bottom: 300px;
+                margin-bottom: 150px;
             }
             .illustration {
                 position: absolute;
