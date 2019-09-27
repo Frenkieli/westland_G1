@@ -198,6 +198,9 @@ $orange: #f09100;
                 border-style: dashed;
             }
         }
+        #dit_button{
+            width: 145px;
+        }
         //購物金
         #member_money{
             font-family: "Noto Sans TC", sans-serif;
@@ -222,17 +225,17 @@ $orange: #f09100;
         //     position: relative;
         //     top: 0%;
         //     right: -60%;
-        #dit_button{
+        // #dit_button{
                 //修改資料 按鈕
                 //Button在css的長寬：130x30px,font-size:14p
-            border: 1px solid #9dba65;
-            width: 130px;
-            height: 30px;
-            font-size: 14p;
-            display: block;
-            margin: auto;
-            text-align: center;
-            }
+            // border: 1px solid #9dba65;
+            // width: 130px;
+            // height: 30px;
+            // font-size: 14p;
+            // display: block;
+            // margin: auto;
+            // text-align: center;
+            // }
         // }
         
     }
