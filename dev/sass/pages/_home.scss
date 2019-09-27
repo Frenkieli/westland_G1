@@ -232,18 +232,20 @@
             align-items: center;
             margin: 1%;
             padding: 60px 10px 20px;
-            width: 20%;
-            // background-image: url("../images/index/wanted.png");
-            background-image: url("../images/team/wanted.png");
+            width: 18%;
+            // background-image: url("../images/team/wanted.png");
+            background-image: url("../images/index/wanted.png");
             background-size: 100% 100%;
             background-repeat: no-repeat;
             background-position: center;
             position: relative;
+            box-sizing: border-box;
             @include rwd(phone) {
                 font-size: 16px;
                 width: 29%;
                 padding: 8% 1% 3%;
-                background-image: url("../images/team/wanted.png");
+                background-image: url("../images/index/wanted.png");
+                // background-image: url("../images/team/wanted.png");
             }
             .ticket_name {
                 margin-bottom: 5px;
