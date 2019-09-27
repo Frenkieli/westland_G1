@@ -44,6 +44,7 @@
             
             .select_frame {
                 width: 90%;
+                // width: 100%;
                 margin: auto;
                 padding: 15px 0;
                 background-color: #9dba65;
@@ -54,10 +55,11 @@
                 -webkit-box-align: center;
                 align-items: center;
                 text-align: center;
-                //篩選條件
-               
+                
+               //篩選條件
                 >h3{
                     font-size: 20px;
+                    // color: #ddedb7;
                 }
                 .select_phone {
                     select {
@@ -111,6 +113,9 @@
     .select_btn {
         display: none;
     }
+    .select_frame {
+        width: 90%;
+    }
     // .newswra{
     //     .select_active{       
     //         >img{
@@ -142,7 +147,17 @@
             }
         }
     }
+    .newswrap{
+        .selectpart{
+            .select_group{
+                .select_frame {
+                    width: 100%;
+                }
+            }
+        }
+    }
     
+   
     .select_phone {
         display: none;
     }

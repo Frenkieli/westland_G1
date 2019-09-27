@@ -308,11 +308,11 @@ $orange: #f09100;
     // border: 5px solid #9dba65;
     position: relative;
     // text-align: left;
-    padding-bottom: 40%;
+    padding-bottom: 20%;
     background-image: url(../images/member/airballoon.png);
     background-size:contain;
     background-repeat: no-repeat;
-    background-position: center ; 
+    background-position: right bottom ; 
    //-------------------------------------//
     border-radius: 3px;
     div:after { // Postcard border
@@ -462,6 +462,8 @@ $orange: #f09100;
         border-radius: 25px;
         margin-top: 25px;
         margin-bottom: 25px;
+        background-color: #fdfff3;
+
             P{
                 color: #668823;
                 font-family: "Noto Sans TC", sans-serif;
@@ -673,8 +675,7 @@ $orange: #f09100;
             flex-flow: row wrap;
             margin: auto;
             border:5px solid #92b846 ;
-            // background-color: #9dba65;
-            // opacity: .5;
+            background-color: #fdfff3;
             border-radius: 15px;
             margin: 10px;
             // text-align: center;
@@ -686,9 +687,12 @@ $orange: #f09100;
                 
                 .equ_historypic {
                     // padding: 10px 0;
+                   
                     border-bottom: dashed 2px #92b846;
                     .equ_no{
+                        color: #fff8e4;
                         font-size: 18px;
+                        text-shadow: 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
                     }
                 }
                 .equ_message {
@@ -696,7 +700,7 @@ $orange: #f09100;
                     padding-top: 10px;
                     p {
                         text-align: left;
-                        
+                        color: #668823;
                         font-size: 16px;
                         // line-height: 1.5rem;
                         // margin-right: 20px;
