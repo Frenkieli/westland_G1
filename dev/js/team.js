@@ -282,8 +282,8 @@ function showTeam(teamlist, ticketlist) {
         }
         //沒有可以使用的票
         else {
-            alertify.confirm("沒有可以使用的票喔，點擊確認跳轉到購票頁面",function(){
-                window.location.href="ticket.html";
+            alertify.confirm("沒有可以使用的票喔，點擊確認跳轉到購票頁面", function () {
+                window.location.href = "ticket.html";
             });
         }
 
@@ -335,10 +335,15 @@ function indexjoinInvitation() {
     let clone_thisTeam;
     let joinIndex;
     if (member_no) {
-        console.log(canUseTicket);
+        // console.log(canUseTicket);
         if (canUseTicket.length != 0) {
             $id("ok").innerText = '加入團隊';
             $id("no").innerText = '我不要';
+            $id("team_join_window").style.display = '';
+            setTimeout(() => {
+                $id("team_join_window").style.opacity = 1;
+                $id("team_join_window").style.clipPath = "polygon(0 0% , 100% 00% , 100% 100%,0 100%)";
+            }, 1)
             $id("team_join_window").style.opacity = 1;
             $id("team_join_window").style.clipPath = "polygon(0 0% , 100% 00% , 100% 100%,0 100%)";
             let select_team = $id('select_team');
@@ -369,8 +374,8 @@ function indexjoinInvitation() {
                 $id('chose_ticket').appendChild(newOption);
             });
         } else {
-            alertify.confirm("沒有可以使用的票喔，點擊確認跳轉到購票頁面",function(){
-                window.location.href="ticket.html";
+            alertify.confirm("沒有可以使用的票喔，點擊確認跳轉到購票頁面", function () {
+                window.location.href = "ticket.html";
             });
             // alert('沒有可以使用的票喔');
         }
@@ -387,6 +392,9 @@ function indexjoinInvitation() {
         // thisTeam.style.cursor = "pointer";
         $id("team_join_window").style.clipPath = "polygon(0 50% , 100% 50% , 100% 50%,0 50%)";
         $id("team_join_window").style.opacity = 0;
+        setTimeout(function () {
+            $id("team_join_window").style.display = 'none';
+        }, 200);
         $id("ok").removeEventListener("click", move, false);
         window.location.href = window.location.href.substr(0, window.location.href.indexOf('?team_num'));
         console.log(window.location.href);
@@ -491,9 +499,12 @@ function joinInvitation() {
         if (canUseTicket.length != 0) {
             $id("ok").innerText = '加入團隊';
             $id("no").innerText = '我不要';
-            this.style.cursor = 'context-menu';
-            $id("team_join_window").style.opacity = 1;
-            $id("team_join_window").style.clipPath = "polygon(0 0% , 100% 00% , 100% 100%,0 100%)";
+            this.style.cursor = 'default';
+            $id("team_join_window").style.display = '';
+            setTimeout(() => {
+                $id("team_join_window").style.opacity = 1;
+                $id("team_join_window").style.clipPath = "polygon(0 0% , 100% 00% , 100% 100%,0 100%)";
+            }, 1)
             let select_team = $id('select_team');
             //如果彈窗有東西清空
             if (select_team.firstElementChild) {
@@ -513,15 +524,15 @@ function joinInvitation() {
             });
         } else {
             // console.log(`????`);
-            alertify.confirm("沒有可以使用的票喔，點擊確認跳轉到購票頁面",function(){
-                window.location.href="ticket.html";
+            alertify.confirm("沒有可以使用的票喔，點擊確認跳轉到購票頁面", function () {
+                window.location.href = "ticket.html";
             });
             // alert('沒有可以使用的票喔');
         }
     }
     //沒登入
     else {
-        alertify.alert('你沒登入喔',function(){
+        alertify.alert('你沒登入喔', function () {
             $('#lightBox').css('display', 'block');
         });
     }
@@ -532,6 +543,9 @@ function joinInvitation() {
         thisTeam.style.cursor = "pointer";
         $id("team_join_window").style.clipPath = "polygon(0 50% , 100% 50% , 100% 50%,0 50%)";
         $id("team_join_window").style.opacity = 0;
+        setTimeout(function () {
+            $id("team_join_window").style.display = 'none';
+        }, 200);
         $id("ok").removeEventListener("click", move, false);
     }, false);
     //點選OK
@@ -615,7 +629,7 @@ function joined() {
         document.querySelector('#leader_status').style.display = "";
         document.querySelector('.select_ticket_content').innerText = "使用的門票 : ";
     } else {
-        alertify.alert('你沒登入喔',function(){
+        alertify.alert('你沒登入喔', function () {
             $('#lightBox').css('display', 'block');
         });
     }
@@ -625,7 +639,12 @@ function joined() {
 function dropOut() {
     $id("ok").disabled = false;
     // console.log(2);
-    this.style.cursor = 'context-menu';
+    this.style.cursor = 'default';
+    $id("team_join_window").style.display = '';
+    setTimeout(() => {
+        $id("team_join_window").style.opacity = 1;
+        $id("team_join_window").style.clipPath = "polygon(0 0% , 100% 00% , 100% 100%,0 100%)";
+    }, 1)
     $id("team_join_window").style.opacity = 1;
     $id("team_join_window").style.clipPath = "polygon(0 0% , 100% 00% , 100% 100%,0 100%)";
     let select_team = $id('select_team');
@@ -659,6 +678,9 @@ function dropOut() {
         thisTeam.style.cursor = "pointer";
         $id("team_join_window").style.clipPath = "polygon(0 50% , 100% 50% , 100% 50%,0 50%)";
         $id("team_join_window").style.opacity = 0;
+        setTimeout(function () {
+            $id("team_join_window").style.display = 'none';
+        }, 200);
         $id("ok").removeEventListener("click", move, false);
     }, false);
 

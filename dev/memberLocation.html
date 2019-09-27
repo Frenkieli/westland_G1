@@ -489,6 +489,13 @@
             delete localStorage['team'];
             delete localStorage['usegame'];
             // 新手引路
+            var storage = sessionStorage;
+            let itemString = storage['addItemList'];
+            let items = itemString.substr(0, itemString.length - 2).split(', ');
+            for (let i = 0; i < items.length; i++) {
+                storage.removeItem(items[i]);
+                storage['addItemList'] = storage['addItemList'].replace(items[i] + ', ', '');
+            }
         })
         //====================================訂單紀錄===========================================//
         var Storage = sessionStorage;
@@ -496,12 +503,12 @@
         let orderList = [];
         let ordermaster;
         let xhr = new XMLHttpRequest();
-        let over=0;
-        let order_status_arr=['下單','處理中','取消','出貨','結案'];
+        let over = 0;
+        let order_status_arr = ['下單', '處理中', '取消', '出貨', '結案'];
         xhr.onload = function () {
             if (xhr.status == 200) {
                 let ordermaster = JSON.parse(xhr.responseText);
-                ordermaster.forEach((ordermasterElement,key) => {
+                ordermaster.forEach((ordermasterElement, key) => {
                     let createOrder = `
                     <div class="order_item" id="order_item">
                         <ul>
@@ -524,8 +531,8 @@
                         if (xhrlist.status == 200) {
                             let ordermasterlist = JSON.parse(xhrlist.responseText);
                             console.log(ordermasterlist);
-                            ordermasterlist.forEach((listElement,index) => {
-                                let createList= ` 
+                            ordermasterlist.forEach((listElement, index) => {
+                                let createList = ` 
                                 <div class="shopping_cart  m40_0_0  dis_f_jc_c bt_line">
                                     <div class="col48 m-a col-lg-3 dis_f_jc_c shopping_cart_item bl">
                                         <div class="po-r w-50p m-a">
@@ -550,22 +557,22 @@
                                         </div>
                                     </div>
                                     <div class="col48 col-lg-2 dis_f_jc_c shopping_cart_item bl">
-                                        <p>NT.<span class="thePrice subtotal">${listElement.item_count*listElement.product_price}</span></p>
+                                        <p>NT.<span class="thePrice subtotal">${listElement.item_count * listElement.product_price}</span></p>
                                         <input type="hidden" name="pPrice" value="299">
                                     </div>
                                 </div>`;
                                 // console.log(document.getElementById('order_list').children[2].children[1]);
                                 // console.log(createList);
-                                document.getElementById('order_list').children[over+1].children[1].children[0].innerHTML=document.getElementById('order_list').children[over+1].children[1].children[0].innerHTML+createList;
-                                console.log(document.getElementById('order_list').children[over+1].children[1]);
+                                document.getElementById('order_list').children[over + 1].children[1].children[0].innerHTML = document.getElementById('order_list').children[over + 1].children[1].children[0].innerHTML + createList;
+                                console.log(document.getElementById('order_list').children[over + 1].children[1]);
                             });
-                            over+=1;
+                            over += 1;
                         } else {
                             console.log(xhrlist.status);
                         }
                     }
                     let url = `php/getMemberOrderlist.php?order_no=${ordermasterElement.order_no}`;
-                    xhrlist.open('get', url, true);
+                    xhrlist.open('get', url, false);
                     xhrlist.send(null);
                 });
                 // console.log(orderArr);
