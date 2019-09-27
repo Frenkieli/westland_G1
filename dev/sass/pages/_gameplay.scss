@@ -478,10 +478,11 @@
             .buttom_box {
                 display: flex;
                 justify-content: space-around;
-                margin: 20px auto;
+                margin: 50px auto;
             }
             .buttom_style {
                 @include btn_active;
+                width: 30%;
             }
         }
     }
@@ -496,6 +497,7 @@
             display: block;
             padding: 20px;
             margin: 20px 60px;
+            width: 100%;
         }
         .mission_progress {
             width: 45%;
@@ -503,7 +505,7 @@
             display: flex;
             align-items: center;
             justify-content: space-around;
-            margin: 10px 0;
+            margin: 20px 0;
             .progress_check {
                 width: 20px;
                 height: 20px;
@@ -514,7 +516,7 @@
                 box-sizing: border-box;
             }
             .progress_box {
-                width: 125px;
+                width: 80%;
                 height: 63px;
                 border: 2px solid #fff;
                 background-color: #ddedb7;
