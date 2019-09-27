@@ -238,7 +238,6 @@
                     createCartContentList(itemInfo, items[key]);//items[key]="A1001"
                 }
             }
-
             function createCartContentList(itemInfo, key) {
                 // console.log(key);
                 let cartUpdateFormClone = document.getElementById("cartUpdateFormWrap").children[1].cloneNode(true);
@@ -265,8 +264,6 @@
                 // console.log(cartUpdateFormClone.children[0].children[0].children[4].children[0].children[0]);
                 cartUpdateFormClone.children[0].children[0].children[1].children[2].children[0].innerText = itemInfo.split('|')[2];//手機版單價
             }
-
-
             let delButton = document.getElementsByClassName('deleteBtn');
             // console.log(delButton)
 
@@ -309,7 +306,7 @@
             function iconDeleteItem(e) {
 
                 e.preventDefault();
-                
+
                 let key = this.parentNode.parentNode.parentNode.parentNode.id;
 
                 console.log(key);
@@ -358,8 +355,6 @@
                         let itemInfo = storage[this.parentNode.parentNode.parentNode.parentNode.parentNode.id];
                         itemInfo = itemInfo.split('|')[0] + '|' + itemInfo.split('|')[1] + '|' + itemInfo.split('|')[2] + '|' + this.nextElementSibling.value;
                         storage[this.parentNode.parentNode.parentNode.parentNode.parentNode.id] = itemInfo;
-                        // console.log(this.parentNode.parentNode.parentNode.parentNode.parentNode);
-                        // console.log(id);
                     }
                 }, false);
                 btnPlus[i].addEventListener('click', function () {
@@ -400,27 +395,16 @@
             var xhr = new XMLHttpRequest();
             xhr.onload = function () {
                 if (xhr.status == 200) {
-                    //modify here
                     let SameProductlist = JSON.parse(xhr.responseText);
-                    // let SameArray = [];
-                    // SameProductlist.forEach(element => {
-                    //     if (element.product_category == document.getElementById("same_product_category").value && window.location.href.split("product_no=")[1] != element.product_no) {
-                    //         SameArray.push(element);
-                    //     }
-                    // });
-                    // console.log(SameArray);
                     for (let i = 0; i < 4; i++) {
-                        // console.log(Math.floor(Math.random()*SameArray.length));
                         let related_items = document.querySelectorAll('.related_item');
                         let randomNum = Math.floor(Math.random() * SameProductlist.length);
-                        // console.log(SameProductlist[randomNum]);
                         related_items[i].children[0].children[0].children[0].href = `item.html?product_no=${SameProductlist[randomNum].product_no}`
                         related_items[i].children[0].children[0].children[0].children[0].src = SameProductlist[randomNum].product_image;
                         related_items[i].children[0].children[1].innerText = SameProductlist[randomNum].product_name;
                         related_items[i].children[0].children[2].innerText = "NT." + SameProductlist[randomNum].product_price;
                         related_items[i].children[1].value = SameProductlist[randomNum].product_no;
                         SameProductlist.splice(randomNum, 1);
-                        // console.log(SameArray);
                     }
                     var storage = sessionStorage;
                     let name;
@@ -435,22 +419,19 @@
 
                         for (let i = 0; i < list.length; i++) {
                             list[i].addEventListener('click', function () {
-                                // console.log(this.parentNode.nextElementSibling.value);
                                 name = this.previousElementSibling.previousElementSibling.innerText;
                                 image = this.previousElementSibling.previousElementSibling.previousElementSibling.children[0].children[0].src;
                                 image = image.substr(image.indexOf('images'));
                                 price = this.previousElementSibling.innerText;
                                 price = price.replace('NT.', "");
                                 productInfo = `${name}|${image}|${price}`;
-                                // console.log(productInfo);
                                 addItem(this.parentNode.nextElementSibling.value, productInfo);
-                                // shopingCartFirst();
                             });
                         }
 
                     }
                     function addItem(itemId, itemValue) {
-                        alertify.alert(`${itemId} : ${itemValue}`);
+                        // alertify.alert(`${itemId} : ${itemValue}`);
                         //存入storage,判斷是否為重複商品，如果重複就不增加
                         itemId = `pd-${itemId}`;
                         if (storage[itemId]) {
@@ -461,54 +442,76 @@
                             itemValue = itemValue + "|1";
                             storage[itemId] = itemValue;
                             First();
-                            let updateShopCart = document.getElementById('cartUpdateFormWrap');
-                            console.log(updateShopCart);
-                            for (let i = 0; i < updateShopCart.childElementCount - 4; i++) {
-                                console.log(updateShopCart.children[i + 2]);
-                                updateShopCart.children[i + 2].remove();
+                            createCartContentList(itemValue, itemId);
+                            function createCartContentList(itemInfo, key) {
+                                let cartUpdateFormClone = document.getElementById("cartUpdateFormWrap").children[1].cloneNode(true);
+                                cartUpdateFormClone.id = key;
+                                cartUpdateFormClone.style.display = '';
+                                document.getElementById("cartUpdateFormWrap").insertBefore(cartUpdateFormClone, document.getElementById("cartUpdateFormWrap").lastElementChild.previousElementSibling);
+                                cartUpdateFormClone.children[0].children[0].children[0].children[0].children[0].src = itemInfo.split('|')[1];
+                                cartUpdateFormClone.children[0].children[0].children[1].children[0].innerText = itemInfo.split('|')[0];
+                                cartUpdateFormClone.children[0].children[0].children[3].children[0].children[1].value = itemInfo.split('|')[3];
+                                cartUpdateFormClone.children[0].children[0].children[2].children[0].children[0].innerText = itemInfo.split('|')[2];
+                                cartUpdateFormClone.children[0].children[0].children[4].children[0].children[0].innerText = parseInt(itemInfo.split('|')[2]) * parseInt(itemInfo.split('|')[3]);//小計
+                                cartUpdateFormClone.children[0].children[0].children[1].children[2].children[0].innerText = itemInfo.split('|')[2];
                             }
-                            setTimeout(function () {
-                                shopingCartFirst();
-                                (function () {
-                                    let btnLess = document.querySelectorAll(".btnLess");
-                                    let btnPlus = document.querySelectorAll(".btnPlus");
-                                    let total = 0;
-                                    let eachSubTotal = document.querySelectorAll('.subtotal');
-                                    for (let i = 0; i < eachSubTotal.length; i++) {
-                                        total += parseInt(eachSubTotal[i].innerText);
-                                    }
-                                    let sumTotalPrice = document.getElementById('sumTotalPrice');
-                                    sumTotalPrice.innerText = total;
-                                    for (let i = 0; i < btnLess.length; i++) {
-                                        btnLess[i].style.cursor = "pointer";
-                                        btnPlus[i].style.cursor = "pointer";
-                                        btnLess[i].addEventListener('click', function () {
-                                            if (this.nextElementSibling.value > 1) {
-                                                this.nextElementSibling.value -= 1;
-                                                this.parentNode.parentNode.nextElementSibling.children[0].children[0].innerText = this.nextElementSibling.value * this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText;
-                                                sumTotalPrice.innerText = parseInt(sumTotalPrice.innerText) - parseInt(this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText);
-                                                let itemInfo = storage[this.parentNode.parentNode.parentNode.parentNode.parentNode.id];
-                                                itemInfo = itemInfo.split('|')[0] + '|' + itemInfo.split('|')[1] + '|' + itemInfo.split('|')[2] + '|' + this.nextElementSibling.value;
-                                                storage[this.parentNode.parentNode.parentNode.parentNode.parentNode.id] = itemInfo;
-                                                // console.log(this.parentNode.parentNode.parentNode.parentNode.parentNode);
-                                                // console.log(id);
-                                            }
-                                        }, false);
-                                        btnPlus[i].addEventListener('click', function () {
-                                            this.previousElementSibling.value = parseInt(this.previousElementSibling.value) + 1;
-                                            this.parentNode.parentNode.nextElementSibling.children[0].children[0].innerText = this.previousElementSibling.value * this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText;
-                                            sumTotalPrice.innerText = parseInt(sumTotalPrice.innerText) + parseInt(this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText);
-                                            let itemInfo = storage[this.parentNode.parentNode.parentNode.parentNode.parentNode.id];
-                                            itemInfo = itemInfo.split('|')[0] + '|' + itemInfo.split('|')[1] + '|' + itemInfo.split('|')[2] + '|' + this.previousElementSibling.value;
-                                            storage[this.parentNode.parentNode.parentNode.parentNode.parentNode.id] = itemInfo;
-                                        }, false);
-                                    }
-                                })();
-                            }, 100);
+                            // console.log(document.querySelectorAll(".btnLess")[document.getElementById("cartUpdateFormWrap").childElementCount-4]);
+                            let btnLess = document.querySelectorAll(".btnLess")[document.getElementById("cartUpdateFormWrap").childElementCount - 4];
+                            let btnPlus = document.querySelectorAll(".btnPlus")[document.getElementById("cartUpdateFormWrap").childElementCount - 4];
+                            let sumTotalPrice = document.getElementById('sumTotalPrice');
+                            sumTotalPrice.innerText = parseInt(sumTotalPrice.innerText) + parseInt(itemValue.split('|')[2]);
+                            btnLess.style.cursor = "pointer";
+                            btnPlus.style.cursor = "pointer";
+                            btnLess.addEventListener('click', function () {
+                                if (this.nextElementSibling.value > 1) {
+                                    this.nextElementSibling.value -= 1;
+                                    this.parentNode.parentNode.nextElementSibling.children[0].children[0].innerText = this.nextElementSibling.value * this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText;
+                                    sumTotalPrice.innerText = parseInt(sumTotalPrice.innerText) - parseInt(this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText);
+                                    let itemInfo = storage[this.parentNode.parentNode.parentNode.parentNode.parentNode.id];
+                                    itemInfo = itemInfo.split('|')[0] + '|' + itemInfo.split('|')[1] + '|' + itemInfo.split('|')[2] + '|' + this.nextElementSibling.value;
+                                    storage[this.parentNode.parentNode.parentNode.parentNode.parentNode.id] = itemInfo;
+                                }
+                            }, false);
+                            btnPlus.addEventListener('click', function () {
+                                this.previousElementSibling.value = parseInt(this.previousElementSibling.value) + 1;
+                                this.parentNode.parentNode.nextElementSibling.children[0].children[0].innerText = this.previousElementSibling.value * this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText;
+                                sumTotalPrice.innerText = parseInt(sumTotalPrice.innerText) + parseInt(this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText);
+                                let itemInfo = storage[this.parentNode.parentNode.parentNode.parentNode.parentNode.id];
+                                itemInfo = itemInfo.split('|')[0] + '|' + itemInfo.split('|')[1] + '|' + itemInfo.split('|')[2] + '|' + this.previousElementSibling.value;
+                                storage[this.parentNode.parentNode.parentNode.parentNode.parentNode.id] = itemInfo;
+                            }, false);
+                            let delButton = document.getElementsByClassName('deleteBtn')[document.getElementById("cartUpdateFormWrap").childElementCount - 4];
+                            let iconDeleteBtn = document.getElementsByClassName('iconDeleteBtn')[document.getElementById("cartUpdateFormWrap").childElementCount - 4];
+                            delButton.addEventListener('click', function (e) {
+                                e.preventDefault()
+                                let key = this.parentNode.parentNode.parentNode.parentNode.parentNode.id;
+                                let sumTotalPrice = document.getElementById('sumTotalPrice').innerText;
+                                sumTotalPrice -= parseInt(this.parentNode.parentNode.previousElementSibling.children[0].children[0].innerText);
+                                document.getElementById('sumTotalPrice').innerText = sumTotalPrice;
+                                storage.removeItem(key);
+                                storage['addItemList'] = storage['addItemList'].replace(key + ', ', '');
+                                this.parentNode.parentNode.parentNode.parentNode.parentNode.remove();
+                                First();
+                            }, false);
+                            iconDeleteBtn.addEventListener('click', function (e) {
+                                e.preventDefault();
+                                let key = this.parentNode.parentNode.parentNode.parentNode.id;
+                                // //1.先扣除總金額
+                                let sumTotalPrice = document.getElementById('sumTotalPrice').innerText;
+                                sumTotalPrice -= parseInt(this.parentNode.previousElementSibling.previousElementSibling.children[0].children[0].innerText);
+                                // //this是我的btn,parentNode是的爸爸//JS=>this=e.currentTarget(事件加在誰身上)
+                                document.getElementById('sumTotalPrice').innerText = sumTotalPrice;
+                                //2.清除storage的資料
+                                storage.removeItem(key);
+                                storage['addItemList'] = storage['addItemList'].replace(key + ', ', '');
+                                //3.刪除該筆form
+                                this.parentNode.parentNode.parentNode.parentNode.remove();
+                                console.log(this.parentNode.parentNode.parentNode.parentNode);
+                                First();
+                            })
                         }
                     }
                     sameitemAddCart();
-
                 } else {
                     alert(xhr.status);
                 }

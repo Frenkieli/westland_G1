@@ -93,7 +93,7 @@
                                 <button type="submit" class="deleteBtn btn--active btn_bor">刪除</button>
                             </div>
                         </div> -->
-                       
+
                     </div>
                 </div>
             </form>
@@ -114,7 +114,7 @@
             </div>
             <div id="payon" class=" shopping_cart_title a4c174_deep  pay_item">
                 <div class=" dis_f_jc_c pay_mothod_text">
-                    <h5 class="m-0">貨到付款</h5>
+                    <h5 class="m-0">購物金付款</h5>
                 </div>
             </div>
         </div>
@@ -185,7 +185,7 @@
     </section>
     <section class="container ">
         <div class="cotainer dis_f_j_c">
-            <a class="btn dis_ib mlr" href="items.html">回上一頁</a>
+            <a class="btn dis_ib mlr" href="shoppingCart.html">回上一頁</a>
             <button type="submit" class="btn mlr" id="check">確認訂單</button>
         </div>
     </section>
@@ -285,6 +285,7 @@
     <!-- -----------購物車動態新增end-------- -->
     <!-- -----------購物車數量及小計end-------- -->
     <script>
+        var paymentMethod = 0;
         order = 0;
         (function () {
             let btnLess = document.querySelectorAll(".btnLess");
@@ -330,6 +331,7 @@
         document.getElementById("member_no").value = storage.getItem("member_no");
         // console.log(document.getElementById("member_no").value);
         function checkMemberIfo() {//撈訂購人資訊
+
             //產生XMLHttpRequest物件
             let xhr = new XMLHttpRequest(); //readyState : 0
             xhr.onload = function () {//readyState : 4
@@ -342,6 +344,8 @@
                     document.querySelector(".order_person_name").value = memberInfo.member_name;
                     document.querySelector(".order_person_phone").value = memberInfo.member_tel;
                     document.querySelector(".order_person_email").value = memberInfo.member_email;
+                    // console.log(memberInfo);
+                    // console.log(memberInfo.member_money);
                     //確認訂單按鈕事件
                     //                 <form id="toRecipient">
                     //                      <input name="member_no" type="hidden">
@@ -352,95 +356,112 @@
                     //                      <input name="recipient_addre" type="hidden">
                     //                 </form>
                     document.getElementById('check').addEventListener('click', function () {
-                        // if()
-                        //所有購物車商品資訊動態新增到訂單表單
-                        let itemSum = 0;
-                        let allItemId = '';
-                        let allItemCount = '';
-                        let allItemPrice = '';
-                        for (let i = 0; i < document.getElementById('cartUpdateFormWrap').childElementCount - 3; i++) {
-                            allItemId = allItemId + document.getElementById('cartUpdateFormWrap').children[i + 1].id;
-                            allItemCount = allItemCount + 'ct-' + document.getElementById('cartUpdateFormWrap').children[i + 1].children[0].children[0].children[3].children[0].children[0].value;
-                            allItemPrice = allItemPrice + 'pe-' + document.getElementById('cartUpdateFormWrap').children[i + 1].children[0].children[0].children[2].children[0].innerText.replace("$", "");
-                            itemSum += 1;
+                        // console.log(parseInt(document.getElementById('sumTotalPrice').innerText));
+                        // console.log(parseInt(memberInfo.member_money));
+                        //購物金付款(購物金不夠用)
+                        if (parseInt(document.getElementById('sumTotalPrice').innerText) > parseInt(memberInfo.member_money) && paymentMethod == 1) {
+                            alertify.alert(`你的購物金不夠喔，您目前所擁有的購物金 : ${parseInt(memberInfo.member_money)}`);
                         }
-                        //各商品的ID
-                        let allItemIdInput = document.createElement('input');
-                        allItemIdInput.name = `allItemId`;
-                        allItemIdInput.type = "hidden";
-                        allItemIdInput.value = allItemId;
-                        document.getElementById('toRecipient').appendChild(allItemIdInput);
-                        //各商品的數量
-                        let allItemCountInput = document.createElement('input');
-                        allItemCountInput.name = `allItemCount`;
-                        allItemCountInput.type = "hidden";
-                        allItemCountInput.value = allItemCount;
-                        document.getElementById('toRecipient').appendChild(allItemCountInput);
-                        //各商品的單價
-                        let allItemPriceInput = document.createElement('input');
-                        allItemPriceInput.name = `allItemPrice`;
-                        allItemPriceInput.type = "hidden";
-                        allItemPriceInput.value = allItemPrice;
-                        document.getElementById('toRecipient').appendChild(allItemPriceInput);
-                        //商品總筆數
-                        let itemSumInput = document.createElement('input');
-                        itemSumInput.name = `itemSum`;
-                        itemSumInput.type = "hidden";
-                        itemSumInput.value = itemSum;
-                        document.getElementById('toRecipient').appendChild(itemSumInput);
-                        // console.log(itemSum);
-                        //要送出的訂單表單
-                        let sendOrderForm = document.getElementById('toRecipient');
-                        //會員
-                        sendOrderForm.children[0].value = document.getElementById("member_no").value;
-                        //日期
-                        let date = new Date();
-                        let Formdate_getFullYear = date.getFullYear();
-                        let Formdate_getMonth = date.getMonth() + 1;
-                        if (Formdate_getMonth < 10)
-                            Formdate_getMonth = `0${Formdate_getMonth}`;
-                        let Formdate_getDate = date.getDate();
-                        let Formdate = `${Formdate_getFullYear}-${Formdate_getMonth}-${Formdate_getDate}`;
-                        sendOrderForm.children[1].value = Formdate;
-                        // console.log(date);
-                        // console.log(Formdate);
-                        //訂單總金額
-                        sendOrderForm.children[2].value = document.getElementById('sumTotalPrice').innerText;
-                        //收件人姓名
-                        sendOrderForm.children[3].value = document.querySelector('.recipient_name').value;
-                        //收件人電話
-                        sendOrderForm.children[4].value = document.querySelector('.recipient_phone').value;
-                        //收件人地址
-                        sendOrderForm.children[5].value = document.querySelector('.recipient_addre').value;
-                        console.log(sendOrderForm);
-
-                        //送出表單(沒防呆)
-                        let xhrForm = new XMLHttpRequest();
-                        xhrForm.onload = function () {
-                            if (xhrForm.status == 200) {
-                                // alert('成功');
-                                alertify.alert(xhrForm.responseText + '，點擊確認返回周邊商品', function () {
-                                    setTimeout(function () {
-                                        window.location = 'items.html';
-                                    }, 100); 
-                                });
-                                // console.log(xhrForm.responseText);
-                                var storage = sessionStorage;
-                                let itemString = storage['addItemList'];
-                                let items = itemString.substr(0, itemString.length - 2).split(', ');
-                                for (let i = 0; i < items.length; i++) {
-                                    storage.removeItem(items[i]);
-                                    storage['addItemList'] = storage['addItemList'].replace(items[i] + ', ', '');
-                                }
-                                First();
-                            } else {
-                                alert(xhrForm.status);
+                        //購物金付款(購物金夠用) 或是 線上付款
+                        else {
+                            //所有購物車商品資訊動態新增到訂單表單
+                            let itemSum = 0;
+                            let allItemId = '';
+                            let allItemCount = '';
+                            let allItemPrice = '';
+                            for (let i = 0; i < document.getElementById('cartUpdateFormWrap').childElementCount - 3; i++) {
+                                allItemId = allItemId + document.getElementById('cartUpdateFormWrap').children[i + 1].id;
+                                allItemCount = allItemCount + 'ct-' + document.getElementById('cartUpdateFormWrap').children[i + 1].children[0].children[0].children[3].children[0].children[0].value;
+                                allItemPrice = allItemPrice + 'pe-' + document.getElementById('cartUpdateFormWrap').children[i + 1].children[0].children[0].children[2].children[0].innerText.replace("$", "");
+                                itemSum += 1;
                             }
+                            //各商品的ID
+                            let allItemIdInput = document.createElement('input');
+                            allItemIdInput.name = `allItemId`;
+                            allItemIdInput.type = "hidden";
+                            allItemIdInput.value = allItemId;
+                            document.getElementById('toRecipient').appendChild(allItemIdInput);
+                            //各商品的數量
+                            let allItemCountInput = document.createElement('input');
+                            allItemCountInput.name = `allItemCount`;
+                            allItemCountInput.type = "hidden";
+                            allItemCountInput.value = allItemCount;
+                            document.getElementById('toRecipient').appendChild(allItemCountInput);
+                            //各商品的單價
+                            let allItemPriceInput = document.createElement('input');
+                            allItemPriceInput.name = `allItemPrice`;
+                            allItemPriceInput.type = "hidden";
+                            allItemPriceInput.value = allItemPrice;
+                            document.getElementById('toRecipient').appendChild(allItemPriceInput);
+                            //商品總筆數
+                            let itemSumInput = document.createElement('input');
+                            itemSumInput.name = `itemSum`;
+                            itemSumInput.type = "hidden";
+                            itemSumInput.value = itemSum;
+                            document.getElementById('toRecipient').appendChild(itemSumInput);
+                            // console.log(itemSum);
+                            //要送出的訂單表單
+                            let sendOrderForm = document.getElementById('toRecipient');
+                            //會員
+                            sendOrderForm.children[0].value = document.getElementById("member_no").value;
+                            //日期
+                            let date = new Date();
+                            let Formdate_getFullYear = date.getFullYear();
+                            let Formdate_getMonth = date.getMonth() + 1;
+                            if (Formdate_getMonth < 10)
+                                Formdate_getMonth = `0${Formdate_getMonth}`;
+                            let Formdate_getDate = date.getDate();
+                            let Formdate = `${Formdate_getFullYear}-${Formdate_getMonth}-${Formdate_getDate}`;
+                            sendOrderForm.children[1].value = Formdate;
+                            // console.log(date);
+                            // console.log(Formdate);
+                            //訂單總金額
+                            sendOrderForm.children[2].value = document.getElementById('sumTotalPrice').innerText;
+                            //收件人姓名
+                            sendOrderForm.children[3].value = document.querySelector('.recipient_name').value;
+                            //收件人電話
+                            sendOrderForm.children[4].value = document.querySelector('.recipient_phone').value;
+                            //收件人地址
+                            sendOrderForm.children[5].value = document.querySelector('.recipient_addre').value;
+                            console.log(sendOrderForm);
+
+                            //送出表單(沒防呆)
+                            let xhrForm = new XMLHttpRequest();
+                            xhrForm.onload = function () {
+                                if (xhrForm.status == 200) {
+                                    // alert('成功');
+                                    if (paymentMethod == 1) {
+                                        alertify.alert(`購物金付款成功!，您目前所擁有的購物金 : ${parseInt(memberInfo.member_money)-parseInt(document.getElementById('sumTotalPrice').innerText)}，點擊確認返回周邊商品`, function () {
+                                            setTimeout(function () {
+                                                window.location = 'items.html';
+                                            }, 100);
+                                        });
+                                    }else{
+                                        // alertify.alert(xhrForm.responseText);
+                                        alertify.alert('線上付款成功!，點擊確認返回周邊商品', function () {
+                                            setTimeout(function () {
+                                                window.location = 'items.html';
+                                            }, 100);
+                                        });
+                                    }
+                                    // console.log(xhrForm.responseText);
+                                    var storage = sessionStorage;
+                                    let itemString = storage['addItemList'];
+                                    let items = itemString.substr(0, itemString.length - 2).split(', ');
+                                    for (let i = 0; i < items.length; i++) {
+                                        storage.removeItem(items[i]);
+                                        storage['addItemList'] = storage['addItemList'].replace(items[i] + ', ', '');
+                                    }
+                                    First();
+                                } else {
+                                    alertify.alert(xhrForm.responseText);
+                                }
+                            }
+                            let myForm = new FormData(sendOrderForm);
+                            let url = 'php/toRecipient_JSON.php';
+                            xhrForm.open('post', url, true);
+                            xhrForm.send(myForm);
                         }
-                        let myForm = new FormData(sendOrderForm);
-                        let url = 'php/toRecipient_JSON.php';
-                        // xhrForm.open('post', url, true);
-                        // xhrForm.send(myForm);
                     }, false);
 
                 } else {//............失敗
@@ -465,8 +486,9 @@
     </script>
     <script>
         //兩個click事件要分開function
-        console.log(document.getElementById('payonline'));
+        // console.log(document.getElementById('payonline'));
         document.getElementById('payonline').addEventListener('click', function () {
+            paymentMethod = 0;
             let payonline = document.getElementById('payonline');
             let online = document.getElementById('online');
             let hoverf09100 = document.createAttribute("class");
@@ -480,6 +502,7 @@
         }, false);
 
         document.getElementById('payon').addEventListener('click', function () {
+            paymentMethod = 1;
             let payon = document.getElementById('payon');
             let on = document.getElementById('on');
             let payonline = document.getElementById('payonline');
