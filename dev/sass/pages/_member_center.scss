@@ -30,9 +30,6 @@
                     list-style: none;
                     // padding: 5px 0;
                     position: relative;
-                    
-                    // border: 2px solid #f09100;
-                    // border-radius: 50%;
                 }
                 a {
                     cursor: pointer;                
@@ -40,6 +37,9 @@
                     align-items: center;
                     box-sizing: border-box;
                     // color: #9dba65;
+                    // color: rgba(0,0,0,0.6);
+
+                    text-shadow: 2px 8px 6px rgba(0,0,0,0.2),0px -5px 35px rgba(255,255,255,0.3);
                     color: #5A7529;
                     font-size: 20px;
                     line-height: 2rem;
@@ -120,6 +120,10 @@ $orange: #f09100;
     background-color: #fff;
     position: relative;
     text-align: left;
+    background-image: url(../images/member/airballoon.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: right;
    //-------------------------------------//
     border-radius: 3px;
     div:after { // Postcard border
@@ -170,6 +174,7 @@ $orange: #f09100;
         font-size: 20px;
         margin-top: 20px;
         text-align: left;
+        
     }
     .content_item {
         display: flex;
@@ -303,6 +308,11 @@ $orange: #f09100;
     // border: 5px solid #9dba65;
     position: relative;
     // text-align: left;
+    padding-bottom: 40%;
+    background-image: url(../images/member/airballoon.png);
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center ; 
    //-------------------------------------//
     border-radius: 3px;
     div:after { // Postcard border
@@ -329,6 +339,20 @@ $orange: #f09100;
         padding: 20px 0;
         font-size: 20px;
         line-height: 2rem;
+        background-image: url(../images/member/col.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center ;
+        
+        // color: #ccc;
+        // text-shadow: -1px -1px 0 white, 1px 1px 0 #333,1px 1px 0 #444;
+        // text-shadow: 3px 3px 0 #555, 5px 5px 0 white
+        // color: white; 
+        // text-shadow: 1px 1px black, -1px -1px black, 1px -1px black, -1px 1px black;
+        
+
+
+
     }
     .order_item {
         width: 90%;
@@ -375,12 +399,17 @@ $orange: #f09100;
     display: block;  
     background-color: #fff;
     // box-shadow: 10px 10px 5px #888888;
-    padding-bottom: 20%;
+    // padding-bottom: 20%;
     // border: 5px solid #9dba65;
     position: relative;
     // text-align: left;
    //-------------------------------------//
     border-radius: 3px;
+    padding-bottom: 40%;
+    background-image: url(../images/member/airballoon.png);
+    background-size:auto;
+    background-repeat: no-repeat;
+    background-position: center right ; 
     div:after { // Postcard border
         content: '';
         background: repeating-linear-gradient(
@@ -407,6 +436,10 @@ $orange: #f09100;
         line-height: 2rem;
         margin: auto;
         position: relative;
+        background-image: url(../images/member/col.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center ;
         // &::before{
         //     background-image: url("../images/member/headd.png");
         //     background-size:contain;
@@ -472,7 +505,12 @@ $orange: #f09100;
     width: 100%;
     display: block;
     background-color: #fff;
-    padding-bottom: 20%;
+    // padding-bottom: 20%;
+    padding-bottom: 40%;
+    background-image: url(../images/member/airballoon.png);
+    background-size:auto;
+    background-repeat: no-repeat;
+    background-position: center right ; 
     // margin-bottom: 6px;
    //-------------------------------------//
     position: relative;
@@ -507,6 +545,10 @@ $orange: #f09100;
             padding: 20px 0;
             line-height: 2rem;
             font-size: 20px;
+            background-image: url(../images/member/col.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center ;
         }
         .team_item{
             width: 100%;
@@ -567,8 +609,11 @@ $orange: #f09100;
     // display: block;
     // background-color: #fff;
     // box-shadow: 10px 10px 5px #888888;
-    padding-bottom: 20%;
-    // border: 5px solid #9dba65;
+    padding-bottom: 50%;
+    background-image: url(../images/member/airballoon.png);
+    background-size:auto;
+    background-repeat: no-repeat;
+    // background-position: center ;  
     width: 100%;  
     display: block;
     background-color: #fff;
@@ -604,10 +649,15 @@ $orange: #f09100;
         // text-align: center;
         // background: #fff;
         h3{
-            padding-top:20px;
+            // padding-top:20px;
+            padding:20px 0;
             font-size: 20px;
             line-height: 2rem;
-            margin-bottom:20px;  
+            // margin-bottom:20px;
+            background-image: url(../images/member/col.png);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center ;  
             }
         // .score_item {
         //     width: 80%;

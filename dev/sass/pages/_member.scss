@@ -22,7 +22,7 @@
         background-repeat: no-repeat;
         position: relative;
         top: 25%;
-        max-width: 320px;
+        max-width: 300px;
         width: 70%;
         height: 330px;
         margin: 0 auto;
@@ -79,10 +79,11 @@
                 // 忘記密碼
                 font-size: 12px;
                 display: block;
-                margin-left:106px;
-                // text-align: right;
+                padding-left: 38%;
+                &:hover{
+                    color:rgba(255, 195, 83, 0.966); 
+                }
             }
-          
             h3 { //會員登入字體
                 line-height: 40px;
                 margin: 5% 0;
@@ -171,13 +172,7 @@
             top: 0;
             right: 0;
             border-radius: 50%;
-            // background-color: #fff;
-            // &:hover{
-            //     transform: scale(1.1);
-            //     transition:all 350ms ease;
-            // }
             &:active{
-                // background-color: #3e8e41;
                 box-shadow: 0 5px #666;
                 transform: translateY(4px);
                 transition:all 350ms ease;
