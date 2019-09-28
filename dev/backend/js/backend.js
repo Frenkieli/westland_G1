@@ -643,76 +643,79 @@
     //產生資料表
     function makeTable(e) {
         let inTr;
-        fakeDate.forEach((value) => {
-            // console.log(111);
-            inTr = document.createElement('tr');
-            for (i = 0; i < value.length; i++) {
-                let num = dataType[i];
-                let inTd = document.createElement('td');
-                if (i == 0) {
-                    inTr.id = value[0];
+        if (fakeDate[0]) {
+            fakeDate.forEach((value) => {
+                // console.log(111);
+                inTr = document.createElement('tr');
+                for (i = 0; i < value.length; i++) {
+                    let num = dataType[i];
+                    let inTd = document.createElement('td');
+                    if (i == 0) {
+                        inTr.id = value[0];
+                    }
+                    switch (num) {
+                        case 1:
+                            inDate = tdBulid.tdp();
+                            inDate.innerText = value[i];
+                            break;
+                        case 2:
+                            inDate = tdBulid.tdSelect();
+                            inDate.classList.add('status_update');
+                            let status = value[i];
+                            buttonValue.forEach((value, index) => {
+                                let opt = document.createElement('option');
+                                opt.innerText = value;
+                                opt.value = index;
+                                if (index == status)
+                                    opt.selected = true;
+                                inDate.appendChild(opt);
+                            })
+                            break;
+                        case 3:
+                            inDate = tdBulid.tdText();
+                            inDate.value = value[i];
+                            break;
+                        case 4:
+                            inDate = tdBulid.tdTextarea();
+                            inDate.value = value[i];
+                            break;
+                        case 5:
+                            inDate = tdBulid.tdimg();
+                            inDate.style.width = "150px";
+                            inDate.src = "../" + value[i];
+                            break;
+                        case 6:
+                            inDate = tdBulid.tdDate();
+                            inDate.value = value[i];
+                            break;
+                        default:
+                            break;
+                    }
+                    inTd.appendChild(inDate);
+                    inTr.appendChild(inTd);
                 }
-                switch (num) {
-                    case 1:
-                        inDate = tdBulid.tdp();
-                        inDate.innerText = value[i];
-                        break;
-                    case 2:
-                        inDate = tdBulid.tdSelect();
-                        inDate.classList.add('status_update');
-                        let status = value[i];
-                        buttonValue.forEach((value, index) => {
-                            let opt = document.createElement('option');
-                            opt.innerText = value;
-                            opt.value = index;
-                            if (index == status)
-                                opt.selected = true;
-                            inDate.appendChild(opt);
-                        })
-                        break;
-                    case 3:
-                        inDate = tdBulid.tdText();
-                        inDate.value = value[i];
-                        break;
-                    case 4:
-                        inDate = tdBulid.tdTextarea();
-                        inDate.value = value[i];
-                        break;
-                    case 5:
-                        inDate = tdBulid.tdimg();
-                        inDate.style.width = "150px";
-                        inDate.src = "../" + value[i];
-                        break;
-                    case 6:
-                        inDate = tdBulid.tdDate();
-                        inDate.value = value[i];
-                        break;
-                    default:
-                        break;
+                if (updateBtn) {
+                    let lastTd = document.createElement('td');
+                    let lastDate = document.createElement('input');
+                    lastDate.type = 'button';
+                    lastDate.classList.add('update');
+                    lastDate.value = "編輯";
+                    lastDate.style.backgroundColor = "#DDEDB7";
+                    lastTd.appendChild(lastDate);
+                    inTr.appendChild(lastTd);
                 }
-                inTd.appendChild(inDate);
-                inTr.appendChild(inTd);
-            }
-            if (updateBtn) {
-                let lastTd = document.createElement('td');
-                let lastDate = document.createElement('input');
-                lastDate.type = 'button';
-                lastDate.classList.add('update');
-                lastDate.value = "編輯";
-                lastDate.style.backgroundColor = "#DDEDB7";
-                lastTd.appendChild(lastDate);
-                inTr.appendChild(lastTd);
-            }
-            if (deleteBtn) {
-                lastTd = document.createElement('td');
-                lastDate = document.createElement('input');
-                lastDate.type = 'button';
-                lastDate.value = "刪除";
-                lastTd.appendChild(lastDate);
-                inTr.appendChild(lastTd);
-            }
-            tableTd.appendChild(inTr);
-        });
+                if (deleteBtn) {
+                    lastTd = document.createElement('td');
+                    lastDate = document.createElement('input');
+                    lastDate.type = 'button';
+                    lastDate.value = "刪除";
+                    lastTd.appendChild(lastDate);
+                    inTr.appendChild(lastTd);
+                }
+                tableTd.appendChild(inTr);
+            });
+        }
+
         //下拉式選單事件+Ajax
         let all_status_update = document.querySelectorAll('.status_update');
         for (let i = 0; i < all_status_update.length; i++) {
