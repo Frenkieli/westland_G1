@@ -6,7 +6,7 @@
     body.information_inner_page{
         background-position: top;
         background-size: cover;
-        background-image: url(../images/information/inner_bgi.png);
+        background-image: url("../images/information/inner_bgi.png");
         background-repeat: no-repeat;
     }
     #example3 .sp-layer{
@@ -16,10 +16,10 @@
         margin: auto;
         max-width: 95vw;
         margin-bottom: 100px;
-        .page_title {
-            background-size: 20%;
-            font-size: 10%;
-        }
+        // .page_title {
+        //     background-size: 20%;
+        //     font-size: 10%;
+        // }
         .coverBlock{
             position: fixed;
             width: 100%;
@@ -124,7 +124,7 @@
             }
             .who {
                 width: 40%;
-                background-image: url(../images/team/wanted.svg);
+                background-image: url("../images/team/wanted.svg");
                 background-size: 90% 90%;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -151,7 +151,7 @@
                     top:65%;
                     height: 10%;
                     width: 80%;
-                    background-image: url(../images/ticket/ticket_board.png);
+                    background-image: url("../images/ticket/ticket_board.png");
                     background-size: 100% 100%;
                     background-position: center;
                     .teamName{
@@ -262,7 +262,7 @@
     body.information_inner_page{
         background-position: top;
         background-size: 100%;
-        background-image: url(../images/information/inner_bgi.png);
+        background-image: url("../images/information/inner_bgi.png");
         background-repeat: no-repeat;
     }
     .section_rides_DetailedIntroduction {
@@ -375,7 +375,7 @@
                 margin: auto;
             }
             .who {
-                background-image: url(../images/team/wanted.svg);
+                background-image: url("../images/team/wanted.svg");
                 background-size: 80% 90%;
                 background-position: center;
                 background-repeat: no-repeat;
