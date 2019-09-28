@@ -107,6 +107,7 @@
             width: 40px;
             height: 40px;
             z-index: 2;
+            cursor: pointer;
             img {
                 width: 100%;
             }
@@ -285,9 +286,10 @@
             .btn {
                 margin: auto;
             }
-            .section_title {
+            div.section_title {
                 margin: 0;
                 padding: 0;
+                font-size: 24px;
             }
         }
         .direction_right {
@@ -562,6 +564,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 998;
     .pick_container{
         background-color: #fff;
         *{

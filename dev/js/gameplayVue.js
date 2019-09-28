@@ -356,7 +356,7 @@ function addPointsCheck(value) {
                 if (!team_num) {
                     team_num = 0;
                 }
-                var data_info = `ticket=${localStorage['member_useticket']}&mission_bonus=${localStorage['mission_bonus']}&team_no=${team_num}`;
+                var data_info = `ticket=${localStorage['member_useticket']}&mission_bonus=${localStorage['mission_bonus']}&team_no=${team_num}&memberno=${sessionStorage['member_no']}`;
 
                 xhr.send(data_info);
                 ticketScore = ticketScore;
@@ -475,7 +475,7 @@ function addPointsCheck(value) {
                 if (!team_num) {
                     team_num = 0;
                 }
-                var data_info = `ticket=${localStorage['member_useticket']}&mission_bonus=${localStorage['mission_bonus']}&team_no=${team_num}`;
+                var data_info = `ticket=${localStorage['member_useticket']}&mission_bonus=${localStorage['mission_bonus']}&team_no=${team_num}&memberno=${sessionStorage['member_no']}`;
 
                 xhr.send(data_info);
                 ticketScore = ticketScore;

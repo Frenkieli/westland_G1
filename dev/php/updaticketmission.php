@@ -3,6 +3,7 @@ try {
     $ticket = $_POST['ticket'];
     $mission_bonus = $_POST['mission_bonus'];
     $team_no = $_POST['team_no'];
+    $memberno = $_POST['memberno'];
     // $ticket = 1;
     // $mission_bonus = 200;
     // $team_no = '17';
@@ -18,6 +19,13 @@ try {
     $ticketmission2->bindValue(":team_no",$team_no);
     $ticketmission2->bindValue(":mission_bonus",$mission_bonus);
     $ticketmission2->execute();
+
+    $sql2 = "update members set member_money = member_money + :mission_bonus where member_no = :memberno";
+    $ticketmission2 = $pdo->prepare($sql2);
+    $ticketmission2->bindValue(":memberno",$memberno);
+    $ticketmission2->bindValue(":mission_bonus",$mission_bonus);
+    $ticketmission2->execute();
+
 } catch (PDOException $e) {
     echo "sysError";
 }
