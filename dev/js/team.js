@@ -781,6 +781,7 @@ function allData() {
     xhr.send(null);
 }
 window.addEventListener("load", () => {
+    $id("team_join_window").style.display = 'none';
     $id("team_join").addEventListener("click", join, false);
     $id("team_joined").addEventListener("click", joined, false);
     $id("team_create").addEventListener("click", create, false);

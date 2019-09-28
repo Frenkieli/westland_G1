@@ -9,7 +9,10 @@
     left: 0;
     // margin: auto;
     z-index: 10;
-    clip-path: polygon(0 50% , 100% 50% , 100% 50%,0 50%);
+    @include rwd(desktop){
+        clip-path: polygon(0 50% , 100% 50% , 100% 50%,0 50%);
+    }
+    // clip-path: polygon(0 50% , 100% 50% , 100% 50%,0 50%);
     transition: 0.5s;
     .join_button_container{
         width: 100%;
