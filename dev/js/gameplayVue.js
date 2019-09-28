@@ -86,7 +86,7 @@ function getTicket() {
                                 xhr.setRequestHeader("content-type", "application/x-www-form-urlencoded");
                                 var data_info = `pickticket=${e.target.value}&member_no=${memTicket[0][3]}`;
                                 xhr.send(data_info);
-                                alertify.success('選擇第' + e.target.value + '張票');
+                                // alertify.success('選擇第' + e.target.value + '張票');
                             });
                     },
                 },
