@@ -3,7 +3,7 @@
         //=====建立資料庫連線=====
         require_once("connectWestland.php");
         //=====SQL語法=====
-        $sql ="select * from message_board";
+        $sql ="select * from message_board where report_status=1";
         $message_boards =$pdo->prepare($sql);
         $message_boards->execute();
         if($message_boards->rowCount()==0){
