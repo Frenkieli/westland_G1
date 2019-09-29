@@ -79,7 +79,11 @@
                 // 忘記密碼
                 font-size: 12px;
                 display: block;
-                padding-left: 38%;
+                // padding-left: 38%;
+                width: 20%;
+                position: relative;
+                top: 10px;
+                left: 58%;
                 &:hover{
                     color:rgba(255, 195, 83, 0.966); 
                 }
