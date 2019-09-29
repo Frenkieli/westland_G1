@@ -20,7 +20,7 @@
                         LEFT OUTER JOIN `team` 
                         ON `ticket`.`team_no`=`team`.`team_no`
           WHERE `message_board`.`report_status`=0
-          GROUP BY `message_board`.`message_no`
+        --   GROUP BY `message_board`.`message_no`
         --   ORDER BY `message_board`.`message_no`
                         ";
     $Message_package = $pdo->prepare($sql);

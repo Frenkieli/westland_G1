@@ -332,15 +332,15 @@
             let message_boards = JSON.parse(jsonStr);
             fakeDate = new Array(message_boards.length);
             for (let i = 0; i < message_boards.length; i++) {
-                fakeDate[i] = new Array(message_boards[i].message_no, message_boards[i].member_no, message_boards[i].equ_message, message_boards[i].report_status);
+                fakeDate[i] = new Array(message_boards[i].message_no, message_boards[i].member_no, message_boards[i].equ_message, message_boards[i].report_status,message_boards[i].report_message);
             }
-            dataType = [1, 1, 1, 2];
+            dataType = [1, 1, 1, 2,1];
             inputarray = [];
             buttonValue = ['正常', '被檢舉'];
             updateBtn = 0;
             deleteBtn = 0;
             let tableHeader = document.createElement('tr');
-            tableHeader.innerHTML = "<th>留言編號</th><th>會員ID</th><th>留言內容</th><th>檢舉狀態</th>";
+            tableHeader.innerHTML = "<th>留言編號</th><th>會員ID</th><th>留言內容</th><th>檢舉狀態</th><th>檢舉內容</th>";
             tableTh.appendChild(tableHeader);
             makeTable();
         }

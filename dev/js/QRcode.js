@@ -46,7 +46,11 @@ function openCamera() {
         //取得設備的相機數目
         if (cameras.length > 0) {
             ///若設備相機數目大於0 則先開啟第0個相機(程式的世界是從第零個開始的)
+            if(cameras[1]){
             scanner.start(cameras[1]);
+            }else{
+            scanner.start(cameras[0]);
+            }
             check = true;
         } else {
             //若設備沒有相機數量則顯示"No cameras found";
