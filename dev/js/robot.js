@@ -2,7 +2,7 @@
 let robot = document.getElementById('section_robot');
 document.getElementById('arrow_down').addEventListener('click', robotDown, false);
 robot.addEventListener('click', robotPhone, false);
-getRobot_text();
+// getRobot_text();
 // console.log($(window).width());
 function robotPhone() {
     let robot = document.getElementById('section_robot');
@@ -121,24 +121,24 @@ var qaList = [
     { Q: "", A: "我了解|我能理解|還有問題嗎 ?|請繼續說下去|可以說的更詳細一點嗎?|這樣喔! 我知道!|然後呢? 發生甚麼事?|再來呢? 可以多說一些嗎|接下來呢? |可以多告訴我一些嗎?|多談談有關你的事，好嗎?|想多聊一聊嗎|可否多告訴我一些呢?" }
 ];
 
-function getRobot_text() {
-    var xhr = new XMLHttpRequest();
-    xhr.onload = function () {
-        if (xhr.status == 200) {
-            showRobot_text(xhr.responseText);
-        }
-        else {
-            alert(xhr.status);
-        }
-    }
-    var url = "php/getRobot_text_JOSN.php";
-    xhr.open('get', url, true);
-    xhr.send(null);
-}
-function showRobot_text(jsonStr) {
-    qaList = JSON.parse(jsonStr);
-    // console.log(Robot_text);
-};
+// function getRobot_text() {
+//     var xhr = new XMLHttpRequest();
+//     xhr.onload = function () {
+//         if (xhr.status == 200) {
+//             showRobot_text(xhr.responseText);
+//         }
+//         else {
+//             alert(xhr.status);
+//         }
+//     }
+//     var url = "php/getRobot_text_JOSN.php";
+//     xhr.open('get', url, true);
+//     xhr.send(null);
+// }
+// function showRobot_text(jsonStr) {
+//     qaList = JSON.parse(jsonStr);
+//     // console.log(Robot_text);
+// };
 
 
 

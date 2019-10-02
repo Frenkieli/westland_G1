@@ -8,7 +8,7 @@ $(document).on('click', '#btn-close', function(){
     let closeWidow=document.querySelector('.coverBlock');
     closeWidow.remove();
 })
-$(document).on('click', '.toReport', function(){
+$(document).on('click', '.toReport',function(){
     let message_no = $(this).attr('id');
     console.log(`您舉報了第${message_no}號留言`);
 	// var equ_no = $('#equ_no').val();
@@ -16,7 +16,7 @@ $(document).on('click', '.toReport', function(){
 	// var report_status = $('#report_status').val();
     let report_message = $('#report_message').val();
     $.ajax({
-		url:"php/keyinNGMessage.php",
+		url:"php/ngmess.php",
 		method:'POST',
 		data:{
 			message_no: message_no,
