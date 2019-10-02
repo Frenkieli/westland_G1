@@ -14,6 +14,9 @@
             if (check != arr[index][0]) {
                 // console.log(i,'++',arr[index][0]);
 
+                if(!arr[index][7]){
+                    arr[index][7] = 'images/ticket/member/picture/default.jpeg';
+                }
                 document.querySelectorAll('.slider_img>img')[i].src = arr[index][1];
                 document.querySelectorAll('.slider_title')[i].innerHTML = arr[index][2];
                 document.querySelectorAll('.slider_star')[i].innerHTML += arr[index][3];

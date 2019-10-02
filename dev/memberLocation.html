@@ -14,7 +14,7 @@
     {"csslink" : "//cdn.jsdelivr.net/npm/alertifyjs@1.11.4/build/css/themes/default.min.css"},
     {"csslink" : "css/style.css"}
     ])
-    
+
     <!-- <link rel="stylesheet" href="css/memberCenter.css"> -->
 
 </head>
@@ -108,7 +108,7 @@
             <div id="tab02" class="order_content tab-inner">
                 <!-- <h3>我的訂單</h3> -->
                 <div class="order_list" id="order_list">
-                    <h3 >我的訂單</h3>
+                    <h3>我的訂單</h3>
                     <!-- <div class="order_item" id="order_item">
                     
                     <!-- 
@@ -509,9 +509,13 @@
         let order_status_arr = ['下單', '處理中', '取消', '出貨', '結案'];
         xhr.onload = function () {
             if (xhr.status == 200) {
-                let ordermaster = JSON.parse(xhr.responseText);
-                ordermaster.forEach((ordermasterElement, key) => {
-                    let createOrder = `
+                let ordermaster;
+                if (xhr.responseText != '{}')
+                    ordermaster = JSON.parse(xhr.responseText);
+                // console.log(ordermaster);
+                if (ordermaster) {
+                    ordermaster.forEach((ordermasterElement, key) => {
+                        let createOrder = `
                     <div class="order_item" id="order_item">
                         <ul>
                             <li class="title">訂單日期:<span>${ordermasterElement.order_item_date}</span></li>
@@ -526,15 +530,15 @@
                             </div>
                         </form>
                     </div>`
-                    document.getElementById('order_list').innerHTML = document.getElementById('order_list').innerHTML + createOrder;
-                    //清單
-                    let xhrlist = new XMLHttpRequest();
-                    xhrlist.onload = function () {
-                        if (xhrlist.status == 200) {
-                            let ordermasterlist = JSON.parse(xhrlist.responseText);
-                            console.log(ordermasterlist);
-                            ordermasterlist.forEach((listElement, index) => {
-                                let createList = ` 
+                        document.getElementById('order_list').innerHTML = document.getElementById('order_list').innerHTML + createOrder;
+                        //清單
+                        let xhrlist = new XMLHttpRequest();
+                        xhrlist.onload = function () {
+                            if (xhrlist.status == 200) {
+                                let ordermasterlist = JSON.parse(xhrlist.responseText);
+                                // console.log(ordermasterlist);
+                                ordermasterlist.forEach((listElement, index) => {
+                                    let createList = ` 
                                 <div class="shopping_cart  m40_0_0  dis_f_jc_c bt_line">
                                     <div class="col48 m-a col-lg-3 dis_f_jc_c shopping_cart_item bl">
                                         <div class="po-r w-50p m-a">
@@ -563,24 +567,24 @@
                                         <input type="hidden" name="pPrice" value="299">
                                     </div>
                                 </div>`;
-                                // console.log(document.getElementById('order_list').children[2].children[1]);
-                                // console.log(createList);
-                                document.getElementById('order_list').children[over + 1].children[1].children[0].innerHTML = document.getElementById('order_list').children[over + 1].children[1].children[0].innerHTML + createList;
-                                console.log(document.getElementById('order_list').children[over + 1].children[1]);
-                            });
-                            over += 1;
-                        } else {
-                            console.log(xhrlist.status);
+                                    // console.log(document.getElementById('order_list').children[2].children[1]);
+                                    // console.log(createList);
+                                    document.getElementById('order_list').children[over + 1].children[1].children[0].innerHTML = document.getElementById('order_list').children[over + 1].children[1].children[0].innerHTML + createList;
+                                    console.log(document.getElementById('order_list').children[over + 1].children[1]);
+                                });
+                                over += 1;
+                            } else {
+                                console.log(xhrlist.status);
+                            }
                         }
-                    }
-                    let url = `php/getMemberOrderlist.php?order_no=${ordermasterElement.order_no}`;
-                    xhrlist.open('get', url, false);
-                    xhrlist.send(null);
-                });
+                        let url = `php/getMemberOrderlist.php?order_no=${ordermasterElement.order_no}`;
+                        xhrlist.open('get', url, false);
+                        xhrlist.send(null);
+                    });
+                }
                 // console.log(orderArr);
                 // orderArr.forEach
                 // console.log(JSON.parse(xhr.responseText));
-
             } else {
                 console.log(xhr.status);
             }
